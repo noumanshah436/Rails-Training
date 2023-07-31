@@ -1,0 +1,269 @@
+diff --git a/spec/factories/category_orders_factory.rb b/spec/factories/category_orders_factory.rb
+new file mode 100644
+index 0000000000..80cc0c0d53
+--- /dev/null
++++ b/spec/factories/category_orders_factory.rb
+@@ -0,0 +1,24 @@
++# frozen_string_literal: true
++
++FactoryBot.define do
++  factory :category_order, class: CategoryControllerModule::CategoryOrderSetting::CategoryOrder do
++    country_code { "SA" }
++    is_active { true }
++    name { "service_types" }
++    start_time { Time.zone.now }
++    end_time { Time.zone.now + 30.minutes }
++
++    trait :with_service_type do
++      after(:build) do |category_order|
++        category_one = FactoryBot.create(:shop_category, is_active: true)
++        category_two = FactoryBot.create(:shop_category, is_active: true)
++        list_of_categories = [category_one, category_two]
++        service_type = FactoryBot.create(:service_type, :active, shop_categories: list_of_categories, country_code: "SA")
++
++        category_order.service_type_id = service_type.id
++        category_order.save
++        category_order.assign_ranks([category_one.id, category_two.id])
++      end
++    end
++  end
++end
+diff --git a/spec/graphql/queries/service_type_categories_spec.rb b/spec/graphql/queries/service_type_categories_spec.rb
+index b76b800558..677024662c 100644
+--- a/spec/graphql/queries/service_type_categories_spec.rb
++++ b/spec/graphql/queries/service_type_categories_spec.rb
+@@ -79,4 +79,81 @@ RSpec.describe "serviceType -> shopCategories query" do
+     expect(response["id"]).to eq(category.id.to_s)
+     expect(response["name"]).to eq(category.name)
+   end
++
++  it "returns service type categories based on category order" do
++    user = FactoryBot.create(:user, latitude: 24.712012, longitude: 46.673554)
++    user_local_time = Time.now.in_time_zone(user.time_zone)
++    category_one = FactoryBot.create(:shop_category, is_active: true)
++    category_two = FactoryBot.create(:shop_category, is_active: true)
++    service_type = FactoryBot.create(:service_type, :active,
++      shop_categories: [category_one, category_two],
++      country: user.country, rank: 1)
++
++    category_order = FactoryBot.create(
++      :category_order,
++      start_time: user_local_time - 30.minutes,
++      end_time: user_local_time + 30.minutes,
++      service_type_id: service_type.id,
++    )
++    category_order.assign_ranks([category_two.id, category_one.id])
++
++    query_string = <<-GRAPHQL
++      query {
++        serviceType (serviceTypeId: #{category_order.service_type_id}){
++          shopCategories {
++            id
++            name
++            nameEn
++            image
++          }
++        }
++      }
++    GRAPHQL
++
++    context_params = { current_user: user, language: user.get_language }
++    result = MrsoolSchema.execute(query_string, context: context_params)
++    response = result.to_h.dig("data", "serviceType", "shopCategories")
++
++    expect(response[0]["id"]).to eq(category_two.id.to_s)
++    expect(response[0]["name"]).to eq(category_two.name)
++    expect(response[1]["id"]).to eq(category_one.id.to_s)
++    expect(response[1]["name"]).to eq(category_one.name)
++  end
++
++  it "does not returns service type categories based on category order" do
++    user = FactoryBot.create(:user, latitude: 24.712012, longitude: 46.673554)
++    user_local_time = Time.now.in_time_zone(user.time_zone)
++    category_one = FactoryBot.create(:shop_category, is_active: true, morning_shift_rank: 1, evening_shift_rank: 2, afternoon_shift_rank: 3)
++    service_type = FactoryBot.create(:service_type, :active,
++      shop_categories: [category_one],
++      country: user.country, rank: 1)
++
++    category_order = FactoryBot.create(
++      :category_order,
++      start_time: user_local_time + 3.hours,
++      end_time: user_local_time + 3.hours,
++      service_type_id: service_type.id,
++    )
++    category_order.assign_ranks([category_one.id])
++
++    query_string = <<-GRAPHQL
++      query {
++        serviceType (serviceTypeId: #{category_order.service_type_id}){
++          shopCategories {
++            id
++            name
++            nameEn
++            image
++          }
++        }
++      }
++    GRAPHQL
++
++    context_params = { current_user: user, language: user.get_language }
++    result = MrsoolSchema.execute(query_string, context: context_params)
++    response = result.to_h.dig("data", "serviceType", "shopCategories")
++
++    expect(response[0]["id"]).to eq(category_one.id.to_s)
++    expect(response[0]["name"]).to eq(category_one.name)
++  end
+ end
+diff --git a/spec/models/category_order_spec.rb b/spec/models/category_order_spec.rb
+new file mode 100644
+index 0000000000..14e71ecd6e
+--- /dev/null
++++ b/spec/models/category_order_spec.rb
+@@ -0,0 +1,27 @@
++# frozen_string_literal: true
++
++require "rails_helper"
++
++RSpec.describe CategoryControllerModule::CategoryOrderSetting::CategoryOrder, type: :model do
++  describe "Database (Columns)" do
++    it { is_expected.to have_db_column :id }
++    it { is_expected.to have_db_column :country_code }
++    it { is_expected.to have_db_column :end_time }
++    it { is_expected.to have_db_column :is_active }
++    it { is_expected.to have_db_column :name }
++    it { is_expected.to have_db_column :start_time }
++    it { is_expected.to have_db_column :service_type_id }
++  end
++
++  describe "Relations" do
++    it { is_expected.to have_many :shop_category_orders }
++    it { is_expected.to have_many(:shop_categories).through(:shop_category_orders) }
++  end
++
++  describe "Validations (Presence)" do
++    it { is_expected.to validate_presence_of :name }
++    it { is_expected.to validate_presence_of :service_type_id }
++    it { is_expected.to validate_presence_of :start_time }
++    it { is_expected.to validate_presence_of :end_time }
++  end
++end
+diff --git a/spec/requests/category_order_setting/category_orders_spec.rb b/spec/requests/category_order_setting/category_orders_spec.rb
+new file mode 100644
+index 0000000000..a9789d7e9d
+--- /dev/null
++++ b/spec/requests/category_order_setting/category_orders_spec.rb
+@@ -0,0 +1,114 @@
++# frozen_string_literal: true
++
++require "rails_helper"
++
++RSpec.describe "category_orders", type: :request, requires_assets: true do
++  before do
++    admin = FactoryBot.create(:super_admin, :country_sa)
++    sign_in(admin)
++  end
++
++  describe "category_orders#index" do
++    it "returns http success" do
++      get category_controller_module_category_order_setting_category_orders_path
++
++      expect(response.status).to eql(200)
++    end
++  end
++
++  describe "category_orders#create" do
++    it "creates category_order and redirects to index page" do
++      url = category_controller_module_category_order_setting_category_orders_path
++      category_one = FactoryBot.create(:shop_category, is_active: true)
++      category_two = FactoryBot.create(:shop_category, is_active: true)
++      list_of_categories = [category_one, category_two]
++      list_of_category_ids = [category_one.id, category_two.id]
++
++      service_type = FactoryBot.create(:service_type, :active, shop_categories: list_of_categories, rank: 1)
++
++      category_order_params = {
++        category_controller_module_category_order_setting_category_order: {
++          service_type_id: service_type.id,
++          name: "Category order 1",
++          start_time: Time.zone.now,
++          end_time: Time.zone.now + 30.minutes,
++          categories_ids: list_of_category_ids.to_s,
++          is_active: true,
++          country_code: "SA",
++        }
++      }
++
++      expect { post url, params: category_order_params }
++        .to change(CategoryControllerModule::CategoryOrderSetting::CategoryOrder, :count).by(1)
++
++      expect(response).to redirect_to(url)
++      expect(CategoryControllerModule::CategoryOrderSetting::CategoryOrder
++        .last.shop_categories.order(:rank).ids).to eq(list_of_category_ids)
++    end
++
++    it "should not creates category_order without service type" do
++      url = category_controller_module_category_order_setting_category_orders_path
++
++      category_order_params = {
++        category_controller_module_category_order_setting_category_order: {
++          name: "Category order 1",
++          start_time: Time.zone.now,
++          end_time: Time.zone.now + 30.minutes,
++          is_active: true,
++          country_code: "SA",
++        }
++      }
++
++      expect { post url, params: category_order_params }
++        .to change(CategoryControllerModule::CategoryOrderSetting::CategoryOrder, :count).by(0)
++
++      expect(response.status).to eq(200)
++    end
++  end
++
++  describe "category_orders#update" do
++    it "update category_order and redirects to index page" do
++      category_order = FactoryBot.create(:category_order, :with_service_type)
++      url = category_controller_module_category_order_setting_category_order_path(category_order)
++
++      category_order_params = {
++        category_controller_module_category_order_setting_category_order: {
++          name: "Updated Name",
++          is_active: false,
++        }
++      }
++
++      expect { put url, params: category_order_params }
++        .to change(CategoryControllerModule::CategoryOrderSetting::CategoryOrder, :count).by(0)
++
++      category_order.reload
++      expect(category_order.name).to eq("Updated Name")
++      expect(category_order.is_active).to eq(false)
++      expect(response).to redirect_to(category_controller_module_category_order_setting_category_orders_path)
++    end
++  end
++
++  describe "category_orders#activate" do
++    it "activate the category_order" do
++      category_order = FactoryBot.create(:category_order, :with_service_type, is_active: false)
++
++      patch activate_category_controller_module_category_order_setting_category_order_path(category_order)
++      category_order.reload
++
++      expect(category_order.is_active).to eq(true)
++      expect(response).to redirect_to(category_controller_module_category_order_setting_category_orders_path)
++    end
++  end
++
++  describe "category_orders#deactivate" do
++    it "deactivate the category_order" do
++      category_order = FactoryBot.create(:category_order, :with_service_type)
++
++      patch deactivate_category_controller_module_category_order_setting_category_order_path(category_order)
++      category_order.reload
++
++      expect(category_order.is_active).to eq(false)
++      expect(response).to redirect_to(category_controller_module_category_order_setting_category_orders_path)
++    end
++  end
++end

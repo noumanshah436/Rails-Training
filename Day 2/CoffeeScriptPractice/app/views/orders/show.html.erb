@@ -1,0 +1,101 @@
+
+<p id="notice"><%= notice %></p>
+
+<p id="my-draggable-element">
+  <strong >Credit card number:</strong>
+  <%= @order.credit_card_number %>
+</p>
+
+<p>
+  <strong>Credit card expires on:</strong>
+  <%= @order.credit_card_expires_on %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
+
+<h1>Hello  world</h1>
+
+<div class="sortable-column" id="unsorted-column">
+  <h2>Unsorted Records</h2>
+  <ul class="sortable-list">
+    <!-- Add your unsorted records here as list items -->
+    <li class="sortable-item" data-record-id="1">Record 1</li>
+    <li class="sortable-item" data-record-id="2">Record 2</li>
+    <li class="sortable-item" data-record-id="3">Record 3</li>
+    <li class="sortable-item" data-record-id="4">Record 4</li>
+    <li class="sortable-item" data-record-id="5">Record 5</li>
+    <li class="sortable-item" data-record-id="6">Record 6</li>
+  </ul>
+</div>
+
+<div class="sortable-column" id="sorted-column">
+  <h2>Sorted Records</h2>
+  <ul class="sortable-list">
+    <!-- Sorted records will be dynamically added here -->
+  </ul>
+</div>
+
+<style>
+.sortable-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sortable-placeholder {
+  border: 1px dashed #ccc;
+  background-color: #f5f5f5;
+  height: 40px;
+}
+
+.sortable-item {
+  cursor: move;
+}
+
+</style>
+
+<script>
+$(function() {
+  $(".sortable-list").sortable({
+    connectWith: ".sortable-list",
+    placeholder: "sortable-placeholder",
+    update: function(event, ui) {
+      // Code to execute when sorting is updated
+      // You can handle the sorted records here
+      var sortedItems = [];
+      $(this).children(".sortable-item").each(function() {
+        sortedItems.push($(this).data("record-id"));
+      });
+      console.log("Sorted items: ", sortedItems);
+    }
+  }).disableSelection();
+});
+
+
+$("#my-draggable-element").draggable({
+    drag: function(event, ui) {
+      // This code will run while the element is being dragged
+      // Add your custom JavaScript code here
+      console.log("Element is being dragged!" );
+
+      // You can access the dragged element using 'this' or 'event.target'
+      var draggedElement = this;
+      // Perform actions on the dragged element
+      // ...
+    },
+    stop: function(event, ui) {
+      // This code will run when the element stops being dragged
+      // Add your custom JavaScript code here
+      console.log("Element dragging stopped!");
+
+      // You can access the dragged element using 'this' or 'event.target'
+      var draggedElement = this;
+      // Perform actions on the dragged element
+      // ...
+    }
+  });
+
+
+
+</script>

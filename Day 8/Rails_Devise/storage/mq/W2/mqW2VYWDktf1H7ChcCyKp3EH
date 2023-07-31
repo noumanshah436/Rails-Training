@@ -1,0 +1,92 @@
+ RUBYOPT='-W0' rails s
+
+
+************************
+Day 1:
+Blog app
+bundler 
+Friends app
+Remote form submission
+
+Day 2:
+SASS
+Coffeescript
+
+Day 3:
+Actice Record
+Active Model
+Migrations
+Validations  
+Model Callbacks ( like before and after save )
+
+Day 4:
+Action controller:
+
+Parameters
+Session 
+Flash 
+Cookies
+Controller Callbacks 
+AR associations
+
+
+Day 5:
+routing :
+
+namespace
+scope
+queries
+present vs exists
+
+pending:
+queries 
+one video 
+theory
+
+
+
+Day 6:
+ActionView:
+
+Layouts
+Helper methods
+Action View Form Helpers
+Remote form submission
+Pagination
+Queries
+form tags
+
+ 
+Day 7
+AR queries
+joins 
+default_scope 
+Custom transaction
+STI associations, Self Associations
+eager_loading/pre_loading, lazy loading
+
+
+
+Day 8
+Mailing 
+Devise  + Active storage
+
+Day 9 :
+Background jobs
+sidekiq
+services vs concerncs
+
+
+Rough Project:
+  Rake tasks
+  Carrierwaves
+
+
+Day 10:
+rails rest apis
+faker
+
+
+webpacker
+Rake tasks
+

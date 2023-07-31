@@ -1,0 +1,51 @@
+I, [2022-08-24T19:19:11.414535 #462611]  INFO -- : [e8c51c60-e733-4b78-a604-c089ef41ca85] Started GET "/" for 127.0.0.1 at 2022-08-24 19:19:11 +0500
+I, [2022-08-24T19:19:11.415383 #462611]  INFO -- : [e8c51c60-e733-4b78-a604-c089ef41ca85] Processing by WelcomeController#index as HTML
+I, [2022-08-24T19:19:11.419939 #462611]  INFO -- : [e8c51c60-e733-4b78-a604-c089ef41ca85]   Rendering welcome/index.html.erb within layouts/application
+I, [2022-08-24T19:19:11.420931 #462611]  INFO -- : [e8c51c60-e733-4b78-a604-c089ef41ca85]   Rendered welcome/index.html.erb within layouts/application (0.7ms)
+I, [2022-08-24T19:19:11.423709 #462611]  INFO -- : [e8c51c60-e733-4b78-a604-c089ef41ca85] Completed 500 Internal Server Error in 8ms
+F, [2022-08-24T19:19:11.424885 #462611] FATAL -- : [e8c51c60-e733-4b78-a604-c089ef41ca85]   
+F, [2022-08-24T19:19:11.425024 #462611] FATAL -- : [e8c51c60-e733-4b78-a604-c089ef41ca85] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.
+):
+F, [2022-08-24T19:19:11.425225 #462611] FATAL -- : [e8c51c60-e733-4b78-a604-c089ef41ca85]      5:     <%= csrf_meta_tags %>
+[e8c51c60-e733-4b78-a604-c089ef41ca85]      6:     <%= csp_meta_tag %>
+[e8c51c60-e733-4b78-a604-c089ef41ca85]      7: 
+[e8c51c60-e733-4b78-a604-c089ef41ca85]      8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+[e8c51c60-e733-4b78-a604-c089ef41ca85]      9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+[e8c51c60-e733-4b78-a604-c089ef41ca85]     10:   </head>
+[e8c51c60-e733-4b78-a604-c089ef41ca85]     11: 
+F, [2022-08-24T19:19:11.425260 #462611] FATAL -- : [e8c51c60-e733-4b78-a604-c089ef41ca85]   
+F, [2022-08-24T19:19:11.425286 #462611] FATAL -- : [e8c51c60-e733-4b78-a604-c089ef41ca85] app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__2908503850909291155_16480'
+I, [2022-08-24T19:21:14.939263 #466349]  INFO -- : [98963cc1-1ca3-45c6-acc3-c40394e290b9] Started GET "/" for 127.0.0.1 at 2022-08-24 19:21:14 +0500
+I, [2022-08-24T19:21:14.940058 #466349]  INFO -- : [98963cc1-1ca3-45c6-acc3-c40394e290b9] Processing by WelcomeController#index as HTML
+I, [2022-08-24T19:21:14.943188 #466349]  INFO -- : [98963cc1-1ca3-45c6-acc3-c40394e290b9]   Rendering welcome/index.html.erb within layouts/application
+I, [2022-08-24T19:21:14.943564 #466349]  INFO -- : [98963cc1-1ca3-45c6-acc3-c40394e290b9]   Rendered welcome/index.html.erb within layouts/application (0.3ms)
+I, [2022-08-24T19:21:14.946771 #466349]  INFO -- : [98963cc1-1ca3-45c6-acc3-c40394e290b9] Completed 500 Internal Server Error in 7ms
+F, [2022-08-24T19:21:14.948116 #466349] FATAL -- : [98963cc1-1ca3-45c6-acc3-c40394e290b9]   
+F, [2022-08-24T19:21:14.948194 #466349] FATAL -- : [98963cc1-1ca3-45c6-acc3-c40394e290b9] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.
+):
+F, [2022-08-24T19:21:14.948364 #466349] FATAL -- : [98963cc1-1ca3-45c6-acc3-c40394e290b9]      5:     <%= csrf_meta_tags %>
+[98963cc1-1ca3-45c6-acc3-c40394e290b9]      6:     <%= csp_meta_tag %>
+[98963cc1-1ca3-45c6-acc3-c40394e290b9]      7: 
+[98963cc1-1ca3-45c6-acc3-c40394e290b9]      8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+[98963cc1-1ca3-45c6-acc3-c40394e290b9]      9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+[98963cc1-1ca3-45c6-acc3-c40394e290b9]     10:   </head>
+[98963cc1-1ca3-45c6-acc3-c40394e290b9]     11: 
+F, [2022-08-24T19:21:14.948400 #466349] FATAL -- : [98963cc1-1ca3-45c6-acc3-c40394e290b9]   
+F, [2022-08-24T19:21:14.948430 #466349] FATAL -- : [98963cc1-1ca3-45c6-acc3-c40394e290b9] app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___2822648750639031787_16480'
+I, [2022-08-24T19:21:21.707307 #466349]  INFO -- : [4ccae951-05de-41b7-beea-5011c23c6ebc] Started GET "/articles" for 127.0.0.1 at 2022-08-24 19:21:21 +0500
+I, [2022-08-24T19:21:21.708262 #466349]  INFO -- : [4ccae951-05de-41b7-beea-5011c23c6ebc] Processing by ArticlesController#index as HTML
+I, [2022-08-24T19:21:21.711502 #466349]  INFO -- : [4ccae951-05de-41b7-beea-5011c23c6ebc]   Rendering articles/index.html.erb within layouts/application
+D, [2022-08-24T19:21:21.713292 #466349] DEBUG -- : [4ccae951-05de-41b7-beea-5011c23c6ebc]   [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+I, [2022-08-24T19:21:21.713503 #466349]  INFO -- : [4ccae951-05de-41b7-beea-5011c23c6ebc]   Rendered articles/index.html.erb within layouts/application (1.9ms)
+I, [2022-08-24T19:21:21.713587 #466349]  INFO -- : [4ccae951-05de-41b7-beea-5011c23c6ebc] Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms)
+F, [2022-08-24T19:21:21.713989 #466349] FATAL -- : [4ccae951-05de-41b7-beea-5011c23c6ebc]   
+F, [2022-08-24T19:21:21.714003 #466349] FATAL -- : [4ccae951-05de-41b7-beea-5011c23c6ebc] ActionView::Template::Error (SQLite3::SQLException: no such table: articles: SELECT "articles".* FROM "articles"):
+F, [2022-08-24T19:21:21.714052 #466349] FATAL -- : [4ccae951-05de-41b7-beea-5011c23c6ebc]     16:     <th></th>
+[4ccae951-05de-41b7-beea-5011c23c6ebc]     17:   </tr>
+[4ccae951-05de-41b7-beea-5011c23c6ebc]     18: 
+[4ccae951-05de-41b7-beea-5011c23c6ebc]     19:   <% @articles.each do |article| %>
+[4ccae951-05de-41b7-beea-5011c23c6ebc]     20:   <tr>
+[4ccae951-05de-41b7-beea-5011c23c6ebc]     21:     <td><%= article.title %></td>
+[4ccae951-05de-41b7-beea-5011c23c6ebc]     22:     <td><%= article.text %></td>
+F, [2022-08-24T19:21:21.714064 #466349] FATAL -- : [4ccae951-05de-41b7-beea-5011c23c6ebc]   
+F, [2022-08-24T19:21:21.714073 #466349] FATAL -- : [4ccae951-05de-41b7-beea-5011c23c6ebc] app/views/articles/index.html.erb:19:in `_app_views_articles_index_html_erb__994227334957117450_16560'

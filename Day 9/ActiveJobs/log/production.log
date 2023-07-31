@@ -1,0 +1,326 @@
+I, [2022-09-06T14:13:19.226470 #84051]  INFO -- : [efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4] Started GET "/" for 127.0.0.1 at 2022-09-06 14:13:19 +0500
+F, [2022-09-06T14:13:19.227346 #84051] FATAL -- : [efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4]   
+F, [2022-09-06T14:13:19.227381 #84051] FATAL -- : [efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4] ActionController::RoutingError (No route matches [GET] "/"):
+F, [2022-09-06T14:13:19.227391 #84051] FATAL -- : [efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4]   
+F, [2022-09-06T14:13:19.227405 #84051] FATAL -- : [efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4] actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4] actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4] railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+[efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4] railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+[efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4] activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4] activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+[efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4] activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+[efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4] railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+[efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4] actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4] actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4] rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+[efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4] rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+[efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4] activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4] actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4] rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+[efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4] railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+[efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4] puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+[efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4] puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+[efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4] puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+[efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4] puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+[efd3c4c4-65fa-4f01-a58f-97c6e0fc34d4] puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2022-09-06T14:13:26.601675 #84051]  INFO -- : [183c2a4a-b704-4466-bc13-00d22c240e4f] Started GET "/home/index" for 127.0.0.1 at 2022-09-06 14:13:26 +0500
+I, [2022-09-06T14:13:26.602704 #84051]  INFO -- : [183c2a4a-b704-4466-bc13-00d22c240e4f] Processing by HomeController#index as HTML
+I, [2022-09-06T14:13:26.608956 #84051]  INFO -- : [183c2a4a-b704-4466-bc13-00d22c240e4f] [ActiveJob] Enqueued GenerateRandomUserJob (Job ID: c0291920-5389-493e-bc43-ee6615bb8a2c) to Sidekiq(default)
+I, [2022-09-06T14:13:26.611000 #84051]  INFO -- : [183c2a4a-b704-4466-bc13-00d22c240e4f]   Rendering home/index.html.erb within layouts/application
+I, [2022-09-06T14:13:26.611485 #84051]  INFO -- : [183c2a4a-b704-4466-bc13-00d22c240e4f]   Rendered home/index.html.erb within layouts/application (0.4ms)
+I, [2022-09-06T14:13:27.601204 #84051]  INFO -- : [183c2a4a-b704-4466-bc13-00d22c240e4f] Completed 200 OK in 998ms (Views: 991.2ms)
+I, [2022-09-06T14:13:27.613675 #84051]  INFO -- : [2421f076-311d-41de-9a21-9d6cf98fe726] Started GET "/assets/application-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" for 127.0.0.1 at 2022-09-06 14:13:27 +0500
+I, [2022-09-06T14:13:27.615263 #84051]  INFO -- : [414f0ff5-7b94-47f6-a992-ed4544d3e17f] Started GET "/assets/application-a226d6f5a204577a825ee41bf04abd6c23ce14b8b732c2bcf883c148480af0f8.js" for 127.0.0.1 at 2022-09-06 14:13:27 +0500
+I, [2022-09-06T14:16:09.263773 #84051]  INFO -- : [88f87670-4c8b-486b-9dce-57d025219830] Started GET "/home/index" for 127.0.0.1 at 2022-09-06 14:16:09 +0500
+I, [2022-09-06T14:16:09.265399 #84051]  INFO -- : [88f87670-4c8b-486b-9dce-57d025219830] Processing by HomeController#index as HTML
+I, [2022-09-06T14:16:09.268039 #84051]  INFO -- : [88f87670-4c8b-486b-9dce-57d025219830] [ActiveJob] Enqueued GenerateRandomUserJob (Job ID: 8f85cb51-8fe2-4021-aa76-45513ded377d) to Sidekiq(default)
+I, [2022-09-06T14:16:09.268774 #84051]  INFO -- : [88f87670-4c8b-486b-9dce-57d025219830]   Rendering home/index.html.erb within layouts/application
+I, [2022-09-06T14:16:09.268959 #84051]  INFO -- : [88f87670-4c8b-486b-9dce-57d025219830]   Rendered home/index.html.erb within layouts/application (0.1ms)
+I, [2022-09-06T14:16:09.271314 #84051]  INFO -- : [88f87670-4c8b-486b-9dce-57d025219830] Completed 200 OK in 6ms (Views: 2.8ms)
+I, [2022-09-06T14:19:08.588342 #84051]  INFO -- : [84334db1-e7f3-41ae-af66-c9d054e9a324] Started GET "/sidekiq" for 127.0.0.1 at 2022-09-06 14:19:08 +0500
+F, [2022-09-06T14:19:08.588788 #84051] FATAL -- : [84334db1-e7f3-41ae-af66-c9d054e9a324]   
+F, [2022-09-06T14:19:08.588807 #84051] FATAL -- : [84334db1-e7f3-41ae-af66-c9d054e9a324] ActionController::RoutingError (No route matches [GET] "/sidekiq"):
+F, [2022-09-06T14:19:08.588816 #84051] FATAL -- : [84334db1-e7f3-41ae-af66-c9d054e9a324]   
+F, [2022-09-06T14:19:08.588828 #84051] FATAL -- : [84334db1-e7f3-41ae-af66-c9d054e9a324] actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[84334db1-e7f3-41ae-af66-c9d054e9a324] actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[84334db1-e7f3-41ae-af66-c9d054e9a324] railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+[84334db1-e7f3-41ae-af66-c9d054e9a324] railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+[84334db1-e7f3-41ae-af66-c9d054e9a324] activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[84334db1-e7f3-41ae-af66-c9d054e9a324] activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+[84334db1-e7f3-41ae-af66-c9d054e9a324] activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+[84334db1-e7f3-41ae-af66-c9d054e9a324] railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+[84334db1-e7f3-41ae-af66-c9d054e9a324] actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[84334db1-e7f3-41ae-af66-c9d054e9a324] actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[84334db1-e7f3-41ae-af66-c9d054e9a324] rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+[84334db1-e7f3-41ae-af66-c9d054e9a324] rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+[84334db1-e7f3-41ae-af66-c9d054e9a324] activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[84334db1-e7f3-41ae-af66-c9d054e9a324] actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[84334db1-e7f3-41ae-af66-c9d054e9a324] rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+[84334db1-e7f3-41ae-af66-c9d054e9a324] railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+[84334db1-e7f3-41ae-af66-c9d054e9a324] puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+[84334db1-e7f3-41ae-af66-c9d054e9a324] puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+[84334db1-e7f3-41ae-af66-c9d054e9a324] puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+[84334db1-e7f3-41ae-af66-c9d054e9a324] puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+[84334db1-e7f3-41ae-af66-c9d054e9a324] puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2022-09-06T14:19:24.375268 #84051]  INFO -- : [44438009-5f0b-4572-95e2-7d684d2d2ccd] Started GET "/sidekiq" for 127.0.0.1 at 2022-09-06 14:19:24 +0500
+F, [2022-09-06T14:19:24.376166 #84051] FATAL -- : [44438009-5f0b-4572-95e2-7d684d2d2ccd]   
+F, [2022-09-06T14:19:24.376242 #84051] FATAL -- : [44438009-5f0b-4572-95e2-7d684d2d2ccd] ActionController::RoutingError (No route matches [GET] "/sidekiq"):
+F, [2022-09-06T14:19:24.376286 #84051] FATAL -- : [44438009-5f0b-4572-95e2-7d684d2d2ccd]   
+F, [2022-09-06T14:19:24.376325 #84051] FATAL -- : [44438009-5f0b-4572-95e2-7d684d2d2ccd] actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[44438009-5f0b-4572-95e2-7d684d2d2ccd] actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[44438009-5f0b-4572-95e2-7d684d2d2ccd] railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+[44438009-5f0b-4572-95e2-7d684d2d2ccd] railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+[44438009-5f0b-4572-95e2-7d684d2d2ccd] activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[44438009-5f0b-4572-95e2-7d684d2d2ccd] activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+[44438009-5f0b-4572-95e2-7d684d2d2ccd] activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+[44438009-5f0b-4572-95e2-7d684d2d2ccd] railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+[44438009-5f0b-4572-95e2-7d684d2d2ccd] actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[44438009-5f0b-4572-95e2-7d684d2d2ccd] actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[44438009-5f0b-4572-95e2-7d684d2d2ccd] rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+[44438009-5f0b-4572-95e2-7d684d2d2ccd] rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+[44438009-5f0b-4572-95e2-7d684d2d2ccd] activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[44438009-5f0b-4572-95e2-7d684d2d2ccd] actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[44438009-5f0b-4572-95e2-7d684d2d2ccd] rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+[44438009-5f0b-4572-95e2-7d684d2d2ccd] railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+[44438009-5f0b-4572-95e2-7d684d2d2ccd] puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+[44438009-5f0b-4572-95e2-7d684d2d2ccd] puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+[44438009-5f0b-4572-95e2-7d684d2d2ccd] puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+[44438009-5f0b-4572-95e2-7d684d2d2ccd] puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+[44438009-5f0b-4572-95e2-7d684d2d2ccd] puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2022-09-06T16:36:03.597324 #392132]  INFO -- : [9fcd875f-747a-42cb-8b52-2869c124bd9f] Started GET "/" for 127.0.0.1 at 2022-09-06 16:36:03 +0500
+F, [2022-09-06T16:36:03.598115 #392132] FATAL -- : [9fcd875f-747a-42cb-8b52-2869c124bd9f]   
+F, [2022-09-06T16:36:03.598186 #392132] FATAL -- : [9fcd875f-747a-42cb-8b52-2869c124bd9f] ActionController::RoutingError (No route matches [GET] "/"):
+F, [2022-09-06T16:36:03.598220 #392132] FATAL -- : [9fcd875f-747a-42cb-8b52-2869c124bd9f]   
+F, [2022-09-06T16:36:03.598257 #392132] FATAL -- : [9fcd875f-747a-42cb-8b52-2869c124bd9f] actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[9fcd875f-747a-42cb-8b52-2869c124bd9f] actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[9fcd875f-747a-42cb-8b52-2869c124bd9f] railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+[9fcd875f-747a-42cb-8b52-2869c124bd9f] railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+[9fcd875f-747a-42cb-8b52-2869c124bd9f] activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[9fcd875f-747a-42cb-8b52-2869c124bd9f] activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+[9fcd875f-747a-42cb-8b52-2869c124bd9f] activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+[9fcd875f-747a-42cb-8b52-2869c124bd9f] railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+[9fcd875f-747a-42cb-8b52-2869c124bd9f] actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[9fcd875f-747a-42cb-8b52-2869c124bd9f] actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[9fcd875f-747a-42cb-8b52-2869c124bd9f] rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+[9fcd875f-747a-42cb-8b52-2869c124bd9f] rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+[9fcd875f-747a-42cb-8b52-2869c124bd9f] activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[9fcd875f-747a-42cb-8b52-2869c124bd9f] actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[9fcd875f-747a-42cb-8b52-2869c124bd9f] rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+[9fcd875f-747a-42cb-8b52-2869c124bd9f] railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+[9fcd875f-747a-42cb-8b52-2869c124bd9f] puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+[9fcd875f-747a-42cb-8b52-2869c124bd9f] puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+[9fcd875f-747a-42cb-8b52-2869c124bd9f] puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+[9fcd875f-747a-42cb-8b52-2869c124bd9f] puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+[9fcd875f-747a-42cb-8b52-2869c124bd9f] puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2022-09-06T16:36:09.997656 #392132]  INFO -- : [bdb1d2d1-d010-49b6-bb8c-488cd6300b79] Started GET "/home/index" for 127.0.0.1 at 2022-09-06 16:36:09 +0500
+I, [2022-09-06T16:36:09.998529 #392132]  INFO -- : [bdb1d2d1-d010-49b6-bb8c-488cd6300b79] Processing by HomeController#index as HTML
+I, [2022-09-06T16:36:10.002635 #392132]  INFO -- : [bdb1d2d1-d010-49b6-bb8c-488cd6300b79] [ActiveJob] Enqueued GenerateRandomUserJob (Job ID: 7efb418e-d8a2-4ae2-8d2a-18debd842edc) to Sidekiq(default)
+I, [2022-09-06T16:36:10.004874 #392132]  INFO -- : [bdb1d2d1-d010-49b6-bb8c-488cd6300b79]   Rendering home/index.html.erb within layouts/application
+I, [2022-09-06T16:36:10.005223 #392132]  INFO -- : [bdb1d2d1-d010-49b6-bb8c-488cd6300b79]   Rendered home/index.html.erb within layouts/application (0.3ms)
+I, [2022-09-06T16:36:10.155713 #392132]  INFO -- : [bdb1d2d1-d010-49b6-bb8c-488cd6300b79] Completed 200 OK in 157ms (Views: 152.0ms)
+I, [2022-09-06T16:37:05.961224 #392132]  INFO -- : [9eab90b9-584a-42f1-a54e-9e4da64033df] Started GET "/sidekiq" for 127.0.0.1 at 2022-09-06 16:37:05 +0500
+I, [2022-09-06T16:37:06.003495 #392132]  INFO -- : [ffa09013-8861-40b4-a2da-6ace02099f47] Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2022-09-06 16:37:06 +0500
+I, [2022-09-06T16:37:06.004329 #392132]  INFO -- : [6a6cc5a8-808f-434e-aa21-c115f08f063e] Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2022-09-06 16:37:06 +0500
+I, [2022-09-06T16:37:06.004548 #392132]  INFO -- : [156b1ba4-8b5d-4971-83af-75dc423f99b3] Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2022-09-06 16:37:06 +0500
+I, [2022-09-06T16:37:06.009425 #392132]  INFO -- : [25604e72-85af-4768-960b-c9bb1e235101] Started GET "/sidekiq/javascripts/dashboard.js" for 127.0.0.1 at 2022-09-06 16:37:06 +0500
+I, [2022-09-06T16:37:06.005088 #392132]  INFO -- : [34187644-fecd-4ebd-8dcb-b88e333cdee4] Started GET "/sidekiq/javascripts/graph.js" for 127.0.0.1 at 2022-09-06 16:37:06 +0500
+I, [2022-09-06T16:37:06.022731 #392132]  INFO -- : [2b3ce404-cc53-4557-9ad9-fa1b4781b6e8] Started GET "/sidekiq/stylesheets/application-dark.css" for 127.0.0.1 at 2022-09-06 16:37:06 +0500
+I, [2022-09-06T16:37:06.026101 #392132]  INFO -- : [625580d9-94e4-41e7-a8d8-c375f3123f83] Started GET "/sidekiq/images/status.png" for 127.0.0.1 at 2022-09-06 16:37:06 +0500
+I, [2022-09-06T16:37:06.072650 #392132]  INFO -- : [8fc1cf49-9448-46d0-9075-836d4729c1a8] Started GET "/sidekiq/images/favicon.ico" for 127.0.0.1 at 2022-09-06 16:37:06 +0500
+I, [2022-09-06T16:37:11.068715 #392132]  INFO -- : [3c0f975d-1482-4cc1-aaf2-7bcd06751845] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:37:11 +0500
+I, [2022-09-06T16:37:16.068066 #392132]  INFO -- : [d7bae278-b9a8-4af9-a885-345e6d641e10] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:37:16 +0500
+I, [2022-09-06T16:37:21.069051 #392132]  INFO -- : [0e5b794c-afdc-448c-bc05-1c5443f1e4df] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:37:21 +0500
+I, [2022-09-06T16:37:26.067321 #392132]  INFO -- : [4379ce69-0595-4d97-809d-040ec06880ad] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:37:26 +0500
+I, [2022-09-06T16:37:31.067102 #392132]  INFO -- : [e5301e97-e28b-4d53-9ea6-e3e14010a8ec] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:37:31 +0500
+I, [2022-09-06T16:37:36.066619 #392132]  INFO -- : [99a29164-c9f9-49b6-80a4-c2f271c41e4c] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:37:36 +0500
+I, [2022-09-06T16:37:41.067702 #392132]  INFO -- : [655ea275-860f-42e7-b3e9-17ffa4830966] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:37:41 +0500
+I, [2022-09-06T16:37:46.067691 #392132]  INFO -- : [f6c9ba6c-1499-4e98-9124-00b6b040efda] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:37:46 +0500
+I, [2022-09-06T16:37:51.067857 #392132]  INFO -- : [7cfee119-d3af-442c-ab06-02f40bd8f4e9] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:37:51 +0500
+I, [2022-09-06T16:37:56.067173 #392132]  INFO -- : [71f639ee-813f-4f24-b4f2-01ec288d42a1] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:37:56 +0500
+I, [2022-09-06T16:38:01.067180 #392132]  INFO -- : [88e2037f-563e-4f8e-a06b-af86a1aaac44] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:38:01 +0500
+I, [2022-09-06T16:38:06.067519 #392132]  INFO -- : [49aaa3c4-69a2-491c-a0aa-31ab19b5f103] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:38:06 +0500
+I, [2022-09-06T16:38:11.067241 #392132]  INFO -- : [5a69ddb3-d0b0-45e6-bdde-4ac76b320b1b] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:38:11 +0500
+I, [2022-09-06T16:38:16.067900 #392132]  INFO -- : [19e8ce99-bca9-4e27-a6ea-3510840ee318] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:38:16 +0500
+I, [2022-09-06T16:38:21.067114 #392132]  INFO -- : [12015aa7-befd-428c-b105-ca4894e76d4e] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:38:21 +0500
+I, [2022-09-06T16:38:26.066784 #392132]  INFO -- : [8b2272b6-0c63-46d3-ac3d-c54daab53902] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:38:26 +0500
+I, [2022-09-06T16:38:31.068345 #392132]  INFO -- : [f4996cb7-5768-4fa5-a8c1-756b48eb4715] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:38:31 +0500
+I, [2022-09-06T16:38:36.067271 #392132]  INFO -- : [073b622d-43f5-4218-a76e-5d93d89877b2] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:38:36 +0500
+I, [2022-09-06T16:38:41.067663 #392132]  INFO -- : [8fabe0a2-3b9f-49ec-b8c7-4fc8cdb31818] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:38:41 +0500
+I, [2022-09-06T16:38:46.067738 #392132]  INFO -- : [5de379d8-686b-41d2-8c8a-164a406242f8] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:38:46 +0500
+I, [2022-09-06T16:38:51.067900 #392132]  INFO -- : [a45db79f-682d-46f5-95cc-b796b85bc1aa] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:38:51 +0500
+I, [2022-09-06T16:38:56.067579 #392132]  INFO -- : [340266a2-14a4-42db-a0dc-b541e964f7e0] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:38:56 +0500
+I, [2022-09-06T16:39:01.067388 #392132]  INFO -- : [65728999-d049-41e5-8a2c-d9f36a042c7f] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:39:01 +0500
+I, [2022-09-06T16:39:06.067396 #392132]  INFO -- : [251bc8eb-96ab-4a0e-97ff-e1ae005384b6] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:39:06 +0500
+I, [2022-09-06T16:39:11.066875 #392132]  INFO -- : [fad97dd2-54be-470c-89fa-4d783bb9142d] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:39:11 +0500
+I, [2022-09-06T16:39:16.066927 #392132]  INFO -- : [d530e5db-ffa3-4721-aa72-08f693b98024] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:39:16 +0500
+I, [2022-09-06T16:39:21.067687 #392132]  INFO -- : [a6eb2f96-fb8d-4d4a-a07b-ef0db8231d2d] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:39:21 +0500
+I, [2022-09-06T16:39:26.067714 #392132]  INFO -- : [ce87bdb2-9f39-45ac-b101-008e6a8aa5bd] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:39:26 +0500
+I, [2022-09-06T16:39:31.067888 #392132]  INFO -- : [2cc8f26a-dec3-4ca7-b865-5fefc2733421] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:39:31 +0500
+I, [2022-09-06T16:39:36.066605 #392132]  INFO -- : [37990709-65bf-44eb-9beb-ff11ed6224eb] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:39:36 +0500
+I, [2022-09-06T16:39:41.067830 #392132]  INFO -- : [ebe76e68-91c2-429b-b50a-4e495a3cc743] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:39:41 +0500
+I, [2022-09-06T16:39:46.067589 #392132]  INFO -- : [c0d160bb-c7c8-4082-b2b3-a09cdcdef5d2] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:39:46 +0500
+I, [2022-09-06T16:39:51.067657 #392132]  INFO -- : [7807c3f2-f1e9-485a-957e-832bfc69cecb] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:39:51 +0500
+I, [2022-09-06T16:39:56.067581 #392132]  INFO -- : [a3c9d1d8-a276-4878-8798-462b0282d76c] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:39:56 +0500
+I, [2022-09-06T16:40:01.067344 #392132]  INFO -- : [43f716b8-61c7-4546-b1b2-1b14ce2612d5] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-06 16:40:01 +0500
+I, [2022-09-08T17:20:46.703995 #293402]  INFO -- : [80a7ce28-8cd4-4442-8119-376114b31639] Started GET "/sidekiq" for 127.0.0.1 at 2022-09-08 17:20:46 +0500
+I, [2022-09-08T17:20:46.736641 #293402]  INFO -- : [07272046-9e06-4811-9261-7c9f6827f8f3] Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2022-09-08 17:20:46 +0500
+I, [2022-09-08T17:20:46.743878 #293402]  INFO -- : [6df9c718-9b52-4155-a846-70a1f3837d85] Started GET "/sidekiq/javascripts/graph.js" for 127.0.0.1 at 2022-09-08 17:20:46 +0500
+I, [2022-09-08T17:20:46.744683 #293402]  INFO -- : [a3c0e1b5-37ff-4f64-bd36-4df640ca58e5] Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2022-09-08 17:20:46 +0500
+I, [2022-09-08T17:20:46.745286 #293402]  INFO -- : [e5e47382-6605-4b02-a3a4-a6ef76ec8cac] Started GET "/sidekiq/javascripts/dashboard.js" for 127.0.0.1 at 2022-09-08 17:20:46 +0500
+I, [2022-09-08T17:20:46.744892 #293402]  INFO -- : [e312ea71-ce2d-4143-bc4c-11249e9ab141] Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2022-09-08 17:20:46 +0500
+I, [2022-09-08T17:20:46.751535 #293402]  INFO -- : [2d454a33-f5d7-4d3f-9df0-0793235848c4] Started GET "/sidekiq/stylesheets/application-dark.css" for 127.0.0.1 at 2022-09-08 17:20:46 +0500
+I, [2022-09-08T17:20:46.755426 #293402]  INFO -- : [7e2a0c7f-3d17-4ae3-af4f-81ce9cddfc30] Started GET "/sidekiq/images/status.png" for 127.0.0.1 at 2022-09-08 17:20:46 +0500
+I, [2022-09-08T17:20:51.795986 #293402]  INFO -- : [2b18f5ae-7a09-4a2a-9a17-49b90255403e] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:20:51 +0500
+I, [2022-09-08T17:20:56.796762 #293402]  INFO -- : [d7171fae-e1ff-49fe-ac0a-bcbd63d0c6d3] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:20:56 +0500
+I, [2022-09-08T17:21:02.158443 #293402]  INFO -- : [d6607985-cc5a-4e08-b879-9b8aafb821b8] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:21:02 +0500
+I, [2022-09-08T17:21:07.157859 #293402]  INFO -- : [7c8e533d-1479-4639-81fb-319290bd250c] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:21:07 +0500
+I, [2022-09-08T17:21:12.158008 #293402]  INFO -- : [2dc44fb3-c3a2-46bc-8806-4c03fad7f857] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:21:12 +0500
+I, [2022-09-08T17:21:17.156437 #293402]  INFO -- : [534b72f7-2531-4f86-8be7-c82bb89b305a] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:21:17 +0500
+I, [2022-09-08T17:21:22.157568 #293402]  INFO -- : [624587d5-3287-48a6-bf30-c6ab9df96255] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:21:22 +0500
+I, [2022-09-08T17:21:27.158159 #293402]  INFO -- : [87fcf3bb-df2d-4198-a343-cceab3bcab59] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:21:27 +0500
+I, [2022-09-08T17:21:32.158230 #293402]  INFO -- : [220406e0-5f40-4c54-a3ca-7fe9d79228ab] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:21:32 +0500
+I, [2022-09-08T17:21:37.156509 #293402]  INFO -- : [5df58371-fb1f-4367-be89-a36367b2aa8b] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:21:37 +0500
+I, [2022-09-08T17:21:42.158790 #293402]  INFO -- : [6e8163c9-7c4d-436e-956f-95a1ffa38610] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:21:42 +0500
+I, [2022-09-08T17:21:47.158142 #293402]  INFO -- : [b2fe0f7c-5f46-450f-9a9a-796b1bae8f92] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:21:47 +0500
+I, [2022-09-08T17:21:52.157174 #293402]  INFO -- : [1b081445-84f1-438a-a46b-d66c5189f706] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:21:52 +0500
+I, [2022-09-08T17:21:57.157702 #293402]  INFO -- : [e1000ba8-0c58-47e8-b04c-99002ddf89e2] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:21:57 +0500
+I, [2022-09-08T17:22:02.158514 #293402]  INFO -- : [151cbd11-086e-4a62-a327-0f1479e8356f] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:22:02 +0500
+I, [2022-09-08T17:22:07.157451 #293402]  INFO -- : [5e1590d7-354d-47dd-85ec-a3d310f3fe26] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:22:07 +0500
+I, [2022-09-08T17:22:11.221028 #293402]  INFO -- : [212e8de6-6fd7-4837-903b-eebe73cbe17f] Started GET "/" for 127.0.0.1 at 2022-09-08 17:22:11 +0500
+F, [2022-09-08T17:22:11.221713 #293402] FATAL -- : [212e8de6-6fd7-4837-903b-eebe73cbe17f]   
+F, [2022-09-08T17:22:11.221775 #293402] FATAL -- : [212e8de6-6fd7-4837-903b-eebe73cbe17f] ActionController::RoutingError (No route matches [GET] "/"):
+F, [2022-09-08T17:22:11.221805 #293402] FATAL -- : [212e8de6-6fd7-4837-903b-eebe73cbe17f]   
+F, [2022-09-08T17:22:11.221843 #293402] FATAL -- : [212e8de6-6fd7-4837-903b-eebe73cbe17f] actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[212e8de6-6fd7-4837-903b-eebe73cbe17f] actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[212e8de6-6fd7-4837-903b-eebe73cbe17f] railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+[212e8de6-6fd7-4837-903b-eebe73cbe17f] railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+[212e8de6-6fd7-4837-903b-eebe73cbe17f] activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[212e8de6-6fd7-4837-903b-eebe73cbe17f] activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+[212e8de6-6fd7-4837-903b-eebe73cbe17f] activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+[212e8de6-6fd7-4837-903b-eebe73cbe17f] railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+[212e8de6-6fd7-4837-903b-eebe73cbe17f] actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[212e8de6-6fd7-4837-903b-eebe73cbe17f] actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[212e8de6-6fd7-4837-903b-eebe73cbe17f] rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+[212e8de6-6fd7-4837-903b-eebe73cbe17f] rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+[212e8de6-6fd7-4837-903b-eebe73cbe17f] activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[212e8de6-6fd7-4837-903b-eebe73cbe17f] actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[212e8de6-6fd7-4837-903b-eebe73cbe17f] rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+[212e8de6-6fd7-4837-903b-eebe73cbe17f] railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+[212e8de6-6fd7-4837-903b-eebe73cbe17f] puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+[212e8de6-6fd7-4837-903b-eebe73cbe17f] puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+[212e8de6-6fd7-4837-903b-eebe73cbe17f] puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+[212e8de6-6fd7-4837-903b-eebe73cbe17f] puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+[212e8de6-6fd7-4837-903b-eebe73cbe17f] puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2022-09-08T17:22:11.258065 #293402]  INFO -- : [8c7639f3-bc43-4829-acb4-6332c5609970] Started GET "/favicon.ico" for 127.0.0.1 at 2022-09-08 17:22:11 +0500
+F, [2022-09-08T17:22:11.258633 #293402] FATAL -- : [8c7639f3-bc43-4829-acb4-6332c5609970]   
+F, [2022-09-08T17:22:11.258686 #293402] FATAL -- : [8c7639f3-bc43-4829-acb4-6332c5609970] ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+F, [2022-09-08T17:22:11.258722 #293402] FATAL -- : [8c7639f3-bc43-4829-acb4-6332c5609970]   
+F, [2022-09-08T17:22:11.258744 #293402] FATAL -- : [8c7639f3-bc43-4829-acb4-6332c5609970] actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[8c7639f3-bc43-4829-acb4-6332c5609970] actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[8c7639f3-bc43-4829-acb4-6332c5609970] railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+[8c7639f3-bc43-4829-acb4-6332c5609970] railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+[8c7639f3-bc43-4829-acb4-6332c5609970] activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[8c7639f3-bc43-4829-acb4-6332c5609970] activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+[8c7639f3-bc43-4829-acb4-6332c5609970] activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+[8c7639f3-bc43-4829-acb4-6332c5609970] railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+[8c7639f3-bc43-4829-acb4-6332c5609970] actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[8c7639f3-bc43-4829-acb4-6332c5609970] actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[8c7639f3-bc43-4829-acb4-6332c5609970] rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+[8c7639f3-bc43-4829-acb4-6332c5609970] rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+[8c7639f3-bc43-4829-acb4-6332c5609970] activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[8c7639f3-bc43-4829-acb4-6332c5609970] actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[8c7639f3-bc43-4829-acb4-6332c5609970] rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+[8c7639f3-bc43-4829-acb4-6332c5609970] railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+[8c7639f3-bc43-4829-acb4-6332c5609970] puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+[8c7639f3-bc43-4829-acb4-6332c5609970] puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+[8c7639f3-bc43-4829-acb4-6332c5609970] puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+[8c7639f3-bc43-4829-acb4-6332c5609970] puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+[8c7639f3-bc43-4829-acb4-6332c5609970] puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2022-09-08T17:22:12.157400 #293402]  INFO -- : [c9e82861-c6c6-4f5a-8a97-a26d703d0467] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:22:12 +0500
+I, [2022-09-08T17:22:14.871706 #293402]  INFO -- : [e9a18fcf-5672-4967-83e7-a61bb837bcca] Started GET "/home/index" for 127.0.0.1 at 2022-09-08 17:22:14 +0500
+I, [2022-09-08T17:22:14.872382 #293402]  INFO -- : [e9a18fcf-5672-4967-83e7-a61bb837bcca] Processing by HomeController#index as HTML
+I, [2022-09-08T17:22:14.873291 #293402]  INFO -- : [e9a18fcf-5672-4967-83e7-a61bb837bcca] [ActiveJob] Enqueued GenerateRandomUserJob (Job ID: 9116f40c-ebd1-4719-9faa-3d8f0ffe541e) to Sidekiq(default)
+I, [2022-09-08T17:22:14.875133 #293402]  INFO -- : [e9a18fcf-5672-4967-83e7-a61bb837bcca]   Rendering home/index.html.erb within layouts/application
+I, [2022-09-08T17:22:14.875570 #293402]  INFO -- : [e9a18fcf-5672-4967-83e7-a61bb837bcca]   Rendered home/index.html.erb within layouts/application (0.3ms)
+I, [2022-09-08T17:22:15.029696 #293402]  INFO -- : [e9a18fcf-5672-4967-83e7-a61bb837bcca] Completed 200 OK in 157ms (Views: 155.4ms)
+I, [2022-09-08T17:22:15.036972 #293402]  INFO -- : [957b3648-0c67-496c-8bdb-a6af65adf08c] Started GET "/assets/application-a226d6f5a204577a825ee41bf04abd6c23ce14b8b732c2bcf883c148480af0f8.js" for 127.0.0.1 at 2022-09-08 17:22:15 +0500
+I, [2022-09-08T17:22:17.157972 #293402]  INFO -- : [c3f1a106-02c9-44ff-b3ef-1b3596ceaa1e] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:22:17 +0500
+I, [2022-09-08T17:22:21.795686 #293402]  INFO -- : [2fa811b8-ddc3-44de-8ffd-1ad1dd07b036] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:22:21 +0500
+I, [2022-09-08T17:22:26.795978 #293402]  INFO -- : [ac1ea3a5-37ce-42ce-9fb5-f891217949d4] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:22:26 +0500
+I, [2022-09-08T17:22:31.796334 #293402]  INFO -- : [36d553c0-8556-4edc-ad20-d6ce1e99c00e] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:22:31 +0500
+I, [2022-09-08T17:22:36.796704 #293402]  INFO -- : [92881e37-9975-4414-9f6e-9b088a725419] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:22:36 +0500
+I, [2022-09-08T17:22:41.796698 #293402]  INFO -- : [6aed9839-6a19-49d9-95a5-704cbb60f689] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:22:41 +0500
+I, [2022-09-08T17:22:46.796762 #293402]  INFO -- : [754ee22c-7b15-48c7-b5fa-bccea556c40e] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:22:46 +0500
+I, [2022-09-08T17:22:51.796745 #293402]  INFO -- : [c94e0074-d3af-4d33-aa8f-1d70a71da2b5] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:22:51 +0500
+I, [2022-09-08T17:22:57.158394 #293402]  INFO -- : [da1586b7-7e20-491d-9eea-27e35f2f149c] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:22:57 +0500
+I, [2022-09-08T17:23:02.158559 #293402]  INFO -- : [ed4aabfa-4fc3-43ea-9cc5-399e98e29451] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:23:02 +0500
+I, [2022-09-08T17:23:07.157792 #293402]  INFO -- : [6d073464-5a11-46e3-8d6e-35afbfad5c28] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:23:07 +0500
+I, [2022-09-08T17:23:12.158012 #293402]  INFO -- : [0bd70e59-815f-4f0d-b54c-6c0cd8d5cc44] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:23:12 +0500
+I, [2022-09-08T17:23:17.158158 #293402]  INFO -- : [33fa3a9a-70d5-4e40-9cda-fa71c2c6430a] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:23:17 +0500
+I, [2022-09-08T17:23:22.158157 #293402]  INFO -- : [a0b221ef-aaa7-4924-9eb8-23adfd90f16a] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:23:22 +0500
+I, [2022-09-08T17:23:27.157544 #293402]  INFO -- : [57d4dfcf-fb39-4351-8dcd-78b72a214684] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:23:27 +0500
+I, [2022-09-08T17:23:32.158035 #293402]  INFO -- : [7c0b413a-ebd9-421d-b4c6-df9ef3e775dc] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:23:32 +0500
+I, [2022-09-08T17:23:37.157968 #293402]  INFO -- : [f7b4aba2-e70c-4636-8d73-51370d2586ad] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:23:37 +0500
+I, [2022-09-08T17:23:42.158006 #293402]  INFO -- : [ef7079aa-13ec-4898-b9f0-18c6c3916f89] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:23:42 +0500
+I, [2022-09-08T17:23:47.157715 #293402]  INFO -- : [b9079351-29d7-452c-b8b3-0b814f9cc400] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:23:47 +0500
+I, [2022-09-08T17:23:52.157722 #293402]  INFO -- : [2cc88db3-72b5-4899-b0e5-aa8c3e5c0fda] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:23:52 +0500
+I, [2022-09-08T17:23:57.156442 #293402]  INFO -- : [92d4bada-30f6-404c-a7e9-ecff19aa4e34] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:23:57 +0500
+I, [2022-09-08T17:24:02.158949 #293402]  INFO -- : [8f2f300e-548d-42f0-89be-cfc7d5251658] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:24:02 +0500
+I, [2022-09-08T17:24:07.158515 #293402]  INFO -- : [33c97269-fdd0-445f-90f8-4a08bf5a27fd] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:24:07 +0500
+I, [2022-09-08T17:24:12.158527 #293402]  INFO -- : [4d4c707d-67c4-41c1-9dec-6325c7843787] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:24:12 +0500
+I, [2022-09-08T17:24:17.157817 #293402]  INFO -- : [03ba0156-7655-4f25-b3eb-e33c522154dc] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:24:17 +0500
+I, [2022-09-08T17:24:22.157990 #293402]  INFO -- : [6efee979-df22-4f9c-bcb4-c80340fefd32] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:24:22 +0500
+I, [2022-09-08T17:24:27.158635 #293402]  INFO -- : [5078bb45-0965-4d1e-95f6-429684ca0472] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:24:27 +0500
+I, [2022-09-08T17:24:31.796173 #293402]  INFO -- : [354d878b-d27d-4186-9e74-1c9c5b8cee1d] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:24:31 +0500
+I, [2022-09-08T17:24:37.157626 #293402]  INFO -- : [8a1bbeac-946e-4c07-826b-d145a737e430] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:24:37 +0500
+I, [2022-09-08T17:24:42.157798 #293402]  INFO -- : [28c97cb1-5773-4940-a6a1-88d123ed22d3] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:24:42 +0500
+I, [2022-09-08T17:24:47.157922 #293402]  INFO -- : [d59add58-a8c9-4cbe-b2d5-392eadf934c1] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:24:47 +0500
+I, [2022-09-08T17:24:52.157789 #293402]  INFO -- : [892f2f14-75ab-4258-9d63-ee2c497a1c33] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:24:52 +0500
+I, [2022-09-08T17:24:55.812345 #293402]  INFO -- : [97e7893d-1e52-436d-ac10-d13f363b1e1f] Started GET "/home/index" for 127.0.0.1 at 2022-09-08 17:24:55 +0500
+I, [2022-09-08T17:24:55.813828 #293402]  INFO -- : [97e7893d-1e52-436d-ac10-d13f363b1e1f] Processing by HomeController#index as HTML
+I, [2022-09-08T17:24:55.815517 #293402]  INFO -- : [97e7893d-1e52-436d-ac10-d13f363b1e1f] [ActiveJob] Enqueued GenerateRandomUserJob (Job ID: b8e17de7-4480-4358-aaa7-440f38d868e2) to Sidekiq(default)
+I, [2022-09-08T17:24:55.816368 #293402]  INFO -- : [97e7893d-1e52-436d-ac10-d13f363b1e1f]   Rendering home/index.html.erb within layouts/application
+I, [2022-09-08T17:24:55.816560 #293402]  INFO -- : [97e7893d-1e52-436d-ac10-d13f363b1e1f]   Rendered home/index.html.erb within layouts/application (0.1ms)
+I, [2022-09-08T17:24:55.819274 #293402]  INFO -- : [97e7893d-1e52-436d-ac10-d13f363b1e1f] Completed 200 OK in 5ms (Views: 3.2ms)
+I, [2022-09-08T17:24:57.159187 #293402]  INFO -- : [911c1efd-6156-4386-801c-28ba2842d5d8] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:24:57 +0500
+I, [2022-09-08T17:25:01.796330 #293402]  INFO -- : [9ba12dcf-49fe-4696-861a-cb06f32dd4a2] Started GET "/sidekiq/stats" for 127.0.0.1 at 2022-09-08 17:25:01 +0500
+I, [2022-09-08T17:25:02.920317 #293402]  INFO -- : [bb6cbc26-2adf-4aac-b8dd-896edb0d0e31] Started GET "/sidekiq" for 127.0.0.1 at 2022-09-08 17:25:02 +0500
+I, [2022-09-08T17:25:02.964361 #293402]  INFO -- : [84563d12-7a55-4af5-97a0-34eba400af88] Started GET "/sidekiq/images/favicon.ico" for 127.0.0.1 at 2022-09-08 17:25:02 +0500
+I, [2022-09-08T17:25:06.631251 #293402]  INFO -- : [0ae1bdb3-7b9c-4f4d-b6cc-c4be3bacbb59] Started GET "/sidekiq/busy" for 127.0.0.1 at 2022-09-08 17:25:06 +0500
+I, [2022-09-08T17:25:27.082345 #293402]  INFO -- : [35f9e246-1711-4853-96e5-38c1cfcaad5d] Started GET "/sidekiq/queues/default" for 127.0.0.1 at 2022-09-08 17:25:27 +0500
+I, [2022-09-08T17:25:31.088061 #293402]  INFO -- : [23ab7ee3-c784-4976-ac96-fb5bca1b65ad] Started GET "/sidekiq/busy" for 127.0.0.1 at 2022-09-08 17:25:31 +0500
+I, [2022-09-08T17:32:43.022431 #293402]  INFO -- : [7c3b0a88-4a33-47a9-b57d-5ab5810fd9be] Started GET "/home/index" for 127.0.0.1 at 2022-09-08 17:32:43 +0500
+I, [2022-09-08T17:32:43.023314 #293402]  INFO -- : [7c3b0a88-4a33-47a9-b57d-5ab5810fd9be] Processing by HomeController#index as HTML
+I, [2022-09-08T17:32:43.025345 #293402]  INFO -- : [7c3b0a88-4a33-47a9-b57d-5ab5810fd9be] [ActiveJob] Enqueued GenerateRandomUserJob (Job ID: 43d7e241-381e-4471-b524-3b0e3796c17e) to Sidekiq(default)
+I, [2022-09-08T17:32:43.026015 #293402]  INFO -- : [7c3b0a88-4a33-47a9-b57d-5ab5810fd9be]   Rendering home/index.html.erb within layouts/application
+I, [2022-09-08T17:32:43.026209 #293402]  INFO -- : [7c3b0a88-4a33-47a9-b57d-5ab5810fd9be]   Rendered home/index.html.erb within layouts/application (0.1ms)
+I, [2022-09-08T17:32:43.028805 #293402]  INFO -- : [7c3b0a88-4a33-47a9-b57d-5ab5810fd9be] Completed 200 OK in 5ms (Views: 2.9ms)
+I, [2022-09-08T17:33:51.738967 #318132]  INFO -- : [085faba0-78ca-4cc9-9d63-6bcfbad92318] Started GET "/home/index" for 127.0.0.1 at 2022-09-08 17:33:51 +0500
+I, [2022-09-08T17:33:51.739952 #318132]  INFO -- : [085faba0-78ca-4cc9-9d63-6bcfbad92318] Processing by HomeController#index as HTML
+I, [2022-09-08T17:33:51.744763 #318132]  INFO -- : [085faba0-78ca-4cc9-9d63-6bcfbad92318] [ActiveJob] Enqueued GenerateRandomUserJob (Job ID: d57f6573-ca4f-49a3-b66a-fe5dfe6e0c9e) to Sidekiq(default)
+I, [2022-09-08T17:33:51.746228 #318132]  INFO -- : [085faba0-78ca-4cc9-9d63-6bcfbad92318]   Rendering home/index.html.erb within layouts/application
+I, [2022-09-08T17:33:51.746820 #318132]  INFO -- : [085faba0-78ca-4cc9-9d63-6bcfbad92318]   Rendered home/index.html.erb within layouts/application (0.4ms)
+I, [2022-09-08T17:33:51.851251 #318132]  INFO -- : [085faba0-78ca-4cc9-9d63-6bcfbad92318] Completed 200 OK in 111ms (Views: 105.9ms)
+I, [2022-09-08T17:34:54.917605 #318132]  INFO -- : [ba1d5736-f463-408c-9546-047d9efb66b4] Started GET "/sidekiq/busy" for 127.0.0.1 at 2022-09-08 17:34:54 +0500
+I, [2022-09-08T17:35:09.110891 #318132]  INFO -- : [814d6ffd-9f2e-4aaa-ae13-c3ca2d832fcf] Started POST "/sidekiq/busy" for 127.0.0.1 at 2022-09-08 17:35:09 +0500
+I, [2022-09-08T17:35:09.114228 #318132]  INFO -- : [16180a8f-c571-4425-9c12-dd1b8d8032a8] Started GET "/sidekiq/busy" for 127.0.0.1 at 2022-09-08 17:35:09 +0500
+I, [2022-09-08T17:35:14.070408 #318132]  INFO -- : [b61097fb-38aa-47ca-9a69-c32e2a4971fe] Started GET "/sidekiq/busy" for 127.0.0.1 at 2022-09-08 17:35:14 +0500
+I, [2022-09-08T17:35:16.569285 #318132]  INFO -- : [ed7f81c7-2c13-4f09-a98a-e5fe5481c403] Started GET "/sidekiq/busy" for 127.0.0.1 at 2022-09-08 17:35:16 +0500
+I, [2022-09-08T17:35:17.285590 #318132]  INFO -- : [2c311f84-3f42-4a56-bdd6-64d62f4b67ae] Started GET "/sidekiq/busy" for 127.0.0.1 at 2022-09-08 17:35:17 +0500
+I, [2022-09-08T17:35:17.486350 #318132]  INFO -- : [9b20e31c-fded-4440-ab1e-b91c1dca95fa] Started GET "/sidekiq/busy" for 127.0.0.1 at 2022-09-08 17:35:17 +0500
+I, [2022-09-08T17:35:17.663649 #318132]  INFO -- : [0776ec00-0099-4738-a627-ee941f5b1ff9] Started GET "/sidekiq/busy" for 127.0.0.1 at 2022-09-08 17:35:17 +0500
+I, [2022-09-08T17:35:17.816828 #318132]  INFO -- : [4dd55e85-21e5-45b1-9c56-3dfd3b11a8b0] Started GET "/sidekiq/busy" for 127.0.0.1 at 2022-09-08 17:35:17 +0500
+I, [2022-09-08T17:35:17.997899 #318132]  INFO -- : [785c3739-07d2-4089-8ab0-c01bfdc198ed] Started GET "/sidekiq/busy" for 127.0.0.1 at 2022-09-08 17:35:17 +0500
+I, [2022-09-08T17:35:28.771959 #318132]  INFO -- : [db781cc4-3c9a-487a-bfa7-5a870191cb9e] Started POST "/sidekiq/busy" for 127.0.0.1 at 2022-09-08 17:35:28 +0500
+I, [2022-09-08T17:35:28.778188 #318132]  INFO -- : [44ac844a-8dd6-4c0b-b40e-b3ddda6d9a3b] Started GET "/sidekiq/busy" for 127.0.0.1 at 2022-09-08 17:35:28 +0500
+I, [2022-09-08T17:35:32.651284 #318132]  INFO -- : [d96ebc7b-421d-470a-a567-0d7e840f7a7a] Started POST "/sidekiq/busy" for 127.0.0.1 at 2022-09-08 17:35:32 +0500
+I, [2022-09-08T17:35:32.655748 #318132]  INFO -- : [b582f252-aba9-4f1c-ab43-857c7be7027b] Started GET "/sidekiq/busy" for 127.0.0.1 at 2022-09-08 17:35:32 +0500
+I, [2022-09-08T17:35:35.364366 #318132]  INFO -- : [7d3a52b0-f771-40c4-88b9-393a4a94fb8f] Started POST "/sidekiq/busy" for 127.0.0.1 at 2022-09-08 17:35:35 +0500
+I, [2022-09-08T17:35:35.371414 #318132]  INFO -- : [0e8e6195-fc7b-41cd-bbb2-ea3096042261] Started GET "/sidekiq/busy" for 127.0.0.1 at 2022-09-08 17:35:35 +0500
+I, [2022-09-08T17:39:47.928373 #322455]  INFO -- : [af1df241-98ab-4d45-bc60-fccddb8eb265] Started GET "/home/index" for 127.0.0.1 at 2022-09-08 17:39:47 +0500
+I, [2022-09-08T17:39:47.930017 #322455]  INFO -- : [af1df241-98ab-4d45-bc60-fccddb8eb265] Processing by HomeController#index as HTML
+I, [2022-09-08T17:39:47.935902 #322455]  INFO -- : [af1df241-98ab-4d45-bc60-fccddb8eb265] [ActiveJob] Enqueued GenerateRandomUserJob (Job ID: a57ef8f5-e14e-4933-9d59-1002966096d9) to Sidekiq(default)
+I, [2022-09-08T17:39:47.937351 #322455]  INFO -- : [af1df241-98ab-4d45-bc60-fccddb8eb265]   Rendering home/index.html.erb within layouts/application
+I, [2022-09-08T17:39:47.937727 #322455]  INFO -- : [af1df241-98ab-4d45-bc60-fccddb8eb265]   Rendered home/index.html.erb within layouts/application (0.3ms)
+I, [2022-09-08T17:39:48.027722 #322455]  INFO -- : [af1df241-98ab-4d45-bc60-fccddb8eb265] Completed 200 OK in 98ms (Views: 91.1ms)
+I, [2022-09-08T17:39:51.546274 #322455]  INFO -- : [dbda2ac3-3b66-4786-9f28-04a3d911d18e] Started GET "/sidekiq/busy" for 127.0.0.1 at 2022-09-08 17:39:51 +0500

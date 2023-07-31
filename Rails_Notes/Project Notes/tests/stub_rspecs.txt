@@ -1,0 +1,85 @@
+
+
+
+In RSpec, allow is a method that is used to create method stubs or mocks. The basic syntax for allow is:
+
+syntax:
+allow(<object>).to receive(<method>).and_return(<value>)
+
+
+Here's what each part of the syntax means:
+
+<object> is the object that you want to stub or mock a method on. This can be an instance of a class, a class itself, or any other object.
+<method> is the name of the method that you want to stub or mock.
+<value> is the value that you want the stubbed or mocked method to return when it is called.
+Here's an example of how you could use allow to stub the greet method of an object:
+
+Example:
+
+class Greeter
+  def greet(name)
+    "Hello, #{name}!"
+  end
+end
+
+RSpec.describe Greeter do
+  describe "#greet" do
+    it "returns a greeting message" do
+      greeter = Greeter.new
+
+      # Use `allow` to stub the `greet` method of the `greeter` object
+      allow(greeter).to receive(:greet).and_return("Hi there!")
+
+      expect(greeter.greet("Alice")).to eq("Hi there!")
+    end
+  end
+end
+
+
+*************************
+
+
+
+rspec spec/graphql/queries/content_components_spec.rb 
+rspec spec/graphql/queries/service_types_spec.rb;
+
+
+*********************
+
+
+testing:
+
+
+without user: 
+
+with user 1 app true:   1:60ddccdc2e4480850100ca945a1a0e31
+User.find(1).app_in_review?  return false
+
+with user 3 app true: 
+3:25886b33bc9feb218312e2272c2b43d3
+
+User.find(3).app_in_review?  return true
+
+
+*********************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

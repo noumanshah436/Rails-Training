@@ -1,0 +1,548 @@
+Started GET "/" for ::1 at 2022-09-06 13:10:18 +0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/2.7.0/gems/railties-5.2.8.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/2.7.0/gems/railties-5.2.8.1/lib/rails/templates/rails/welcome/index.html.erb (1.8ms)
+Completed 200 OK in 8ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/welcome/index" for ::1 at 2022-09-06 13:10:25 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/welcome/index"):
+  
+actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/home/index" for ::1 at 2022-09-06 13:10:46 +0500
+Processing by HomeController#index as HTML
+[ActiveJob] Enqueued FirstJobJob (Job ID: 9e42159f-9a8e-40d3-8d9c-dbadbdcacef8) to Async(default)
+[ActiveJob] [FirstJobJob] [9e42159f-9a8e-40d3-8d9c-dbadbdcacef8] Performing FirstJobJob (Job ID: 9e42159f-9a8e-40d3-8d9c-dbadbdcacef8) from Async(default)
+[ActiveJob] [FirstJobJob] [9e42159f-9a8e-40d3-8d9c-dbadbdcacef8] Performed FirstJobJob (Job ID: 9e42159f-9a8e-40d3-8d9c-dbadbdcacef8) from Async(default) in 3.93ms
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 297ms (Views: 278.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for ::1 at 2022-09-06 13:18:55 +0500
+Processing by HomeController#index as HTML
+[ActiveJob] Enqueued FirstJobJob (Job ID: c64be57b-e35c-463b-901e-2fbbf6bc1503) to Async(default)
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 23ms (Views: 20.2ms | ActiveRecord: 0.0ms)
+
+
+[ActiveJob] [FirstJobJob] [c64be57b-e35c-463b-901e-2fbbf6bc1503] Performing FirstJobJob (Job ID: c64be57b-e35c-463b-901e-2fbbf6bc1503) from Async(default)
+[ActiveJob] [FirstJobJob] [c64be57b-e35c-463b-901e-2fbbf6bc1503] Performed FirstJobJob (Job ID: c64be57b-e35c-463b-901e-2fbbf6bc1503) from Async(default) in 0.04ms
+Started GET "/home/index" for ::1 at 2022-09-06 13:20:56 +0500
+Processing by HomeController#index as HTML
+[ActiveJob] Enqueued FirstJobJob (Job ID: c722926b-ed18-418f-87c5-229de78ecdc5) to Async(default)
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 35ms (Views: 32.3ms | ActiveRecord: 0.0ms)
+
+
+[ActiveJob] [FirstJobJob] [c722926b-ed18-418f-87c5-229de78ecdc5] Performing FirstJobJob (Job ID: c722926b-ed18-418f-87c5-229de78ecdc5) from Async(default)
+[ActiveJob] [FirstJobJob] [c722926b-ed18-418f-87c5-229de78ecdc5] Performed FirstJobJob (Job ID: c722926b-ed18-418f-87c5-229de78ecdc5) from Async(default) in 5000.38ms
+Started GET "/home/index" for ::1 at 2022-09-06 13:21:15 +0500
+Processing by HomeController#index as HTML
+[ActiveJob] Enqueued FirstJobJob (Job ID: b424452d-c430-4ef0-98c8-96a263775dac) to Async(default)
+[ActiveJob] [FirstJobJob] [b424452d-c430-4ef0-98c8-96a263775dac] Performing FirstJobJob (Job ID: b424452d-c430-4ef0-98c8-96a263775dac) from Async(default)
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 24ms (Views: 22.2ms | ActiveRecord: 0.0ms)
+
+
+[ActiveJob] [FirstJobJob] [b424452d-c430-4ef0-98c8-96a263775dac] Performed FirstJobJob (Job ID: b424452d-c430-4ef0-98c8-96a263775dac) from Async(default) in 5000.33ms
+Started GET "/home/index" for ::1 at 2022-09-06 13:21:34 +0500
+Processing by HomeController#index as HTML
+[ActiveJob] Enqueued FirstJobJob (Job ID: 4aa10399-da96-454d-a25b-ce49d65dff3b) to Async(default)
+[ActiveJob] [FirstJobJob] [4aa10399-da96-454d-a25b-ce49d65dff3b] Performing FirstJobJob (Job ID: 4aa10399-da96-454d-a25b-ce49d65dff3b) from Async(default)
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for ::1 at 2022-09-06 13:21:37 +0500
+Processing by HomeController#index as HTML
+[ActiveJob] Enqueued FirstJobJob (Job ID: e7a13ca1-7607-4dcf-97d8-86fd8cc1f350) to Async(default)
+[ActiveJob] [FirstJobJob] [e7a13ca1-7607-4dcf-97d8-86fd8cc1f350] Performing FirstJobJob (Job ID: e7a13ca1-7607-4dcf-97d8-86fd8cc1f350) from Async(default)
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 21ms (Views: 17.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for ::1 at 2022-09-06 13:21:39 +0500
+Processing by HomeController#index as HTML
+[ActiveJob] Enqueued FirstJobJob (Job ID: 4df4af22-748e-479b-9414-cc6702dec461) to Async(default)
+[ActiveJob] [FirstJobJob] [4df4af22-748e-479b-9414-cc6702dec461] Performing FirstJobJob (Job ID: 4df4af22-748e-479b-9414-cc6702dec461) from Async(default)
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 17ms (Views: 13.8ms | ActiveRecord: 0.0ms)
+
+
+[ActiveJob] [FirstJobJob] [4aa10399-da96-454d-a25b-ce49d65dff3b] Performed FirstJobJob (Job ID: 4aa10399-da96-454d-a25b-ce49d65dff3b) from Async(default) in 5000.43ms
+Started GET "/home/index" for ::1 at 2022-09-06 13:21:39 +0500
+Processing by HomeController#index as HTML
+[ActiveJob] Enqueued FirstJobJob (Job ID: c2c7b548-d063-4a22-b165-6ba862087a7c) to Async(default)
+[ActiveJob] [FirstJobJob] [c2c7b548-d063-4a22-b165-6ba862087a7c] Performing FirstJobJob (Job ID: c2c7b548-d063-4a22-b165-6ba862087a7c) from Async(default)
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for ::1 at 2022-09-06 13:21:40 +0500
+Processing by HomeController#index as HTML
+[ActiveJob] Enqueued FirstJobJob (Job ID: 24531c7a-e6e4-4633-ae5b-32c671a9ff5c) to Async(default)
+[ActiveJob] [FirstJobJob] [24531c7a-e6e4-4633-ae5b-32c671a9ff5c] Performing FirstJobJob (Job ID: 24531c7a-e6e4-4633-ae5b-32c671a9ff5c) from Async(default)
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+[ActiveJob] [FirstJobJob] [e7a13ca1-7607-4dcf-97d8-86fd8cc1f350] Performed FirstJobJob (Job ID: e7a13ca1-7607-4dcf-97d8-86fd8cc1f350) from Async(default) in 5000.41ms
+[ActiveJob] [FirstJobJob] [4df4af22-748e-479b-9414-cc6702dec461] Performed FirstJobJob (Job ID: 4df4af22-748e-479b-9414-cc6702dec461) from Async(default) in 5000.27ms
+[ActiveJob] [FirstJobJob] [c2c7b548-d063-4a22-b165-6ba862087a7c] Performed FirstJobJob (Job ID: c2c7b548-d063-4a22-b165-6ba862087a7c) from Async(default) in 5000.35ms
+[ActiveJob] [FirstJobJob] [24531c7a-e6e4-4633-ae5b-32c671a9ff5c] Performed FirstJobJob (Job ID: 24531c7a-e6e4-4633-ae5b-32c671a9ff5c) from Async(default) in 5000.36ms
+[ActiveJob] [GenerateRandomUserJob] [c0291920-5389-493e-bc43-ee6615bb8a2c] Performing GenerateRandomUserJob (Job ID: c0291920-5389-493e-bc43-ee6615bb8a2c) from Async(default)
+[ActiveJob] [GenerateRandomUserJob] [c0291920-5389-493e-bc43-ee6615bb8a2c] Performed GenerateRandomUserJob (Job ID: c0291920-5389-493e-bc43-ee6615bb8a2c) from Async(default) in 5002.36ms
+[ActiveJob] [GenerateRandomUserJob] [8f85cb51-8fe2-4021-aa76-45513ded377d] Performing GenerateRandomUserJob (Job ID: 8f85cb51-8fe2-4021-aa76-45513ded377d) from Async(default)
+[ActiveJob] [GenerateRandomUserJob] [8f85cb51-8fe2-4021-aa76-45513ded377d] Performed GenerateRandomUserJob (Job ID: 8f85cb51-8fe2-4021-aa76-45513ded377d) from Async(default) in 5000.39ms
+Started GET "/" for ::1 at 2022-09-06 15:26:01 +0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/2.7.0/gems/railties-5.2.8.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/2.7.0/gems/railties-5.2.8.1/lib/rails/templates/rails/welcome/index.html.erb (1.2ms)
+Completed 200 OK in 6ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/about" for ::1 at 2022-09-06 15:26:08 +0500
+  
+ActionController::RoutingError (undefined method `validatde' for HomeController:Class):
+  
+app/controllers/concerns/validator.rb:5:in `block in <module:Validator>'
+app/controllers/home_controller.rb:2:in `include'
+app/controllers/home_controller.rb:2:in `<class:HomeController>'
+app/controllers/home_controller.rb:1:in `<main>'
+Started GET "/home/about" for ::1 at 2022-09-06 15:26:44 +0500
+  
+ActionController::RoutingError (undefined method `validatde' for HomeController:Class):
+  
+app/controllers/concerns/validator.rb:5:in `block in <module:Validator>'
+app/controllers/home_controller.rb:2:in `include'
+app/controllers/home_controller.rb:2:in `<class:HomeController>'
+app/controllers/home_controller.rb:1:in `<main>'
+Started GET "/home/about" for ::1 at 2022-09-06 15:27:13 +0500
+  
+ActionController::RoutingError (undefined method `validatde' for HomeController:Class):
+  
+app/controllers/concerns/validator.rb:5:in `block in <module:Validator>'
+app/controllers/home_controller.rb:2:in `include'
+app/controllers/home_controller.rb:2:in `<class:HomeController>'
+app/controllers/home_controller.rb:1:in `<main>'
+Started GET "/home/about" for ::1 at 2022-09-06 15:27:14 +0500
+  
+ActionController::RoutingError (undefined method `validatde' for HomeController:Class):
+  
+app/controllers/concerns/validator.rb:5:in `block in <module:Validator>'
+app/controllers/home_controller.rb:2:in `include'
+app/controllers/home_controller.rb:2:in `<class:HomeController>'
+app/controllers/home_controller.rb:1:in `<main>'
+Started GET "/home/about" for ::1 at 2022-09-06 15:27:26 +0500
+  
+ActionController::RoutingError (undefined method `validatde' for HomeController:Class):
+  
+app/controllers/concerns/validator.rb:5:in `block in <module:Validator>'
+app/controllers/home_controller.rb:2:in `include'
+app/controllers/home_controller.rb:2:in `<class:HomeController>'
+app/controllers/home_controller.rb:1:in `<main>'
+Started GET "/home/about" for ::1 at 2022-09-06 15:27:27 +0500
+  
+ActionController::RoutingError (undefined method `validatde' for HomeController:Class):
+  
+app/controllers/concerns/validator.rb:5:in `block in <module:Validator>'
+app/controllers/home_controller.rb:2:in `include'
+app/controllers/home_controller.rb:2:in `<class:HomeController>'
+app/controllers/home_controller.rb:1:in `<main>'
+Started GET "/home/about" for ::1 at 2022-09-06 15:32:52 +0500
+  
+TypeError (wrong argument type String (expected Module)):
+  
+app/controllers/home_controller.rb:3:in `extend'
+app/controllers/home_controller.rb:3:in `<class:HomeController>'
+app/controllers/home_controller.rb:1:in `<main>'
+Started GET "/home/about" for ::1 at 2022-09-06 15:33:13 +0500
+  
+TypeError (wrong argument type String (expected Module)):
+  
+app/controllers/home_controller.rb:3:in `extend'
+app/controllers/home_controller.rb:3:in `<class:HomeController>'
+app/controllers/home_controller.rb:1:in `<main>'
+Started GET "/home/about" for ::1 at 2022-09-06 15:33:14 +0500
+  
+TypeError (wrong argument type String (expected Module)):
+  
+app/controllers/home_controller.rb:3:in `extend'
+app/controllers/home_controller.rb:3:in `<class:HomeController>'
+app/controllers/home_controller.rb:1:in `<main>'
+Started GET "/home/about" for ::1 at 2022-09-06 15:34:01 +0500
+Processing by HomeController#about as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `greeting' for Validator:Module):
+  
+app/controllers/home_controller.rb:13:in `about'
+Started GET "/home/about" for ::1 at 2022-09-06 15:44:56 +0500
+Processing by HomeController#about as HTML
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `greetings' for #<HomeController:0x00007f7b50792110>):
+  
+app/controllers/home_controller.rb:13:in `about'
+Started GET "/home/about" for ::1 at 2022-09-06 15:45:18 +0500
+Processing by HomeController#about as HTML
+  Rendering home/about.html.erb within layouts/application
+  Rendered home/about.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 177ms (Views: 175.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/about" for ::1 at 2022-09-06 15:46:46 +0500
+Processing by HomeController#about as HTML
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `say_hello' for Validator:Module):
+  
+app/controllers/home_controller.rb:15:in `about'
+Started GET "/home/about" for ::1 at 2022-09-06 15:47:04 +0500
+Processing by HomeController#about as HTML
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `say_hello' for #<HomeController:0x00007f7b58b28b28>):
+  
+app/controllers/home_controller.rb:15:in `about'
+Started GET "/home/about" for ::1 at 2022-09-06 15:47:17 +0500
+Processing by HomeController#about as HTML
+  Rendering home/about.html.erb within layouts/application
+  Rendered home/about.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/about" for ::1 at 2022-09-06 15:54:34 +0500
+Processing by HomeController#about as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `greetings' for nil:NilClass):
+  
+app/controllers/home_controller.rb:14:in `about'
+Started GET "/home/about" for ::1 at 2022-09-06 15:54:46 +0500
+Processing by HomeController#about as HTML
+  Rendering home/about.html.erb within layouts/application
+  Rendered home/about.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+
+
+[ActiveJob] [GenerateRandomUserJob] [7efb418e-d8a2-4ae2-8d2a-18debd842edc] Performing GenerateRandomUserJob (Job ID: 7efb418e-d8a2-4ae2-8d2a-18debd842edc) from Async(default)
+[ActiveJob] [GenerateRandomUserJob] [7efb418e-d8a2-4ae2-8d2a-18debd842edc] Performed GenerateRandomUserJob (Job ID: 7efb418e-d8a2-4ae2-8d2a-18debd842edc) from Async(default) in 5001.14ms
+[ActiveJob] [GenerateRandomUserJob] [9116f40c-ebd1-4719-9faa-3d8f0ffe541e] Performing GenerateRandomUserJob (Job ID: 9116f40c-ebd1-4719-9faa-3d8f0ffe541e) from Async(default)
+[ActiveJob] [GenerateRandomUserJob] [9116f40c-ebd1-4719-9faa-3d8f0ffe541e] Performed GenerateRandomUserJob (Job ID: 9116f40c-ebd1-4719-9faa-3d8f0ffe541e) from Async(default) in 5009.4ms
+[ActiveJob] [GenerateRandomUserJob] [b8e17de7-4480-4358-aaa7-440f38d868e2] Performing GenerateRandomUserJob (Job ID: b8e17de7-4480-4358-aaa7-440f38d868e2) from Async(default)
+[ActiveJob] [GenerateRandomUserJob] [b8e17de7-4480-4358-aaa7-440f38d868e2] Error performing GenerateRandomUserJob (Job ID: b8e17de7-4480-4358-aaa7-440f38d868e2) from Async(default) in 641820.2ms: Sidekiq::Shutdown (Sidekiq::Shutdown):
+/home/dev/Rails/Day 9/ActiveJobs/app/jobs/generate_random_user_job.rb:7:in `sleep'
+/home/dev/Rails/Day 9/ActiveJobs/app/jobs/generate_random_user_job.rb:7:in `perform'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:39:in `block in perform_now'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/i18n-1.12.0/lib/i18n.rb:322:in `with_locale'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `instance_exec'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:26:in `block (4 levels) in <module:Logging>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/notifications.rb:168:in `block in instrument'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/notifications.rb:168:in `instrument'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:25:in `block (3 levels) in <module:Logging>'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:46:in `block in tag_logger'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:28:in `tagged'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:71:in `tagged'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:46:in `tag_logger'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:22:in `block (2 levels) in <module:Logging>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `instance_exec'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:38:in `perform_now'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:24:in `block in execute'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/railtie.rb:28:in `block (4 levels) in <class:Railtie>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/execution_wrapper.rb:86:in `wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/reloader.rb:73:in `block in wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/execution_wrapper.rb:86:in `wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/reloader.rb:72:in `wrap'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/railtie.rb:27:in `block (3 levels) in <class:Railtie>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `instance_exec'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:22:in `execute'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/queue_adapters/sidekiq_adapter.rb:42:in `perform'
+/var/lib/gems/2.7.0/gems/sidekiq-6.5.6/lib/sidekiq/processor.rb:202:in `execute_job'
+/var/lib/gems/2.7.0/gems/sidekiq-6.5.6/lib/sidekiq/processor.rb:170:in `block (2 levels) in process'
+/var/lib/gems/2.7.0/gems/sidekiq-6.5.6/lib/sidekiq/middleware/chain.rb:172:in `invoke'
+/var/lib/gems/2.7.0/gems/sidekiq-6.5.6/lib/sidekiq/processor.rb:169:in `block in process'
+/var/lib/gems/2.7.0/gems/sidekiq-6.5.6/lib/sidekiq/processor.rb:136:in `block (6 levels) in dispatch'
+/var/lib/gems/2.7.0/gems/sidekiq-6.5.6/lib/sidekiq/job_retry.rb:113:in `local'
+/var/lib/gems/2.7.0/gems/sidekiq-6.5.6/lib/sidekiq/processor.rb:135:in `block (5 levels) in dispatch'
+/var/lib/gems/2.7.0/gems/sidekiq-6.5.6/lib/sidekiq/rails.rb:14:in `block in call'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/execution_wrapper.rb:90:in `wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/reloader.rb:73:in `block in wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/execution_wrapper.rb:90:in `wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/reloader.rb:72:in `wrap'
+/var/lib/gems/2.7.0/gems/sidekiq-6.5.6/lib/sidekiq/rails.rb:13:in `call'
+/var/lib/gems/2.7.0/gems/sidekiq-6.5.6/lib/sidekiq/processor.rb:131:in `block (4 levels) in dispatch'
+/var/lib/gems/2.7.0/gems/sidekiq-6.5.6/lib/sidekiq/processor.rb:263:in `stats'
+/var/lib/gems/2.7.0/gems/sidekiq-6.5.6/lib/sidekiq/processor.rb:126:in `block (3 levels) in dispatch'
+/var/lib/gems/2.7.0/gems/sidekiq-6.5.6/lib/sidekiq/job_logger.rb:13:in `call'
+/var/lib/gems/2.7.0/gems/sidekiq-6.5.6/lib/sidekiq/processor.rb:125:in `block (2 levels) in dispatch'
+/var/lib/gems/2.7.0/gems/sidekiq-6.5.6/lib/sidekiq/job_retry.rb:80:in `global'
+/var/lib/gems/2.7.0/gems/sidekiq-6.5.6/lib/sidekiq/processor.rb:124:in `block in dispatch'
+/var/lib/gems/2.7.0/gems/sidekiq-6.5.6/lib/sidekiq/job_logger.rb:39:in `prepare'
+/var/lib/gems/2.7.0/gems/sidekiq-6.5.6/lib/sidekiq/processor.rb:123:in `dispatch'
+/var/lib/gems/2.7.0/gems/sidekiq-6.5.6/lib/sidekiq/processor.rb:168:in `process'
+/var/lib/gems/2.7.0/gems/sidekiq-6.5.6/lib/sidekiq/processor.rb:78:in `process_one'
+/var/lib/gems/2.7.0/gems/sidekiq-6.5.6/lib/sidekiq/processor.rb:68:in `run'
+/var/lib/gems/2.7.0/gems/sidekiq-6.5.6/lib/sidekiq/component.rb:8:in `watchdog'
+/var/lib/gems/2.7.0/gems/sidekiq-6.5.6/lib/sidekiq/component.rb:17:in `block in safe_thread'
+[ActiveJob] [GenerateRandomUserJob] [b8e17de7-4480-4358-aaa7-440f38d868e2] Performing GenerateRandomUserJob (Job ID: b8e17de7-4480-4358-aaa7-440f38d868e2) from Async(default)
+[ActiveJob] [GenerateRandomUserJob] [d57f6573-ca4f-49a3-b66a-fe5dfe6e0c9e] Performing GenerateRandomUserJob (Job ID: d57f6573-ca4f-49a3-b66a-fe5dfe6e0c9e) from Async(default)
+[ActiveJob] [GenerateRandomUserJob] [43d7e241-381e-4471-b524-3b0e3796c17e] Performing GenerateRandomUserJob (Job ID: 43d7e241-381e-4471-b524-3b0e3796c17e) from Async(default)
+[ActiveJob] [GenerateRandomUserJob] [b8e17de7-4480-4358-aaa7-440f38d868e2] Performed GenerateRandomUserJob (Job ID: b8e17de7-4480-4358-aaa7-440f38d868e2) from Async(default) in 5000.94ms
+[ActiveJob] [GenerateRandomUserJob] [d57f6573-ca4f-49a3-b66a-fe5dfe6e0c9e] Performed GenerateRandomUserJob (Job ID: d57f6573-ca4f-49a3-b66a-fe5dfe6e0c9e) from Async(default) in 5000.39ms
+[ActiveJob] [GenerateRandomUserJob] [43d7e241-381e-4471-b524-3b0e3796c17e] Performed GenerateRandomUserJob (Job ID: 43d7e241-381e-4471-b524-3b0e3796c17e) from Async(default) in 5000.23ms
+[ActiveJob] [GenerateRandomUserJob] [b8e17de7-4480-4358-aaa7-440f38d868e2] Performing GenerateRandomUserJob (Job ID: b8e17de7-4480-4358-aaa7-440f38d868e2) from Async(default)
+[ActiveJob] [GenerateRandomUserJob] [d57f6573-ca4f-49a3-b66a-fe5dfe6e0c9e] Performing GenerateRandomUserJob (Job ID: d57f6573-ca4f-49a3-b66a-fe5dfe6e0c9e) from Async(default)
+[ActiveJob] [GenerateRandomUserJob] [43d7e241-381e-4471-b524-3b0e3796c17e] Performing GenerateRandomUserJob (Job ID: 43d7e241-381e-4471-b524-3b0e3796c17e) from Async(default)
+[ActiveJob] [GenerateRandomUserJob] [b8e17de7-4480-4358-aaa7-440f38d868e2] Performed GenerateRandomUserJob (Job ID: b8e17de7-4480-4358-aaa7-440f38d868e2) from Async(default) in 5000.96ms
+[ActiveJob] [GenerateRandomUserJob] [d57f6573-ca4f-49a3-b66a-fe5dfe6e0c9e] Performed GenerateRandomUserJob (Job ID: d57f6573-ca4f-49a3-b66a-fe5dfe6e0c9e) from Async(default) in 5000.23ms
+[ActiveJob] [GenerateRandomUserJob] [43d7e241-381e-4471-b524-3b0e3796c17e] Performed GenerateRandomUserJob (Job ID: 43d7e241-381e-4471-b524-3b0e3796c17e) from Async(default) in 5000.64ms
+[ActiveJob] [GenerateRandomUserJob] [a57ef8f5-e14e-4933-9d59-1002966096d9] Performing GenerateRandomUserJob (Job ID: a57ef8f5-e14e-4933-9d59-1002966096d9) from Async(default)
+[ActiveJob] [GenerateRandomUserJob] [a57ef8f5-e14e-4933-9d59-1002966096d9] Performed GenerateRandomUserJob (Job ID: a57ef8f5-e14e-4933-9d59-1002966096d9) from Async(default) in 5000.39ms
+Started GET "/" for ::1 at 2022-09-21 23:58:35 +0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/2.7.0/gems/railties-5.2.8.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/2.7.0/gems/railties-5.2.8.1/lib/rails/templates/rails/welcome/index.html.erb (1.6ms)
+Completed 200 OK in 8ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for ::1 at 2022-09-21 23:59:00 +0500
+Processing by HomeController#index as HTML
+[ActiveJob] Enqueued GenerateRandomUserJob (Job ID: b5377b24-d334-442a-8e92-d0bae41e31a4) to Async(default)
+[ActiveJob] [GenerateRandomUserJob] [b5377b24-d334-442a-8e92-d0bae41e31a4] Performing GenerateRandomUserJob (Job ID: b5377b24-d334-442a-8e92-d0bae41e31a4) from Async(default)
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 177ms (Views: 160.8ms | ActiveRecord: 0.0ms)
+
+
+[ActiveJob] [GenerateRandomUserJob] [b5377b24-d334-442a-8e92-d0bae41e31a4] Performed GenerateRandomUserJob (Job ID: b5377b24-d334-442a-8e92-d0bae41e31a4) from Async(default) in 5003.84ms
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreatePosts (20230102115936)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20230102115936_create_posts.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230102115936"]]
+  ↳ bin/rails:9
+  [1m[35m (20.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-01-02 12:04:18.904288"], ["updated_at", "2023-01-02 12:04:18.904288"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "title"], ["created_at", "2023-01-02 12:04:48.661013"], ["updated_at", "2023-01-02 12:04:48.661013"]]
+  [1m[35m (37.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/" for ::1 at 2023-02-21 23:04:53 +0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/2.7.0/gems/railties-5.2.8.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/2.7.0/gems/railties-5.2.8.1/lib/rails/templates/rails/welcome/index.html.erb (1.7ms)
+Completed 200 OK in 8ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/random_number_service" for ::1 at 2023-02-21 23:05:22 +0500
+  
+SyntaxError (/home/dev/Rails/Day 9/ActiveJobs/app/controllers/home_controller.rb:21: syntax error, unexpected '}', expecting =>
+...GenerateRandom.new(1,10).call }
+...                              ^
+):
+  
+app/controllers/home_controller.rb:21: syntax error, unexpected '}', expecting =>
+Started GET "/home/random_number_service" for ::1 at 2023-02-21 23:05:42 +0500
+  
+ActionController::RoutingError (undefined method `validates' for HomeController:Class):
+  
+app/controllers/concerns/visible.rb:5:in `block in <module:Visible>'
+app/controllers/home_controller.rb:3:in `include'
+app/controllers/home_controller.rb:3:in `<class:HomeController>'
+app/controllers/home_controller.rb:1:in `<main>'
+Started GET "/home/random_number_service" for ::1 at 2023-02-21 23:05:45 +0500
+  
+ActionController::RoutingError (undefined method `validates' for HomeController:Class):
+  
+app/controllers/concerns/visible.rb:5:in `block in <module:Visible>'
+app/controllers/home_controller.rb:3:in `include'
+app/controllers/home_controller.rb:3:in `<class:HomeController>'
+app/controllers/home_controller.rb:1:in `<main>'
+Started GET "/home/random_number_service" for ::1 at 2023-02-21 23:06:04 +0500
+  
+ActionController::RoutingError (undefined method `validates' for HomeController:Class):
+  
+app/controllers/concerns/visible.rb:5:in `block in <module:Visible>'
+app/controllers/home_controller.rb:3:in `include'
+app/controllers/home_controller.rb:3:in `<class:HomeController>'
+app/controllers/home_controller.rb:1:in `<main>'
+Started GET "/home/about" for ::1 at 2023-02-21 23:07:29 +0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (undefined method `validates' for HomeController:Class):
+  
+app/controllers/concerns/visible.rb:5:in `block in <module:Visible>'
+app/controllers/home_controller.rb:3:in `include'
+app/controllers/home_controller.rb:3:in `<class:HomeController>'
+app/controllers/home_controller.rb:1:in `<main>'
+Started GET "/home/about" for ::1 at 2023-02-21 23:07:58 +0500
+Processing by HomeController#about as HTML
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `greetings' for #<HomeController:0x0000556570bb5b18>):
+  
+app/controllers/home_controller.rb:14:in `about'
+Started GET "/home/random_number_service" for ::1 at 2023-02-21 23:09:09 +0500
+Processing by HomeController#random_number_service as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant HomeController::GenerateRandom):
+  
+app/controllers/home_controller.rb:20:in `random_number_service'
+Started GET "/home/random_number_service" for ::1 at 2023-02-21 23:09:42 +0500
+Processing by HomeController#random_number_service as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant HomeController::GenerateRandom):
+  
+app/controllers/home_controller.rb:20:in `random_number_service'
+Started GET "/home/random_number_service" for ::1 at 2023-02-21 23:10:23 +0500
+Processing by HomeController#random_number_service as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant HomeController::GenerateRandomNumber):
+  
+app/controllers/home_controller.rb:20:in `random_number_service'
+Started GET "/home/random_number_service" for ::1 at 2023-02-21 23:11:51 +0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#random_number_service as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant HomeController::GenerateRandomNumber):
+  
+app/controllers/home_controller.rb:20:in `random_number_service'
+Started GET "/home/random_number_service" for ::1 at 2023-02-21 23:11:55 +0500
+Processing by HomeController#random_number_service as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant HomeController::GenerateRandomNumber):
+  
+app/controllers/home_controller.rb:20:in `random_number_service'
+Started GET "/home/random_number_service" for ::1 at 2023-02-21 23:12:03 +0500
+Processing by HomeController#random_number_service as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant HomeController::GenerateRandomNumber):
+  
+app/controllers/home_controller.rb:20:in `random_number_service'
+Started GET "/home/random_number_service" for ::1 at 2023-02-21 23:12:21 +0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#random_number_service as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant HomeController::GenerateRandomNumber):
+  
+app/controllers/home_controller.rb:20:in `random_number_service'
+Started GET "/home/random_number_service" for ::1 at 2023-02-21 23:12:23 +0500
+Processing by HomeController#random_number_service as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant HomeController::GenerateRandomNumber):
+  
+app/controllers/home_controller.rb:20:in `random_number_service'

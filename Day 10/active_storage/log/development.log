@@ -1,0 +1,965 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateActiveStorageTables (20220927140708)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "byte_size" bigint NOT NULL, "checksum" varchar NOT NULL, "created_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220927140708_create_active_storage_tables.active_storage.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  ↳ db/migrate/20220927140708_create_active_storage_tables.active_storage.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "blob_id" integer NOT NULL, "created_at" datetime NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  ↳ db/migrate/20220927140708_create_active_storage_tables.active_storage.rb:16
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  ↳ db/migrate/20220927140708_create_active_storage_tables.active_storage.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  ↳ db/migrate/20220927140708_create_active_storage_tables.active_storage.rb:16
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220927140708"]]
+  ↳ bin/rails:9
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateBooks (20220927140821)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220927140821_create_books.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220927140821"]]
+  ↳ bin/rails:9
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateImages (20220927140828)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "images" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220927140828_create_images.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220927140828"]]
+  ↳ bin/rails:9
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-09-27 14:16:34.438765"], ["updated_at", "2022-09-27 14:16:34.438765"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2022-09-27 19:17:05 +0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:14
+  Rendered books/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 374ms (Views: 361.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/books/new" for ::1 at 2022-09-27 19:17:09 +0500
+Processing by BooksController#new as HTML
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (22.1ms)
+  Rendered books/new.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 77ms (Views: 63.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/books" for ::1 at 2022-09-27 19:17:20 +0500
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hjAlTLu5eeeFO0AiEvN3zRIsllVWLeXc6KKfR21jpcFkJwj1eEoBNh6tLqlJYKkSO8Y0xQJiaTULoK1YOTC6ow==", "book"=>{"title"=>"ASD", "pictures"=>[#<ActionDispatch::Http::UploadedFile:0x00007f5a6981dba0 @tempfile=#<Tempfile:/tmp/RackMultipart20220927-445719-15llfq3.jpg>, @original_filename="2022-08-11-160929.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"book[pictures][]\"; filename=\"2022-08-11-160929.jpg\"\r\nContent-Type: image/jpeg\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007f5a6981db50 @tempfile=#<Tempfile:/tmp/RackMultipart20220927-445719-tbv69n.jpg>, @original_filename="2022-09-19-230459.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"book[pictures][]\"; filename=\"2022-09-19-230459.jpg\"\r\nContent-Type: image/jpeg\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007f5a6981db00 @tempfile=#<Tempfile:/tmp/RackMultipart20220927-445719-1l81z63.jpg>, @original_filename="2022-09-19-230507.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"book[pictures][]\"; filename=\"2022-09-19-230507.jpg\"\r\nContent-Type: image/jpeg\r\n">]}, "commit"=>"Create Book"}
+[36m  Cloudinary Storage (3144.2ms) [0m[32mUploaded file to key: hJDUuoZEygZCcnmG3mZYRxrW (checksum: WZMHgD/ZBToHtC3Pn1bb9g==)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:24
+  [1m[36mActiveStorage::Blob Create (0.6ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["key", "hJDUuoZEygZCcnmG3mZYRxrW"], ["filename", "2022-08-11-160929.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 41854], ["checksum", "WZMHgD/ZBToHtC3Pn1bb9g=="], ["created_at", "2022-09-27 14:17:23.354646"]]
+  ↳ app/controllers/books_controller.rb:24
+  [1m[35m (11.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:24
+[36m  Cloudinary Storage (3953.5ms) [0m[32mUploaded file to key: joJPVFn7w1W7GBKzVizUoBf3 (checksum: ig8yNyJhVuCux1fXACKVjw==)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:24
+  [1m[36mActiveStorage::Blob Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["key", "joJPVFn7w1W7GBKzVizUoBf3"], ["filename", "2022-09-19-230459.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 31276], ["checksum", "ig8yNyJhVuCux1fXACKVjw=="], ["created_at", "2022-09-27 14:17:27.343405"]]
+  ↳ app/controllers/books_controller.rb:24
+  [1m[35m (13.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:24
+[36m  Cloudinary Storage (3359.6ms) [0m[32mUploaded file to key: GUy9dxMr3mj8LkQx6cLyqRtG (checksum: MW6IzuA9IP/7to1YnFVRLg==)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:24
+  [1m[36mActiveStorage::Blob Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["key", "GUy9dxMr3mj8LkQx6cLyqRtG"], ["filename", "2022-09-19-230507.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 35152], ["checksum", "MW6IzuA9IP/7to1YnFVRLg=="], ["created_at", "2022-09-27 14:17:30.724783"]]
+  ↳ app/controllers/books_controller.rb:24
+  [1m[35m (11.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:24
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:27
+  [1m[36mBook Create (1.1ms)[0m  [1m[32mINSERT INTO "books" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "ASD"], ["created_at", "2022-09-27 14:17:30.742751"], ["updated_at", "2022-09-27 14:17:30.742751"]]
+  ↳ app/controllers/books_controller.rb:27
+  [1m[36mActiveStorage::Attachment Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "pictures"], ["record_type", "Book"], ["record_id", 1], ["blob_id", 1], ["created_at", "2022-09-27 14:17:30.745772"]]
+  ↳ app/controllers/books_controller.rb:27
+  [1m[36mActiveStorage::Attachment Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "pictures"], ["record_type", "Book"], ["record_id", 1], ["blob_id", 2], ["created_at", "2022-09-27 14:17:30.747053"]]
+  ↳ app/controllers/books_controller.rb:27
+  [1m[36mActiveStorage::Attachment Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "pictures"], ["record_type", "Book"], ["record_id", 1], ["blob_id", 3], ["created_at", "2022-09-27 14:17:30.748423"]]
+  ↳ app/controllers/books_controller.rb:27
+  [1m[36mBook Update (0.2ms)[0m  [1m[33mUPDATE "books" SET "updated_at" = ? WHERE "books"."id" = ?[0m  [["updated_at", "2022-09-27 14:17:30.748934"], ["id", 1]]
+  ↳ app/controllers/books_controller.rb:27
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:27
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: e03179e0-eea1-4087-a2fd-08fc6e28ebf3) to Async(default) with arguments: #<GlobalID:0x00007f5a647066e0 @uri=#<URI::GID gid://active-storage/ActiveStorage::Blob/1>>
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 88783cc7-4c74-493e-ad40-3213116543d1) to Async(default) with arguments: #<GlobalID:0x00007f5a65286470 @uri=#<URI::GID gid://active-storage/ActiveStorage::Blob/2>>
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: a50af2f3-c8c5-436f-a159-dd33b17b7d15) to Async(default) with arguments: #<GlobalID:0x00007f5a64702838 @uri=#<URI::GID gid://active-storage/ActiveStorage::Blob/3>>
+Redirected to http://localhost:3000/books/1
+Completed 302 Found in 10613ms (ActiveRecord: 43.1ms)
+
+
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [88783cc7-4c74-493e-ad40-3213116543d1] Performing ActiveStorage::AnalyzeJob (Job ID: 88783cc7-4c74-493e-ad40-3213116543d1) from Async(default) with arguments: #<GlobalID:0x00007f5a3c0102c8 @uri=#<URI::GID gid://active-storage/ActiveStorage::Blob/2>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e03179e0-eea1-4087-a2fd-08fc6e28ebf3] Performing ActiveStorage::AnalyzeJob (Job ID: e03179e0-eea1-4087-a2fd-08fc6e28ebf3) from Async(default) with arguments: #<GlobalID:0x00007f5a65292298 @uri=#<URI::GID gid://active-storage/ActiveStorage::Blob/1>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [88783cc7-4c74-493e-ad40-3213116543d1] [36m  Cloudinary Storage (0.2ms) [0m[34mGenerated URL for file at key: joJPVFn7w1W7GBKzVizUoBf3 (https://res.cloudinary.com/dl40wvlge/image/upload/v1/rails_uploads/joJPVFn7w1W7GBKzVizUoBf3.jpg)[0m
+Started GET "/books/1" for ::1 at 2022-09-27 19:17:30 +0500
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a50af2f3-c8c5-436f-a159-dd33b17b7d15] Performing ActiveStorage::AnalyzeJob (Job ID: a50af2f3-c8c5-436f-a159-dd33b17b7d15) from Async(default) with arguments: #<GlobalID:0x00007f5a652917f8 @uri=#<URI::GID gid://active-storage/ActiveStorage::Blob/3>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e03179e0-eea1-4087-a2fd-08fc6e28ebf3] [36m  Cloudinary Storage (0.1ms) [0m[34mGenerated URL for file at key: hJDUuoZEygZCcnmG3mZYRxrW (https://res.cloudinary.com/dl40wvlge/image/upload/v1/rails_uploads/hJDUuoZEygZCcnmG3mZYRxrW.jpg)[0m
+Processing by BooksController#show as HTML
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a50af2f3-c8c5-436f-a159-dd33b17b7d15] [36m  Cloudinary Storage (0.1ms) [0m[34mGenerated URL for file at key: GUy9dxMr3mj8LkQx6cLyqRtG (https://res.cloudinary.com/dl40wvlge/image/upload/v1/rails_uploads/GUy9dxMr3mj8LkQx6cLyqRtG.jpg)[0m
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:63
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 1], ["record_type", "Book"], ["name", "pictures"]]
+  ↳ app/views/books/show.html.erb:7
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:8
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:8
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:8
+  Rendered books/show.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 28ms (Views: 23.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f9227ab7fb0afffe38cd31824b8aac910948219d/2022-08-11-160929.jpg" for ::1 at 2022-09-27 19:17:30 +0500
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--7b0ddbd78d1b459e78feb8517824c011c99990d8/2022-09-19-230459.jpg" for ::1 at 2022-09-27 19:17:30 +0500
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e03179e0-eea1-4087-a2fd-08fc6e28ebf3] [36m  Cloudinary Storage (1520.0ms) [0m[34mDownloaded file from key: hJDUuoZEygZCcnmG3mZYRxrW[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [88783cc7-4c74-493e-ad40-3213116543d1] [36m  Cloudinary Storage (1545.0ms) [0m[34mDownloaded file from key: joJPVFn7w1W7GBKzVizUoBf3[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [88783cc7-4c74-493e-ad40-3213116543d1] Error performing ActiveStorage::AnalyzeJob (Job ID: 88783cc7-4c74-493e-ad40-3213116543d1) from Async(default) in 1562.54ms: MiniMagick::Error (You must have ImageMagick or GraphicsMagick installed):
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/configuration.rb:139:in `cli'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick.rb:38:in `imagemagick7?'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/tool.rb:135:in `executable'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/tool.rb:110:in `command'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/tool.rb:92:in `call'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/tool.rb:38:in `new'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/image/info.rb:181:in `identify'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/image/info.rb:125:in `raw'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/image/info.rb:35:in `[]'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/image.rb:313:in `[]'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/analyzer/image_analyzer.rb:42:in `rotated_image?'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/analyzer/image_analyzer.rb:22:in `block in metadata'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/analyzer/image_analyzer.rb:37:in `block in read_image'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/downloading.rb:12:in `block in download_blob_to_tempfile'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/downloading.rb:20:in `open_tempfile_for_blob'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/downloading.rb:10:in `download_blob_to_tempfile'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/analyzer/image_analyzer.rb:35:in `read_image'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/analyzer/image_analyzer.rb:21:in `metadata'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/app/models/active_storage/blob/analyzable.rb:47:in `extract_metadata_via_analyzer'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/app/models/active_storage/blob/analyzable.rb:29:in `analyze'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/app/jobs/active_storage/analyze_job.rb:6:in `perform'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:39:in `block in perform_now'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/i18n-1.12.0/lib/i18n.rb:322:in `with_locale'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `instance_exec'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:26:in `block (4 levels) in <module:Logging>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/notifications.rb:168:in `block in instrument'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/notifications.rb:168:in `instrument'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:25:in `block (3 levels) in <module:Logging>'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:46:in `block in tag_logger'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:28:in `tagged'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:71:in `tagged'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:46:in `tag_logger'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:22:in `block (2 levels) in <module:Logging>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `instance_exec'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:38:in `perform_now'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:24:in `block in execute'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/railtie.rb:28:in `block (4 levels) in <class:Railtie>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/execution_wrapper.rb:90:in `wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/reloader.rb:73:in `block in wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/execution_wrapper.rb:90:in `wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/reloader.rb:72:in `wrap'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/railtie.rb:27:in `block (3 levels) in <class:Railtie>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `instance_exec'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:22:in `execute'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e03179e0-eea1-4087-a2fd-08fc6e28ebf3] Error performing ActiveStorage::AnalyzeJob (Job ID: e03179e0-eea1-4087-a2fd-08fc6e28ebf3) from Async(default) in 1559.92ms: MiniMagick::Error (You must have ImageMagick or GraphicsMagick installed):
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/configuration.rb:139:in `cli'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick.rb:38:in `imagemagick7?'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/tool.rb:135:in `executable'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/tool.rb:110:in `command'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/tool.rb:92:in `call'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/tool.rb:38:in `new'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/image/info.rb:181:in `identify'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/image/info.rb:125:in `raw'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/image/info.rb:35:in `[]'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/image.rb:313:in `[]'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/analyzer/image_analyzer.rb:42:in `rotated_image?'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/analyzer/image_analyzer.rb:22:in `block in metadata'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/analyzer/image_analyzer.rb:37:in `block in read_image'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/downloading.rb:12:in `block in download_blob_to_tempfile'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/downloading.rb:20:in `open_tempfile_for_blob'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/downloading.rb:10:in `download_blob_to_tempfile'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/analyzer/image_analyzer.rb:35:in `read_image'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/analyzer/image_analyzer.rb:21:in `metadata'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/app/models/active_storage/blob/analyzable.rb:47:in `extract_metadata_via_analyzer'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/app/models/active_storage/blob/analyzable.rb:29:in `analyze'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/app/jobs/active_storage/analyze_job.rb:6:in `perform'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:39:in `block in perform_now'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/i18n-1.12.0/lib/i18n.rb:322:in `with_locale'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `instance_exec'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:26:in `block (4 levels) in <module:Logging>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/notifications.rb:168:in `block in instrument'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/notifications.rb:168:in `instrument'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:25:in `block (3 levels) in <module:Logging>'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:46:in `block in tag_logger'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:28:in `tagged'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:71:in `tagged'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:46:in `tag_logger'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:22:in `block (2 levels) in <module:Logging>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `instance_exec'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:38:in `perform_now'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:24:in `block in execute'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/railtie.rb:28:in `block (4 levels) in <class:Railtie>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/execution_wrapper.rb:90:in `wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/reloader.rb:73:in `block in wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/execution_wrapper.rb:90:in `wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/reloader.rb:72:in `wrap'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/railtie.rb:27:in `block (3 levels) in <class:Railtie>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `instance_exec'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:22:in `execute'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a50af2f3-c8c5-436f-a159-dd33b17b7d15] [36m  Cloudinary Storage (1754.3ms) [0m[34mDownloaded file from key: GUy9dxMr3mj8LkQx6cLyqRtG[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a50af2f3-c8c5-436f-a159-dd33b17b7d15] Error performing ActiveStorage::AnalyzeJob (Job ID: a50af2f3-c8c5-436f-a159-dd33b17b7d15) from Async(default) in 1757.56ms: MiniMagick::Error (You must have ImageMagick or GraphicsMagick installed):
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/configuration.rb:139:in `cli'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick.rb:38:in `imagemagick7?'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/tool.rb:135:in `executable'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/tool.rb:110:in `command'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/tool.rb:92:in `call'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/tool.rb:38:in `new'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/image/info.rb:181:in `identify'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/image/info.rb:125:in `raw'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/image/info.rb:35:in `[]'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/image.rb:313:in `[]'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/analyzer/image_analyzer.rb:42:in `rotated_image?'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/analyzer/image_analyzer.rb:22:in `block in metadata'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/analyzer/image_analyzer.rb:37:in `block in read_image'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/downloading.rb:12:in `block in download_blob_to_tempfile'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/downloading.rb:20:in `open_tempfile_for_blob'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/downloading.rb:10:in `download_blob_to_tempfile'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/analyzer/image_analyzer.rb:35:in `read_image'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/analyzer/image_analyzer.rb:21:in `metadata'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/app/models/active_storage/blob/analyzable.rb:47:in `extract_metadata_via_analyzer'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/app/models/active_storage/blob/analyzable.rb:29:in `analyze'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/app/jobs/active_storage/analyze_job.rb:6:in `perform'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:39:in `block in perform_now'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/i18n-1.12.0/lib/i18n.rb:322:in `with_locale'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `instance_exec'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:26:in `block (4 levels) in <module:Logging>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/notifications.rb:168:in `block in instrument'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/notifications.rb:168:in `instrument'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:25:in `block (3 levels) in <module:Logging>'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:46:in `block in tag_logger'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:28:in `tagged'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:71:in `tagged'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:46:in `tag_logger'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:22:in `block (2 levels) in <module:Logging>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `instance_exec'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:38:in `perform_now'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:24:in `block in execute'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/railtie.rb:28:in `block (4 levels) in <class:Railtie>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/execution_wrapper.rb:90:in `wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/reloader.rb:73:in `block in wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/execution_wrapper.rb:90:in `wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/reloader.rb:72:in `wrap'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/railtie.rb:27:in `block (3 levels) in <class:Railtie>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `instance_exec'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:22:in `execute'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+Processing by ActiveStorage::BlobsController#show as JPEG
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d343a1b01d1bbc3839a42bddadfc89e342b9def2/2022-09-19-230507.jpg" for ::1 at 2022-09-27 19:17:32 +0500
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f9227ab7fb0afffe38cd31824b8aac910948219d", "filename"=>"2022-08-11-160929"}
+Processing by ActiveStorage::BlobsController#show as JPEG
+Processing by ActiveStorage::BlobsController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d343a1b01d1bbc3839a42bddadfc89e342b9def2", "filename"=>"2022-09-19-230507"}
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--7b0ddbd78d1b459e78feb8517824c011c99990d8", "filename"=>"2022-09-19-230459"}
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+[36m  Cloudinary Storage (0.1ms) [0m[34mGenerated URL for file at key: GUy9dxMr3mj8LkQx6cLyqRtG (https://res.cloudinary.com/dl40wvlge/image/upload/v1/rails_uploads/GUy9dxMr3mj8LkQx6cLyqRtG.jpg)[0m
+[36m  Cloudinary Storage (0.3ms) [0m[34mGenerated URL for file at key: hJDUuoZEygZCcnmG3mZYRxrW (https://res.cloudinary.com/dl40wvlge/image/upload/v1/rails_uploads/hJDUuoZEygZCcnmG3mZYRxrW.jpg)[0m
+Redirected to https://res.cloudinary.com/dl40wvlge/image/upload/v1/rails_uploads/GUy9dxMr3mj8LkQx6cLyqRtG.jpg
+[36m  Cloudinary Storage (0.3ms) [0m[34mGenerated URL for file at key: joJPVFn7w1W7GBKzVizUoBf3 (https://res.cloudinary.com/dl40wvlge/image/upload/v1/rails_uploads/joJPVFn7w1W7GBKzVizUoBf3.jpg)[0m
+Redirected to https://res.cloudinary.com/dl40wvlge/image/upload/v1/rails_uploads/hJDUuoZEygZCcnmG3mZYRxrW.jpg
+Completed 302 Found in 9ms (ActiveRecord: 0.1ms)
+
+
+Redirected to https://res.cloudinary.com/dl40wvlge/image/upload/v1/rails_uploads/joJPVFn7w1W7GBKzVizUoBf3.jpg
+Completed 302 Found in 10ms (ActiveRecord: 0.2ms)
+
+
+Completed 302 Found in 10ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/books/1" for ::1 at 2022-09-27 19:17:48 +0500
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:63
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 1], ["record_type", "Book"], ["name", "pictures"]]
+  ↳ app/views/books/show.html.erb:7
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:8
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:8
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:8
+  Rendered books/show.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 28ms (Views: 24.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/books/1" for ::1 at 2022-09-27 19:17:49 +0500
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:63
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 1], ["record_type", "Book"], ["name", "pictures"]]
+  ↳ app/views/books/show.html.erb:7
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:8
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:8
+  [1m[36mActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:8
+  Rendered books/show.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 29ms (Views: 25.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2022-09-27 19:20:12 +0500
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:14
+  Rendered books/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 16ms (Views: 15.5ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/books/1" for ::1 at 2022-09-27 19:20:16 +0500
+Processing by BooksController#destroy as HTML
+  Parameters: {"authenticity_token"=>"GIxpjiAE9LgwLmNa2oJyVDd/R9UZELRBYLF2OMV4d1QM3DhlVvcShOj16rbc/Zxxhy6O9JaiEqFuLAWw1q9wCg==", "id"=>"1"}
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:63
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:52
+  [1m[36mBook Destroy (0.3ms)[0m  [1m[31mDELETE FROM "books" WHERE "books"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/books_controller.rb:52
+  [1m[35m (37.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:52
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 1], ["record_type", "Book"], ["name", "pictures"]]
+  ↳ app/controllers/books_controller.rb:52
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:52
+  [1m[36mActiveStorage::Attachment Destroy (0.6ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/books_controller.rb:52
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:52
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:52
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: 5ca9e76f-9f1e-49c8-ac17-4393697befd0) to Async(default) with arguments: #<GlobalID:0x00007f5a6c1e6388 @uri=#<URI::GID gid://active-storage/ActiveStorage::Blob/1>>
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:52
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mActiveStorage::Attachment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = ?[0m  [["id", 2]]
+[ActiveJob] [ActiveStorage::PurgeJob] [5ca9e76f-9f1e-49c8-ac17-4393697befd0] Performing ActiveStorage::PurgeJob (Job ID: 5ca9e76f-9f1e-49c8-ac17-4393697befd0) from Async(default) with arguments: #<GlobalID:0x00007f5a6c1daa10 @uri=#<URI::GID gid://active-storage/ActiveStorage::Blob/1>>
+  ↳ app/controllers/books_controller.rb:52
+[ActiveJob] [ActiveStorage::PurgeJob] [5ca9e76f-9f1e-49c8-ac17-4393697befd0]   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [5ca9e76f-9f1e-49c8-ac17-4393697befd0]   ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  ↳ app/controllers/books_controller.rb:52
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:52
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: 31107a26-a594-4029-a536-467724a5d27a) to Async(default) with arguments: #<GlobalID:0x00007f5a6c1c6bf0 @uri=#<URI::GID gid://active-storage/ActiveStorage::Blob/2>>
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  ↳ app/controllers/books_controller.rb:52
+[ActiveJob] [ActiveStorage::PurgeJob] [31107a26-a594-4029-a536-467724a5d27a] Performing ActiveStorage::PurgeJob (Job ID: 31107a26-a594-4029-a536-467724a5d27a) from Async(default) with arguments: #<GlobalID:0x00007f5a6c1bedb0 @uri=#<URI::GID gid://active-storage/ActiveStorage::Blob/2>>
+  [1m[36mActiveStorage::Attachment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = ?[0m  [["id", 3]]
+[ActiveJob] [ActiveStorage::PurgeJob] [31107a26-a594-4029-a536-467724a5d27a]   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:52
+[ActiveJob] [ActiveStorage::PurgeJob] [31107a26-a594-4029-a536-467724a5d27a]   ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::PurgeJob] [5ca9e76f-9f1e-49c8-ac17-4393697befd0]   [1m[36mActiveStorage::Attachment Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ? LIMIT ?[0m  [["blob_id", 1], ["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [5ca9e76f-9f1e-49c8-ac17-4393697befd0]   ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  ↳ app/controllers/books_controller.rb:52
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [5ca9e76f-9f1e-49c8-ac17-4393697befd0]   [1m[36mActiveStorage::Blob Destroy (0.3ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/books_controller.rb:52
+[ActiveJob] [ActiveStorage::PurgeJob] [5ca9e76f-9f1e-49c8-ac17-4393697befd0]   ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: 1c97308b-a2db-4109-861d-34cc08c56fcf) to Async(default) with arguments: #<GlobalID:0x00007f5a6c0d7c08 @uri=#<URI::GID gid://active-storage/ActiveStorage::Blob/3>>
+Redirected to http://localhost:3000/books
+Completed 302 Found in 10099ms (ActiveRecord: 44.5ms)
+
+
+[ActiveJob] [ActiveStorage::PurgeJob] [31107a26-a594-4029-a536-467724a5d27a]   [1m[36mActiveStorage::Attachment Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ? LIMIT ?[0m  [["blob_id", 2], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [5ca9e76f-9f1e-49c8-ac17-4393697befd0]   [1m[35m (10019.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveStorage::Blob Load (5012.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [31107a26-a594-4029-a536-467724a5d27a]   ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::PurgeJob] [5ca9e76f-9f1e-49c8-ac17-4393697befd0]   ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::PurgeJob] [31107a26-a594-4029-a536-467724a5d27a]   [1m[36mActiveStorage::Blob Destroy (1.1ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ?[0m  [["id", 2]]
+[ActiveJob] [ActiveStorage::PurgeJob] [31107a26-a594-4029-a536-467724a5d27a]   ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::PurgeJob] [31107a26-a594-4029-a536-467724a5d27a]   [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [31107a26-a594-4029-a536-467724a5d27a]   ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Started GET "/books" for ::1 at 2022-09-27 19:20:26 +0500
+[ActiveJob] [ActiveStorage::PurgeJob] [31107a26-a594-4029-a536-467724a5d27a] Error performing ActiveStorage::PurgeJob (Job ID: 31107a26-a594-4029-a536-467724a5d27a) from Async(default) in 10040.27ms: ActiveRecord::StatementInvalid (SQLite3::BusyException: database is locked: DELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ?):
+/var/lib/gems/2.7.0/gems/sqlite3-1.5.0-x86_64-linux/lib/sqlite3/statement.rb:108:in `step'
+/var/lib/gems/2.7.0/gems/sqlite3-1.5.0-x86_64-linux/lib/sqlite3/statement.rb:108:in `block in each'
+/var/lib/gems/2.7.0/gems/sqlite3-1.5.0-x86_64-linux/lib/sqlite3/statement.rb:107:in `loop'
+/var/lib/gems/2.7.0/gems/sqlite3-1.5.0-x86_64-linux/lib/sqlite3/statement.rb:107:in `each'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/sqlite3_adapter.rb:222:in `to_a'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/sqlite3_adapter.rb:222:in `block (2 levels) in exec_query'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/dependencies/interlock.rb:48:in `block in permit_concurrent_loads'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/share_lock.rb:187:in `yield_shares'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/dependencies/interlock.rb:47:in `permit_concurrent_loads'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/sqlite3_adapter.rb:213:in `block in exec_query'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/abstract_adapter.rb:581:in `block (2 levels) in log'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:26:in `block (2 levels) in synchronize'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/abstract_adapter.rb:580:in `block in log'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/abstract_adapter.rb:571:in `log'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/sqlite3_adapter.rb:212:in `exec_query'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/sqlite3_adapter.rb:243:in `exec_delete'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/abstract/database_statements.rb:176:in `delete'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/abstract/query_cache.rb:21:in `delete'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/persistence.rb:207:in `_delete_record'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/persistence.rb:681:in `_delete_row'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/persistence.rb:677:in `destroy_row'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/counter_cache.rb:196:in `destroy_row'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/locking/optimistic.rb:109:in `destroy_row'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/persistence.rb:341:in `destroy'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/callbacks.rb:323:in `block in destroy'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:132:in `run_callbacks'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:816:in `_run_destroy_callbacks'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/callbacks.rb:323:in `destroy'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/transactions.rb:305:in `block in destroy'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/transactions.rb:387:in `block in with_transaction_returning_status'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/abstract/database_statements.rb:267:in `block in transaction'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/abstract/transaction.rb:239:in `block in within_new_transaction'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:26:in `block (2 levels) in synchronize'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/abstract/transaction.rb:236:in `within_new_transaction'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/abstract/database_statements.rb:267:in `transaction'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/transactions.rb:212:in `transaction'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/transactions.rb:385:in `with_transaction_returning_status'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/transactions.rb:305:in `destroy'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/app/models/active_storage/blob.rb:181:in `purge'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/app/jobs/active_storage/purge_job.rb:8:in `perform'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:39:in `block in perform_now'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/i18n-1.12.0/lib/i18n.rb:322:in `with_locale'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `instance_exec'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:26:in `block (4 levels) in <module:Logging>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/notifications.rb:168:in `block in instrument'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/notifications.rb:168:in `instrument'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:25:in `block (3 levels) in <module:Logging>'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:46:in `block in tag_logger'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:28:in `tagged'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:71:in `tagged'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:46:in `tag_logger'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:22:in `block (2 levels) in <module:Logging>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `instance_exec'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:38:in `perform_now'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:24:in `block in execute'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/railtie.rb:28:in `block (4 levels) in <class:Railtie>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/execution_wrapper.rb:90:in `wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/reloader.rb:73:in `block in wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/execution_wrapper.rb:90:in `wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/reloader.rb:72:in `wrap'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/railtie.rb:27:in `block (3 levels) in <class:Railtie>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `instance_exec'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:22:in `execute'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+[ActiveJob] [ActiveStorage::PurgeJob] [5ca9e76f-9f1e-49c8-ac17-4393697befd0]   [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [5ca9e76f-9f1e-49c8-ac17-4393697befd0]   ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#index as HTML
+[ActiveJob] [ActiveStorage::PurgeJob] [5ca9e76f-9f1e-49c8-ac17-4393697befd0] Error performing ActiveStorage::PurgeJob (Job ID: 5ca9e76f-9f1e-49c8-ac17-4393697befd0) from Async(default) in 10055.33ms: ActiveRecord::StatementInvalid (SQLite3::BusyException: database is locked: commit transaction):
+/var/lib/gems/2.7.0/gems/sqlite3-1.5.0-x86_64-linux/lib/sqlite3/resultset.rb:170:in `step'
+/var/lib/gems/2.7.0/gems/sqlite3-1.5.0-x86_64-linux/lib/sqlite3/resultset.rb:170:in `next_hash'
+/var/lib/gems/2.7.0/gems/sqlite3-1.5.0-x86_64-linux/lib/sqlite3/resultset.rb:105:in `next'
+/var/lib/gems/2.7.0/gems/sqlite3-1.5.0-x86_64-linux/lib/sqlite3/resultset.rb:133:in `each'
+/var/lib/gems/2.7.0/gems/sqlite3-1.5.0-x86_64-linux/lib/sqlite3/database.rb:207:in `to_a'
+/var/lib/gems/2.7.0/gems/sqlite3-1.5.0-x86_64-linux/lib/sqlite3/database.rb:207:in `block in execute'
+/var/lib/gems/2.7.0/gems/sqlite3-1.5.0-x86_64-linux/lib/sqlite3/database.rb:156:in `prepare'
+/var/lib/gems/2.7.0/gems/sqlite3-1.5.0-x86_64-linux/lib/sqlite3/database.rb:198:in `execute'
+/var/lib/gems/2.7.0/gems/sqlite3-1.5.0-x86_64-linux/lib/sqlite3/database.rb:655:in `commit'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/sqlite3_adapter.rb:265:in `block in commit_db_transaction'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/abstract_adapter.rb:581:in `block (2 levels) in log'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:26:in `block (2 levels) in synchronize'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/abstract_adapter.rb:580:in `block in log'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/abstract_adapter.rb:571:in `log'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/sqlite3_adapter.rb:265:in `commit_db_transaction'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/abstract/transaction.rb:185:in `commit'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/abstract/transaction.rb:222:in `block in commit_transaction'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:26:in `block (2 levels) in synchronize'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/abstract/transaction.rb:213:in `commit_transaction'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/abstract/transaction.rb:252:in `block in within_new_transaction'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:26:in `block (2 levels) in synchronize'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/abstract/transaction.rb:236:in `within_new_transaction'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/connection_adapters/abstract/database_statements.rb:267:in `transaction'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/transactions.rb:212:in `transaction'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/transactions.rb:385:in `with_transaction_returning_status'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/transactions.rb:305:in `destroy'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/app/models/active_storage/blob.rb:181:in `purge'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/app/jobs/active_storage/purge_job.rb:8:in `perform'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:39:in `block in perform_now'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/i18n-1.12.0/lib/i18n.rb:322:in `with_locale'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `instance_exec'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:26:in `block (4 levels) in <module:Logging>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/notifications.rb:168:in `block in instrument'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/notifications.rb:168:in `instrument'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:25:in `block (3 levels) in <module:Logging>'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:46:in `block in tag_logger'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:28:in `tagged'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:71:in `tagged'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:46:in `tag_logger'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:22:in `block (2 levels) in <module:Logging>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `instance_exec'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:38:in `perform_now'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:24:in `block in execute'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/railtie.rb:28:in `block (4 levels) in <class:Railtie>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/execution_wrapper.rb:90:in `wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/reloader.rb:73:in `block in wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/execution_wrapper.rb:90:in `wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/reloader.rb:72:in `wrap'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/railtie.rb:27:in `block (3 levels) in <class:Railtie>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `instance_exec'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:22:in `execute'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:14
+  Rendered books/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 16ms (Views: 14.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/books/new" for ::1 at 2022-09-27 19:21:25 +0500
+Processing by BooksController#new as HTML
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (3.6ms)
+  Rendered books/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 27ms (Views: 25.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/books" for ::1 at 2022-09-27 19:21:38 +0500
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/0hCDV45A6tp7ULbNqwT8yE+2rmpR/yQqW781UICqIzRl1u0riw6SDaNGGynN5Af1xR0Fne9O5ZSGL8h/wz/Og==", "book"=>{"title"=>"Noman", "pictures"=>[#<ActionDispatch::Http::UploadedFile:0x00007f5a64e61bd8 @tempfile=#<Tempfile:/tmp/RackMultipart20220927-445719-zwxjgj.jpg>, @original_filename="2022-09-19-230459.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"book[pictures][]\"; filename=\"2022-09-19-230459.jpg\"\r\nContent-Type: image/jpeg\r\n">]}, "commit"=>"Create Book"}
+[36m  Cloudinary Storage (2077.3ms) [0m[32mUploaded file to key: yxHoTc1vb5JG51UmvAbtifrN (checksum: ig8yNyJhVuCux1fXACKVjw==)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:24
+  [1m[36mActiveStorage::Blob Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["key", "yxHoTc1vb5JG51UmvAbtifrN"], ["filename", "2022-09-19-230459.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 31276], ["checksum", "ig8yNyJhVuCux1fXACKVjw=="], ["created_at", "2022-09-27 14:21:41.029617"]]
+  ↳ app/controllers/books_controller.rb:24
+  [1m[35m (12.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:24
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:27
+  [1m[36mBook Create (0.3ms)[0m  [1m[32mINSERT INTO "books" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Noman"], ["created_at", "2022-09-27 14:21:41.047770"], ["updated_at", "2022-09-27 14:21:41.047770"]]
+  ↳ app/controllers/books_controller.rb:27
+  [1m[36mActiveStorage::Attachment Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "pictures"], ["record_type", "Book"], ["record_id", 2], ["blob_id", 4], ["created_at", "2022-09-27 14:21:41.049437"]]
+  ↳ app/controllers/books_controller.rb:27
+  [1m[36mBook Update (0.1ms)[0m  [1m[33mUPDATE "books" SET "updated_at" = ? WHERE "books"."id" = ?[0m  [["updated_at", "2022-09-27 14:21:41.050494"], ["id", 2]]
+  ↳ app/controllers/books_controller.rb:27
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:27
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: cce488fe-08b2-44a8-81e1-d40ec49f0943) to Async(default) with arguments: #<GlobalID:0x00007f5a649180a0 @uri=#<URI::GID gid://active-storage/ActiveStorage::Blob/4>>
+Redirected to http://localhost:3000/books/2
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 302 Found in 2108ms (ActiveRecord: 14.8ms)
+
+
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [cce488fe-08b2-44a8-81e1-d40ec49f0943] Performing ActiveStorage::AnalyzeJob (Job ID: cce488fe-08b2-44a8-81e1-d40ec49f0943) from Async(default) with arguments: #<GlobalID:0x00007f5a648d78c0 @uri=#<URI::GID gid://active-storage/ActiveStorage::Blob/4>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [cce488fe-08b2-44a8-81e1-d40ec49f0943] [36m  Cloudinary Storage (0.2ms) [0m[34mGenerated URL for file at key: yxHoTc1vb5JG51UmvAbtifrN (https://res.cloudinary.com/dl40wvlge/image/upload/v1/rails_uploads/yxHoTc1vb5JG51UmvAbtifrN.jpg)[0m
+Started GET "/books/2" for ::1 at 2022-09-27 19:21:41 +0500
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:63
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 2], ["record_type", "Book"], ["name", "pictures"]]
+  ↳ app/views/books/show.html.erb:7
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:8
+  Rendered books/show.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 25ms (Views: 22.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--1a5aa292e8dd91f847332eaa9e16dc6c86da4d04/2022-09-19-230459.jpg" for ::1 at 2022-09-27 19:21:41 +0500
+Processing by ActiveStorage::BlobsController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--1a5aa292e8dd91f847332eaa9e16dc6c86da4d04", "filename"=>"2022-09-19-230459"}
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+[36m  Cloudinary Storage (0.1ms) [0m[34mGenerated URL for file at key: yxHoTc1vb5JG51UmvAbtifrN (https://res.cloudinary.com/dl40wvlge/image/upload/v1/rails_uploads/yxHoTc1vb5JG51UmvAbtifrN.jpg)[0m
+Redirected to https://res.cloudinary.com/dl40wvlge/image/upload/v1/rails_uploads/yxHoTc1vb5JG51UmvAbtifrN.jpg
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [cce488fe-08b2-44a8-81e1-d40ec49f0943] [36m  Cloudinary Storage (7619.3ms) [0m[34mDownloaded file from key: yxHoTc1vb5JG51UmvAbtifrN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [cce488fe-08b2-44a8-81e1-d40ec49f0943] Error performing ActiveStorage::AnalyzeJob (Job ID: cce488fe-08b2-44a8-81e1-d40ec49f0943) from Async(default) in 7633.22ms: MiniMagick::Error (You must have ImageMagick or GraphicsMagick installed):
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/configuration.rb:139:in `cli'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick.rb:38:in `imagemagick7?'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/tool.rb:135:in `executable'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/tool.rb:110:in `command'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/tool.rb:92:in `call'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/tool.rb:38:in `new'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/image/info.rb:181:in `identify'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/image/info.rb:125:in `raw'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/image/info.rb:35:in `[]'
+/var/lib/gems/2.7.0/gems/mini_magick-4.11.0/lib/mini_magick/image.rb:313:in `[]'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/analyzer/image_analyzer.rb:42:in `rotated_image?'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/analyzer/image_analyzer.rb:22:in `block in metadata'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/analyzer/image_analyzer.rb:37:in `block in read_image'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/downloading.rb:12:in `block in download_blob_to_tempfile'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/downloading.rb:20:in `open_tempfile_for_blob'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/downloading.rb:10:in `download_blob_to_tempfile'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/analyzer/image_analyzer.rb:35:in `read_image'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/lib/active_storage/analyzer/image_analyzer.rb:21:in `metadata'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/app/models/active_storage/blob/analyzable.rb:47:in `extract_metadata_via_analyzer'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/app/models/active_storage/blob/analyzable.rb:29:in `analyze'
+/var/lib/gems/2.7.0/gems/activestorage-5.2.8.1/app/jobs/active_storage/analyze_job.rb:6:in `perform'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:39:in `block in perform_now'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/i18n-1.12.0/lib/i18n.rb:322:in `with_locale'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `instance_exec'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:26:in `block (4 levels) in <module:Logging>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/notifications.rb:168:in `block in instrument'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/notifications.rb:168:in `instrument'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:25:in `block (3 levels) in <module:Logging>'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:46:in `block in tag_logger'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:28:in `tagged'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/tagged_logging.rb:71:in `tagged'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:46:in `tag_logger'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/logging.rb:22:in `block (2 levels) in <module:Logging>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `instance_exec'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:38:in `perform_now'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:24:in `block in execute'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/railtie.rb:28:in `block (4 levels) in <class:Railtie>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/execution_wrapper.rb:90:in `wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/reloader.rb:73:in `block in wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/execution_wrapper.rb:90:in `wrap'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/reloader.rb:72:in `wrap'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/railtie.rb:27:in `block (3 levels) in <class:Railtie>'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `instance_exec'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.8.1/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/execution.rb:22:in `execute'
+/var/lib/gems/2.7.0/gems/activejob-5.2.8.1/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+/var/lib/gems/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+Started GET "/books" for ::1 at 2022-09-27 19:21:51 +0500
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:14
+  Rendered books/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 28ms (Views: 26.5ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/books/2" for ::1 at 2022-09-27 19:21:53 +0500
+Processing by BooksController#destroy as HTML
+  Parameters: {"authenticity_token"=>"BJKsqKcdWEsoeLBDF2T3mICjj4i5jA6x1GBKMUVs5YcQwv1D0e6+d/CjOa8RGxm9MPJGqTY+qFHa/Tm5Vrvi2Q==", "id"=>"2"}
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:63
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:52
+  [1m[36mBook Destroy (0.3ms)[0m  [1m[31mDELETE FROM "books" WHERE "books"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/books_controller.rb:52
+  [1m[35m (12.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:52
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 2], ["record_type", "Book"], ["name", "pictures"]]
+  ↳ app/controllers/books_controller.rb:52
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:52
+  [1m[36mActiveStorage::Attachment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/books_controller.rb:52
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:52
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:52
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: f4d74092-494e-4cb9-a88a-1edc1dd37993) to Async(default) with arguments: #<GlobalID:0x00007f5a69765de8 @uri=#<URI::GID gid://active-storage/ActiveStorage::Blob/4>>
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Redirected to http://localhost:3000/books
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Completed 302 Found in 29ms (ActiveRecord: 14.9ms)
+
+
+[ActiveJob] [ActiveStorage::PurgeJob] [f4d74092-494e-4cb9-a88a-1edc1dd37993] Performing ActiveStorage::PurgeJob (Job ID: f4d74092-494e-4cb9-a88a-1edc1dd37993) from Async(default) with arguments: #<GlobalID:0x00007f5a6974c5a0 @uri=#<URI::GID gid://active-storage/ActiveStorage::Blob/4>>
+[ActiveJob] [ActiveStorage::PurgeJob] [f4d74092-494e-4cb9-a88a-1edc1dd37993]   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [f4d74092-494e-4cb9-a88a-1edc1dd37993]   ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::PurgeJob] [f4d74092-494e-4cb9-a88a-1edc1dd37993]   [1m[36mActiveStorage::Attachment Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ? LIMIT ?[0m  [["blob_id", 4], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [f4d74092-494e-4cb9-a88a-1edc1dd37993]   ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::PurgeJob] [f4d74092-494e-4cb9-a88a-1edc1dd37993]   [1m[36mActiveStorage::Blob Destroy (0.6ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ?[0m  [["id", 4]]
+[ActiveJob] [ActiveStorage::PurgeJob] [f4d74092-494e-4cb9-a88a-1edc1dd37993]   ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::PurgeJob] [f4d74092-494e-4cb9-a88a-1edc1dd37993]   [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [f4d74092-494e-4cb9-a88a-1edc1dd37993]   ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Started GET "/books" for ::1 at 2022-09-27 19:21:54 +0500
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:14
+  Rendered books/index.html.erb within layouts/application (2.3ms)
+[ActiveJob] [ActiveStorage::PurgeJob] [f4d74092-494e-4cb9-a88a-1edc1dd37993]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "ActiveStorage::Blob"], ["name", "preview_image"], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [f4d74092-494e-4cb9-a88a-1edc1dd37993]   ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 36ms (Views: 34.8ms | ActiveRecord: 0.2ms)
+
+
+[ActiveJob] [ActiveStorage::PurgeJob] [f4d74092-494e-4cb9-a88a-1edc1dd37993] [36m  Cloudinary Storage (2062.4ms) [0m[31mDeleted file from key: yxHoTc1vb5JG51UmvAbtifrN[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [f4d74092-494e-4cb9-a88a-1edc1dd37993] Performed ActiveStorage::PurgeJob (Job ID: f4d74092-494e-4cb9-a88a-1edc1dd37993) from Async(default) in 2098.47ms
+Started GET "/" for ::1 at 2022-10-26 19:57:13 +0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:14
+  Rendered books/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 211ms (Views: 202.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/books/new" for ::1 at 2022-10-26 19:57:18 +0500
+Processing by BooksController#new as HTML
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (7.4ms)
+  Rendered books/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 31ms (Views: 22.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/books" for ::1 at 2022-10-26 19:57:33 +0500
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wYqES3pK/ALaezxJDs7aAWgqVIYzQ3xW9b0bWH1iqe4n80aWQup2N/BGv/xIWa1NP1VTezOj0+6WFCaN2Kn5ww==", "book"=>{"title"=>"Sachi baatein", "pictures"=>[#<ActionDispatch::Http::UploadedFile:0x00007fc6b8234340 @tempfile=#<Tempfile:/tmp/RackMultipart20221026-7859-14pbxjm.png>, @original_filename="Screenshot from 2022-08-05 10-43-12.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"book[pictures][]\"; filename=\"Screenshot from 2022-08-05 10-43-12.png\"\r\nContent-Type: image/png\r\n">]}, "commit"=>"Create Book"}
+[36m  Cloudinary Storage (8025.0ms) [0m[32mUploaded file to key: DwftMHHfaVWzAGJh2B2rDKw1 (checksum: HAgS2rcwlYlJcs8M43Tabw==)[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:24
+  [1m[36mActiveStorage::Blob Create (0.5ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["key", "DwftMHHfaVWzAGJh2B2rDKw1"], ["filename", "Screenshot from 2022-08-05 10-43-12.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["byte_size", 278210], ["checksum", "HAgS2rcwlYlJcs8M43Tabw=="], ["created_at", "2022-10-26 14:57:42.003808"]]
+  ↳ app/controllers/books_controller.rb:24
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:24
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:27
+  [1m[36mBook Create (0.2ms)[0m  [1m[32mINSERT INTO "books" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Sachi baatein"], ["created_at", "2022-10-26 14:57:42.025400"], ["updated_at", "2022-10-26 14:57:42.025400"]]
+  ↳ app/controllers/books_controller.rb:27
+  [1m[36mActiveStorage::Attachment Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "pictures"], ["record_type", "Book"], ["record_id", 3], ["blob_id", 5], ["created_at", "2022-10-26 14:57:42.027079"]]
+  ↳ app/controllers/books_controller.rb:27
+  [1m[36mBook Update (0.1ms)[0m  [1m[33mUPDATE "books" SET "updated_at" = ? WHERE "books"."id" = ?[0m  [["updated_at", "2022-10-26 14:57:42.028149"], ["id", 3]]
+  ↳ app/controllers/books_controller.rb:27
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:27
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 015b2eb8-8ee8-4471-9c0b-92b9a275097d) to Async(default) with arguments: #<GlobalID:0x00007fc6b81c1098 @uri=#<URI::GID gid://active-storage/ActiveStorage::Blob/5>>
+Redirected to http://localhost:3000/books/3
+Completed 302 Found in 8096ms (ActiveRecord: 5.7ms)
+
+
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [015b2eb8-8ee8-4471-9c0b-92b9a275097d] Performing ActiveStorage::AnalyzeJob (Job ID: 015b2eb8-8ee8-4471-9c0b-92b9a275097d) from Async(default) with arguments: #<GlobalID:0x00007fc6ccf3de38 @uri=#<URI::GID gid://active-storage/ActiveStorage::Blob/5>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [015b2eb8-8ee8-4471-9c0b-92b9a275097d] [36m  Cloudinary Storage (0.1ms) [0m[34mGenerated URL for file at key: DwftMHHfaVWzAGJh2B2rDKw1 (https://res.cloudinary.com/dl40wvlge/image/upload/v1/rails_uploads/DwftMHHfaVWzAGJh2B2rDKw1.png)[0m
+Started GET "/books/3" for ::1 at 2022-10-26 19:57:42 +0500
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:63
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 3], ["record_type", "Book"], ["name", "pictures"]]
+  ↳ app/views/books/show.html.erb:7
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:8
+  Rendered books/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 16ms (Views: 12.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--fd378333dbf97ee7a75c992347ce3dbef24f7f7e/Screenshot%20from%202022-08-05%2010-43-12.png" for ::1 at 2022-10-26 19:57:42 +0500
+[ActiveJob] [ActiveStorage::AnalyzeJob] [015b2eb8-8ee8-4471-9c0b-92b9a275097d] [36m  Cloudinary Storage (2215.4ms) [0m[34mDownloaded file from key: DwftMHHfaVWzAGJh2B2rDKw1[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [015b2eb8-8ee8-4471-9c0b-92b9a275097d]   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [015b2eb8-8ee8-4471-9c0b-92b9a275097d]   ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [015b2eb8-8ee8-4471-9c0b-92b9a275097d]   [1m[36mActiveStorage::Blob Update (0.2ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"width\":1920,\"height\":1080,\"analyzed\":true}"], ["id", 5]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [015b2eb8-8ee8-4471-9c0b-92b9a275097d]   ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [015b2eb8-8ee8-4471-9c0b-92b9a275097d]   [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [015b2eb8-8ee8-4471-9c0b-92b9a275097d]   ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [015b2eb8-8ee8-4471-9c0b-92b9a275097d] Performed ActiveStorage::AnalyzeJob (Job ID: 015b2eb8-8ee8-4471-9c0b-92b9a275097d) from Async(default) in 2298.44ms
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--fd378333dbf97ee7a75c992347ce3dbef24f7f7e", "filename"=>"Screenshot from 2022-08-05 10-43-12"}
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+[36m  Cloudinary Storage (0.2ms) [0m[34mGenerated URL for file at key: DwftMHHfaVWzAGJh2B2rDKw1 (https://res.cloudinary.com/dl40wvlge/image/upload/v1/rails_uploads/DwftMHHfaVWzAGJh2B2rDKw1.png)[0m
+Redirected to https://res.cloudinary.com/dl40wvlge/image/upload/v1/rails_uploads/DwftMHHfaVWzAGJh2B2rDKw1.png
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/books/3" for ::1 at 2022-10-26 19:58:02 +0500
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:63
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 3], ["record_type", "Book"], ["name", "pictures"]]
+  ↳ app/views/books/show.html.erb:7
+  [1m[36mActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:8
+  Rendered books/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 18ms (Views: 15.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/books" for ::1 at 2022-10-26 19:59:08 +0500
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:14
+  Rendered books/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/books/3" for ::1 at 2022-10-26 19:59:10 +0500
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:63
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 3], ["record_type", "Book"], ["name", "pictures"]]
+  ↳ app/views/books/show.html.erb:7
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:8
+  Rendered books/show.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 22ms (Views: 20.0ms | ActiveRecord: 0.4ms)
+
+

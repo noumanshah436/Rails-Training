@@ -1,0 +1,1710 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateStudents (20220829080757)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220829080757_create_students.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829080757"]]
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-08-29 08:08:45.809031"], ["updated_at", "2022-08-29 08:08:45.809031"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateBlogs (20220829081133)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20220829081133_create_blogs.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "blogs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "article_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_a2d45246ca"
+FOREIGN KEY ("article_id")
+  REFERENCES "articles" ("id")
+)[0m
+  ↳ db/migrate/20220829081133_create_blogs.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_blogs_on_article_id" ON "blogs" ("article_id")[0m
+  ↳ db/migrate/20220829081133_create_blogs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (3.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829081133"]]
+  ↳ bin/rails:9
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateBlogs (20220829081133)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "blogs"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20220829081133"]]
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateBlogs (20220829081526)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20220829081526_create_blogs.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "blogs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "student_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_933c57d857"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+)[0m
+  ↳ db/migrate/20220829081526_create_blogs.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_blogs_on_student_id" ON "blogs" ("student_id")[0m
+  ↳ db/migrate/20220829081526_create_blogs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829081526"]]
+  ↳ bin/rails:9
+  [1m[35m (25.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mStudent Create (0.3ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Nouman"], ["email", "nouman@gmail.com"], ["created_at", "2022-08-29 08:30:59.165015"], ["updated_at", "2022-08-29 08:30:59.165015"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mStudent Create (0.8ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Student1"], ["email", "student1@gmail.com"], ["created_at", "2022-08-29 08:36:44.333349"], ["updated_at", "2022-08-29 08:36:44.333349"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mStudent Create (0.3ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Student2"], ["email", "student2@gmail.com"], ["created_at", "2022-08-29 08:36:44.342723"], ["updated_at", "2022-08-29 08:36:44.342723"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Student3"], ["email", "student3@gmail.com"], ["created_at", "2022-08-29 08:36:44.347532"], ["updated_at", "2022-08-29 08:36:44.347532"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mStudent Create (0.8ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Student4"], ["email", "student4@gmail.com"], ["created_at", "2022-08-29 08:36:44.352136"], ["updated_at", "2022-08-29 08:36:44.352136"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Student5"], ["email", "student5@gmail.com"], ["created_at", "2022-08-29 08:36:44.360161"], ["updated_at", "2022-08-29 08:36:44.360161"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Student6"], ["email", "student6@gmail.com"], ["created_at", "2022-08-29 08:36:44.364115"], ["updated_at", "2022-08-29 08:36:44.364115"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mStudent Create (0.3ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Student7"], ["email", "student7@gmail.com"], ["created_at", "2022-08-29 08:36:44.370402"], ["updated_at", "2022-08-29 08:36:44.370402"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Student8"], ["email", "student8@gmail.com"], ["created_at", "2022-08-29 08:36:44.375314"], ["updated_at", "2022-08-29 08:36:44.375314"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mStudent Create (0.1ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Student9"], ["email", "student9@gmail.com"], ["created_at", "2022-08-29 08:36:44.378067"], ["updated_at", "2022-08-29 08:36:44.378067"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mStudent Create (0.1ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Student10"], ["email", "student10@gmail.com"], ["created_at", "2022-08-29 08:36:44.381062"], ["updated_at", "2022-08-29 08:36:44.381062"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mStudent Create (0.3ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Student11"], ["email", "student11@gmail.com"], ["created_at", "2022-08-29 08:36:44.384156"], ["updated_at", "2022-08-29 08:36:44.384156"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Student12"], ["email", "student12@gmail.com"], ["created_at", "2022-08-29 08:36:44.389794"], ["updated_at", "2022-08-29 08:36:44.389794"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mStudent Create (0.3ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Student13"], ["email", "student13@gmail.com"], ["created_at", "2022-08-29 08:36:44.392976"], ["updated_at", "2022-08-29 08:36:44.392976"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Student14"], ["email", "student14@gmail.com"], ["created_at", "2022-08-29 08:36:44.396867"], ["updated_at", "2022-08-29 08:36:44.396867"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Student15"], ["email", "student15@gmail.com"], ["created_at", "2022-08-29 08:36:44.400981"], ["updated_at", "2022-08-29 08:36:44.400981"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mStudent Create (0.7ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Student16"], ["email", "student16@gmail.com"], ["created_at", "2022-08-29 08:36:44.406410"], ["updated_at", "2022-08-29 08:36:44.406410"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Student17"], ["email", "student17@gmail.com"], ["created_at", "2022-08-29 08:36:44.410777"], ["updated_at", "2022-08-29 08:36:44.410777"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mStudent Create (0.3ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Student18"], ["email", "student18@gmail.com"], ["created_at", "2022-08-29 08:36:44.414454"], ["updated_at", "2022-08-29 08:36:44.414454"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mStudent Create (0.5ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Student19"], ["email", "student19@gmail.com"], ["created_at", "2022-08-29 08:36:44.420512"], ["updated_at", "2022-08-29 08:36:44.420512"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Student20"], ["email", "student20@gmail.com"], ["created_at", "2022-08-29 08:36:44.427919"], ["updated_at", "2022-08-29 08:36:44.427919"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[36mBlog Create (0.2ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student1 Blog 1"], ["content", "Dummy Content 1 for Nouman"], ["student_id", 1], ["created_at", "2022-08-29 09:43:15.135150"], ["updated_at", "2022-08-29 09:43:15.135150"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student1 Blog 2"], ["content", "Dummy Content 2 for Nouman"], ["student_id", 1], ["created_at", "2022-08-29 09:43:15.138719"], ["updated_at", "2022-08-29 09:43:15.138719"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student2 Blog 1"], ["content", "Dummy Content 1 for Student1"], ["student_id", 2], ["created_at", "2022-08-29 09:43:15.142184"], ["updated_at", "2022-08-29 09:43:15.142184"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mBlog Create (0.2ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student2 Blog 2"], ["content", "Dummy Content 2 for Student1"], ["student_id", 2], ["created_at", "2022-08-29 09:43:15.145813"], ["updated_at", "2022-08-29 09:43:15.145813"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student3 Blog 1"], ["content", "Dummy Content 1 for Student2"], ["student_id", 3], ["created_at", "2022-08-29 09:43:15.148971"], ["updated_at", "2022-08-29 09:43:15.148971"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student3 Blog 2"], ["content", "Dummy Content 2 for Student2"], ["student_id", 3], ["created_at", "2022-08-29 09:43:15.151638"], ["updated_at", "2022-08-29 09:43:15.151638"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student4 Blog 1"], ["content", "Dummy Content 1 for Student3"], ["student_id", 4], ["created_at", "2022-08-29 09:43:15.154809"], ["updated_at", "2022-08-29 09:43:15.154809"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mBlog Create (0.2ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student4 Blog 2"], ["content", "Dummy Content 2 for Student3"], ["student_id", 4], ["created_at", "2022-08-29 09:43:15.157708"], ["updated_at", "2022-08-29 09:43:15.157708"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[36mBlog Create (0.2ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student5 Blog 1"], ["content", "Dummy Content 1 for Student4"], ["student_id", 5], ["created_at", "2022-08-29 09:43:15.162519"], ["updated_at", "2022-08-29 09:43:15.162519"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student5 Blog 2"], ["content", "Dummy Content 2 for Student4"], ["student_id", 5], ["created_at", "2022-08-29 09:43:15.166133"], ["updated_at", "2022-08-29 09:43:15.166133"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student6 Blog 1"], ["content", "Dummy Content 1 for Student5"], ["student_id", 6], ["created_at", "2022-08-29 09:43:15.168773"], ["updated_at", "2022-08-29 09:43:15.168773"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student6 Blog 2"], ["content", "Dummy Content 2 for Student5"], ["student_id", 6], ["created_at", "2022-08-29 09:43:15.171239"], ["updated_at", "2022-08-29 09:43:15.171239"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student7 Blog 1"], ["content", "Dummy Content 1 for Student6"], ["student_id", 7], ["created_at", "2022-08-29 09:43:15.173906"], ["updated_at", "2022-08-29 09:43:15.173906"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mBlog Create (0.3ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student7 Blog 2"], ["content", "Dummy Content 2 for Student6"], ["student_id", 7], ["created_at", "2022-08-29 09:43:15.176881"], ["updated_at", "2022-08-29 09:43:15.176881"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student8 Blog 1"], ["content", "Dummy Content 1 for Student7"], ["student_id", 8], ["created_at", "2022-08-29 09:43:15.180151"], ["updated_at", "2022-08-29 09:43:15.180151"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student8 Blog 2"], ["content", "Dummy Content 2 for Student7"], ["student_id", 8], ["created_at", "2022-08-29 09:43:15.182419"], ["updated_at", "2022-08-29 09:43:15.182419"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student9 Blog 1"], ["content", "Dummy Content 1 for Student8"], ["student_id", 9], ["created_at", "2022-08-29 09:43:15.185135"], ["updated_at", "2022-08-29 09:43:15.185135"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student9 Blog 2"], ["content", "Dummy Content 2 for Student8"], ["student_id", 9], ["created_at", "2022-08-29 09:43:15.187357"], ["updated_at", "2022-08-29 09:43:15.187357"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student10 Blog 1"], ["content", "Dummy Content 1 for Student9"], ["student_id", 10], ["created_at", "2022-08-29 09:43:15.189990"], ["updated_at", "2022-08-29 09:43:15.189990"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student10 Blog 2"], ["content", "Dummy Content 2 for Student9"], ["student_id", 10], ["created_at", "2022-08-29 09:43:15.192369"], ["updated_at", "2022-08-29 09:43:15.192369"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student11 Blog 1"], ["content", "Dummy Content 1 for Student10"], ["student_id", 11], ["created_at", "2022-08-29 09:43:15.195092"], ["updated_at", "2022-08-29 09:43:15.195092"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student11 Blog 2"], ["content", "Dummy Content 2 for Student10"], ["student_id", 11], ["created_at", "2022-08-29 09:43:15.197168"], ["updated_at", "2022-08-29 09:43:15.197168"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student12 Blog 1"], ["content", "Dummy Content 1 for Student11"], ["student_id", 12], ["created_at", "2022-08-29 09:43:15.199318"], ["updated_at", "2022-08-29 09:43:15.199318"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student12 Blog 2"], ["content", "Dummy Content 2 for Student11"], ["student_id", 12], ["created_at", "2022-08-29 09:43:15.201402"], ["updated_at", "2022-08-29 09:43:15.201402"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student13 Blog 1"], ["content", "Dummy Content 1 for Student12"], ["student_id", 13], ["created_at", "2022-08-29 09:43:15.203543"], ["updated_at", "2022-08-29 09:43:15.203543"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student13 Blog 2"], ["content", "Dummy Content 2 for Student12"], ["student_id", 13], ["created_at", "2022-08-29 09:43:15.205573"], ["updated_at", "2022-08-29 09:43:15.205573"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student14 Blog 1"], ["content", "Dummy Content 1 for Student13"], ["student_id", 14], ["created_at", "2022-08-29 09:43:15.207710"], ["updated_at", "2022-08-29 09:43:15.207710"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student14 Blog 2"], ["content", "Dummy Content 2 for Student13"], ["student_id", 14], ["created_at", "2022-08-29 09:43:15.209798"], ["updated_at", "2022-08-29 09:43:15.209798"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student15 Blog 1"], ["content", "Dummy Content 1 for Student14"], ["student_id", 15], ["created_at", "2022-08-29 09:43:15.211929"], ["updated_at", "2022-08-29 09:43:15.211929"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student15 Blog 2"], ["content", "Dummy Content 2 for Student14"], ["student_id", 15], ["created_at", "2022-08-29 09:43:15.214072"], ["updated_at", "2022-08-29 09:43:15.214072"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student16 Blog 1"], ["content", "Dummy Content 1 for Student15"], ["student_id", 16], ["created_at", "2022-08-29 09:43:15.216203"], ["updated_at", "2022-08-29 09:43:15.216203"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student16 Blog 2"], ["content", "Dummy Content 2 for Student15"], ["student_id", 16], ["created_at", "2022-08-29 09:43:15.218318"], ["updated_at", "2022-08-29 09:43:15.218318"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student17 Blog 1"], ["content", "Dummy Content 1 for Student16"], ["student_id", 17], ["created_at", "2022-08-29 09:43:15.220451"], ["updated_at", "2022-08-29 09:43:15.220451"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student17 Blog 2"], ["content", "Dummy Content 2 for Student16"], ["student_id", 17], ["created_at", "2022-08-29 09:43:15.222609"], ["updated_at", "2022-08-29 09:43:15.222609"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student18 Blog 1"], ["content", "Dummy Content 1 for Student17"], ["student_id", 18], ["created_at", "2022-08-29 09:43:15.224801"], ["updated_at", "2022-08-29 09:43:15.224801"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student18 Blog 2"], ["content", "Dummy Content 2 for Student17"], ["student_id", 18], ["created_at", "2022-08-29 09:43:15.226954"], ["updated_at", "2022-08-29 09:43:15.226954"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student19 Blog 1"], ["content", "Dummy Content 1 for Student18"], ["student_id", 19], ["created_at", "2022-08-29 09:43:15.229187"], ["updated_at", "2022-08-29 09:43:15.229187"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student19 Blog 2"], ["content", "Dummy Content 2 for Student18"], ["student_id", 19], ["created_at", "2022-08-29 09:43:15.231346"], ["updated_at", "2022-08-29 09:43:15.231346"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student20 Blog 1"], ["content", "Dummy Content 1 for Student19"], ["student_id", 20], ["created_at", "2022-08-29 09:43:15.233852"], ["updated_at", "2022-08-29 09:43:15.233852"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student20 Blog 2"], ["content", "Dummy Content 2 for Student19"], ["student_id", 20], ["created_at", "2022-08-29 09:43:15.235958"], ["updated_at", "2022-08-29 09:43:15.235958"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student21 Blog 1"], ["content", "Dummy Content 1 for Student20"], ["student_id", 21], ["created_at", "2022-08-29 09:43:15.239064"], ["updated_at", "2022-08-29 09:43:15.239064"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mBlog Create (0.1ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Student21 Blog 2"], ["content", "Dummy Content 2 for Student20"], ["student_id", 21], ["created_at", "2022-08-29 09:43:15.241858"], ["updated_at", "2022-08-29 09:43:15.241858"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs"[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "students"[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" ORDER BY "students"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" ORDER BY "blogs"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCourses (20220829101135)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20220829101135_create_courses.rb:3
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220829101135_create_courses.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829101135"]]
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:29
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Ruby on Rails"], ["description", "Course description "], ["created_at", "2022-08-29 10:15:54.622151"], ["updated_at", "2022-08-29 10:15:54.622151"]]
+  ↳ db/seeds.rb:29
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:30
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "React"], ["description", "Course description "], ["created_at", "2022-08-29 10:15:54.628043"], ["updated_at", "2022-08-29 10:15:54.628043"]]
+  ↳ db/seeds.rb:30
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:31
+  [1m[36mCourse Create (0.1ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Python"], ["description", "Course description "], ["created_at", "2022-08-29 10:15:54.632106"], ["updated_at", "2022-08-29 10:15:54.632106"]]
+  ↳ db/seeds.rb:31
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:31
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:32
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Java development"], ["description", "Course description "], ["created_at", "2022-08-29 10:15:54.636912"], ["updated_at", "2022-08-29 10:15:54.636912"]]
+  ↳ db/seeds.rb:32
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:32
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCourseStudentJoinTable (20220829102404)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20220829102404_create_course_student_join_table.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "courses_students" ("course_id" integer NOT NULL, "student_id" integer NOT NULL)[0m
+  ↳ db/migrate/20220829102404_create_course_student_join_table.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829102404"]]
+  ↳ bin/rails:9
+  [1m[35m (37.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent::HABTM_Courses Create (0.2ms)[0m  [1m[32mINSERT INTO "courses_students" ("course_id", "student_id") VALUES (?, ?)[0m  [["course_id", 1], ["student_id", 1]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent::HABTM_Courses Create (0.4ms)[0m  [1m[32mINSERT INTO "courses_students" ("course_id", "student_id") VALUES (?, ?)[0m  [["course_id", 2], ["student_id", 1]]
+  [1m[35m (11.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent::HABTM_Courses Create (0.3ms)[0m  [1m[32mINSERT INTO "courses_students" ("course_id", "student_id") VALUES (?, ?)[0m  [["course_id", 3], ["student_id", 1]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ? LIMIT ?[0m  [["course_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse::HABTM_Students Create (0.2ms)[0m  [1m[32mINSERT INTO "courses_students" ("course_id", "student_id") VALUES (?, ?)[0m  [["course_id", 1], ["student_id", 2]]
+  [1m[35m (36.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse::HABTM_Students Create (0.3ms)[0m  [1m[32mINSERT INTO "courses_students" ("course_id", "student_id") VALUES (?, ?)[0m  [["course_id", 1], ["student_id", 3]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse::HABTM_Students Create (0.2ms)[0m  [1m[32mINSERT INTO "courses_students" ("course_id", "student_id") VALUES (?, ?)[0m  [["course_id", 1], ["student_id", 4]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ? LIMIT ?[0m  [["course_id", 1], ["LIMIT", 11]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ? LIMIT ?[0m  [["course_id", 1], ["LIMIT", 11]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ? LIMIT ?[0m  [["student_id", 2], ["LIMIT", 11]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateProjects (20220829114512)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20220829114512_create_projects.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "projects" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220829114512_create_projects.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829114512"]]
+  ↳ bin/rails:9
+  [1m[35m (11.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateStudentProjects (20220829114536)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20220829114536_create_student_projects.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "student_projects" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "project_id" integer, "submission_date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_cd27636194"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+, CONSTRAINT "fk_rails_67a1dd626a"
+FOREIGN KEY ("project_id")
+  REFERENCES "projects" ("id")
+)[0m
+  ↳ db/migrate/20220829114536_create_student_projects.rb:3
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX "index_student_projects_on_student_id" ON "student_projects" ("student_id")[0m
+  ↳ db/migrate/20220829114536_create_student_projects.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_student_projects_on_project_id" ON "student_projects" ("project_id")[0m
+  ↳ db/migrate/20220829114536_create_student_projects.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829114536"]]
+  ↳ bin/rails:9
+  [1m[35m (12.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" INNER JOIN "student_projects" ON "projects"."id" = "student_projects"."project_id" WHERE "student_projects"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Driver app"], ["created_at", "2022-08-29 12:47:20.119616"], ["updated_at", "2022-08-29 12:47:20.119616"]]
+  [1m[35m (11.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "School management app"], ["created_at", "2022-08-29 12:47:21.760552"], ["updated_at", "2022-08-29 12:47:21.760552"]]
+  [1m[35m (11.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStudentProject Create (0.2ms)[0m  [1m[32mINSERT INTO "student_projects" ("student_id", "project_id", "submission_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["student_id", 1], ["project_id", 1], ["submission_date", "2022-09-18"], ["created_at", "2022-08-29 12:48:00.474799"], ["updated_at", "2022-08-29 12:48:00.474799"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" INNER JOIN "student_projects" ON "projects"."id" = "student_projects"."project_id" WHERE "student_projects"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" INNER JOIN "student_projects" ON "students"."id" = "student_projects"."student_id" WHERE "student_projects"."project_id" = ? LIMIT ?[0m  [["project_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateSuppliers (20220829131830)
+  [1m[35m (1.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20220829131830_create_suppliers.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "suppliers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220829131830_create_suppliers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829131830"]]
+  ↳ bin/rails:9
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateAccounts (20220829132126)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20220829132126_create_accounts.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "accounts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "account_number" varchar, "supplier_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_530e87101a"
+FOREIGN KEY ("supplier_id")
+  REFERENCES "suppliers" ("id")
+)[0m
+  ↳ db/migrate/20220829132126_create_accounts.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_accounts_on_supplier_id" ON "accounts" ("supplier_id")[0m
+  ↳ db/migrate/20220829132126_create_accounts.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829132126"]]
+  ↳ bin/rails:9
+  [1m[35m (12.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSupplier Create (0.3ms)[0m  [1m[32mINSERT INTO "suppliers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Nouman"], ["created_at", "2022-08-29 13:25:33.575370"], ["updated_at", "2022-08-29 13:25:33.575370"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSupplier Create (0.4ms)[0m  [1m[32mINSERT INTO "suppliers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Nouman"], ["created_at", "2022-08-29 13:26:19.585665"], ["updated_at", "2022-08-29 13:26:19.585665"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to ChangeName (20220829132741)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20220829132741_change_name.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aaccounts" ("id" integer NOT NULL PRIMARY KEY, "account_number" varchar DEFAULT NULL, "supplier_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220829132741_change_name.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_aaccounts_on_supplier_id" ON "aaccounts" ("supplier_id")[0m
+  ↳ db/migrate/20220829132741_change_name.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aaccounts" ("id","account_number","supplier_id","created_at","updated_at")
+                     SELECT "id","account_number","supplier_id","created_at","updated_at" FROM "accounts"[0m
+  ↳ db/migrate/20220829132741_change_name.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "accounts"[0m
+  ↳ db/migrate/20220829132741_change_name.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "accounts" ("id" integer NOT NULL PRIMARY KEY, "account_number" integer DEFAULT NULL, "supplier_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220829132741_change_name.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_accounts_on_supplier_id" ON "accounts" ("supplier_id")[0m
+  ↳ db/migrate/20220829132741_change_name.rb:3
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "accounts" ("id","account_number","supplier_id","created_at","updated_at")
+                     SELECT "id","account_number","supplier_id","created_at","updated_at" FROM "aaccounts"[0m
+  ↳ db/migrate/20220829132741_change_name.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aaccounts"[0m
+  ↳ db/migrate/20220829132741_change_name.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829132741"]]
+  ↳ bin/rails:9
+  [1m[35m (14.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mSupplier Load (0.2ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSupplier Load (0.2ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Create (0.3ms)[0m  [1m[32mINSERT INTO "accounts" ("account_number", "supplier_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["account_number", 123], ["supplier_id", 1], ["created_at", "2022-08-29 13:32:38.141838"], ["updated_at", "2022-08-29 13:32:38.141838"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."supplier_id" = ? LIMIT ?[0m  [["supplier_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateDepartments (20220829144252)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20220829144252_create_departments.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "departments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220829144252_create_departments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829144252"]]
+  ↳ bin/rails:9
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateManagers (20220829144327)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "managers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "contact" varchar, "department_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_ff17ccb632"
+FOREIGN KEY ("department_id")
+  REFERENCES "departments" ("id")
+)[0m
+  ↳ db/migrate/20220829144327_create_managers.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_managers_on_department_id" ON "managers" ("department_id")[0m
+  ↳ db/migrate/20220829144327_create_managers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829144327"]]
+  ↳ bin/rails:9
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateManagerHistories (20220829144336)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "manager_histories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "joining_date" date, "total_experience" integer, "manager_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_12b5d02349"
+FOREIGN KEY ("manager_id")
+  REFERENCES "managers" ("id")
+)[0m
+  ↳ db/migrate/20220829144336_create_manager_histories.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_manager_histories_on_manager_id" ON "manager_histories" ("manager_id")[0m
+  ↳ db/migrate/20220829144336_create_manager_histories.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829144336"]]
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDepartment Create (0.2ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Production department"], ["created_at", "2022-08-29 14:54:49.742903"], ["updated_at", "2022-08-29 14:54:49.742903"]]
+  [1m[35m (11.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDepartment Create (0.4ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Accounts department"], ["created_at", "2022-08-29 14:55:11.395156"], ["updated_at", "2022-08-29 14:55:11.395156"]]
+  [1m[35m (11.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mManager Create (0.2ms)[0m  [1m[32mINSERT INTO "managers" ("name", "email", "contact", "department_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Nouman"], ["email", "noman@gmail.com"], ["contact", "03335465765"], ["department_id", 1], ["created_at", "2022-08-29 14:55:24.798852"], ["updated_at", "2022-08-29 14:55:24.798852"]]
+  [1m[35m (11.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mManager Load (0.3ms)[0m  [1m[34mSELECT  "managers".* FROM "managers" WHERE "managers"."department_id" = ? LIMIT ?[0m  [["department_id", 1], ["LIMIT", 1]]
+  [1m[36mManager Load (0.2ms)[0m  [1m[34mSELECT  "managers".* FROM "managers" WHERE "managers"."department_id" = ? LIMIT ?[0m  [["department_id", 2], ["LIMIT", 1]]
+  [1m[36mManager Load (0.1ms)[0m  [1m[34mSELECT  "managers".* FROM "managers" ORDER BY "managers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mManager Load (0.1ms)[0m  [1m[34mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mManagerHistory Create (0.2ms)[0m  [1m[32mINSERT INTO "manager_histories" ("joining_date", "total_experience", "manager_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["joining_date", "2022-05-21"], ["total_experience", 2], ["manager_id", 1], ["created_at", "2022-08-29 15:01:46.235374"], ["updated_at", "2022-08-29 15:01:46.235374"]]
+  [1m[35m (38.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mManager Load (0.2ms)[0m  [1m[34mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mManagerHistory Load (0.3ms)[0m  [1m[34mSELECT  "manager_histories".* FROM "manager_histories" WHERE "manager_histories"."manager_id" = ? LIMIT ?[0m  [["manager_id", 1], ["LIMIT", 1]]
+  [1m[36mManagerHistory Load (0.2ms)[0m  [1m[34mSELECT  "manager_histories".* FROM "manager_histories" INNER JOIN "managers" ON "manager_histories"."manager_id" = "managers"."id" WHERE "managers"."department_id" = ? LIMIT ?[0m  [["department_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateArticles (20220829174722)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20220829174722_create_articles.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220829174722_create_articles.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829174722"]]
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateNews (20220829174723)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "news" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220829174723_create_news.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829174723"]]
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateComments (20220829174732)
+  [1m[35m (2.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "commentable_type" varchar, "commentable_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220829174732_create_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829174732"]]
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:35
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "text", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Article1"], ["text", "text article 1"], ["created_at", "2022-08-29 17:58:28.910636"], ["updated_at", "2022-08-29 17:58:28.910636"]]
+  ↳ db/seeds.rb:35
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:35
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:36
+  [1m[36mArticle Create (0.2ms)[0m  [1m[32mINSERT INTO "articles" ("title", "text", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Article2"], ["text", "text article 2"], ["created_at", "2022-08-29 17:58:28.918076"], ["updated_at", "2022-08-29 17:58:28.918076"]]
+  ↳ db/seeds.rb:36
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:36
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:38
+  [1m[36mNews Create (0.2ms)[0m  [1m[32mINSERT INTO "news" ("title", "text", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "News1"], ["text", "text News 1"], ["created_at", "2022-08-29 17:58:28.933782"], ["updated_at", "2022-08-29 17:58:28.933782"]]
+  ↳ db/seeds.rb:38
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:38
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mNews Create (0.1ms)[0m  [1m[32mINSERT INTO "news" ("title", "text", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "News2"], ["text", "text News 2"], ["created_at", "2022-08-29 17:58:28.937867"], ["updated_at", "2022-08-29 17:58:28.937867"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("title", "commentable_type", "commentable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "comment for Article 1"], ["commentable_type", "Article"], ["commentable_id", 1], ["created_at", "2022-08-29 18:01:24.027843"], ["updated_at", "2022-08-29 18:01:24.027843"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mNews Load (0.1ms)[0m  [1m[34mSELECT  "news".* FROM "news" WHERE "news"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("title", "commentable_type", "commentable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "comment for news 1"], ["commentable_type", "News"], ["commentable_id", 1], ["created_at", "2022-08-29 18:02:59.954304"], ["updated_at", "2022-08-29 18:02:59.954304"]]
+  [1m[35m (12.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."commentable_id" = ? AND "comments"."commentable_type" = ? LIMIT ?[0m  [["commentable_id", 1], ["commentable_type", "News"], ["LIMIT", 11]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."commentable_id" = ? AND "comments"."commentable_type" = ? LIMIT ?[0m  [["commentable_id", 1], ["commentable_type", "News"], ["LIMIT", 11]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."commentable_id" = ? AND "comments"."commentable_type" = ? LIMIT ?[0m  [["commentable_id", 1], ["commentable_type", "News"], ["LIMIT", 11]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."commentable_id" = ? AND "comments"."commentable_type" = ? LIMIT ?[0m  [["commentable_id", 1], ["commentable_type", "News"], ["LIMIT", 11]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" ORDER BY "comments"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mNews Load (0.1ms)[0m  [1m[34mSELECT  "news".* FROM "news" WHERE "news"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."commentable_id" = ? AND "comments"."commentable_type" = ? LIMIT ?[0m  [["commentable_id", 1], ["commentable_type", "Article"], ["LIMIT", 11]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."commentable_id" = ? AND "comments"."commentable_type" = ? LIMIT ?[0m  [["commentable_id", 1], ["commentable_type", "Article"], ["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."commentable_id" = ? AND "comments"."commentable_type" = ?[0m  [["commentable_id", 1], ["commentable_type", "Article"]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = ? AND "comments"."commentable_type" = ?[0m  [["commentable_id", 1], ["commentable_type", "Article"]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("title", "commentable_type", "commentable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "2nd comment "], ["commentable_type", "Article"], ["commentable_id", 1], ["created_at", "2022-08-29 18:16:01.598245"], ["updated_at", "2022-08-29 18:16:01.598245"]]
+  [1m[35m (11.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = ? AND "comments"."commentable_type" = ?[0m  [["commentable_id", 1], ["commentable_type", "News"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateEmployees (20220902125924)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20220902125924_create_employees.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "employees" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "account" varchar, "employee_id" integer, "manager_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220902125924_create_employees.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220902125924"]]
+  ↳ bin/rails:9
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (2.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEmployee Create (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("account", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["account", "emp1"], ["created_at", "2022-09-02 13:12:35.173400"], ["updated_at", "2022-09-02 13:12:35.173400"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEmployee Create (0.2ms)[0m  [1m[32mINSERT INTO "employees" ("account", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["account", "emp2"], ["created_at", "2022-09-02 13:14:12.166816"], ["updated_at", "2022-09-02 13:14:12.166816"]]
+  [1m[35m (11.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEmployee Create (9.4ms)[0m  [1m[32mINSERT INTO "employees" ("account", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["account", "emp3"], ["created_at", "2022-09-02 13:14:17.507292"], ["updated_at", "2022-09-02 13:14:17.507292"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("account", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["account", "emp4"], ["created_at", "2022-09-02 13:14:21.353501"], ["updated_at", "2022-09-02 13:14:21.353501"]]
+  [1m[35m (11.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEmployee Create (0.2ms)[0m  [1m[32mINSERT INTO "employees" ("account", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["account", "emp5"], ["created_at", "2022-09-02 13:14:24.838011"], ["updated_at", "2022-09-02 13:14:24.838011"]]
+  [1m[35m (37.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEmployee Create (0.2ms)[0m  [1m[32mINSERT INTO "employees" ("account", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["account", "man1"], ["created_at", "2022-09-02 13:15:19.487199"], ["updated_at", "2022-09-02 13:15:19.487199"]]
+  [1m[35m (11.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEmployee Create (0.2ms)[0m  [1m[32mINSERT INTO "employees" ("account", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["account", "man2"], ["created_at", "2022-09-02 13:15:22.524195"], ["updated_at", "2022-09-02 13:15:22.524195"]]
+  [1m[35m (37.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT  "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT  "employees".* FROM "employees" WHERE "employees"."manager_id" = ? LIMIT ?[0m  [["manager_id", 1], ["LIMIT", 11]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT  "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEmployee Update (0.2ms)[0m  [1m[33mUPDATE "employees" SET "manager_id" = ?, "updated_at" = ? WHERE "employees"."id" = ?[0m  [["manager_id", 1], ["updated_at", "2022-09-02 13:19:10.545490"], ["id", 2]]
+  [1m[35m (11.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT  "employees".* FROM "employees" WHERE "employees"."manager_id" = ? LIMIT ?[0m  [["manager_id", 1], ["LIMIT", 11]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT  "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEmployee Update (0.5ms)[0m  [1m[33mUPDATE "employees" SET "manager_id" = ?, "updated_at" = ? WHERE "employees"."id" = ?[0m  [["manager_id", 6], ["updated_at", "2022-09-02 13:23:50.615775"], ["id", 1]]
+  [1m[35m (11.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT  "employees".* FROM "employees" WHERE "employees"."manager_id" = ? LIMIT ?[0m  [["manager_id", 1], ["LIMIT", 11]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT  "employees".* FROM "employees" WHERE "employees"."manager_id" = ? LIMIT ?[0m  [["manager_id", 1], ["LIMIT", 11]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT  "employees".* FROM "employees" WHERE "employees"."manager_id" = ? LIMIT ?[0m  [["manager_id", 1], ["LIMIT", 11]]
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."manager_id" = ?[0m  [["manager_id", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT  "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT  "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT  "employees".* FROM "employees" WHERE "employees"."manager_id" = ? LIMIT ?[0m  [["manager_id", 1], ["LIMIT", 11]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT  "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT  "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT  "employees".* FROM "employees" WHERE "employees"."manager_id" = ? LIMIT ?[0m  [["manager_id", 2], ["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20220902142332)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20220902142332_create_users.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220902142332_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220902142332"]]
+  ↳ bin/rails:9
+  [1m[35m (11.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to SelfJoin (20220902142441)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "coach_id" integer[0m
+  ↳ db/migrate/20220902142441_self_join.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220902142441"]]
+  ↳ bin/rails:9
+  [1m[35m (11.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Nouman"], ["created_at", "2022-09-02 14:29:32.796994"], ["updated_at", "2022-09-02 14:29:32.796994"]]
+  [1m[35m (11.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."coach_id" = ? LIMIT ?[0m  [["coach_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "user2"], ["created_at", "2022-09-02 14:32:02.254472"], ["updated_at", "2022-09-02 14:32:02.254472"]]
+  [1m[35m (11.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "user3"], ["created_at", "2022-09-02 14:32:10.062150"], ["updated_at", "2022-09-02 14:32:10.062150"]]
+  [1m[35m (37.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "coach1"], ["created_at", "2022-09-02 14:32:27.674676"], ["updated_at", "2022-09-02 14:32:27.674676"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "coach_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-09-02 14:37:29.452035"], ["coach_id", 4], ["id", 1]]
+  [1m[35m (11.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."coach_id" = ? LIMIT ?[0m  [["coach_id", 4], ["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "coach_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-09-02 14:39:39.466056"], ["coach_id", 4], ["id", 2]]
+  [1m[35m (36.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "coach_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-09-02 14:40:00.381400"], ["coach_id", 4], ["id", 3]]
+  [1m[35m (37.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."coach_id" = ? LIMIT ?[0m  [["coach_id", 4], ["LIMIT", 11]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" INNER JOIN "student_projects" ON "projects"."id" = "student_projects"."project_id" WHERE "student_projects"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" INNER JOIN "student_projects" ON "student_projects"."project_id" = "projects"."id" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" INNER JOIN "student_projects" ON "student_projects"."project_id" = "projects"."id" WHERE "project"."project_id" = ? LIMIT ?[0m  [["project_id", 1], ["LIMIT", 11]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" INNER JOIN "student_projects" ON "student_projects"."project_id" = "projects"."id" WHERE "projects"."project_id" = ? LIMIT ?[0m  [["project_id", 1], ["LIMIT", 11]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" INNER JOIN "student_projects" ON "student_projects"."project_id" = "projects"."id" WHERE "project"."project_id" = ? LIMIT ?[0m  [["project_id", 1], ["LIMIT", 11]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" INNER JOIN "student_projects" ON "student_projects"."project_id" = "projects"."id" WHERE "project"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 11]]
+  [1m[36mProject Load (2.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" INNER JOIN "student_projects" ON "student_projects"."project_id" = "projects"."id" WHERE "project"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 11]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" INNER JOIN "student_projects" ON "student_projects"."project_id" = "projects"."id" WHERE "project"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 11]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" INNER JOIN "student_projects" ON "student_projects"."project_id" = "projects"."id" WHERE "project"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 11]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" INNER JOIN "student_projects" ON "student_projects"."project_id" = "projects"."id" WHERE "project"."name" = ? LIMIT ?[0m  [["name", "Driver app"], ["LIMIT", 11]]
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" INNER JOIN "student_projects" ON "student_projects"."project_id" = "projects"."id" WHERE "project"."name" = ? LIMIT ?[0m  [["name", "Driver app"], ["LIMIT", 11]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mStudent Load (1.3ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs"[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."student_id" = ?[0m  [["student_id", 1]]
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateStudents (20220829080757)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220829080757_create_students.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829080757"]]
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateBlogs (20220829081526)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "blogs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "student_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_933c57d857"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+)[0m
+  ↳ db/migrate/20220829081526_create_blogs.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_blogs_on_student_id" ON "blogs" ("student_id")[0m
+  ↳ db/migrate/20220829081526_create_blogs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829081526"]]
+  ↳ bin/rails:9
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateCourses (20220829101135)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220829101135_create_courses.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829101135"]]
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateCourseStudentJoinTable (20220829102404)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "courses_students" ("course_id" integer NOT NULL, "student_id" integer NOT NULL)[0m
+  ↳ db/migrate/20220829102404_create_course_student_join_table.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829102404"]]
+  ↳ bin/rails:9
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateProjects (20220829114512)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "projects" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220829114512_create_projects.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829114512"]]
+  ↳ bin/rails:9
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateStudentProjects (20220829114536)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "student_projects" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "project_id" integer, "submission_date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_cd27636194"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+, CONSTRAINT "fk_rails_67a1dd626a"
+FOREIGN KEY ("project_id")
+  REFERENCES "projects" ("id")
+)[0m
+  ↳ db/migrate/20220829114536_create_student_projects.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_student_projects_on_student_id" ON "student_projects" ("student_id")[0m
+  ↳ db/migrate/20220829114536_create_student_projects.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_student_projects_on_project_id" ON "student_projects" ("project_id")[0m
+  ↳ db/migrate/20220829114536_create_student_projects.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829114536"]]
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateSuppliers (20220829131830)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "suppliers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220829131830_create_suppliers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829131830"]]
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateAccounts (20220829132126)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "accounts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "account_number" varchar, "supplier_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_530e87101a"
+FOREIGN KEY ("supplier_id")
+  REFERENCES "suppliers" ("id")
+)[0m
+  ↳ db/migrate/20220829132126_create_accounts.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_accounts_on_supplier_id" ON "accounts" ("supplier_id")[0m
+  ↳ db/migrate/20220829132126_create_accounts.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829132126"]]
+  ↳ bin/rails:9
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to ChangeName (20220829132741)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aaccounts" ("id" integer NOT NULL PRIMARY KEY, "account_number" varchar DEFAULT NULL, "supplier_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220829132741_change_name.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_aaccounts_on_supplier_id" ON "aaccounts" ("supplier_id")[0m
+  ↳ db/migrate/20220829132741_change_name.rb:3
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aaccounts" ("id","account_number","supplier_id","created_at","updated_at")
+                     SELECT "id","account_number","supplier_id","created_at","updated_at" FROM "accounts"[0m
+  ↳ db/migrate/20220829132741_change_name.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "accounts"[0m
+  ↳ db/migrate/20220829132741_change_name.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "accounts" ("id" integer NOT NULL PRIMARY KEY, "account_number" integer DEFAULT NULL, "supplier_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220829132741_change_name.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_accounts_on_supplier_id" ON "accounts" ("supplier_id")[0m
+  ↳ db/migrate/20220829132741_change_name.rb:3
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "accounts" ("id","account_number","supplier_id","created_at","updated_at")
+                     SELECT "id","account_number","supplier_id","created_at","updated_at" FROM "aaccounts"[0m
+  ↳ db/migrate/20220829132741_change_name.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aaccounts"[0m
+  ↳ db/migrate/20220829132741_change_name.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829132741"]]
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateDepartments (20220829144252)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "departments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220829144252_create_departments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829144252"]]
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateManagers (20220829144327)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "managers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "contact" varchar, "department_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_ff17ccb632"
+FOREIGN KEY ("department_id")
+  REFERENCES "departments" ("id")
+)[0m
+  ↳ db/migrate/20220829144327_create_managers.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_managers_on_department_id" ON "managers" ("department_id")[0m
+  ↳ db/migrate/20220829144327_create_managers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829144327"]]
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateManagerHistories (20220829144336)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "manager_histories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "joining_date" date, "total_experience" integer, "manager_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_12b5d02349"
+FOREIGN KEY ("manager_id")
+  REFERENCES "managers" ("id")
+)[0m
+  ↳ db/migrate/20220829144336_create_manager_histories.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_manager_histories_on_manager_id" ON "manager_histories" ("manager_id")[0m
+  ↳ db/migrate/20220829144336_create_manager_histories.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829144336"]]
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateArticles (20220829174722)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220829174722_create_articles.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829174722"]]
+  ↳ bin/rails:9
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateNews (20220829174723)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "news" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220829174723_create_news.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829174723"]]
+  ↳ bin/rails:9
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateComments (20220829174732)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "commentable_type" varchar, "commentable_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220829174732_create_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220829174732"]]
+  ↳ bin/rails:9
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateEmployees (20220902125924)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "employees" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "account" varchar, "employee_id" integer, "manager_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220902125924_create_employees.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220902125924"]]
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20220902142332)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220902142332_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220902142332"]]
+  ↳ bin/rails:9
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to SelfJoin (20220902142441)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "coach_id" integer[0m
+  ↳ db/migrate/20220902142441_self_join.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220902142441"]]
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-01-02 08:25:43.107753"], ["updated_at", "2023-01-02 08:25:43.107753"]]
+  ↳ bin/rails:9
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.3ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Nouman"], ["email", "nouman@gmail.com"], ["created_at", "2023-01-02 08:28:39.906872"], ["updated_at", "2023-01-02 08:28:39.906872"]]
+  [1m[35m (37.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.3ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "shahmeer"], ["email", "shahmeer@gmail.com"], ["created_at", "2023-01-02 08:28:56.904538"], ["updated_at", "2023-01-02 08:28:56.904538"]]
+  [1m[35m (11.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.4ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "farhan"], ["email", "farhan@gmail.com"], ["created_at", "2023-01-02 08:29:08.929262"], ["updated_at", "2023-01-02 08:29:08.929262"]]
+  [1m[35m (11.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.4ms)[0m  [1m[32mINSERT INTO "students" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Fatima"], ["email", "fatima@gmail.com"], ["created_at", "2023-01-02 08:29:24.352707"], ["updated_at", "2023-01-02 08:29:24.352707"]]
+  [1m[35m (11.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "students"[0m
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBlog Create (0.4ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "std1 blog"], ["content", "this is a blog"], ["student_id", 1], ["created_at", "2023-01-02 08:36:05.494320"], ["updated_at", "2023-01-02 08:36:05.494320"]]
+  [1m[35m (37.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs"[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."student_id" = ?[0m  [["student_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (1.0ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Bio"], ["description", "Biology and science for males"], ["created_at", "2023-01-02 08:40:45.784779"], ["updated_at", "2023-01-02 08:40:45.784779"]]
+  [1m[35m (11.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Math"], ["description", "Math for 2nd year"], ["created_at", "2023-01-02 08:41:27.333929"], ["updated_at", "2023-01-02 08:41:27.333929"]]
+  [1m[35m (11.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Physics"], ["description", "Physics for 2nd year"], ["created_at", "2023-01-02 08:43:02.475727"], ["updated_at", "2023-01-02 08:43:02.475727"]]
+  [1m[35m (11.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "courses"[0m
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent::HABTM_Courses Create (0.6ms)[0m  [1m[32mINSERT INTO "courses_students" ("course_id", "student_id") VALUES (?, ?)[0m  [["course_id", 1], ["student_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent::HABTM_Courses Create (0.5ms)[0m  [1m[32mINSERT INTO "courses_students" ("course_id", "student_id") VALUES (?, ?)[0m  [["course_id", 1], ["student_id", 1]]
+  [1m[35m (11.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent::HABTM_Courses Create (0.2ms)[0m  [1m[32mINSERT INTO "courses_students" ("course_id", "student_id") VALUES (?, ?)[0m  [["course_id", 2], ["student_id", 2]]
+  [1m[35m (37.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ? LIMIT ?[0m  [["student_id", 2], ["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent::HABTM_Courses Create (0.2ms)[0m  [1m[32mINSERT INTO "courses_students" ("course_id", "student_id") VALUES (?, ?)[0m  [["course_id", 2], ["student_id", 1]]
+  [1m[35m (11.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ? LIMIT ?[0m  [["course_id", 1], ["LIMIT", 11]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ?[0m  [["course_id", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse::HABTM_Students Create (0.2ms)[0m  [1m[32mINSERT INTO "courses_students" ("course_id", "student_id") VALUES (?, ?)[0m  [["course_id", 1], ["student_id", 2]]
+  [1m[35m (11.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse::HABTM_Students Create (0.2ms)[0m  [1m[32mINSERT INTO "courses_students" ("course_id", "student_id") VALUES (?, ?)[0m  [["course_id", 1], ["student_id", 3]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" INNER JOIN "student_projects" ON "projects"."id" = "student_projects"."project_id" WHERE "student_projects"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Driver app"], ["created_at", "2023-01-02 08:59:36.727389"], ["updated_at", "2023-01-02 08:59:36.727389"]]
+  [1m[35m (11.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "School management app"], ["created_at", "2023-01-02 08:59:36.835186"], ["updated_at", "2023-01-02 08:59:36.835186"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStudentProject Create (0.3ms)[0m  [1m[32mINSERT INTO "student_projects" ("student_id", "project_id", "submission_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["student_id", 1], ["project_id", 1], ["submission_date", "2023-01-22"], ["created_at", "2023-01-02 09:00:37.598590"], ["updated_at", "2023-01-02 09:00:37.598590"]]
+  [1m[35m (12.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" INNER JOIN "student_projects" ON "projects"."id" = "student_projects"."project_id" WHERE "student_projects"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "student_projects" ON "projects"."id" = "student_projects"."project_id" WHERE "student_projects"."student_id" = ?[0m  [["student_id", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" INNER JOIN "student_projects" ON "students"."id" = "student_projects"."student_id" WHERE "student_projects"."project_id" = ? LIMIT ?[0m  [["project_id", 1], ["LIMIT", 11]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "student_projects" ON "students"."id" = "student_projects"."student_id" WHERE "student_projects"."project_id" = ?[0m  [["project_id", 1]]
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" INNER JOIN "student_projects" ON "student_projects"."project_id" = "projects"."id" WHERE "project"."name" = ? LIMIT ?[0m  [["name", "Driver app"], ["LIMIT", 11]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" INNER JOIN "student_projects" ON "student_projects"."project_id" = "projects"."id" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "student_projects" ON "student_projects"."project_id" = "projects"."id"[0m
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "student_projects" ON "student_projects"."project_id" = "projects"."id" WHERE "project"."id" = ?[0m  [["id", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" INNER JOIN "student_projects" ON "projects"."id" = "student_projects"."project_id" WHERE "student_projects"."student_id" = ? LIMIT ?[0m  [["student_id", 2], ["LIMIT", 11]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "student_projects" ON "projects"."id" = "student_projects"."project_id" WHERE "student_projects"."student_id" = ?[0m  [["student_id", 2]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudentProject Create (0.3ms)[0m  [1m[32mINSERT INTO "student_projects" ("student_id", "project_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["student_id", 2], ["project_id", 2], ["created_at", "2023-01-02 09:20:03.298934"], ["updated_at", "2023-01-02 09:20:03.298934"]]
+  [1m[35m (11.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" INNER JOIN "student_projects" ON "projects"."id" = "student_projects"."project_id" WHERE "student_projects"."student_id" = ? LIMIT ?[0m  [["student_id", 2], ["LIMIT", 11]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSupplier Create (0.2ms)[0m  [1m[32mINSERT INTO "suppliers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Nouman"], ["created_at", "2023-01-02 09:26:06.799804"], ["updated_at", "2023-01-02 09:26:06.799804"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSupplier Load (0.2ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."supplier_id" = ? LIMIT ?[0m  [["supplier_id", 1], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.1ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAccount Create (0.3ms)[0m  [1m[32mINSERT INTO "accounts" ("account_number", "supplier_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["account_number", 123], ["supplier_id", 1], ["created_at", "2023-01-02 09:31:58.922537"], ["updated_at", "2023-01-02 09:31:58.922537"]]
+  [1m[35m (11.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."supplier_id" = ? LIMIT ?[0m  [["supplier_id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSupplier Load (0.2ms)[0m  [1m[34mSELECT  "suppliers".* FROM "suppliers" WHERE "suppliers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBlog Create (0.4ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "std1 blog"], ["content", "this is a blog"], ["student_id", 1], ["created_at", "2023-01-02 09:38:21.745359"], ["updated_at", "2023-01-02 09:38:21.745359"]]
+  [1m[35m (11.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBlog Create (0.4ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "content", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "std1 2nd  blog"], ["content", "this is 2nd blog"], ["student_id", 1], ["created_at", "2023-01-02 09:40:48.425102"], ["updated_at", "2023-01-02 09:40:48.425102"]]
+  [1m[35m (11.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "article 1"], ["created_at", "2023-01-02 10:43:03.285514"], ["updated_at", "2023-01-02 10:43:03.285514"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArticle Create (0.2ms)[0m  [1m[32mINSERT INTO "articles" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "article 2"], ["created_at", "2023-01-02 10:43:03.321355"], ["updated_at", "2023-01-02 10:43:03.321355"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mNews Create (0.2ms)[0m  [1m[32mINSERT INTO "news" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "news 1"], ["created_at", "2023-01-02 10:43:04.342528"], ["updated_at", "2023-01-02 10:43:04.342528"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.5ms)[0m  [1m[32mINSERT INTO "comments" ("title", "commentable_type", "commentable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "comment for Article 1"], ["commentable_type", "Article"], ["commentable_id", 1], ["created_at", "2023-01-02 10:43:57.232267"], ["updated_at", "2023-01-02 10:43:57.232267"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."commentable_id" = ? AND "comments"."commentable_type" = ? LIMIT ?[0m  [["commentable_id", 1], ["commentable_type", "Article"], ["LIMIT", 11]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = ? AND "comments"."commentable_type" = ?[0m  [["commentable_id", 1], ["commentable_type", "Article"]]
+  [1m[36mNews Load (0.2ms)[0m  [1m[34mSELECT  "news".* FROM "news" WHERE "news"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("title", "commentable_type", "commentable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "comment for news 1"], ["commentable_type", "News"], ["commentable_id", 1], ["created_at", "2023-01-02 10:45:24.396654"], ["updated_at", "2023-01-02 10:45:24.396654"]]
+  [1m[35m (17.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."commentable_id" = ? AND "comments"."commentable_type" = ? LIMIT ?[0m  [["commentable_id", 1], ["commentable_type", "News"], ["LIMIT", 11]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = ? AND "comments"."commentable_type" = ?[0m  [["commentable_id", 1], ["commentable_type", "News"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" ORDER BY "comments"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mNews Load (0.2ms)[0m  [1m[34mSELECT  "news".* FROM "news" WHERE "news"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.7.0/bin/annotate:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Player1"], ["created_at", "2023-01-03 08:25:14.840509"], ["updated_at", "2023-01-03 08:25:14.840509"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Player2"], ["created_at", "2023-01-03 08:25:14.896949"], ["updated_at", "2023-01-03 08:25:14.896949"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Player3"], ["created_at", "2023-01-03 08:25:15.770412"], ["updated_at", "2023-01-03 08:25:15.770412"]]
+  [1m[35m (11.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "coach1"], ["created_at", "2023-01-03 08:25:35.837895"], ["updated_at", "2023-01-03 08:25:35.837895"]]
+  [1m[35m (11.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."coach_id" = ? LIMIT ?[0m  [["coach_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "coach_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-01-03 08:28:41.141030"], ["coach_id", 4], ["id", 1]]
+  [1m[35m (11.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Started GET "/" for ::1 at 2023-01-03 13:39:39 +0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/dev/.rvm/gems/ruby-2.7.0/gems/railties-5.2.8.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/dev/.rvm/gems/ruby-2.7.0/gems/railties-5.2.8.1/lib/rails/templates/rails/welcome/index.html.erb (1.9ms)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."coach_id" = ? LIMIT ?[0m  [["coach_id", 4], ["LIMIT", 11]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."coach_id" = ?[0m  [["coach_id", 4]]
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."student_id" = ?[0m  [["student_id", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."student_id" = ?[0m  [["student_id", 1]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."student_id" = ?[0m  [["student_id", 1]]
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."student_id" = ?[0m  [["student_id", 1]]
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[36mBlog Load (0.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."student_id" = ?[0m  [["student_id", 1]]
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/" for ::1 at 2023-02-06 14:28:14 +0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/2.7.0/gems/railties-5.2.8.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/2.7.0/gems/railties-5.2.8.1/lib/rails/templates/rails/welcome/index.html.erb (2.5ms)
+Completed 200 OK in 9ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for ::1 at 2023-02-06 14:28:31 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/home"):
+  
+actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/home/index" for ::1 at 2023-02-06 14:28:37 +0500
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 282ms (Views: 280.7ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/" for ::1 at 2023-02-06 15:29:40 +0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/2.7.0/gems/railties-5.2.8.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/2.7.0/gems/railties-5.2.8.1/lib/rails/templates/rails/welcome/index.html.erb (1.2ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2023-02-06 15:29:40 +0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/2.7.0/gems/railties-5.2.8.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/2.7.0/gems/railties-5.2.8.1/lib/rails/templates/rails/welcome/index.html.erb (1.2ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2023-02-06 15:29:40 +0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/2.7.0/gems/railties-5.2.8.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/2.7.0/gems/railties-5.2.8.1/lib/rails/templates/rails/welcome/index.html.erb (3.5ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mBlog Load (0.1ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."student_id" = ?[0m  [["student_id", 1]]
+  [1m[36mBlog Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "blogs" WHERE "blogs"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."student_id" = ?[0m  [["student_id", 1]]
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs" WHERE "blogs"."student_id" = ?[0m  [["student_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "blogs" WHERE "blogs"."student_id" = ?[0m  [["student_id", 1]]
+  [1m[36mDepartment Load (1.2ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "departments"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDepartment Create (0.6ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Production department"], ["created_at", "2023-02-09 13:39:20.348035"], ["updated_at", "2023-02-09 13:39:20.348035"]]
+  [1m[35m (11.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDepartment Create (0.2ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Accounts department"], ["created_at", "2023-02-09 13:39:21.395565"], ["updated_at", "2023-02-09 13:39:21.395565"]]
+  [1m[35m (11.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "managers"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDepartment Load (0.2ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mManager Create (0.6ms)[0m  [1m[32mINSERT INTO "managers" ("name", "email", "contact", "department_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Nouman"], ["email", "noman@gmail.com"], ["contact", "03335465765"], ["department_id", 1], ["created_at", "2023-02-09 13:51:32.424154"], ["updated_at", "2023-02-09 13:51:32.424154"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mManagerHistory Load (0.2ms)[0m  [1m[34mSELECT  "manager_histories".* FROM "manager_histories" WHERE "manager_histories"."manager_id" = ? LIMIT ?[0m  [["manager_id", 1], ["LIMIT", 1]]
+  [1m[36mManager Load (0.1ms)[0m  [1m[34mSELECT  "managers".* FROM "managers" ORDER BY "managers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mManager Load (0.2ms)[0m  [1m[34mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mManagerHistory Create (36.0ms)[0m  [1m[32mINSERT INTO "manager_histories" ("joining_date", "total_experience", "manager_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["joining_date", "2022-11-01"], ["total_experience", 2], ["manager_id", 1], ["created_at", "2023-02-09 13:52:12.423232"], ["updated_at", "2023-02-09 13:52:12.423232"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDepartment Load (0.3ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mManagerHistory Load (0.5ms)[0m  [1m[34mSELECT  "manager_histories".* FROM "manager_histories" INNER JOIN "managers" ON "manager_histories"."manager_id" = "managers"."id" WHERE "managers"."department_id" = ? LIMIT ?[0m  [["department_id", 1], ["LIMIT", 1]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mManagerHistory Load (0.3ms)[0m  [1m[34mSELECT  "manager_histories".* FROM "manager_histories" INNER JOIN "managers" ON "manager_histories"."manager_id" = "managers"."id" WHERE "managers"."department_id" = ? LIMIT ?[0m  [["department_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.8ms)[0m  [1m[34mSELECT  "students".* FROM "students" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDepartment Create (10.6ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Production department"], ["created_at", "2023-02-13 09:16:07.636916"], ["updated_at", "2023-02-13 09:16:07.636916"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mManager Create (0.7ms)[0m  [1m[32mINSERT INTO "managers" ("name", "email", "contact", "department_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Nouman"], ["email", "noman@gmail.com"], ["contact", "03335465765"], ["department_id", 3], ["created_at", "2023-02-13 09:16:19.660647"], ["updated_at", "2023-02-13 09:16:19.660647"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDepartment Load (0.7ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mManager Load (0.1ms)[0m  [1m[34mSELECT  "managers".* FROM "managers" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mManager Load (0.2ms)[0m  [1m[34mSELECT  "managers".* FROM "managers" WHERE "managers"."department_id" = ? LIMIT ?[0m  [["department_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDepartment Create (35.1ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "tecnitian"], ["created_at", "2023-02-13 13:48:03.496479"], ["updated_at", "2023-02-13 13:48:03.496479"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDepartment Load (0.2ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mManager Load (0.1ms)[0m  [1m[34mSELECT  "managers".* FROM "managers" WHERE "managers"."department_id" = ? LIMIT ?[0m  [["department_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mManager Create (0.4ms)[0m  [1m[32mINSERT INTO "managers" ("name", "department_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "shah"], ["department_id", 4], ["created_at", "2023-02-13 13:48:32.340061"], ["updated_at", "2023-02-13 13:48:32.340061"]]
+  [1m[35m (12.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mManager Load (0.1ms)[0m  [1m[34mSELECT  "managers".* FROM "managers" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mManagerHistory Load (0.2ms)[0m  [1m[34mSELECT  "manager_histories".* FROM "manager_histories" INNER JOIN "managers" ON "manager_histories"."manager_id" = "managers"."id" WHERE "managers"."department_id" = ? LIMIT ?[0m  [["department_id", 4], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for ::1 at 2023-07-11 22:20:02 +0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/dev/.rvm/gems/ruby-2.7.0/gems/railties-5.2.8.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/dev/.rvm/gems/ruby-2.7.0/gems/railties-5.2.8.1/lib/rails/templates/rails/welcome/index.html.erb (1.4ms)
+Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/index" for ::1 at 2023-07-11 22:20:26 +0500
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 148ms (Views: 147.2ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" INNER JOIN "student_projects" ON "projects"."id" = "student_projects"."project_id" WHERE "student_projects"."student_id" = ? LIMIT ?[0m  [["student_id", 2], ["LIMIT", 11]]
