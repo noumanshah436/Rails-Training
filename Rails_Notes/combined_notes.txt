@@ -3525,21 +3525,39 @@ Employee.where(status: "active").includes(company: [:locations]).where(locations
 ========================================================================================================================================================================
 preload, includes, eager_load
 ========================================================================================================================================================================
-
 https://www.bigbinary.com/blog/preload-vs-eager-load-vs-joins-vs-includes
 
+In Rails, preload, includes, and eager_load are methods used for eager loading associations to optimize database queries and avoid the N+1 query problem.
+These methods are part of ActiveRecord, the Rails ORM (Object-Relational Mapping) layer, and they serve slightly different purposes. Let's explore each one:
+
+
+
 Preload:
+-> loads the association data in a separate query.
+-> The preload method loads the specified associations separately from the main query using a separate database query for each association.
+ It loads all the associated records upfront, but it does not use any JOINs in the main query.
+ Instead, it retrieves associated records through separate queries for each association.
 
 Article.preload(:comments).where(articles: {title: "Article 3" })                 -- use two queries
 
+Article Load (0.1ms)  SELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?  [["title", "Article 3"], ["LIMIT", 11]]
+Comment Load (0.1ms)  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 3]]
+
+
+********
+
 Article.preload(:comments).where(comments: { commenter: "Nouman4" })              -- we cannot use where on 2nd table
 
-***********
+*******************************************************
 
 includes:
 
-:includes  loads associated records in advance and limits the number of SQL queries made to the database.
+-> It  loads associated records in advance and limits the number of SQL queries made to the database.
  This technique is known as "eager loading" and in many cases will improve performance by a significant amount.
+
+-> The includes method is similar to preload, but it can also use database JOINs in the main query to load the associated records.
+It tries to minimize the number of database queries by using JOINs where possible.
+If a JOIN is not possible or not recommended (e.g., due to a large number of associated records), it falls back to separate queries, similar to preload.
 
 
 User.includes(:products).where(products: {name:"Laptop"})
@@ -3560,7 +3578,11 @@ Article.all.includes(:comments).where(comments:{article_id: 2 })
 
 Eager load:
 
-Eager loading loads all association in a single query using LEFT OUTER JOIN.
+-> Eager loading loads all association in a single query using LEFT OUTER JOIN.
+
+-> The eager_load method is similar to includes but always uses JOINs in the main query to fetch associated records.
+It does not fall back to separate queries like preload.
+In some cases, it can be more efficient than includes when you know that using JOINs is preferable, or if you want to enforce JOINs for a specific query.
 
 Article.eager_load(:comments).to_a
 
@@ -5521,8 +5543,9 @@ Rails provides various mechanisms for caching at different levels, including fra
 
 Fragment Caching:
 Fragment caching allows you to cache specific parts (fragments) of a view or a template. You can wrap the code or content that you want to cache within a cache block using the cache helper method. For example:
+The cache method takes a unique cache key as its argument and a block where the content to be cached is rendered.
+The cache key is essential to identify and retrieve the cached content. It should be unique and change whenever the content inside the cache block changes.
 
-ruby
 Copy code
 <% cache('my_cached_fragment') do %>
   <!-- Code to cache -->
@@ -5539,6 +5562,8 @@ class UsersController < ApplicationController
   # ...
 end
 
+If you want to update the index page immediately after adding a new post without waiting for the cache to expire, you can manually invalidate the cache. This can be done using the expire_page method in your controller.
+
 ******************
 
 Action Caching:
@@ -5552,11 +5577,21 @@ end
 ******************
 
 Low-level Caching:
-Low-level caching provides a more granular control over caching by allowing you to directly interact with the Rails cache store. You can use the Rails.cache.fetch method to fetch data from the cache or store data in the cache. For example:
+Low-level caching provides a more granular control over caching by allowing you to directly interact with the Rails cache store.
 
-Rails.cache.fetch('my_cached_data') do
-  # Code to fetch or generate data
+Rails.cache: read, write, and fetch
+
+The fetch method is a convenient way to interact with the cache, combining the functionality of read and write.
+You can use the Rails.cache.fetch method to fetch data from the cache or store data in the cache. For example:
+
+Example:
+
+cached_data = Rails.cache.fetch(cache_key, expires_in: 1.hour) do
+  # Code to generate or fetch the data to be cached
+  expensive_database_query
 end
+
+In this example, if the data with cache_key is not in the cache or has expired, the expensive_database_query will be executed, and the result will be stored in the cache with the specified expiration time. If the data is already present and valid, the expensive database query will be skipped, and the cached data will be returned directly.
 
 ******************
 
