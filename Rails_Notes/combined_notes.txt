@@ -347,16 +347,6 @@ for every web page we need a route
 
 https://guides.rubyonrails.org/v3.2/migrations.html
 
-
-************************************
-noumanrehman042@gmail.com
-nouman
-
-nouman.rehman@devsinc.com
-nouman
-
-1:21:50
-
 ***********************
 
 scaffold:
