@@ -1,0 +1,51 @@
+https://www.geeksforgeeks.org/method-visibility-in-ruby/#:~:text=Method%20visibility%20in%20Ruby%20refers,and%20hiding%20the%20background%20details.
+https://www.geeksforgeeks.org/ruby-access-control/
+
+
+Ruby | Access Control
+ 
+Access control is a very important part of the object-oriented programming language which is used to restrict the visibility of methods and member fields to protect data from the accidental modification. In terms of access control, Ruby is different from all other Object Oriented Programming languages.
+
+Important Points about Ruby Access Control:
+The visibility of the class variable and instance is always private.( we use getter and setters )
+Access controls are only applicable to methods.
+We can’t apply any access control to the instance and the class variables.
+The private methods in Ruby can also be inherited just like public and protected methods.
+
+
+In Ruby, access control work on two conditions:
+First, from where the method is called, i.e inside or outside of the class definition.
+Second, the self-keyword is included or not. Basically, self-keyword is used to point to the current recipient.
+
+
+***************************************
+
+Note:
+
+The user can call the private and protected methods inside a public method of the same class.
+
+In general, private methods can’t be inherited in object-oriented programming languages. But in Ruby, private methods can also be inherited just like protected and public methods.
+
+The public method can be accessed outside the class in which they are defined. But user can’t access the private and protected methods outside the class.
+
+The main difference between the protected and private methods is that protected methods are accessible from inside the class by using an explicit receiver while private methods are not.
+means we can access protected member in derived class by creating object of base class in method but can't access private method of base clas
+
+
+****************************************
+
+
+To define multiple protected and private methods in a single class, you can use the following syntax:
+class class_name
+
+  # this method is public 
+  def public_method        
+  end  
+
+  public :method_1
+  
+  protected :method_2, :method_3
+  
+  private :method_4, :method_5  
+
+end  

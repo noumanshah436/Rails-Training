@@ -1,0 +1,105 @@
+Explain Ruby?
+interpretor
+strongly typed
+dynamic vs static
+proc vs lambda (argument strict , return ...)
+class methods vs instance methods
+select vs map
+bang operator
+safe navigation operator
+include vs extend
+inject
+accumulator
+collect
+each vs map vs collect
+4:33
+[1:01 PM] bang
+[1:01 PM] map bang
+[1:01 PM] symbol vs string
+[1:01 PM] map
+[1:02 PM] blocks vs lamda
+[1:03 PM] extends vs include
+[1:06 PM] class vs instace method
+[1:07 PM] array to hash
+[1:08 PM] array.inject
+[1:10 PM] conventions
+[1:12 PM] to_ methods
+[1:12 PM] load vs require
+4:34
+ernary operator
+diff bw single qoute string and double
+add element to array in ruby
+symbol vs string
+Frozen strings
+map vs for each
+infinite loop
+splat operator
+n times loop
+array map vs collect
+select method
+diff bw class and module
+proc vs lamda vs block
+yield keyword
+when proc is called, its body is executed but comands written after proc will be ignored it will quit the method body. plus proc dosnt care about arguments meanwhile lambda is sensitive for arguments
+constant lookup operator
+include vs extend
+modules and namespaces
+how to make class variables
+instance variables
+super keyword in ruby
+mixins / multiple inheritance in ruby
+attribute accessors
+serializing
+enums
+ruby enumerable
+require vs require relative
+hash vs json
+extend
+map vs collect
+detect
+attribute accessors
+self
+! operator
+Proc vs lambda implementation
+yield
+hash_with_indifferent_index
+symbol
+background jobs
+size vs length vs count
+ruby is static or dynamic?
+if else vs unless
+[11:32 AM] ruby interpreted language
+bang operator
+predicate method
+include
+extend
+line by line compile
+hash with indifferent acess
+loops infinte loop
+array initilize
+reduce
+map
+hash keys'
+ruby classes ki class class hi hai
+variable types
+send method
+splat operator
+lambdas proc
+yield
+file open
+modes
+super
+self
+getter
+setter
+how to define constant
+each with index
+blank nill empty
+sapce is blank
+presence method
+array is empty
+collect method
+safe navigator
+and method &.method
+select
+exception handling

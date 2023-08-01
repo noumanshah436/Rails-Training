@@ -69,6 +69,7 @@ default_scope
 Custom transaction
 STI associations, Self Associations
 eager_loading/pre_loading, lazy loading
+count / size / length
 
 
 
@@ -3336,7 +3337,11 @@ result.length
 
 ========================================================================================================================================================================
 Joins
+
+project:
+QueryInterface
 ========================================================================================================================================================================
+
 
 why Joins?
 
@@ -3345,6 +3350,11 @@ Article.find(14).comments                                                    - g
 -> get the comments where the arycle title is  "Article 3" :
 
 irb>    cmt = Comment.joins(:article).where(articles: {title: "Article 3" }).first
+
+SELECT  "comments".* FROM "comments"
+INNER JOIN "articles" ON "articles"."id" = "comments"."article_id"
+WHERE "articles"."title" = ?
+ORDER BY "comments"."id" ASC LIMIT ?  [["title", "Article 3"], ["LIMIT", 1]]
 
 ************
 
@@ -3410,6 +3420,8 @@ can be written as
 
 > User.left_outer_joins(:products).where(products:{id:nil})
 
+SELECT  "users".* FROM "users" LEFT OUTER JOIN "products" ON "products"."user_id" = "users"."id" WHERE "products"."id" IS NULL LIMIT ?  [["LIMIT", 11]]
+
 Now this outer join has solved the problem
 
 *********************
@@ -3424,7 +3436,7 @@ product = Product.where(name:"Laptop").joins(:user).where( users: {name: "Nouman
 
 find_by_sql
 
-User.find_by_sql("SELECT * FROM users INNER JOIN products ON user.id = products.user_id ")
+User.find_by_sql("SELECT * FROM users INNER JOIN products ON users.id = products.user_id ")
 
 ========================================================================================================================================================================
 Join2
@@ -3560,18 +3572,33 @@ It tries to minimize the number of database queries by using JOINs where possibl
 If a JOIN is not possible or not recommended (e.g., due to a large number of associated records), it falls back to separate queries, similar to preload.
 
 
+(run queries on day_7/QueryInterface)
+
 User.includes(:products).where(products: {name:"Laptop"})
 
 
-Article.includes(:comments)                                                       --  work as preload (using two queries )
+1) Article.includes(:comments)                                                       --  work as preload (using two queries )
+Article Load (0.5ms)  SELECT  "articles".* FROM "articles" LIMIT ?  [["LIMIT", 11]]
+Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["article_id", 2], ["article_id", 3], ["article_id", 4], ["article_id", 5], ["article_id", 6], ["article_id", 8], ["article_id", 10], ["article_id", 11], ["article_id", 12], ["article_id", 13], ["article_id", 14]]
 
-Article.includes(:comments).where(comments: { commenter: "Nouman" })              --  use left outer join when we use where or order command
+2) Article.includes(:comments).where(comments: { commenter: "Nouman" })              --  use left outer join when we use where or order command
+SELECT  DISTINCT "articles"."id" FROM "articles" LEFT OUTER JOIN "comments" ON "comments"."article_id" = "articles"."id" WHERE "comments"."commenter" = ? LIMIT ?  [["commenter", "Nouman"], ["LIMIT", 11]]
+SELECT "articles"."id" AS t0_r0, "articles"."title" AS t0_r1, "articles"."text" AS t0_r2, "articles"."created_at" AS t0_r3, "articles"."updated_at" AS t0_r4, "comments"."id" AS t1_r0, "comments"."commenter" AS t1_r1, "comments"."body" AS t1_r2, "comments"."article_id" AS t1_r3, "comments"."created_at" AS t1_r4, "comments"."updated_at" AS t1_r5 FROM "articles" LEFT OUTER JOIN "comments" ON "comments"."article_id" = "articles"."id" WHERE "comments"."commenter" = ? AND "articles"."id" IN (?, ?)  [["commenter", "Nouman"], ["id", 3], ["id", 2]]
 
-Article.includes(:comments).references(:comments)                                 --  forcefully run in single query
 
-Article.all.includes(:comments).where(articles: {title: "Article3" })
+3) Article.includes(:comments).references(:comments)                                 --  forcefully run in single query
+SELECT  DISTINCT "articles"."id" FROM "articles" LEFT OUTER JOIN "comments" ON "comments"."article_id" = "articles"."id" LIMIT ?  [["LIMIT", 11]]
 
-Article.all.includes(:comments).where(comments:{article_id: 2 })
+4) Article.all.includes(:comments).where(articles: {title: "Article3" })
+SELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?  [["title", "Article3"], ["LIMIT", 11]]
+
+
+5) Article.all.includes(:comments).where(comments:{article_id: 2 })
+SELECT  DISTINCT "articles"."id" FROM "articles" LEFT OUTER JOIN "comments" ON "comments"."article_id" = "articles"."id" WHERE "comments"."article_id" = ? LIMIT ?  [["article_id", 2], ["LIMIT", 11]]
+
+
+6) Comment.includes(:article).where(articles: {title: "Article 3" }).first
+SELECT  "comments"."id" AS t0_r0, "comments"."commenter" AS t0_r1, "comments"."body" AS t0_r2, "comments"."article_id" AS t0_r3, "comments"."created_at" AS t0_r4, "comments"."updated_at" AS t0_r5, "articles"."id" AS t1_r0, "articles"."title" AS t1_r1, "articles"."text" AS t1_r2, "articles"."created_at" AS t1_r3, "articles"."updated_at" AS t1_r4 FROM "comments" LEFT OUTER JOIN "articles" ON "articles"."id" = "comments"."article_id" WHERE "articles"."title" = ? ORDER BY "comments"."id" ASC LIMIT ?  [["title", "Article 3"], ["LIMIT", 1]]
 
 
 ************
@@ -3672,9 +3699,92 @@ default_scope:   this scope will be applied across all queries to the model
 > Product.all.count
 
 *************************
+count / size / length:
+*************************
+
+length:
+
+length is a method available for arrays and strings in Ruby on Rails.
+
+For arrays, it returns the number of elements in the array.
+For strings, it returns the number of characters in the string.
+
+****************
+
+count:
+
+count is a method available for arrays and ActiveRecord relations in Ruby on Rails.
+
+For arrays, it returns the number of elements that match a given condition if a block is provided. If no block is provided, it returns the total number of elements in the array.
+For ActiveRecord relations, count is used to perform a SQL COUNT query on the database to get the number of rows that match the conditions in the relation.
+
+Post.where(published: true).count
+
+****************
+
+size:
+
+size is a method available for arrays and ActiveRecord relations in Ruby on Rails.
+
+For arrays, it behaves the same as length, returning the number of elements in the array.
+For ActiveRecord relations, size is used to fetch all the records from the database and count the number of rows locally in Ruby.
+
+This is different from count, which directly performs a SQL COUNT query on the database without fetching all the records.
+
+Post.where(published: true).size
+
+****************
+
+In summary:
+
+Use length or size for arrays, as they both give you the number of elements in the array. size may be preferred in some cases for its consistency with ActiveRecord relations.
+Use count for ActiveRecord relations when you want to perform a SQL COUNT query on the database, especially if you only need the count and not the actual records.
+count is generally more efficient than size in this context.
 
 
+Length:
+Get all records and count them locally.
+If all entries are already loaded in the memory (Job.all), then use length to avoid another database query.
 
+Count:
+If you do not have anything loaded in the memory, use count to make a query on database.
+Everytime it use sql count query to get result
+
+Size:
+if the collection has already been loaded in the memory, it will return the length same as calling length.
+If it has not been loaded yet, it is like calling count.
+
+*********
+
+Examples:
+
+size:
+
+u = User.all
+u.size
+# run "SELECT COUNT(*) FROM `users` WHERE `users`.`is_deleted` = FALSE" every time
+
+****
+length:
+
+u = User.all
+u.length
+# run -> SELECT `users`.* FROM `users` WHERE `users`.`is_deleted` = FALSE and count records locally
+# Next time it will not run any query and return count directly
+
+****
+count:
+
+Without block it is same as size:
+u = User.all
+u.count
+run -> SELECT COUNT(*) FROM `users` WHERE `users`.`is_deleted` = FALSE every time
+
+
+With block it fetches all the records and then count as per the block condition locally:
+u = User.all
+u.count { |obj| obj.id.even? }
+run -> "SELECT `users`.* FROM `users` WHERE `users`.`is_deleted` = FALSE"
 ========================================================================================================================================================================
 day 8
 devise setup

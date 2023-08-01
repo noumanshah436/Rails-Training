@@ -1,0 +1,140 @@
+Strongly typed vs weakly typed
+Compile time vs interpreted language
+on which language Ruby is based
+self in ruby
+gsub, sub
+size vs count vs length
+map vs map! vs each vs inject, parameter in inject, reduce, detect, collect
+     (inject and reduce are same)
+each vs each_with_index vs for loop
+Multiple inheritance and multiple inheritance in ruby
+Mixin in Ruby?
+Module vs class
+include vs extend vs prepend
+ancestor chain?
+Class method vs instance method in ruby
+attribute accessor, attr reader, att writer
+Exception handling, begin, rescue, else, ensure
+namespace?
+serialization?
+Block vs proc vs lambda
+
+***************************************************************
+
+Strongly typed means, a variable will not be automatically converted from one type to another.
+
+In Go or Python like strongly typed languages "2" + 8 will raise a type error,
+ because they don't allow for "type coercion".
+
+******************************************
+
+Weakly (loosely) Typed: Will be automatically converted to one type to another:
+
+Weakly typed languages like JavaScript or Perl won't throw an error and in this case JavaScript will results '28' and perl will result 10.
+
+
+******************************************
+
+Python is both a strongly typed and a dynamically typed language.
+
+Statically typed languages check the types and look for type errors during compile time.
+
+Dynamically typed languages check the types and look for type errors during runtime.
+Dynamic typing means that the type of the variable is determined only during runtime.
+
+******************************************
+
+Ruby is "strong typed".
+
+Strong typing means an object's type (not in the OOP sense, but in a general sense) is checked before an operation requiring a certain type is executed on it.
+
+Weak typed means that no checking is done to ensure that the operation can succeed on the object.
+(For example, when a function accesses a string like and array of floats, if no type checking is done then the operation is allowed)
+
+
+*********************
+
+
+Ruby is "stronger" typed (with an "er") than most typical dynamic languages.
+ The fact that ruby requires explicit statements for conversion IE: Array("foo"), "42".to_i, Float(23), brings the Ruby typing dial closer to the "Strong Typed" end of spectrum than the "weak typed".
+
+So I would say "Ruby is a stronger typed dynamic language than most common dynamic languages"
+
+*********************
+
+Ruby is a language of careful balance. Its creator, Yukihiro “Matz” Matsumoto, blended parts of his favorite languages
+(Perl, Smalltalk, Eiffel, Ada, and Lisp) to form a new language that balanced functional programming with imperative programming.
+
+*********************
+ sub and gsub do not change actual string
+The sub() method replaces just the first instance of a string with another.
+Gsub meanwhile replaces all instances.
+Thus: Gsub is closest to a “replace string” method. Sub() is conceptually a “replace first string” method.
+
+*********************
+# The map method takes an enumerable object and a block, and runs the block for each element, outputting each returned value from the block (the original object is unchanged unless you use map!):
+
+arr = [1, 2, 3]
+
+p arr.map { |n| n * n } #=> [1, 4, 9]
+p arr                   #=> [1,2,3]
+
+p arr.map! { |n| n * n } #=> [1, 4, 9]
+p arr                     #=> [1, 4, 9]
+
+*********************
+
+see 22_length_size_count file
+
+Count is the number of items in a collection.
+
+Length() tends to refer to contiguous elements - a string has a length for example.
+
+Count() tends to refer to the number of elements in a looser collection.
+
+Size() tends to refer to the size of the collection, often this can be different from the length in cases like vectors (or strings), there may be 10 characters in a string, but storage is reserved for 20. It also may refer to number of elements - check source/documentation.
+
+Capacity() - used to specifically refer to allocated space in collection and not number of valid elements in it. If type has both "capacity" and "size" defined then "size" usually refers to number of actual elements.
+
+
+****************************
+
+
+In general, methods that end in ! indicate that the method will modify the object it's called on.
+ Ruby calls these as "dangerous methods" because they change state that someone else might have a reference to. Here's a simple example for strings:
+
+foo = "A STRING"  # a string called foo
+foo.downcase!     # modifies foo itself
+puts foo          # prints modified foo
+
+
+In the standard libraries, there are a lot of places you'll see pairs of similarly named methods, one with the ! and one without. The ones without are called "safe methods", and they return a copy of the original with changes applied to the copy, with the callee unchanged. Here's the same example without the !:
+
+foo = "A STRING"    # a string called foo
+bar = foo.downcase  # doesn't modify foo; returns a modified string
+puts foo            # prints unchanged foo
+puts bar            # prints newly created bar
+
+****************************
+
+Is inject the same thing as reduce in ruby?
+
+Yes, and it's also called fold in many other programming languages and in Mathematics.
+Ruby aliases a lot in order to be intuitive to programmers with different backgrounds.
+If you want to use #length on an Array, you can. If you want to use #size, that's fine too!
+
+Ruby provides an alias for programmers from the Smalltalk world to feel more at home.
+
+collect and  map are aliases
+
+reduce and inject are same
+
+****************************
+
+Ruby supports only single class inheritance, it does not support multiple class inheritance but it supports mixins.
+The mixins are designed to implement multiple inheritances in Ruby, but it only inherits the interface part.
+
+
+In Ruby, single class inheritance is supported, which means that one class can inherit from the other class,
+but it can't inherit from two super classes. In order to achieve multiple inheritance, Ruby provides something called mixins
+that one can make use of.
