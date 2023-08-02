@@ -1,0 +1,14 @@
+<h1>Home#index</h1>
+<table>
+  <tr>
+    <th>Employee Name</th>
+    <th>Annual Salary</th>
+  </tr>
+  <% @query_result.each do |obj| %>
+    <tr>
+      <td><%= obj.ename %></td>
+      <td><%= obj.Annual_Salary %></td>
+    </tr>
+  <% end %>
+</table>
+

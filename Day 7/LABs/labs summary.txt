@@ -1,6 +1,7 @@
-lab 3       select  operation  ( functions) 
 
-lab 4 group func
+
+lab 3       select  operation  ( functions) 
+lab 4 group func , Case expression
 lab 5   joins
 lab 6 joins
 lab 7 DML (insert , update , dleete)

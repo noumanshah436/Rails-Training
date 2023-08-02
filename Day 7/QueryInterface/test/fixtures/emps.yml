@@ -1,4 +1,19 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# == Schema Information
+#
+# Table name: emps
+#
+#  id         :integer          not null
+#  empno      :integer          not null, primary key
+#  ename      :string(10)
+#  job        :string(9)
+#  mgr        :integer
+#  hiredate   :date
+#  sal        :decimal(7, 2)
+#  comm       :decimal(7, 2)
+#  deptno     :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 
 # This model initially had no columns defined. If you add columns to the
 # model remove the '{}' from the fixture names and add the columns immediately

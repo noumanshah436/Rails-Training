@@ -36,7 +36,7 @@ renderring in different formats
 
 
 Day 5:
-routing :
+routing
 
 namespace
 scope
@@ -64,14 +64,18 @@ View Helpers
 
 Day 7
 AR queries
-joins
-default_scope
 Custom transaction
 STI associations, Self Associations
 eager_loading/pre_loading, lazy loading
+exists? Vs present?
+Calculations
+scope in models
+Group
+Joins
+Join2
+preload, includes, eager_load
 count / size / length
-
-
+case expression in rails sql
 
 Day 8
 Mailing
@@ -2235,50 +2239,6 @@ renderring in different formats
   render status: 500
 
 
-
-
-========================================================================================================================================================================
-Day 5
-exists?   vs present?
-========================================================================================================================================================================
-The big difference between the two methods, is that when you call present? it initializes ActiveRecord for each record found(!), while exists? does not.
-
-to show this I added after_initialize on User. it prints: 'You have initialized an object!'
-
-User.where(name: 'mike').present?
-
-User Load (8.1ms) SELECT "users".* FROM "users" WHERE "users"."name" = $1 ORDER BY users.id ASC  [["name", 'mike']]
-You have initialized an object!
-You have initialized an object!
-
-User.exists?(name: 'mike')
-User Exists (2.4ms)  SELECT 1 AS one FROM "users" WHERE "users"."name" = $1 ORDER BY users.id ASC LIMIT 1  [["name", 'mike']]
-
-
-*************************
-
-
-present?
-present? is an ActiveSupport extension to Object. It's usually used as a test for an object's general "falsiness". From the documentation:
-
-An object is present if it’s not blank?. An object is blank if it’s false, empty, or a whitespace string.
-
-So, for example:
-
-[ "", " ", false, nil, [], {} ].any?(&:present?)
-# => false
-
-
-exists?
-exists? is from ActiveResource. From its documentation:
-
-Asserts the existence of a resource, returning true if the resource is found.
-
-Note.create(:title => 'Hello, world.', :body => 'Nothing more for now...')
-Note.exists?(1) # => true
-
-
-
 ========================================================================================================================================================================
 Day 5:
 
@@ -2939,7 +2899,7 @@ Day 7
 Action queries
 ========================================================================================================================================================================
 
-Use Day1/Blog Project for Practice:
+Use Day7/QueryInterface Project for Practice:
 
 Article.count
 Article.first
@@ -2993,18 +2953,60 @@ select:
  Modifies the SELECT statement for the query so that only certain fields are retrieved:
 
 
-
-Article.select(:id )
+1) Article.select(:id)
 SELECT "articles"."id" FROM "articles"
 => #<ActiveRecord::Relation [#<Article id: 2>, #<Article id: 3>, #<Article id: 4>, #<Article id: 5>, #<Article id: 6>, #<Article id: 8>, #<Article id: 10>, #<Article id: 11>, #<Article id: 12>, #<Article id: 13>, ...]>
 
-Article.select(:id, :title)
+2) employees = Emp.select(:id, :ename, :sal)
+will run: SELECT "emps"."id", "emps"."ename", "emps"."sal" FROM "emps"
 
+employees.each do |emp|
+  p emp.id
+  p emp.ename
+  p emp.sal
+end
 
-Client.select(:name).distinct
+3) employees = Emp.select("emps.empno, emps.ename, emps.sal AS salary")
+will run: SELECT emps.empno, emps.ename, emps.sal AS salary FROM "emps"
 
-Emp.select("ename , sal")
+employees.each do |emp|
+  puts "empno: #{emp.empno}, name: #{emp.ename}, salary: #{emp.salary}\n"
+end
 
+4) employees = Emp.select("ename || ' is a ' || job AS employee_description")
+will run: SELECT ename || ' is a ' || job AS employee_description FROM "emps"
+
+employees.each do |emp|
+  p emp.employee_description
+end
+
+*************
+
+Lab 2 questions for select:
+
+15) Find the annual salary of the employees and sort it in descending order
+Solution:
+
+select ename, sal*12 as Annual_Salary from emp order by Annual_Salary desc
+
+query_result = Emp.select("ename, sal * 12 AS Annual_Salary").order("Annual_Salary DESC")
+
+query_result.each do |obj|
+  p obj.Annual_Salary
+end
+
+SELECT  ename, sal * 12 AS Annual_Salary FROM "emps" ORDER BY Annual_Salary DESC LIMIT ?  [["LIMIT", 11]]
+
+Lab 3:
+
+3. Add 5 months in HireDate.
+select ename,hiredate,add_months(hiredate,5) as output from emp
+
+query_result = Emp.select("emps.ename, emps.hiredate, add_months(emps.hiredate, 5) as output")
+
+query_result.each do |obj|
+  puts "name: #{emp.ename}, hiredate: #{emp.hiredate}, output: #{emp.output}\n"
+end
 
 
 **********************************
@@ -3115,6 +3117,26 @@ rails db:migrate
 
 present?:
 
+present?:
+The present? method, is a general-purpose method that is not specific to ActiveRecord.
+It's used to check if an object is not nil and not empty.
+This is useful for non-database-related objects or attributes.
+
+  Example:
+  # Check if a string is present (not nil and not empty)
+  if employee.name.present?
+    # Do something with the employee's name
+  end
+
+From the documentation:
+An object is present if it’s not blank?.
+An object is blank if it’s false, empty, or a whitespace string.
+
+So, for example:
+
+[ "", " ", false, nil, [], {} ].any?(&:present?)
+# => false
+
 User.where(name: 'mike').present?
 SELECT "users".* FROM "users" WHERE "users"."name" = ?  [["name", "mike"]]
  => true
@@ -3123,22 +3145,62 @@ SELECT "users".* FROM "users" WHERE "users"."name" = ?  [["name", "mike"]]
 
 exists?
 
-check for the existence of the object there's a method called exists?.
-return either true or false
+The exists? method is specifically designed for checking the existence of records in the database based on certain conditions.
+It generates an efficient SQL query that only checks for the existence of records, without retrieving the actual data.
+This can be more efficient when you only need to know if records meeting a certain condition exist, without fetching the entire record.
+
+Example:
+
+# Check if there are any employees with the job title 'MANAGER'
+SELECT  1 AS one FROM "emps" WHERE "emps"."job" = ? LIMIT ?  [["job", "MANAGER"], ["LIMIT", 1]]
+
+if Emp.exists?(job: 'MANAGER')
+  # Do something if at least one 'Manager' employee exists
+end
 
 User.exists?(1)
+SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?  [["id", 1], ["LIMIT", 1]]
 
 User.exists?(id: [1,2,3])
+SELECT  1 AS one FROM "users" WHERE "users"."id" IN (1, 2, 3) LIMIT 1
 
 User.exists?(name: ['John', 'Sergei'])
 
 User.where(name:"Nouman").exists?
 
 User.exists?(name: 'mike')
+SELECT  1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?  [["name", "mike"], ["LIMIT", 1]]
+
+Note.create(:title => 'Hello, world.', :body => 'Nothing more for now...')
+Note.exists?(1) # => true
+
+**********************
+
+exists? Vs present?
+
+The big difference between the two methods, is that when you call present?
+it initializes ActiveRecord for each record found(!), while exists? does not.
+
+To show this I added after_initialize on User. it prints: 'You have initialized an object!'
+
+User.where(name: 'mike').present?
+
+SELECT "users".* FROM "users" WHERE "users"."name" = $1 ORDER BY users.id ASC  [["name", 'mike']]
+You have initialized an object!
+You have initialized an object!
+
+User.exists?(name: 'mike')
+SELECT 1 AS one FROM "users" WHERE "users"."name" = $1 ORDER BY users.id ASC LIMIT 1  [["name", 'mike']]
+
+So, the choice between them depends on the context:
+If you are specifically interested in checking the existence of records in the database based on certain conditions, exists? is a better choice for efficiency.
+If you are working with non-database-related objects or attributes and you want to check if they are present, present? is the appropriate choice.
+
+Use each method according to its intended purpose for cleaner and more maintainable code.
 
 *********************
 
- Calculations
+Calculations
 
 count:
   User.count(:id)
@@ -3164,16 +3226,6 @@ Sum:
 
 Emp.count - Emp.count(:sal)
 
-
-***********************
-
-:includes  loads associated records in advance and limits the number of SQL queries made to the database.
- This technique is known as "eager loading" and in many cases will improve performance by a significant amount.
-
-
-User.includes(:products).where(products: {name:"Laptop"})
-
-
 *************************
 
 Length:
@@ -3182,19 +3234,17 @@ Product.where("LENGTH(name) < 5")
 
 
 *************************
-Scope:
+scope in models:
 *************************
 
 syntax:
     scope :name, -> { where(:attibute => value)}
 
-create scope in Product model class
-
+create scope in Product model class:
 > scope  :laptops, -> { where( name:"Laptop") }
 
 In console:
 Product.laptops
-
 
 ****
 
@@ -3211,8 +3261,6 @@ anas:
 
 scope :with_include, -> { includes(:purpose_of_transfer, :sender, :receiver) }
 scope :with_detail, ->(data) { where('sender_id = ? or receiver_id = ?', data, data) }
-
-
 
 @transfer_funds = TransferFund.with_detail(current_user.id).with_include
 
@@ -3510,6 +3558,14 @@ Get active employees at companies that are verified in the state of California:
 Employee.where(status: "active").joins(company: [:locations]).where(locations: { state: 'CA'}, companies: { verified: true })
 
 ************************
+:includes
+
+:includes  loads associated records in advance and limits the number of SQL queries made to the database.
+ This technique is known as "eager loading" and in many cases will improve performance by a significant amount.
+
+User.includes(:products).where(products: {name:"Laptop"})
+
+************************
 
 When to use :includes
 
@@ -3531,7 +3587,6 @@ end
 *********
 same as :
 Employee.where(status: "active").includes(company: [:locations]).where(locations: { state: 'CA'}, companies: { verified: true })
-
 
 
 ========================================================================================================================================================================
@@ -3614,89 +3669,6 @@ In some cases, it can be more efficient than includes when you know that using J
 Article.eager_load(:comments).to_a
 
 Article.eager_load(:comments).where(comments: { commenter: "Nouman" })
-
-
-========================================================================================================================================================================
-queries
-========================================================================================================================================================================
-
-
-pluck
-pluck can be used to query single or multiple columns from the underlying table of a model.
-
-User.all.pluck(:id)
-User.all.pluck(:name)
-
-*********************
-
-exists?
-
-check for the existence of the object there's a method called exists?.
-return either true or false
-
-User.exists?(1)
-
-User.exists?(id: [1,2,3])
-
-User.exists?(name: ['John', 'Sergei'])
-
-User.where(name:"NOuman").exists?
-
-*********************
-
- Calculations
-
-count:
-  User.count(:id)
-  User.count("id")
-
-Average:
-  Product.average(:price)
-  Product.average("price")
-
-Minimum:
-  Product.minimum(:price)
-  Product.minimum("price")
-
-Maximum
-  Product.maximum(:price)
-
-Sum:
-  Product.sum(:price)
-
-*************************
-
-Length:
-
-Product.where("LENGTH(name) < 5")
-
-*************************
-
-Scope:
-
-syntax:
-    scope :name, -> { where(:attibute => value)}
-
-create scope in Product model class:
-> scope  :laptops, -> { where( name:"Laptop") }
-
-In console:
-Product.laptops
-
-****
-
-Passing in arguments:
-
-scope  :get_product, -> (name) { where( "name= ?", name) }
-
-Product.get_product("Laptop")
-
-***
-
-default_scope:   this scope will be applied across all queries to the model
-
-> default_scope { where("user_id IS NOT NULL") }
-> Product.all.count
 
 *************************
 count / size / length:
@@ -3785,6 +3757,69 @@ With block it fetches all the records and then count as per the block condition 
 u = User.all
 u.count { |obj| obj.id.even? }
 run -> "SELECT `users`.* FROM `users` WHERE `users`.`is_deleted` = FALSE"
+
+****************************
+case expression in rails sql (in Lab 4)
+****************************
+
+employees = Emp.select(
+  :empno,
+  :ename,
+  :sal,
+  "CASE
+    WHEN sal >= 3000 THEN 'High'
+    WHEN sal >= 1000 THEN 'Moderate'
+    ELSE 'Low'
+    END AS salary_category"
+)
+
+employees.each do |emp|
+  puts "Employee ID: #{emp.empno}"
+  puts "Name: #{emp.ename}"
+  puts "Salary: #{emp.sal}"
+  puts "Salary Category: #{emp.salary_category}"
+  puts "\n"
+end
+
+Lab 4)
+19. Increase the salaries using CASE Expression of Clerks like dept no. 10
+clerks will incread 15% and depnt no. 20 will increase 18% and dept no. 30
+will have increase of 20%. And then find the one year salary.
+
+Sol in raw sql:                     *****
+
+SELECT ename,sal,deptno,
+case deptno
+  when 10 then sal+ (sal*15)/100
+  when 20 then sal + (sal*18)/100
+  when 30 then sal + (sal*20)/100
+else sal end "revised salary"
+from emp
+where job='CLERK'
+
+Sol in rails:                        *****
+
+employees = Emp.select(
+  :ename,
+  :sal,
+  :deptno,
+  "CASE deptno
+    WHEN 10 THEN sal + (sal*15)/100
+    WHEN 20 THEN sal + (sal*18)/100
+    WHEN 30 THEN sal + (sal*20)/100
+    ELSE sal
+    END AS revised_salary"
+).where(job: "CLERK")
+
+
+employees.each do |emp|
+  puts "Name: #{emp.ename}"
+  puts "Dept No.: #{emp.deptno}"
+  puts "Salary: #{emp.sal}"
+  puts "Revised Salary: #{emp.revised_salary}"
+  puts "\n"
+end
+
 ========================================================================================================================================================================
 day 8
 devise setup
