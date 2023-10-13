@@ -2,6 +2,7 @@
 
 task :apple do
   puts "Eat more apples!"
+  reurn "Executed Successfully"
 end
 
 # rake apple
