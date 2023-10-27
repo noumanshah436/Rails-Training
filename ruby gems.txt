@@ -1,0 +1,453 @@
+
+
+
+dev@nouman:~$ gem which rubocop
+/home/dev/.rvm/gems/ruby-3.1.2/gems/rubocop-1.57.1/lib/rubocop.rb
+dev@nouman:~$ 
+dev@nouman:~$ cd /home/dev/.rvm/gems/ruby-3.1.2/gems
+dev@nouman:~/.rvm/gems/ruby-3.1.2/gems$ ls
+ast-2.4.2                          parallel-1.23.0  rainbow-3.1.1        rubocop-1.57.1      ruby-lsp-0.11.2          sorbet-runtime-0.5.11072     yarp-0.12.0
+language_server-protocol-3.17.0.3  parser-3.2.2.4   regexp_parser-2.8.2  rubocop-ast-1.29.0  ruby-progressbar-1.13.0  unicode-display_width-2.5.0
+dev@nouman:~/.rvm/gems/ruby-3.1.2/gems$ ls -al
+
+
+**************************
+
+ruby -v
+ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x86_64-linux]
+
+
+gem list
+
+*** LOCAL GEMS ***
+
+
+what are the gems it will show?
+
+When you run gem list, it should display the gems that are installed for the currently active Ruby version.
+
+
+
+**************************
+
+gem environment
+RubyGems Environment:
+  - RUBYGEMS VERSION: 3.3.7
+  - RUBY VERSION: 3.1.2 (2022-04-12 patchlevel 20) [x86_64-linux]
+  - INSTALLATION DIRECTORY: /home/dev/.rvm/gems/ruby-3.1.2
+  - USER INSTALLATION DIRECTORY: /home/dev/.local/share/gem/ruby/3.1.0
+  - RUBY EXECUTABLE: /home/dev/.rvm/rubies/ruby-3.1.2/bin/ruby
+  - GIT EXECUTABLE: /usr/bin/git
+  - EXECUTABLE DIRECTORY: /home/dev/.rvm/gems/ruby-3.1.2/bin
+  - SPEC CACHE DIRECTORY: /home/dev/.local/share/gem/specs
+  - SYSTEM CONFIGURATION DIRECTORY: /etc
+  - RUBYGEMS PLATFORMS:
+     - ruby
+     - x86_64-linux
+  - GEM PATHS:
+     - /home/dev/.rvm/gems/ruby-3.1.2
+     - /home/dev/.rvm/rubies/ruby-3.1.2/lib/ruby/gems/3.1.0
+  - GEM CONFIGURATION:
+     - :update_sources => true
+     - :verbose => true
+     - :backtrace => false
+     - :bulk_threshold => 1000
+  - REMOTE SOURCES:
+     - https://rubygems.org/
+  - SHELL PATH:
+     - /home/dev/.rvm/gems/ruby-3.1.2/bin
+     - /home/dev/.rvm/gems/ruby-3.1.2@global/bin
+     - /home/dev/.rvm/rubies/ruby-3.1.2/bin
+     - /home/dev/.nvm/versions/node/v18.18.1/bin
+     - /usr/local/sbin
+     - /usr/local/bin
+     - /usr/sbin
+     - /usr/bin
+     - /sbin
+     - /bin
+     - /usr/games
+     - /usr/local/games
+     - /snap/bin
+     - /home/dev/.rvm/bin
+     
+******************************************************************************
+rvm and ruby commands:
+******************************************************************************
+
+
+1) Install Ruby Versions
+To install a specific Ruby version, use the rvm install command. For example, to install Ruby 3.1.2:
+
+rvm install 3.1.2
+
+
+2) Set Default Ruby Version
+
+rvm use 3.1.2 --default
+
+3) Switch Between Ruby Versions
+
+rvm use 2.7.0
+
+4) You can list all installed Ruby versions with:
+
+rvm list
+
+5) To uninstall a specific Ruby version, you can use:
+
+rvm remove 3.1.2
+
+6)
+which ruby
+
+/home/dev/.rvm/rubies/ruby-3.1.2/bin/ruby
+
+**************************
+
+rvm install '2.7.0'
+rvm use 2.7.0 --default
+
+which ruby
+/home/dev/.rvm/rubies/ruby-2.7.0/bin/ruby
+
+
+************************************************************************
+************************************************************************
+
+
+$ rvm list
+=* ruby-2.7.0 [ x86_64 ]
+   ruby-3.1.2 [ x86_64 ]
+
+# => - current
+# =* - current && default
+#  * - default
+
+
+**********************
+
+$ ruby -v
+ruby 2.7.0p0 (2019-12-25 revision 647ee6f091) [x86_64-linux]
+
+
+*********************
+
+
+Lists all the gems that are installed in your current Ruby environment (for example ruby 2.7.0)
+It displays the gems installed globally in your system-wide Ruby environment. 
+This command shows all the gems installed on your system, regardless of the specific project you are working on.
+ 
+gem list
+
+*** LOCAL GEMS ***
+
+actioncable (5.2.8.1)
+actionmailer (5.2.8.1)
+actionpack (5.2.8.1)
+actionview (5.2.8.1)
+activejob (5.2.8.1)
+activemodel (5.2.8.1)
+activerecord (5.2.8.1)
+.....
+.....
+
+Note: 
+
+if we change our ruby version (rvm use 3.1.2) and run `gem list` it will show gems for that ruby 3.1.2 environment
+
+********************************
+
+Search gems in the current ruby environment:
+
+syntax:
+     gem list gem-name
+
+It will list all installed gems whose name matches gem-name. This is useful for checking if a specific gem is installed and seeing its version
+
+Examples:
+
+1) To check the version of the Bundler gem:
+
+gem list bundler
+
+*** LOCAL GEMS ***
+
+bundler (default: 2.4.21, 2.3.19)
+bundler-unload (1.0.2)
+rubygems-bundler (1.4.5)
+
+2) gem list devise
+
+*** LOCAL GEMS ***
+
+devise (4.8.1)
+
+3) gem list rails
+
+*** LOCAL GEMS ***
+
+coffee-rails (4.2.2)
+rails (5.2.8.1)
+rails-dom-testing (2.0.3)
+rails-html-sanitizer (1.4.3)
+sass-rails (5.1.0)
+sprockets-rails (3.4.2)
+
+
+********************************
+
+gem install bundler:2.3.19
+
+********************************
+
+$ bundle -v
+Bundler version 2.4.21
+
+$ bundler -v
+Bundler version 2.4.21
+
+*****************
+
+$ bundler info devise
+
+Could not locate Gemfile or .bundle/ directory
+
+$ bundle list (or bundler list)
+
+Could not locate Gemfile or .bundle/ directory
+
+****************
+
+
+
+
+******************************************************************************************************
+What are the other ruby commands to check environment
+******************************************************************************************************
+
+In a Ruby development environment, there are several commands and tools you can use to check various aspects of the environment. Here are some commonly used commands:
+
+ruby -v:
+ This command displays the version of Ruby that is currently installed on your system.
+
+gem -v:
+ It shows the version of RubyGems, the package manager for Ruby, that is installed.
+
+gem list:
+ As mentioned earlier, this command lists all the gems that are installed in your Ruby environment.
+
+irb: Running this command launches the Interactive Ruby (IRB) interpreter, which provides an interactive environment for executing Ruby code. It's great for experimenting and testing small snippets of code.
+
+rails -v:
+ If you have Ruby on Rails installed, this command displays the version of Rails that is installed.
+
+rake -T:
+ When you're in a Rails project directory, this command lists all available Rake tasks. Rake is a build tool similar to Make, and it's used in Rails for various tasks like running migrations, testing, etc.
+
+bundle -v (or bundler -v):
+ If you're using Bundler to manage gem dependencies in your project, this command shows the version of Bundler that is installed.
+
+which ruby: 
+On Unix-like systems (Linux, macOS), this command displays the path to the currently active Ruby interpreter.
+
+which gem: 
+Similarly, this command displays the path to the currently active gem executable.
+
+
+These are just a few of the common commands used in a Ruby development environment. The specific commands you'll use will depend on the tools you have installed and the type of Ruby development you're doing (e.g., pure Ruby, Ruby on Rails, etc.).
+
+***************************************************
+
+
+rails console or rails c: 
+When you're in a Rails project directory, running either of these commands opens up a Rails console, which is an interactive environment similar to IRB but loaded with the Rails environment.
+
+rails dbconsole or rails db:
+ This command opens a database console for your Rails project's configured database. For example, rails dbconsole might open a PostgreSQL or MySQL console depending on your configuration.
+
+rails routes: 
+In a Rails project directory, this command displays a list of all defined routes in your application.
+
+
+
+
+******************************************************************************************************
+Bundler:
+******************************************************************************************************
+
+In a Ruby on Rails project, Bundler is commonly used to manage gem dependencies. 
+
+Bundler is a tool used in the Ruby programming language ecosystem to manage gem dependencies for Ruby projects. It's a package manager for Ruby gems. 
+Gems are packages or libraries written in Ruby that provide specific functionality and can be easily integrated into your Ruby projects. 
+Bundler helps ensure that your project has the necessary gems and their correct versions, making it easier to manage and share code with others.
+
+************************
+
+Is bundler is a gem?
+
+Yes, Bundler itself is a Ruby gem. It's a gem used for managing other gems, which are Ruby libraries or packages. 
+When you install Bundler, it becomes part of your Ruby environment and is used to manage the dependencies (other gems) for your Ruby projects.
+
+To install Bundler as a gem, you can use the following command:
+
+gem install bundler 
+
+This command will download and install Bundler from the RubyGems repository, making it available for use in your Ruby projects. 
+Once installed, you can create and manage the Gemfile for your projects, and Bundler will handle the installation and management of the specified gems and their versions.
+
+************************
+
+If bundler is a gem then why it is not mentioned in my Gemfile?
+
+It's not necessary to list Bundler itself in your Gemfile because Bundler is a tool for managing other gems, not a gem that your project directly depends on.
+
+The purpose of the Gemfile is to specify the gems that your Ruby project or application depends on for its functionality. These are the libraries that your code will use to accomplish specific tasks, and Bundler ensures that the correct versions of these gems are available for your project.
+
+***********************
+
+Here's how Bundler works and why it's important:
+
+Dependency Management: In a Ruby project, you often rely on various gems to add specific features or functionality. These gems, in turn, may have their own dependencies on other gems. Managing all these dependencies manually can become complex. Bundler automates this process by keeping track of the gems your project needs and their versions.
+
+Gemfile: In your project's directory, you create a file called Gemfile. This file lists the gems your project depends on along with their desired versions. Bundler reads this file to determine which gems to install.
+
+Gemfile.lock: After running Bundler to install gems, it generates a Gemfile.lock file. This file locks in the specific versions of gems that were installed, ensuring consistency across different environments and preventing accidental updates to gems.
+
+Installation: When you run bundle install (or just bundle), Bundler reads the Gemfile and installs the specified gems and their dependencies. It checks the Gemfile.lock to ensure that the exact versions mentioned there are installed, ensuring consistent behavior across different environments.
+
+Updating Gems: You can update your project's gems by modifying the Gemfile and then running bundle update. This updates gems to the latest versions allowed by the version constraints in your Gemfile.
+
+Isolation: Bundler creates a separate environment (a directory structure called the "bundle") for each project, ensuring that gem dependencies don't interfere with each other. This helps avoid conflicts between projects that might rely on different gem versions.
+
+Collaboration: When sharing your code with others, you can include the Gemfile and Gemfile.lock files. When someone else clones your project and runs bundle install, they'll get the exact same gem versions that you're using, reducing potential compatibility issues.
+
+In summary, Bundler simplifies the process of managing gem dependencies in Ruby projects, ensuring that the right versions of gems are installed and maintained consistently. It's a crucial tool for keeping projects organized, maintaining version control, and facilitating collaboration among developers.
+
+************************
+
+Commands:
+
+In a Ruby on Rails project, Bundler is commonly used to manage gem dependencies. 
+Here are some of the most commonly used commands related to Bundler in a Rails context:
+
+bundle install: This command reads the Gemfile in your Rails project directory and installs the specified gems and their dependencies. It creates or updates the Gemfile.lock file to record the exact versions of gems installed.
+
+bundle update: Running this command updates the gems in your project to their latest versions based on the version constraints specified in the Gemfile. It also updates the Gemfile.lock accordingly.
+
+bundle exec: When running Ruby scripts or commands that are part of your project (e.g., running Rails console or server), it's a good practice to prepend them with bundle exec to ensure that the correct gem versions are used as specified in your Gemfile.
+
+For example: bundle exec rails server
+
+bundle show: This command shows the location of a specific gem within the Bundler-managed environment. You can use it to check the installation path of gems.
+
+For example: bundle show devise
+
+bundle list: Similar to bundle show, this command displays a list of all the gems in your project's Bundler-managed environment along with their paths.
+
+bundle check: This command checks if the gems specified in your Gemfile.lock are installed and available. It's useful for verifying that your environment matches the expected gem versions.
+
+bundle clean: If you want to remove unused gems and their versions from the Bundler-managed environment, you can use this command. It helps keep your environment clean.
+
+bundle init: If you're starting a new Rails project or just want to create a new Gemfile, you can use this command. It initializes a basic Gemfile with some default comments.
+
+bundle install --path vendor/bundle: This command installs gems in a local directory within your project (vendor/bundle) rather than the system-wide gem location. This can be useful for isolating gems per project.
+
+These commands help you manage and maintain gem dependencies in your Rails projects using Bundler. Remember that Bundler is an essential tool to ensure consistent and reproducible gem environments across different development and deployment environments.
+
+
+******************************************************************************************************
+bundle list vs gem list:
+******************************************************************************************************
+
+bundle list and gem list are two commands used in Ruby development to list information about installed gems, but they serve slightly different purposes:
+
+gem list:
+
+Command: gem list
+Purpose: This command lists all the gems that are installed in your entire Ruby environment, regardless of whether they are managed by Bundler or installed globally.
+Scope: It shows all gems available to your Ruby interpreter, including those managed by Bundler and those installed system-wide.
+Output: The output includes the gem names and their versions.
+bundle list:
+
+Command: bundle list
+Purpose: This command lists the gems that are installed and managed by Bundler in the context of the current Rails project.
+Scope: It focuses specifically on the gems listed in the Gemfile.lock file and the gems installed within the Bundler-managed environment of the current project.
+Output: The output includes the gem names, their versions, and the paths where they are installed within the Bundler-managed environment.
+
+
+In summary, the main difference lies in the scope and purpose of the commands:
+
+gem list provides a list of all installed gems across your entire Ruby environment, whether they are managed by Bundler or installed globally.
+bundle list specifically shows the gems installed within the context of the current Rails project using Bundler, based on the Gemfile.lock and the Bundler-managed environment.
+Depending on what information you need, you can use either command. If you're working within a Rails project and want to see the gems managed by Bundler, bundle list is more appropriate. If you want to see all installed gems in your entire Ruby environment, including global ones, gem list is the command to use.
+
+
+
+
+The gem list command in Ruby is used to list the gems installed within the current Ruby environment. 
+It doesn't specifically target a particular gem or category of gems like "system gems" or "builder gems." 
+
+Instead, it provides a list of all gems that are installed and available for use in the currently active Ruby environment.
+
+
+$ bundle list
+Could not locate Gemfile or .bundle/ directory
+
+$ gem list
+
+*** LOCAL GEMS ***
+
+actioncable (5.2.8.1)
+actionmailer (5.2.8.1)
+actionpack (5.2.8.1)
+actionview (5.2.8.1)
+activejob (5.2.8.1)
+
+
+
+**************************************************************************
+
+1) we paste gem (gem 'rswag-api', '~> 1.0') in gemfile and run bundle install
+2) we run `gem install rswag-api -v 1.0.0`
+
+are they install this gem in the ruby environment and what's the difference?
+
+Answer:
+
+1) When you add a gem to your project's Gemfile and run bundle install, you are specifying the gem as a dependency for your specific project.
+The gem is installed in the context of your project's gem environment. It is isolated to your project and does not affect other Ruby projects or your system-wide Ruby environment.
+
+
+
+2) When you run `gem install gemname -v version`, you are installing the gem system-wide on your Ruby environment.
+This means the gem will be available for use in any Ruby project or script on your system that requires it. It is not project-specific.
+It's useful when you want to install a gem globally on your system so that it's available for any Ruby project or script, regardless of the project's Gemfile.
+However, it may not provide isolation between different projects, which can lead to gem version conflicts if multiple projects require different versions of the same gem.
+
+
+In summary, the key difference is isolation and scope:
+
+Using `bundle install` in a project's context isolates the gem to that project.
+Running gem install installs the gem system-wide, making it available for any Ruby project.
+
+The approach you choose depends on your specific use case and whether you want to manage gem dependencies at the project level or make a gem available globally for your entire Ruby environment.
+
+
+**************************************************************************
+
+you can use the gem env gemdir command to display the path to the directory where Ruby gems are stored on your system.
+
+$ gem env gemdir
+/home/dev/.rvm/gems/ruby-2.7.0
+
+$ ruby -v
+ruby 2.7.0p0 (2019-12-25 revision 647ee6f091) [x86_64-linux]
+
+**************************************************************************
+
+
+
+
+
+
+

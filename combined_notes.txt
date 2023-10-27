@@ -1,7 +1,6 @@
 
 ========================================================================================================================================================================
-Topics
-
+Topics (rails training)
 ========================================================================================================================================================================
 
 Day 1:
@@ -9,6 +8,10 @@ Blog app
 bundler
 Friends app
 Remote form submission
+Ruby gems (ruby environment)
+Use different rails version
+Ruby Version Managers
+
 
 Day 2:
 SASS
@@ -92,24 +95,68 @@ Rough Project:
   Carrierwaves
 
 
-Day 10:
+Day 10: (see folder)
 rails rest apis
 faker
 Action cable
 active storage
 
 
-Day 11:
+Day 11: (see folder)
 react CRUD
 React CRUD frontend
-
 webpacker
 Rake tasks
 
 
-Others:
+========================================================================================================================================================================
+Other Topics
+========================================================================================================================================================================
 
-gems discovered
+active storage ( react-crud)
+Cloudinary (react-crud)
+debugging
+environment variables  (figaro)
+Credentials
+Email Verification devise
+Devise controllers
+postgre sql
+chnage databaser from sqlite to postgres
+chnage databaser from postgres to sqlite
+pundit
+rspec tests
+rubocop
+active_model_serializers
+
+end of project Notes
+
+Others Miscellaneous: ************
+
+9_Best_Practices.txt
+naming conventions
+rails basic commands
+rails error solution
+
+rails installations: gems
+gems -- multiple rails version
+
+
+gems discovered:
+
+enums- devise user role
+
+lines used
+
+Caching in Rails
+
+ActiveRecord::Store
+
+A Comprehensive Comparison: Rails 6 vs Rails 7
+
+Rails7
+
+Procfile (specifies the commands needed to run application)
+
 
 ========================================================================================================================================================================
 Blog Notes
@@ -361,6 +408,572 @@ scaffold:
 2) rails g scaffold task name list:references
 
 rails db:migrate
+
+****************************************************************************
+Ruby gems (ruby environment)
+****************************************************************************
+
+
+
+dev@nouman:~$ gem which rubocop
+/home/dev/.rvm/gems/ruby-3.1.2/gems/rubocop-1.57.1/lib/rubocop.rb
+dev@nouman:~$
+dev@nouman:~$ cd /home/dev/.rvm/gems/ruby-3.1.2/gems
+dev@nouman:~/.rvm/gems/ruby-3.1.2/gems$ ls
+ast-2.4.2                          parallel-1.23.0  rainbow-3.1.1        rubocop-1.57.1      ruby-lsp-0.11.2          sorbet-runtime-0.5.11072     yarp-0.12.0
+language_server-protocol-3.17.0.3  parser-3.2.2.4   regexp_parser-2.8.2  rubocop-ast-1.29.0  ruby-progressbar-1.13.0  unicode-display_width-2.5.0
+dev@nouman:~/.rvm/gems/ruby-3.1.2/gems$ ls -al
+
+
+**************************
+
+ruby -v
+ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x86_64-linux]
+
+
+gem list
+
+*** LOCAL GEMS ***
+
+
+what are the gems it will show?
+
+When you run gem list, it should display the gems that are installed for the currently active Ruby version.
+
+
+
+**************************
+
+gem environment
+RubyGems Environment:
+  - RUBYGEMS VERSION: 3.3.7
+  - RUBY VERSION: 3.1.2 (2022-04-12 patchlevel 20) [x86_64-linux]
+  - INSTALLATION DIRECTORY: /home/dev/.rvm/gems/ruby-3.1.2
+  - USER INSTALLATION DIRECTORY: /home/dev/.local/share/gem/ruby/3.1.0
+  - RUBY EXECUTABLE: /home/dev/.rvm/rubies/ruby-3.1.2/bin/ruby
+  - GIT EXECUTABLE: /usr/bin/git
+  - EXECUTABLE DIRECTORY: /home/dev/.rvm/gems/ruby-3.1.2/bin
+  - SPEC CACHE DIRECTORY: /home/dev/.local/share/gem/specs
+  - SYSTEM CONFIGURATION DIRECTORY: /etc
+  - RUBYGEMS PLATFORMS:
+     - ruby
+     - x86_64-linux
+  - GEM PATHS:
+     - /home/dev/.rvm/gems/ruby-3.1.2
+     - /home/dev/.rvm/rubies/ruby-3.1.2/lib/ruby/gems/3.1.0
+  - GEM CONFIGURATION:
+     - :update_sources => true
+     - :verbose => true
+     - :backtrace => false
+     - :bulk_threshold => 1000
+  - REMOTE SOURCES:
+     - https://rubygems.org/
+  - SHELL PATH:
+     - /home/dev/.rvm/gems/ruby-3.1.2/bin
+     - /home/dev/.rvm/gems/ruby-3.1.2@global/bin
+     - /home/dev/.rvm/rubies/ruby-3.1.2/bin
+     - /home/dev/.nvm/versions/node/v18.18.1/bin
+     - /usr/local/sbin
+     - /usr/local/bin
+     - /usr/sbin
+     - /usr/bin
+     - /sbin
+     - /bin
+     - /usr/games
+     - /usr/local/games
+     - /snap/bin
+     - /home/dev/.rvm/bin
+
+******************************************************************************
+rvm and ruby commands:
+******************************************************************************
+
+
+1) Install Ruby Versions
+To install a specific Ruby version, use the rvm install command. For example, to install Ruby 3.1.2:
+
+rvm install 3.1.2
+
+
+2) Set Default Ruby Version
+
+rvm use 3.1.2 --default
+
+3) Switch Between Ruby Versions
+
+rvm use 2.7.0
+
+4) You can list all installed Ruby versions with:
+
+rvm list
+
+5) To uninstall a specific Ruby version, you can use:
+
+rvm remove 3.1.2
+
+6)
+which ruby
+
+/home/dev/.rvm/rubies/ruby-3.1.2/bin/ruby
+
+**************************
+
+rvm install '2.7.0'
+rvm use 2.7.0 --default
+
+which ruby
+/home/dev/.rvm/rubies/ruby-2.7.0/bin/ruby
+
+
+************************************************************************
+
+Ruby Version Managers
+
+https://launchschool.com/books/core_ruby_tools/read/ruby_version_managers
+
+
+Suppose, though, that you want to use a different version of Ruby with one of your projects?
+It's not too hard to switch versions with the rvm use VERSION command, but it is error prone: you will sometimes forget to change versions, and may also forget to switch back to the default ruby when you finish.
+Instead, you should automate the version changes
+
+The easiest is to create a .ruby-version file in your project's root directory; the content of this file is just the version number of ruby that you want to use
+
+$ rvm --ruby-version use 2.7.0
+or
+$ echo "2.7.0" > .ruby-version
+
+This creates a .ruby-version file in the directory. Once set, you don't need to worry about setting the version for this project
+
+For good measure, you should set your default version in your home directory:
+
+$ cd ~
+$ rvm --ruby-version default
+
+This ensures that RVM uses the default Ruby when you aren't in the project directory.
+
+********************
+
+echo "2.7.0" > .ruby-version
+echo "3.0.3" > .ruby-version
+echo "3.2.2" > .ruby-version
+
+************************************************************************
+
+
+$ rvm list
+=* ruby-2.7.0 [ x86_64 ]
+   ruby-3.1.2 [ x86_64 ]
+
+# => - current
+# =* - current && default
+#  * - default
+
+
+**********************
+
+$ ruby -v
+ruby 2.7.0p0 (2019-12-25 revision 647ee6f091) [x86_64-linux]
+
+
+*********************
+
+
+Lists all the gems that are installed in your current Ruby environment (for example ruby 2.7.0)
+It displays the gems installed globally in your system-wide Ruby environment.
+This command shows all the gems installed on your system, regardless of the specific project you are working on.
+
+gem list
+
+*** LOCAL GEMS ***
+
+actioncable (5.2.8.1)
+actionmailer (5.2.8.1)
+actionpack (5.2.8.1)
+actionview (5.2.8.1)
+activejob (5.2.8.1)
+activemodel (5.2.8.1)
+activerecord (5.2.8.1)
+.....
+.....
+
+Note:
+
+if we change our ruby version (rvm use 3.1.2) and run `gem list` it will show gems for that ruby 3.1.2 environment
+
+********************************
+
+Search gems in the current ruby environment:
+
+syntax:
+     gem list gem-name
+
+It will list all installed gems whose name matches gem-name. This is useful for checking if a specific gem is installed and seeing its version
+
+Examples:
+
+1) To check the version of the Bundler gem:
+
+gem list bundler
+
+*** LOCAL GEMS ***
+
+bundler (default: 2.4.21, 2.3.19)
+bundler-unload (1.0.2)
+rubygems-bundler (1.4.5)
+
+2) gem list devise
+
+*** LOCAL GEMS ***
+
+devise (4.8.1)
+
+3) gem list rails
+
+*** LOCAL GEMS ***
+
+coffee-rails (4.2.2)
+rails (5.2.8.1)
+rails-dom-testing (2.0.3)
+rails-html-sanitizer (1.4.3)
+sass-rails (5.1.0)
+sprockets-rails (3.4.2)
+
+
+********************************
+
+gem install bundler:2.3.19
+
+********************************
+
+$ bundle -v
+Bundler version 2.4.21
+
+$ bundler -v
+Bundler version 2.4.21
+
+*****************
+
+$ bundler info devise
+
+Could not locate Gemfile or .bundle/ directory
+
+$ bundle list (or bundler list)
+
+Could not locate Gemfile or .bundle/ directory
+
+****************
+
+
+
+
+******************************************************************************************************
+What are the other ruby commands to check environment
+******************************************************************************************************
+
+In a Ruby development environment, there are several commands and tools you can use to check various aspects of the environment. Here are some commonly used commands:
+
+ruby -v:
+ This command displays the version of Ruby that is currently installed on your system.
+
+gem -v:
+ It shows the version of RubyGems, the package manager for Ruby, that is installed.
+
+gem list:
+ As mentioned earlier, this command lists all the gems that are installed in your Ruby environment.
+
+irb: Running this command launches the Interactive Ruby (IRB) interpreter, which provides an interactive environment for executing Ruby code. It's great for experimenting and testing small snippets of code.
+
+rails -v:
+ If you have Ruby on Rails installed, this command displays the version of Rails that is installed.
+
+rake -T:
+ When you're in a Rails project directory, this command lists all available Rake tasks. Rake is a build tool similar to Make, and it's used in Rails for various tasks like running migrations, testing, etc.
+
+bundle -v (or bundler -v):
+ If you're using Bundler to manage gem dependencies in your project, this command shows the version of Bundler that is installed.
+
+which ruby:
+On Unix-like systems (Linux, macOS), this command displays the path to the currently active Ruby interpreter.
+
+which gem:
+Similarly, this command displays the path to the currently active gem executable.
+
+
+These are just a few of the common commands used in a Ruby development environment. The specific commands you'll use will depend on the tools you have installed and the type of Ruby development you're doing (e.g., pure Ruby, Ruby on Rails, etc.).
+
+***************************************************
+
+
+rails console or rails c:
+When you're in a Rails project directory, running either of these commands opens up a Rails console, which is an interactive environment similar to IRB but loaded with the Rails environment.
+
+rails dbconsole or rails db:
+ This command opens a database console for your Rails project's configured database. For example, rails dbconsole might open a PostgreSQL or MySQL console depending on your configuration.
+
+rails routes:
+In a Rails project directory, this command displays a list of all defined routes in your application.
+
+
+
+
+******************************************************************************************************
+Bundler:
+******************************************************************************************************
+
+In a Ruby on Rails project, Bundler is commonly used to manage gem dependencies.
+
+Bundler is a tool used in the Ruby programming language ecosystem to manage gem dependencies for Ruby projects. It's a package manager for Ruby gems.
+Gems are packages or libraries written in Ruby that provide specific functionality and can be easily integrated into your Ruby projects.
+Bundler helps ensure that your project has the necessary gems and their correct versions, making it easier to manage and share code with others.
+
+************************
+
+Is bundler is a gem?
+
+Yes, Bundler itself is a Ruby gem. It's a gem used for managing other gems, which are Ruby libraries or packages.
+When you install Bundler, it becomes part of your Ruby environment and is used to manage the dependencies (other gems) for your Ruby projects.
+
+To install Bundler as a gem, you can use the following command:
+
+gem install bundler
+
+This command will download and install Bundler from the RubyGems repository, making it available for use in your Ruby projects.
+Once installed, you can create and manage the Gemfile for your projects, and Bundler will handle the installation and management of the specified gems and their versions.
+
+************************
+
+If bundler is a gem then why it is not mentioned in my Gemfile?
+
+It's not necessary to list Bundler itself in your Gemfile because Bundler is a tool for managing other gems, not a gem that your project directly depends on.
+
+The purpose of the Gemfile is to specify the gems that your Ruby project or application depends on for its functionality. These are the libraries that your code will use to accomplish specific tasks, and Bundler ensures that the correct versions of these gems are available for your project.
+
+***********************
+
+Here's how Bundler works and why it's important:
+
+Dependency Management: In a Ruby project, you often rely on various gems to add specific features or functionality. These gems, in turn, may have their own dependencies on other gems. Managing all these dependencies manually can become complex. Bundler automates this process by keeping track of the gems your project needs and their versions.
+
+Gemfile: In your project's directory, you create a file called Gemfile. This file lists the gems your project depends on along with their desired versions. Bundler reads this file to determine which gems to install.
+
+Gemfile.lock: After running Bundler to install gems, it generates a Gemfile.lock file. This file locks in the specific versions of gems that were installed, ensuring consistency across different environments and preventing accidental updates to gems.
+
+Installation: When you run bundle install (or just bundle), Bundler reads the Gemfile and installs the specified gems and their dependencies. It checks the Gemfile.lock to ensure that the exact versions mentioned there are installed, ensuring consistent behavior across different environments.
+
+Updating Gems: You can update your project's gems by modifying the Gemfile and then running bundle update. This updates gems to the latest versions allowed by the version constraints in your Gemfile.
+
+Isolation: Bundler creates a separate environment (a directory structure called the "bundle") for each project, ensuring that gem dependencies don't interfere with each other. This helps avoid conflicts between projects that might rely on different gem versions.
+
+Collaboration: When sharing your code with others, you can include the Gemfile and Gemfile.lock files. When someone else clones your project and runs bundle install, they'll get the exact same gem versions that you're using, reducing potential compatibility issues.
+
+In summary, Bundler simplifies the process of managing gem dependencies in Ruby projects, ensuring that the right versions of gems are installed and maintained consistently. It's a crucial tool for keeping projects organized, maintaining version control, and facilitating collaboration among developers.
+
+************************
+
+Commands:
+
+In a Ruby on Rails project, Bundler is commonly used to manage gem dependencies.
+Here are some of the most commonly used commands related to Bundler in a Rails context:
+
+bundle install: This command reads the Gemfile in your Rails project directory and installs the specified gems and their dependencies. It creates or updates the Gemfile.lock file to record the exact versions of gems installed.
+
+bundle update: Running this command updates the gems in your project to their latest versions based on the version constraints specified in the Gemfile. It also updates the Gemfile.lock accordingly.
+
+bundle exec: When running Ruby scripts or commands that are part of your project (e.g., running Rails console or server), it's a good practice to prepend them with bundle exec to ensure that the correct gem versions are used as specified in your Gemfile.
+
+For example: bundle exec rails server
+
+bundle show: This command shows the location of a specific gem within the Bundler-managed environment. You can use it to check the installation path of gems.
+
+For example: bundle show devise
+
+bundle list: Similar to bundle show, this command displays a list of all the gems in your project's Bundler-managed environment along with their paths.
+
+bundle check: This command checks if the gems specified in your Gemfile.lock are installed and available. It's useful for verifying that your environment matches the expected gem versions.
+
+bundle clean: If you want to remove unused gems and their versions from the Bundler-managed environment, you can use this command. It helps keep your environment clean.
+
+bundle init: If you're starting a new Rails project or just want to create a new Gemfile, you can use this command. It initializes a basic Gemfile with some default comments.
+
+bundle install --path vendor/bundle: This command installs gems in a local directory within your project (vendor/bundle) rather than the system-wide gem location. This can be useful for isolating gems per project.
+
+These commands help you manage and maintain gem dependencies in your Rails projects using Bundler. Remember that Bundler is an essential tool to ensure consistent and reproducible gem environments across different development and deployment environments.
+
+
+******************************************************************************************************
+bundle list vs gem list:
+******************************************************************************************************
+
+bundle list and gem list are two commands used in Ruby development to list information about installed gems, but they serve slightly different purposes:
+
+gem list:
+
+Command: gem list
+Purpose: This command lists all the gems that are installed in your entire Ruby environment, regardless of whether they are managed by Bundler or installed globally.
+Scope: It shows all gems available to your Ruby interpreter, including those managed by Bundler and those installed system-wide.
+Output: The output includes the gem names and their versions.
+bundle list:
+
+Command: bundle list
+Purpose: This command lists the gems that are installed and managed by Bundler in the context of the current Rails project.
+Scope: It focuses specifically on the gems listed in the Gemfile.lock file and the gems installed within the Bundler-managed environment of the current project.
+Output: The output includes the gem names, their versions, and the paths where they are installed within the Bundler-managed environment.
+
+
+In summary, the main difference lies in the scope and purpose of the commands:
+
+gem list provides a list of all installed gems across your entire Ruby environment, whether they are managed by Bundler or installed globally.
+bundle list specifically shows the gems installed within the context of the current Rails project using Bundler, based on the Gemfile.lock and the Bundler-managed environment.
+Depending on what information you need, you can use either command. If you're working within a Rails project and want to see the gems managed by Bundler, bundle list is more appropriate. If you want to see all installed gems in your entire Ruby environment, including global ones, gem list is the command to use.
+
+
+
+
+The gem list command in Ruby is used to list the gems installed within the current Ruby environment.
+It doesn't specifically target a particular gem or category of gems like "system gems" or "builder gems."
+
+Instead, it provides a list of all gems that are installed and available for use in the currently active Ruby environment.
+
+
+$ bundle list
+Could not locate Gemfile or .bundle/ directory
+
+$ gem list
+
+*** LOCAL GEMS ***
+
+actioncable (5.2.8.1)
+actionmailer (5.2.8.1)
+actionpack (5.2.8.1)
+actionview (5.2.8.1)
+activejob (5.2.8.1)
+
+
+
+**************************************************************************
+
+1) we paste gem (gem 'rswag-api', '~> 1.0') in gemfile and run bundle install
+2) we run `gem install rswag-api -v 1.0.0`
+
+are they install this gem in the ruby environment and what's the difference?
+
+Answer:
+
+1) When you add a gem to your project's Gemfile and run bundle install, you are specifying the gem as a dependency for your specific project.
+The gem is installed in the context of your project's gem environment. It is isolated to your project and does not affect other Ruby projects or your system-wide Ruby environment.
+
+
+
+2) When you run `gem install gemname -v version`, you are installing the gem system-wide on your Ruby environment.
+This means the gem will be available for use in any Ruby project or script on your system that requires it. It is not project-specific.
+It's useful when you want to install a gem globally on your system so that it's available for any Ruby project or script, regardless of the project's Gemfile.
+However, it may not provide isolation between different projects, which can lead to gem version conflicts if multiple projects require different versions of the same gem.
+
+
+In summary, the key difference is isolation and scope:
+
+Using `bundle install` in a project's context isolates the gem to that project.
+Running gem install installs the gem system-wide, making it available for any Ruby project.
+
+The approach you choose depends on your specific use case and whether you want to manage gem dependencies at the project level or make a gem available globally for your entire Ruby environment.
+
+
+**************************************************************************
+
+you can use the gem env gemdir command to display the path to the directory where Ruby gems are stored on your system.
+
+$ gem env gemdir
+/home/dev/.rvm/gems/ruby-2.7.0
+
+$ ruby -v
+ruby 2.7.0p0 (2019-12-25 revision 647ee6f091) [x86_64-linux]
+
+
+
+
+****************************************************************************
+Use different rails version
+****************************************************************************
+
+$ ruby -v
+ruby 2.7.0p0 (2019-12-25 revision 647ee6f091) [x86_64-linux]
+
+$ gem install rails         (this will install the latest rails version)
+
+$ rails -v
+Rails 7.1.1
+
+$ gem list | grep rails
+rails (7.1.1, 5.2.8.1)
+
+$ cd Desktop/
+$ rails new friends         (create rails app with latest version installed i.e 7.1.1 )
+
+
+$ rails _5.2.8.1_ new myapp     (create rails app with older version )
+
+$ rails new myapp2
+
+Resolving dependencies...
+Bundle complete! 15 Gemfile dependencies, 83 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+         run  bundle lock --add-platform=x86_64-linux
+Writing lockfile to /home/dev/Desktop/myapp2/Gemfile.lock
+         run  bundle binstubs bundler
+       rails  importmap:install
+       apply  /home/dev/.rvm/gems/ruby-2.7.0/gems/importmap-rails-1.2.1/lib/install/install.rb
+  Add Importmap include tags in application layout
+      insert    app/views/layouts/application.html.erb
+  Create application.js module as entrypoint
+      create    app/javascript/application.js
+  Use vendor/javascript for downloaded pins
+      create    vendor/javascript
+      create    vendor/javascript/.keep
+  Ensure JavaScript files are in the Sprocket manifest
+      append    app/assets/config/manifest.js
+  Configure importmap paths in config/importmap.rb
+      create    config/importmap.rb
+  Copying binstub
+      create    bin/importmap
+         run  bundle install
+Bundle complete! 15 Gemfile dependencies, 83 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+         run  bundle lock --add-platform=x86_64-linux
+Writing lockfile to /home/dev/Desktop/myapp2/Gemfile.lock
+       rails  turbo:install stimulus:install
+       apply  /home/dev/.rvm/gems/ruby-2.7.0/gems/turbo-rails-1.5.0/lib/install/turbo_with_importmap.rb
+  Import Turbo
+      append    app/javascript/application.js
+  Pin Turbo
+      append    config/importmap.rb
+         run  bundle install
+Bundle complete! 15 Gemfile dependencies, 83 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+         run  bundle lock --add-platform=x86_64-linux
+Writing lockfile to /home/dev/Desktop/myapp2/Gemfile.lock
+Run turbo:install:redis to switch on Redis and use it in development for turbo streams
+       apply  /home/dev/.rvm/gems/ruby-2.7.0/gems/stimulus-rails-1.3.0/lib/install/stimulus_with_importmap.rb
+  Create controllers directory
+      create    app/javascript/controllers
+      create    app/javascript/controllers/index.js
+      create    app/javascript/controllers/application.js
+      create    app/javascript/controllers/hello_controller.js
+  Import Stimulus controllers
+      append    app/javascript/application.js
+  Pin Stimulus
+  Appending: pin "@hotwired/stimulus", to: "stimulus.min.js", preload: true"
+      append    config/importmap.rb
+  Appending: pin "@hotwired/stimulus-loading", to: "stimulus-loading.js", preload: true
+      append    config/importmap.rb
+  Pin all controllers
+  Appending: pin_all_from "app/javascript/controllers", under: "controllers"
+      append    config/importmap.rb
+         run  bundle install
+Bundle complete! 15 Gemfile dependencies, 83 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+         run  bundle lock --add-platform=x86_64-linux
+Writing lockfile to /home/dev/Desktop/myapp2/Gemfile.lock
+
 
 ========================================================================================================================================================================
 Day 2
@@ -2817,6 +3430,24 @@ end
   1.13 CsrfHelper
 undefined
 
+********************************
+button_to vs link_to
+********************************
+
+button_to:
+button_to generates an HTML form element that includes a button.
+ When this button is clicked, it sends a POST request to the server.
+ This is typically used for actions that create, update, or delete resources.
+<%= button_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %>
+
+link_to:
+link_to generates an HTML anchor (a) element, creating a hyperlink that users can click to navigate to a different page, URL, or resource.
+<%= link_to "Read More", post_path(@post) %>
+
+HTTP method in both:
+button_to allows you to specify the HTTP method explicitly with the method option, which is often used for actions that modify server data (e.g., create, update, delete).
+
+link_to typically triggers a GET request by default. However, you can use the method option to specify other HTTP methods, like POST, PUT, or DELETE, but it doesn't create a form.
 
 ========================================================================================================================================================================
 access controller and action name in views:
@@ -3864,7 +4495,7 @@ https://www.mailinator.com/v4/public/inboxes.jsp?trialshow=true&to=nouman
 
 
 ==================================================================================================================================
-Update Devise User  ( configure devise)
+Update Devise User ( configure devise)
 ==================================================================================================================================
 
 
@@ -3892,7 +4523,23 @@ before_action :configure_permitted_parameters, if: :devise_controller?
 
 ********************
 add gender:
+
 https://zhangjingqiang.wordpress.com/2015/03/30/how-to-add-a-gender-column-to-user-model-under/
+
+****************************************
+Devise controllers:
+****************************************
+
+https://stackoverflow.com/questions/6234045/how-do-you-access-devise-controllers
+
+rails generate devise:controllers users
+
+devise_for :users,controllers: {
+  registrations:'users/registrations'
+}
+
+
+name, age, gender, email, username, and profile picture
 
 ========================================================================================================================================================================
 active storage:
@@ -4048,8 +4695,7 @@ Rails 6 uses webpacker
 
 
 ========================================================================================================================================================================
-Day 10
-active storage    ( react-crud)
+active storage ( react-crud)
 ========================================================================================================================================================================
 
 gem "trix-rails", require: "trix"
@@ -4231,7 +4877,7 @@ check icon attached or not:
  object.icon.attached?
 
 ========================================================================================================================================================================
-Cloudinary  (react-crud )
+Cloudinary (react-crud)
 ========================================================================================================================================================================
 
 1) add gem
@@ -4456,7 +5102,7 @@ Rails.application.credentials.dig(:google_smtp, :email),
 
 
 ==================================================================================================================================
-Devise controllers:
+Devise controllers
 ==================================================================================================================================
 https://stackoverflow.com/questions/6234045/how-do-you-access-devise-controllers
 
@@ -4485,7 +5131,8 @@ postgre sql
 
 https://www.youtube.com/watch?v=v4yrpGy8NTs
 
-sudo -u postgres psql
+Open the PostgreSQL interactive terminal as the "postgres" user
+$ sudo -u postgres psql
 
 
 rails new instagram-clone -d postgresql
@@ -4506,15 +5153,74 @@ gem 'pg', '>= 0.18', '< 2.0'
 
 3) run rails db:create
 run rails db:migrate
-run rails db:seed(if you have a seed file)
+run rails db:seed (if you have a seed file)
 
 Now test your app, and you are now using Postgres!
-
-
 
 postgres username: nouman
 password: noumanrehman042
 
+*************************
+
+setup postgress user:
+
+1) Open the PostgreSQL interactive terminal as the "postgres" user
+$ sudo -u postgres psql
+
+2) create the new user:
+$ CREATE USER nouman WITH PASSWORD 'noumanrehman042';
+
+3) Grant necessary privileges to the user. You can grant specific privileges to the user as needed.
+
+For example, to grant the user the ability to create databases, you can use:
+$ ALTER USER nouman CREATEDB;
+
+To grant superuser privileges (be cautious with this), you can use:
+$ ALTER USER nouman WITH SUPERUSER;
+
+4) Exit the PostgreSQL interactive terminal by typing:
+
+\q
+
+*************************************
+chnage databaser from postgres to sqlite
+*************************************
+
+1) create `db/development.sqlite3` file
+(create test or production db files if needed)
+
+2) Paste below config in database.yml file:
+
+# SQLite. Versions 3.8.0 and up are supported.
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem "sqlite3"
+#
+default: &default
+  adapter: sqlite3
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: db/development.sqlite3
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: db/test.sqlite3
+
+production:
+  <<: *default
+  database: db/production.sqlite3
+
+3) run below commands in terminal:
+
+$ rails db:create
+$ rails db:migrate
 
 ==================================================================================================================================
 pundit
@@ -4592,7 +5298,7 @@ rails g pundit:policy story
 
 
 ==================================================================================================================================
-rspec   test
+rspec tests
 ==================================================================================================================================
 
 https://github.com/rspec/rspec-rails
@@ -5334,7 +6040,7 @@ Copy the icon to the app/assets/images folder
 Create the pointer in the HEADsection of your app/views/layouts/application.html.erb file as shown here:
 
 ========================================================================================================================================================================
-gems         --  multiple rails version
+gems -- multiple rails version
 ========================================================================================================================================================================
 
 https://gorails.com/forum/running-multiple-rails-versions
@@ -5582,8 +6288,7 @@ gem 'jquery-ui-rails'
 
 
 ========================================================================================================================================================================
-enums
-devise user role
+enums- devise user role
 ========================================================================================================================================================================
 
 
@@ -5830,34 +6535,268 @@ User.stored_attributes[:settings] # => [:color, :homepage, :two_factor_auth, :lo
 
 
 ========================================================================================================================================================================
+A Comprehensive Comparison: Rails 6 vs Rails 7
+========================================================================================================================================================================
+
+Rails 7 brings exciting improvements to the table. Let’s dive in and discover what’s new!
+
+
+1)Performance Enhancements:
+
+2) Webpacker as Default JavaScript Compiler:
+
+In Rails 6, Webpacker was introduced as an optional JavaScript compiler.
+
+However, Rails 7 takes it a step further by making Webpacker the default JavaScript compiler, replacing the previously used Sprockets.
+
+This change provides a more modern and flexible approach to managing JavaScript assets, allowing for a seamless integration of JavaScript frameworks like React or Vue.js.
+
+3)  Encrypted Credentials by Default:
+
+4)  Improved Error Handling:
+
+5) Rich Text Editing:
+
+Rails 7 introduces a new Action Text editor called Trix, which provides a rich text editing experience.
+With Trix, users can format text, add images, embed videos, and more.
+This feature simplifies the process of building content-rich applications, such as blogs, forums, or CMS platforms.
+It eliminates the need for third-party plugins or integrations, making it easier to create and manage dynamic content within your Rails application.
+
+
+========================================================================================================================================================================
+Rails7
+
+Topics:
+Hotwire basics
+stimulus-js
 
 ========================================================================================================================================================================
 
+Hotwire basics:
+
+Hotwire is a web development framework and set of tools designed to make building modern web applications faster and more efficient.
+It is often associated with Ruby on Rails, a popular web application framework, as it was created by the same team.
+
+Hotwire includes several components:
+
+1. **Turbo:**
+Turbo  speeds up the application by taking sections of your application and just re-redering just one section instead of doing a full page refresh.
+With turbo you can also broadcast updates so that anyone who is subscribed to a particular channel will also receive those updates.
+Turbo is a set of JavaScript libraries that work with your existing server-rendered HTML.
+It allows you to enhance the user experience by sending HTML updates from the server, without needing to build a single-page application (SPA).
+This can make your web applications more interactive without the complexity of full SPAs.
+
+2. **Stimulus:**
+Stimulus is a JavaScript framework for adding interactivity to your HTML using a simple and conventional approach.
+It helps you create interactive elements on your web pages without the need for a complex JavaScript framework.
+
+3. **Strada:**
+Strada is a server-side component of Hotwire. It helps manage the communication between your client and server, making it possible to send HTML updates efficiently.
+
+Hotwire aims to simplify the development of web applications by combining server-rendered HTML with modern JavaScript techniques, providing a balance between rich user experiences and development simplicity. It's particularly valuable for developers who prefer traditional server-side rendering but still want to add real-time or interactive features to their applications.
 
 
+*************************************************
+stimulus-js:
+*************************************************
 
+How it works:
+
+Example 1:
+(/home/dev/Rails-Training/Rails7/developers-community project)
+
+1) generate stimulus controller:
+
+$ rails g stimulus user_name
+
+create app/javascript/controllers/user_name_controller.js file
+
+2) in html.erb file to connect:
+
+<div class="user-info" data-controller="user-name">
+  <h5 data-user-name-target='name' data-action="click->user-name#getUserName"><%= user.name %></h5>
+</div>
+
+It will generate:
+
+<div class="user-info" data-controller="user-name">
+  <h5 data-user-name-target="name" data-action="click->user-name#getUserName">Syed Nouman</h5>
+</div>
+
+3) in stimulus controller:
+
+import { Controller } from "@hotwired/stimulus"
+
+// Connects to data-controller="user-name"
+export default class extends Controller {
+  static targets = ['name']
+
+  connect() {
+    console.log('I am connected!!!');
+  }
+
+  getUserName = () => {
+    const element = this.nameTarget
+    const name = element.textContent
+    alert(`You clicked on, ${name}`)
+  }
+}
+
+
+Example 2:
+(/home/dev/Rails-Training/Rails7/blog_application)
+
+1) create controller (comments_controller.js) file in javascript
+
+import { Controller } from "@hotwired/stimulus";
+
+export default class extends Controller {
+  initialize() {} // only run once
+  connect() {}   // run each time we refresh
+}
+
+
+2) add data field in the element:
+
+<%= link_to "Edit", nil, remote: true, class:"btn btn-warning",
+      data: {
+        controller: "comments",
+        action: "comments#toggleForm",
+        comments_form_param: "edit-form-#{comment.id}",
+        comments_body_param: "comment-body-#{comment.id}",
+        comments_edit_param: "edit-button-#{comment.id}"
+      },
+      id: "edit-button-#{comment.id}" %>
+
+This will generate:
+
+<a class="btn btn-warning"
+  data-controller="comments"
+  data-action="comments#toggleForm"
+  data-comments-form-param="edit-form-52"
+  data-comments-body-param="comment-body-52"
+  data-comments-edit-param="edit-button-52"
+  id="edit-button-52"
+  data-remote="true" href="/posts/title-7">
+
+  Edit
+</a>
+
+3) add action in controller:
+
+import { Controller } from "@hotwired/stimulus";
+
+export default class extends Controller {
+  initialize() {} // only run once
+  connect() {}   // run each time we refresh
+
+  toggleForm(event) {
+    console.log("I clicked the edit button.");
+    event.preventDefault();
+    event.stopPropagation();
+    const formID = event.params["form"];
+    const commentBodyID = event.params["body"];
+    const editButtonID = event.params["edit"];
+
+    const form = document.getElementById(formID);
+    const commentBody = document.getElementById(commentBodyID);
+    const editButton = document.getElementById(editButtonID);
+
+    form.classList.toggle("d-none");
+    form.classList.toggle("mt-5");
+    commentBody.classList.toggle("d-none");
+    this.toggleEditButton(editButton);
+  }
+}
+
+*************************************************
+
+*************************************************
 
 
 
 ========================================================================================================================================================================
-
+Procfile (specifies the commands needed to run application)
 ========================================================================================================================================================================
 
 
+1. **Procfile**:
+A `Procfile` is a simple text file, usually named `Procfile` (with no file extension), that specifies the commands needed to run various components or processes of your application.
+Each line in the `Procfile` corresponds to a process or service that your application relies on.
+
+2. **Processes**:
+Each line in the `Procfile` defines a process that can be started and managed.
+These processes can include web servers, background workers, databases, and more.
+For example, a typical `Procfile` for a web application might include lines for starting a web server, a background worker, and a database server.
+
+PaaS (Platform-as-a-Service) providers like Heroku use Procfiles to understand how to run and manage your application.
+
+In summary, a Procfile-based application is one that uses a `Procfile` to define and manage its processes,
+making it easier to deploy, scale, and manage your application on Platform-as-a-Service providers and ensuring that all the necessary components of your application run as expected.
+
+In a Ruby on Rails application, a `Procfile.dev` is not a standard file, but it can be used to define development processes using tools like Foreman or Heroku's `heroku local`.
+It's a handy way to manage multiple development processes in a single file.
+
+To create a `Procfile.dev` for your Rails app, follow these steps:
+
+1. Open your Rails application directory in your code editor or terminal.
+
+2. Create a new file named `Procfile.dev` in the root directory of your Rails application if it doesn't already exist.
+
+3. In this file, define the processes or services you want to run in your development environment.
+Each line should specify a process name and the command to run it. Here's an example of what a `Procfile.dev` might look like:
+
+```bash
+web: bundle exec rails server
+worker: bundle exec sidekiq
+webpack: ./bin/webpack-dev-server
+```
+
+In this example, we have defined three processes:
+
+- `web` for running the Rails web server.
+- `worker` for running Sidekiq (a background job processing tool).
+- `webpack` for running the webpack-dev-server for JavaScript asset compilation.
+
+You can add or modify processes as needed for your specific development environment.
+
+4. Save the `Procfile.dev` file.
+
+5. Install Foreman if you haven't already. You can install it using the following command:
+
+```bash
+gem install foreman
+```
+
+6. To start all the processes defined in the `Procfile.dev`, run the following command:
+
+```bash
+foreman start -f Procfile.dev
+```
+
+This command will start all the processes you've defined in your `Procfile.dev`. Make sure your development environment is properly set up and all necessary gems and dependencies are installed.
+
+Using `Procfile.dev` with Heroku:
+If you plan to deploy your Rails app to Heroku, you can also use the `Procfile.dev` with the Heroku local development tool. Heroku will recognize and use this file for your local development environment.
+
+Remember that the specific processes and commands in your `Procfile.dev` may vary depending on your application's needs. It's a useful way to consolidate your development environment's processes and make it easier to manage multiple services during development.
+
+**********************
+
+Another example of rails procfile:
+
+web: bin/rails server -p 3000
+css: bin/rails tailwindcss:watch
 
 
+**********************
 
+Example Procfile for node:
 
+web: node server.js
+worker: node worker.js
 
-========================================================================================================================================================================
-
-========================================================================================================================================================================
-
-
-
-
-
-
+In this example, there are two processes defined: a web process running a Node.js server and a worker process running some background tasks.
 
 ========================================================================================================================================================================
 

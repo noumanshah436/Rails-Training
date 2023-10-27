@@ -1,0 +1,104 @@
+PostgreSQL is a powerful relational database management system (RDBMS) that provides a wide range of SQL and administrative commands. Here are some of the basic and commonly used PostgreSQL commands:
+
+SQL Commands:
+
+Log in to your PostgreSQL database with a user that has the necessary privileges. Typically, you would log in as the PostgreSQL superuser "postgres" or another user with superuser or superuser-granting privileges.
+
+sudo -u postgres psql
+
+sudo -u nouman psql
+
+*******************************
+
+Creating a Database:
+
+CREATE DATABASE database_name; - Creates a new database.
+
+Creating a Table:
+
+CREATE TABLE table_name (column1 datatype, column2 datatype, ...); - Creates a new table.
+
+Inserting Data:
+
+INSERT INTO table_name (column1, column2, ...) VALUES (value1, value2, ...); - Inserts data into a table.
+
+Querying Data:
+
+SELECT column1, column2 FROM table_name WHERE condition; - Retrieves data from a table.
+
+Updating Data:
+
+UPDATE table_name SET column1 = value1 WHERE condition; - Modifies data in a table.
+
+Deleting Data:
+
+DELETE FROM table_name WHERE condition; - Deletes data from a table.
+
+Creating Indexes:
+
+CREATE INDEX index_name ON table_name (column1, column2, ...); - Creates an index on table columns for faster queries.
+
+Joining Tables:
+
+SELECT * FROM table1 JOIN table2 ON table1.column = table2.column; - Performs joins to combine data from multiple tables.
+
+*******************************
+
+Administrative Commands:
+
+1) Starting PostgreSQL:
+
+sudo service postgresql start - Starts the PostgreSQL service.
+
+2) Stopping PostgreSQL:
+
+sudo service postgresql stop - Stops the PostgreSQL service.
+
+3) Restarting PostgreSQL:
+
+sudo service postgresql restart - Restarts the PostgreSQL service.
+
+
+4) Accessing psql:
+
+psql - Opens the PostgreSQL interactive terminal.
+
+5) Creating a User:
+
+CREATE USER username WITH PASSWORD 'password'; - Creates a new PostgreSQL user.
+
+6) Granting Privileges:
+
+GRANT privilege(s) ON table_name TO username; - Grants specific privileges on a table to a user.
+
+
+7) Backing Up a Database:
+
+pg_dump database_name > backup.sql - Creates a backup of a database.
+
+
+8) Restoring a Database:
+
+psql -d new_database -f backup.sql - Restores a database from a backup file.
+
+
+9) Viewing User Privileges:
+
+\du - Lists all roles (users) and their privileges.
+
+
+10) Viewing Tables and Schemas:
+
+\dt - Lists all tables in the current schema.
+
+11) Viewing Database Information:
+
+\l - Lists all databases.
+These are some of the basic PostgreSQL commands to get you started. PostgreSQL offers many more features and commands for advanced database management and optimization. It's important to refer to the PostgreSQL documentation for more details and in-depth information on specific commands and topics.
+
+
+*******************************
+
+
+
+
