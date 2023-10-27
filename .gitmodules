@@ -1,0 +1,4 @@
+[submodule "Rails7"]
+	path = Rails7
+	url = git@github.com:noumanshah436/Rails7.git
+	branch = master
