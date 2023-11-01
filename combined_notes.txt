@@ -906,11 +906,11 @@ Rails 7.1.1
 $ gem list | grep rails
 rails (7.1.1, 5.2.8.1)
 
+$ rails _5.2.8.1_ new myapp     (create rails app with older version )
+
+
 $ cd Desktop/
 $ rails new friends         (create rails app with latest version installed i.e 7.1.1 )
-
-
-$ rails _5.2.8.1_ new myapp     (create rails app with older version )
 
 $ rails new myapp2
 
@@ -974,6 +974,13 @@ Use `bundle info [gemname]` to see where a bundled gem is installed.
          run  bundle lock --add-platform=x86_64-linux
 Writing lockfile to /home/dev/Desktop/myapp2/Gemfile.lock
 
+***************************
+
+rails option:
+
+rails new my-project -d=postgresql -c=tailwind
+
+see all option by just type [rails new]
 
 ========================================================================================================================================================================
 Day 2
@@ -5149,11 +5156,22 @@ https://www.bogotobogo.com/RubyOnRails/RubyOnRails_Devise_Authentication_Sending
 1) add gem
 gem 'pg', '>= 0.18', '< 2.0'
 
-2) edit config/database.yml
+2) edit config/database.yml (we can just add in default)
 
-3) run rails db:create
-run rails db:migrate
-run rails db:seed (if you have a seed file)
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: nouman
+  password: noumanrehman042
+  host: localhost
+  port: 5432
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+
+3) run
+rails db:create
+rails db:migrate
+rails db:seed (if you have a seed file)
 
 Now test your app, and you are now using Postgres!
 
@@ -5189,6 +5207,9 @@ chnage databaser from postgres to sqlite
 1) create `db/development.sqlite3` file
 (create test or production db files if needed)
 
+2) add this gem and run bundle:
+gem "sqlite3"
+
 2) Paste below config in database.yml file:
 
 # SQLite. Versions 3.8.0 and up are supported.
@@ -5219,8 +5240,10 @@ production:
 
 3) run below commands in terminal:
 
-$ rails db:create
-$ rails db:migrate
+bundle install
+rails db:create
+rails db:migrate
+rails db:seed
 
 ==================================================================================================================================
 pundit
@@ -6146,6 +6169,8 @@ gem "font-awesome-sass", "~> 6.2.0"
 
 **********************
 
+https://github.com/faker-ruby/faker#generators
+
 Faker
 
 1) bundle add faker
@@ -6162,6 +6187,11 @@ name= Faker::Name.name,
 email= Faker::Internet.email
 title= Faker::Lorem.sentence(word_count: 3)
 body=Faker::Lorem::paragraph(sentence_count: 3)
+
+Comment.create(body: Faker::Quote.famous_last_words)
+
+Post.create(title: Faker::Music.band, image_url: Faker::Avatar.image)
+
 
 *************************
 Add bootstrap:
@@ -6285,6 +6315,51 @@ jQuery UI is a popular JavaScript library that provides a collection of user int
 
 
 gem 'jquery-ui-rails'
+
+*********************************
+city-state
+
+1) gem "city-state", "~> 0.1.0"
+
+2) bundle
+
+3) test on rails console
+
+Listing Countries:*******
+$ CS.countries
+$ CS.countries.count
+
+Listing States:*******
+
+Retrieve a list of states for a specified country:
+
+CS.states(:US)
+
+CS.states(:PK)
+ => {:BA=>"Balochistan", :GB=>"Gilgit-Baltistan", :IS=>"Islamabad", :JK=>"Azad Kashmir", :KP=>"Khyber Pakhtunkhwa", :PB=>"Punjab", :SD=>"Sindh"}
+
+
+Note: The gem is case-insensitive. You can use variations like :US, :us, :Us, "us", and "US".
+
+Listing Cities:******
+
+Retrieve a list of cities for a specified state and country:
+
+CS.cities(:AK, :US)
+
+CS.cities(:PB, :PK) # get cities of Punjab pakistan
+
+
+You can also specify the country, though it's optional. The gem remembers the last country you used:
+
+CS.states(:BR)
+
+CS.cities(:TO)  # This will use Brazil (BR) as the country
+
+
+Miscellaneous Notes:
+
+The country is an optional argument. The gem always uses the last country that you used.
 
 
 ========================================================================================================================================================================
@@ -6459,7 +6534,7 @@ ActiveRecord::Store
 https://api.rubyonrails.org/classes/ActiveRecord/Store.html
 
 In Ruby on Rails, the store method is actually a built-in feature provided by ActiveRecord.
- It allows you to serialize and store structured data in a single database column without the need for an additional gem.
+It allows you to serialize and store structured data in a single database column without the need for an additional gem.
 
 
 *********************************
@@ -6710,10 +6785,217 @@ export default class extends Controller {
 }
 
 *************************************************
-
+actions in stimulus:
 *************************************************
 
+Stimulus provides a variety of actions that you can use in your Rails application to respond to user interactions and events.
 
+Some of the common actions you can use include:
+
+1. `click`:
+   - Responds to a click event on an element.
+
+2. `input`:
+   - Responds to input events, typically used for form fields like text inputs and textareas.
+
+   example:
+      <%= form.search_field :title_search, data: { action: "input->debounce#search" } %>
+
+
+3. `submit`:
+   - Responds to a form submission event. Useful for form validation or custom form handling.
+
+4. `change`:
+   - Responds to a change event, often used with form elements like select boxes and radio buttons.
+
+5. `dblclick`:
+   - Responds to a double-click event on an element.
+
+6. `mouseover` and `mouseout`:
+   - Respond to mouseover and mouseout events, commonly used for implementing tooltips and hover effects.
+
+7. `focus` and `blur`:
+   - Respond to focus and blur events on form elements. Useful for input validation and styling.
+
+8. `keydown`, `keyup`, and `keypress`:
+   - Respond to keyboard-related events, such as key presses and releases.
+
+9. `submit`:
+   - Responds to a form submission event. Useful for custom form handling or validation.
+
+10. `load`:
+    - Respond to the page load event, often used for initializing JavaScript behavior when a page loads.
+
+11. `resize`:
+    - Respond to window resize events. Useful for responsive design and layout adjustments.
+
+12. Custom events:
+    - You can define custom events specific to your application's needs. For example, you might define a custom event like "refresh" and trigger it when you want to refresh a part of your application.
+
+You can use these actions in combination with Stimulus controllers to create interactive and dynamic behavior in your Rails application. Each action corresponds to a specific DOM event, allowing you to trigger JavaScript actions when those events occur.
+
+
+Default event for a particular element:
+
+- For links (<a> elements) and buttons (<button> elements), the default action is usually a "click" event.
+    These elements are primarily used for user interactions.
+
+- For form fields like text inputs, textareas, and select boxes, the default event is typically "input" (i.e., when the user types or selects something in the field).
+  However, for form submission buttons, it's usually the "click" event.
+
+**********************************************
+stumulus static attributes
+1) target
+2) values
+3) classes
+**********************************************
+
+Here are simple examples for each of the static attributes in a Stimulus controller along with their use in an ERB file:
+
+(See Examples ->  /Rails-Training/Rails7/Hotwire-SupeRails/66-stimulusjs-dropdown)
+
+1. **Static Targets**:
+
+   Suppose you're building a "To-Do List" application. You can use `static targets` to interact with the list items, the input field, and the add button.
+
+   In the Stimulus controller:
+
+   ```javascript
+   // todo_controller.js
+   import { Controller } from "stimulus"
+
+   export default class extends Controller {
+     static targets = ["item", "input", "addButton"]
+
+     add() {
+       // Add a new to-do item to the list
+       const newItemText = this.inputTarget.value
+       const newItem = document.createElement("li")
+       newItem.textContent = newItemText
+       this.itemTarget.appendChild(newItem)
+       this.inputTarget.value = ""
+     }
+   }
+   ```
+
+   In the ERB file:
+
+   ```html
+   <!-- app/views/todos/index.html.erb -->
+   <div data-controller="todo">
+     <ul data-todo-target="item">
+       <!-- List items will be dynamically added here -->
+     </ul>
+     <input type="text" data-todo-target="input">
+     <button data-action="click->todo#add" data-todo-target="addButton">Add</button>
+   </div>
+   ```
+
+   In this example, `data-todo-target` is used to specify the elements that the `todo` controller should interact with.
+
+2. **Static Values**:
+
+   Let's continue with the "To-Do List" example. You can use `static values` to track the count of to-do items.
+
+   In the Stimulus controller:
+
+   ```javascript
+   // todo_controller.js
+   import { Controller } from "stimulus"
+
+   export default class extends Controller {
+     static values = { itemCount: Number }
+
+     connect() {
+       this.itemCountValue = this.itemTargets.length
+     }
+
+     add() {
+       // ... (same as previous example)
+       this.itemCountValue++
+     }
+   }
+   ```
+
+   In the ERB file, you don't need to modify the HTML, but now you can access the `itemCount` value in your controller.
+
+3. **Static Classes**:
+
+   Suppose you want to highlight completed to-do items with a special style. You can use `static classes` to toggle a CSS class on these items.
+
+   In the Stimulus controller:
+
+   ```javascript
+   // todo_controller.js
+   import { Controller } from "stimulus"
+
+   export default class extends Controller {
+     static targets = ["item"]
+     static classes = ["completed"]
+
+     toggleCompleted(event) {
+       const item = event.currentTarget
+       item.classList.toggle(this.completedClass)
+     }
+   }
+   ```
+
+   In the ERB file:
+
+   ```html
+   <!-- app/views/todos/index.html.erb -->
+   <ul>
+     <li data-action="click->todo#toggleCompleted" data-todo-class="completed">Task 1</li>
+     <li data-action="click->todo#toggleCompleted" data-todo-class="completed">Task 2</li>
+     <!-- Add more items as needed -->
+   </ul>
+   ```
+
+   In this example, `data-todo-class` specifies the CSS class that should be toggled when the user clicks on an item.
+
+These examples illustrate how to use `static targets`, `static values`, and `static classes` in a practical context within an ERB file. You can adapt these concepts to your specific use cases and application requirements.
+
+*****************************************************************
+Turbo: The speed of a single-page web application without having to write any JavaScript.
+https://turbo.hotwired.dev/
+*****************************************************************
+Turbo is a key component of Hotwire(set of technologies for building modern web applications).
+It consists of several subcomponents that work together to provide real-time updates and interactive features in web applications. Here are the main components of Turbo, explained briefly:
+
+
+1. **Turbo Frames**:
+  - *Purpose*: Turbo Frames are used to isolate and update specific parts of a web page without a full page reload.
+              They are ideal for situations where you want to replace or update a specific section of a page, such as a form or a list of items.
+  - *Usage*: Turbo Frames are used to enclose a section of content that can be updated dynamically,
+              like a chat message list or a product listing.
+              When a Turbo Frame is updated, only the content within that frame is replaced, leaving the rest of the page intact.
+
+2. **Turbo Streams**:
+   - **Purpose**: Turbo Streams are used to push real-time updates to a client without the need for client-side JavaScript.
+        They are excellent for sending updates to multiple clients when something changes on the server.
+   - **Usage**: Turbo Streams work by broadcasting changes to the client. These changes can be in the form of creating, updating, or deleting records. The client interprets these instructions and updates the view accordingly.
+   - **Example**: Turbo Streams can be used to instantly show new comments on a blog post for all connected users or to update the view when an item is added to a shopping cart in real-time.
+
+2. **Turbo Streams**:
+   - *Purpose*: Turbo Streams enable real-time updates by sending changes (creation, modification, deletion) to the client.
+   - *Usage*: You can use Turbo Streams to push updates to clients when something changes on the server, such as new comments or items added to a shopping cart.
+
+
+3. **Turbo Drive**:
+      Turbo Drive is the part of Turbo that enhances page-level navigation.
+      It watches for link clicks and form submissions, performs them in the background, and updates the page without doing a full reload.
+      It’s the evolution of a library previously known as Turbolinks.
+
+   - *Purpose*: Turbo Drive provides seamless navigation by intercepting link clicks and form submissions, loading the content via AJAX, and preserving browser history.
+   - *Usage*: It's used to create fast and fluid navigation in a web application, where the whole page doesn't need to be reloaded for every interaction.
+
+4. **Turbo Native**:
+   - *Purpose*: Turbo Native is used for building hybrid mobile applications. It allows you to embed web views and use Turbo in a mobile app.
+   - *Usage*: You can use Turbo Native to develop mobile apps that combine native functionality with web-based views.
+
+
+Notes:
+Turbo stream doesn’t respond to GET request, it only responds to POST request
 
 ========================================================================================================================================================================
 Procfile (specifies the commands needed to run application)
