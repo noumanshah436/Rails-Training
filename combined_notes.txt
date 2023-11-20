@@ -2688,7 +2688,7 @@ manager_history.department   --  give error bec there is not association that ma
 Polymorphic Association
 ========================================================================================================================================================================
 
-we need Polymorphic Association when we multiple parent models are their for a single child
+we need Polymorphic Association when multiple parent models are their for a single child
 With polymorphic associations, a model can belong to more than one other model, on a single association.
 
 For example, you might have a picture model that belongs to either an employee model or a product model.
@@ -2699,6 +2699,7 @@ as we have only on parent associated with one record.
 Parents:
 rails g model Article title:string text:text
 rails g model News title:string text:text
+rails g model Post title:string body:text
 
 Child:
 rails g model Comment title:string commentable_type:string commentable_id:integer
@@ -2711,12 +2712,18 @@ belongs_to :commentable, polymorphic:true
 3) and in article and news model:
 has_many :comments, as: :commentable
 
+4) For post model we want only one comment for each post, so add this in post model:
+has_one :comment, as: :commentable, inverse_of: :commentable
 
-4)
+By specifying inverse_of: :commentable, it tells Rails that the Comment model has a corresponding association named :commentable,
+ which refers back to the model that has the has_one :comment association.
+
+5)
 
 Article.create(title:"article 1")
 Article.create(title:"article 2")
 News.create(title:"news 1")
+
 article = Article.find(1)
 
 article.comments.create(title: "comment for Article 1")
@@ -5392,6 +5399,12 @@ config.include FactoryBot::Syntax::Methods
 
 article = FactoryBot.create(:article)
 
+************************
+
+rails db:create RAILS_ENV=test
+
+rails c -e test
+
 ==================================================================================================================================
 rubocop
 ==================================================================================================================================
@@ -5933,7 +5946,11 @@ rails s
 
 ******************************
 
-kill
+lsof -wni tcp:3000
+kill -9 72176
+
+or
+
 kill -9 $(lsof -i tcp:3000 -t)
 
 
