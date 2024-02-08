@@ -1,0 +1,176 @@
+what is OAuth or OAuth 2.0:
+
+OAuth (Open Authorization) is an open standard and framework that provides secure access to resources on behalf of a resource owner. OAuth 2.0 is the second version of the OAuth protocol. The primary goal of OAuth is to enable a third-party application to obtain limited access to a user's resources without exposing the user's credentials.
+
+Here are key concepts and components of OAuth 2.0:
+
+1. **Roles:**
+   - **Resource Owner:** An entity capable of granting access to a protected resource. Typically, this is the end-user.
+   - **Client:** An application making requests on behalf of the resource owner.
+   - **Authorization Server:** The server that issues access tokens after successfully authenticating the resource owner and obtaining authorization.
+   - **Resource Server:** The server hosting the protected resources, capable of accepting and responding to protected resource requests using access tokens.
+
+2. **Authorization Grant Types:**
+   - OAuth 2.0 defines several grant types for obtaining authorization:
+     - **Authorization Code:** Used by web applications running on a server.
+     - **Implicit:** Used by browser-based applications where the access token is issued to the client rather than an authorization code.
+     - **Resource Owner Password Credentials:** Used when the resource owner has a trust relationship with the client.
+     - **Client Credentials:** Used when the client is the resource owner.
+
+3. **Access Tokens:**
+   - An access token is a string representing the authorization granted to the client.
+   - It is issued by the authorization server and is used to access protected resources.
+   - Access tokens have a limited lifespan and can be refreshed if necessary.
+
+4. **Scopes:**
+   - Scopes define the permissions granted to the client.
+   - A user might grant read or write access, for example.
+
+5. **Redirect URIs:**
+   - During the authorization process, the client specifies a redirect URI where the user is sent after granting/denying access.
+
+6. **OAuth Flow:**
+   - The typical OAuth flow involves the client obtaining an authorization grant from the resource owner.
+   - The client then exchanges the grant for an access token from the authorization server.
+   - The client uses the access token to access protected resources on behalf of the resource owner.
+
+OAuth 2.0 is widely used for authentication and authorization in web and mobile applications, enabling secure and controlled access to user data without exposing credentials. It is essential for scenarios where third-party applications need access to a user's resources (e.g., accessing data from Google, Facebook, or other services).
+
+***************************************************************************************
+
+
+How to use OAuth 2.0 in rails app
+
+
+Using OAuth 2.0 in a Rails application typically involves integrating an OAuth 2.0 provider (such as Google, Facebook, or GitHub) for authentication and authorization. The Doorkeeper gem can also be used to turn your Rails application into an OAuth 2.0 provider. Below are general steps for both scenarios:
+
+### Scenario 1: OAuth 2.0 Provider with Doorkeeper
+
+1. **Install the Doorkeeper Gem:**
+   Add the Doorkeeper gem to your Gemfile and run `bundle install`.
+
+   ```ruby
+   gem 'doorkeeper'
+   ```
+
+2. **Generate and Run Migrations:**
+   Generate the Doorkeeper configuration and migration files, and then run the migrations.
+
+   ```bash
+   rails generate doorkeeper:install
+   rails generate doorkeeper:migration
+   rails db:migrate
+   ```
+
+3. **Configure Doorkeeper:**
+   Customize the Doorkeeper configuration in `config/initializers/doorkeeper.rb`. Define your application's settings such as the client ID, secret, and token expiration.
+
+   ```ruby
+   # config/initializers/doorkeeper.rb
+   Doorkeeper.configure do
+     # Your configuration settings go here
+   end
+   ```
+
+4. **Protect Your API Endpoints:**
+   Use `before_action :doorkeeper_authorize!` in your controllers to protect API endpoints with Doorkeeper.
+
+   ```ruby
+   class ApiController < ApplicationController
+     before_action :doorkeeper_authorize!
+   end
+   ```
+
+### Scenario 2: OAuth 2.0 Client
+
+1. **Choose an OAuth 2.0 Provider:**
+   Select an OAuth 2.0 provider such as Google, Facebook, GitHub, etc., and register your application to obtain the client ID and secret.
+
+2. **Install the OmniAuth Gem:**
+   Add the OmniAuth gem to your Gemfile and run `bundle install`.
+
+   ```ruby
+   gem 'omniauth'
+   ```
+
+3. **Install the OmniAuth Strategy Gem:**
+   Install the OmniAuth strategy for your chosen OAuth provider. For example, for Google:
+
+   ```ruby
+   gem 'omniauth-google-oauth2'
+   ```
+
+4. **Configure OmniAuth:**
+   Configure OmniAuth in your `config/initializers/omniauth.rb`. Replace `'your_google_client_id'` and `'your_google_client_secret'` with your actual Google OAuth credentials.
+
+   ```ruby
+   Rails.application.config.middleware.use OmniAuth::Builder do
+     provider :google_oauth2, 'your_google_client_id', 'your_google_client_secret'
+   end
+   ```
+
+5. **Create Routes for Authentication:**
+   Add routes to handle authentication.
+
+   ```ruby
+   # config/routes.rb
+   Rails.application.routes.draw do
+     get '/auth/:provider/callback', to: 'sessions#create'
+     get '/auth/failure', to: 'sessions#failure'
+   end
+   ```
+
+6. **Create Sessions Controller:**
+   Create a Sessions controller to handle authentication callbacks and user creation.
+
+   ```ruby
+   # app/controllers/sessions_controller.rb
+   class SessionsController < ApplicationController
+     def create
+       auth = request.env['omniauth.auth']
+       # Handle authentication and user creation here
+     end
+
+     def failure
+       # Handle authentication failure
+     end
+   end
+   ```
+
+These are general steps, and you'll need to adjust them based on the specific OAuth provider you are integrating and the requirements of your application. Refer to the documentation of Doorkeeper, OmniAuth, and the specific provider for more details and customization options.
+
+
+***************************************************************************************
+
+
+
+
+Doorkeeper vs Omniauth
+
+Doorkeeper: 
+It is an OAuth 2 provider for Ruby on Rails applications. It allows you to secure your application by implementing OAuth 2.0 authentication and authorization.
+
+Omniauth and Omniauth-Google-Oauth2: 
+These gems are part of the OmniAuth library, which provides multi-provider authentication for Rack applications. omniauth-google-oauth2 is a specific strategy for handling Google OAuth 2.0 authentication.
+
+
+**********************************
+
+The gems omniauth and omniauth-google-oauth2 are related in the context of implementing OAuth 2.0 authentication in a Ruby on Rails application using the OmniAuth library. 
+
+Here's how they are related:
+
+1) OmniAuth (omniauth):
+
+OmniAuth is a flexible authentication system for Rack applications, including Ruby on Rails. It provides a standardized way to integrate multiple authentication strategies (such as OAuth, OpenID, etc.) into your application.
+The omniauth gem is the core OmniAuth library that handles the framework for multi-provider authentication.
+
+2) OmniAuth Google OAuth2 (omniauth-google-oauth2):
+
+omniauth-google-oauth2 is a strategy for OmniAuth specifically designed to authenticate users using Google OAuth 2.0.
+It builds on top of the omniauth gem, providing the implementation details required to interact with Google's OAuth 2.0 authentication system.
+
+***************************************************************************************
+
+
+

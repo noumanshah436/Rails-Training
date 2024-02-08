@@ -1,0 +1,224 @@
+
+*****************************************************************************
+Noticed gem
+*****************************************************************************
+
+The Noticed gem is a Ruby gem designed to make it easy to add a notification system to your Ruby on Rails application. Here's a basic guide on how to use the Noticed gem:
+
+### 1. Install the Gem
+
+Add the Noticed gem to your Gemfile and run `bundle install`:
+
+```ruby
+# Gemfile
+gem 'noticed'
+```
+
+### 2. Generate the Migration
+
+Run the following command to generate the necessary migration for the notifications:
+
+```bash
+rails generate noticed:install
+rails db:migrate
+```
+
+### 3. Create a Notification
+
+Generate a notification using the generator. For example:
+
+```bash
+rails generate noticed:notification NewFollower
+```
+
+This will create a file in the `app/notifications` directory, such as `app/notifications/new_follower.rb`. Customize this file based on the notification you want to send.
+
+### 4. Configure Notifiable Models
+
+In the models that you want to receive notifications (typically the User model), include `Noticed::Model`. For example:
+
+```ruby
+class User < ApplicationRecord
+  include Noticed::Model
+end
+```
+
+### 5. Sending Notifications
+
+In your controllers or elsewhere in your application, you can send notifications like this:
+
+```ruby
+user = User.find(params[:id])
+user.notify(NewFollower)
+```
+
+This assumes that you have a `NewFollower` notification defined in `app/notifications/new_follower.rb`.
+
+### 6. Displaying Notifications
+
+To display notifications in your views, you can use the `= render_notifications` helper method. For example, in your layout:
+
+```html+erb
+<%= render_notifications %>
+```
+
+### 7. Customizing Views
+
+The gem provides default views for notifications, but you can customize them by generating the views and modifying them as needed:
+
+```bash
+rails generate noticed:views
+```
+
+This will create a `views/noticed` directory where you can find the default views.
+
+### 8. Additional Configuration
+
+You can further configure the gem in your `config/application.rb` file or an initializer:
+
+```ruby
+# config/application.rb or config/initializers/noticed.rb
+config.noticed.enable_flash = true # Enables or disables flash messages
+config.noticed.parent_controller = 'ApplicationController' # Specify a custom parent controller
+```
+
+This is a basic guide to get you started. Make sure to check the [official documentation](https://github.com/excid3/noticed) for more advanced usage and customization options.
+
+
+
+*****************************************************************************
+Doorkeeper gem
+*****************************************************************************
+
+The Doorkeeper gem is a popular OAuth 2 provider for Ruby on Rails applications. It allows you to implement OAuth 2.0 authorization flows, providing endpoints for authorization, token issuance, and token revocation. Below are the basic steps to use the Doorkeeper gem in a Rails application:
+
+### 1. Install the Gem
+
+Add the Doorkeeper gem to your Gemfile and run `bundle install`:
+
+```ruby
+# Gemfile
+gem 'doorkeeper'
+```
+
+### 2. Run the Generator
+
+Run the Doorkeeper generator to set up the initial configuration:
+
+```bash
+rails generate doorkeeper:install
+rails generate doorkeeper:migration
+rails db:migrate
+```
+
+### 3. Configure Doorkeeper
+
+Configure Doorkeeper in `config/initializers/doorkeeper.rb`. You can customize various settings, such as the application name, resource owner model, token expiration, etc.
+
+```ruby
+# config/initializers/doorkeeper.rb
+Doorkeeper.configure do
+  # ...
+end
+```
+
+### 4. Define OAuth Applications
+
+OAuth clients (applications) need to be registered in the database. You can use the Doorkeeper provided routes for this:
+
+```bash
+rails generate doorkeeper:application
+rails db:migrate
+```
+
+### 5. Protect Your API
+
+To secure your API with OAuth, use the `before_action :doorkeeper_authorize!` in your controllers:
+
+```ruby
+# app/controllers/api/v1/base_controller.rb
+class Api::V1::BaseController < ActionController::API
+  before_action :doorkeeper_authorize!
+end
+```
+
+### 6. Implement Authorization Endpoints
+
+By default, Doorkeeper provides the authorization endpoint at `/oauth/authorize` and the token endpoint at `/oauth/token`. You might need to create views for the authorization page (if not using the API-only mode).
+
+### 7. Test Your OAuth Flow
+
+Start your Rails server (`rails server`) and test your OAuth flow using a tool like [Postman](https://www.postman.com/) or a web browser.
+
+### Additional Resources:
+
+- Refer to the official Doorkeeper documentation for detailed information and advanced configurations: [Doorkeeper Documentation](https://doorkeeper.gitbook.io/guides/).
+
+- Doorkeeper GitHub repository: [Doorkeeper on GitHub](https://github.com/doorkeeper-gem/doorkeeper).
+
+Make sure to check the documentation for any additional steps based on your specific use case or requirements.
+
+
+*****************************************************************************
+
+Doorkeeper vs Omniauth
+
+Doorkeeper: 
+It is an OAuth 2 provider for Ruby on Rails applications. It allows you to secure your application by implementing OAuth 2.0 authentication and authorization.
+
+Omniauth and Omniauth-Google-Oauth2: 
+These gems are part of the OmniAuth library, which provides multi-provider authentication for Rack applications. omniauth-google-oauth2 is a specific strategy for handling Google OAuth 2.0 authentication.
+
+
+**********************************
+
+The gems omniauth and omniauth-google-oauth2 are related in the context of implementing OAuth 2.0 authentication in a Ruby on Rails application using the OmniAuth library. 
+
+Here's how they are related:
+
+1) OmniAuth (omniauth):
+
+OmniAuth is a flexible authentication system for Rack applications, including Ruby on Rails. It provides a standardized way to integrate multiple authentication strategies (such as OAuth, OpenID, etc.) into your application.
+The omniauth gem is the core OmniAuth library that handles the framework for multi-provider authentication.
+
+2) OmniAuth Google OAuth2 (omniauth-google-oauth2):
+
+omniauth-google-oauth2 is a strategy for OmniAuth specifically designed to authenticate users using Google OAuth 2.0.
+It builds on top of the omniauth gem, providing the implementation details required to interact with Google's OAuth 2.0 authentication system.
+
+*****************************************************************************
+
+
+
+
+*****************************************************************************
+
+
+
+
+*****************************************************************************
+
+
+
+
+*****************************************************************************
+
+
+
+
+*****************************************************************************
+
+
+
+
+*****************************************************************************
+
+
+
+
+
+
+
+
+
+

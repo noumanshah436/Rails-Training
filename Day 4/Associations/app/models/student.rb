@@ -9,7 +9,7 @@
 #  updated_at :datetime         not null
 #
 class Student < ApplicationRecord
-  # has_many :blogs 
+  # has_many :blogs
   has_many :blogs, foreign_key: "student_id"
 
   has_and_belongs_to_many :courses

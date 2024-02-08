@@ -109,9 +109,9 @@ webpacker
 Rake tasks
 
 
-========================================================================================================================================================================
+====================================
 Other Topics
-========================================================================================================================================================================
+====================================
 
 active storage ( react-crud)
 Cloudinary (react-crud)
@@ -156,6 +156,10 @@ A Comprehensive Comparison: Rails 6 vs Rails 7
 Rails7
 
 Procfile (specifies the commands needed to run application)
+
+delegate in rails
+
+Make database dump and apply
 
 
 ========================================================================================================================================================================
@@ -1588,7 +1592,7 @@ end
 
 ***********************
 
-specify null:
+specify null (it's a database thing):
 
 In Rails migrations, if you do not specify the null option when adding a column,
 the default behavior is to set null: false. This means that the column will not allow NULL values.
@@ -2326,9 +2330,35 @@ summary:
 rails g model Student name:string email:string
 rails db:migrate
 
+RAW_SQL:
+
+CREATE TABLE IF NOT EXISTS "students" (
+	"id"	integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"name"	varchar,
+	"email"	varchar,
+	"created_at"	datetime NOT NULL,
+	"updated_at"	datetime NOT NULL
+);
+
 2)
-rails generate model Blog title:string content:text student:references    ( we can manually add foreign key but this is better - this will also add belongsto statement in blog model)
+rails generate model Blog title:string content:text student:references    ( we can manually add foreign key but this is better - this will also add belongs_to statement in blog model)
 rails db:migrate
+
+RAW_SQL:
+
+CREATE TABLE IF NOT EXISTS "blogs" (
+	"id"	integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"title"	varchar,
+	"content"	text,
+	"student_id"	integer,
+	"created_at"	datetime NOT NULL,
+	"updated_at"	datetime NOT NULL,
+	CONSTRAINT "fk_rails_933c57d857" FOREIGN KEY("student_id") REFERENCES "students"("id")
+);
+
+CREATE INDEX IF NOT EXISTS "index_blogs_on_student_id" ON "blogs" (
+	"student_id"
+);
 
 3)
 and add  in student model:
@@ -2337,15 +2367,15 @@ and add  in student model:
 
 
 To do manually:
-1)
+i)
 add column in blog table in migration  --  t.references :student, foreign_key: true, null: false
 and then add ( belongs_to :student ) in blog model
 and add ( has_many :blogs ) to stuent model
 
-2) or just add column in new migration:
+ii) or just add column in new migration:
 add_reference :blogs, :student, foreign_key: true, null: false
 
-3) add_column :blogs, :student_id, :integer, null: false
+iii) add_column :blogs, :student_id, :integer, null: false
 
 
 ***********
@@ -2406,16 +2436,14 @@ or
 -> std1 = Student.first
 -> std1.blogs                   #  use blogs ( plural as menthion with has_many statement )
 
+SELECT  "blogs".* FROM "blogs"
+WHERE "blogs"."student_id" = ? LIMIT ?  [["student_id", 1], ["LIMIT", 11]]
+
 -> blog = Blog.last
 -> std = blog.student
 -> std
 -> blog.student_id
 -> blog.student.name             #  use student ( singular as menthion with belongs_to statement )
-
-****************
-
-
-
 
 ========================================================================================================================================================================
 2 many_to_many_association
@@ -2441,6 +2469,16 @@ https://guides.rubyonrails.org/v5.2/association_basics.html#has-and-belongs-to-m
 rails g model Course name:string description:text
 rails db:migrate
 
+RAW_SQL:
+
+CREATE TABLE IF NOT EXISTS "courses" (
+	"id"	integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"name"	varchar,
+	"description"	text,
+	"created_at"	datetime NOT NULL,
+	"updated_at"	datetime NOT NULL
+);
+
 1) add this to student model class
 has_and_belongs_to_many :courses
 
@@ -2456,6 +2494,13 @@ create_join_table :courses , :students                -- use lexical order to cr
 rails db:migrate
 
 -> this will create courses_students table in database
+
+RAW_SQL:
+
+CREATE TABLE IF NOT EXISTS "courses_students" (
+	"course_id"	integer NOT NULL,
+	"student_id"	integer NOT NULL
+);
 
 ***********
 
@@ -2476,9 +2521,13 @@ std1.courses                                  -- fetch all courses of student
 std1.courses << course2 << course3            -- assign multiple courses
 
 Query understanding:
+
 std1 = Student.find(1)
 std1.courses
-SELECT  "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = 1 LIMIT 11
+
+SELECT  "courses".* FROM "courses"
+INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id"
+WHERE "courses_students"."student_id" = 1 LIMIT 11
 
 
 you can also assign courses to students:
@@ -2528,9 +2577,40 @@ we will join student and project model:
 rails g model project name:string description:text
 rails db:migrate
 
+RAW_SQL:
+
+CREATE TABLE IF NOT EXISTS "projects" (
+	"id"	integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"name"	varchar,
+	"description"	text,
+	"created_at"	datetime NOT NULL,
+	"updated_at"	datetime NOT NULL
+);
+
 1) creating relationship model b/w student and project with third model
 rails g model student_project student:references project:references submission_date:date
 rails db:migrate
+
+RAW_SQL:
+
+CREATE TABLE IF NOT EXISTS "student_projects" (
+	"id"	integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"student_id"	integer,
+	"project_id"	integer,
+	"submission_date"	date,
+	"created_at"	datetime NOT NULL,
+	"updated_at"	datetime NOT NULL,
+	CONSTRAINT "fk_rails_67a1dd626a" FOREIGN KEY("project_id") REFERENCES "projects"("id"),
+	CONSTRAINT "fk_rails_cd27636194" FOREIGN KEY("student_id") REFERENCES "students"("id")
+);
+
+CREATE INDEX IF NOT EXISTS "index_student_projects_on_project_id" ON "student_projects" (
+	"project_id"
+);
+
+CREATE INDEX IF NOT EXISTS "index_student_projects_on_student_id" ON "student_projects" (
+	"student_id"
+);
 
 2)  add this to student  model class:
 has_many :student_projects
@@ -2602,8 +2682,32 @@ Implementation summary:
 rails g model Supplier name:string
 rails db:migrate
 
+RAW_SQL:
+
+CREATE TABLE IF NOT EXISTS "suppliers" (
+	"id"	integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"name"	varchar,
+	"created_at"	datetime NOT NULL,
+	"updated_at"	datetime NOT NULL
+);
+
 rails g model Account account_number:string supplier:references
 rails db:migrate
+
+RAW_SQL:
+
+CREATE TABLE IF NOT EXISTS "accounts" (
+	"id"	integer NOT NULL,
+	"account_number"	integer DEFAULT NULL,
+	"supplier_id"	integer DEFAULT NULL,
+	"created_at"	datetime NOT NULL,
+	"updated_at"	datetime NOT NULL,
+	PRIMARY KEY("id")
+);
+
+CREATE INDEX IF NOT EXISTS "index_accounts_on_supplier_id" ON "accounts" (
+	"supplier_id"
+);
 
 1) add ( has_one :account ) in parent model
 both model msut use singular name for association
@@ -2656,6 +2760,44 @@ rails g model manager name:string email:string contact:string department:referen
 rails g model manager_history joining_date:date total_experience:integer manager:references
 rails db:migrate
 
+RAW_SQL:
+
+CREATE TABLE IF NOT EXISTS "departments" (
+	"id"	integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"name"	varchar,
+	"created_at"	datetime NOT NULL,
+	"updated_at"	datetime NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS "managers" (
+	"id"	integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"name"	varchar,
+	"email"	varchar,
+	"contact"	varchar,
+	"department_id"	integer,
+	"created_at"	datetime NOT NULL,
+	"updated_at"	datetime NOT NULL,
+	CONSTRAINT "fk_rails_ff17ccb632" FOREIGN KEY("department_id") REFERENCES "departments"("id")
+);
+
+CREATE INDEX IF NOT EXISTS "index_managers_on_department_id" ON "managers" (
+	"department_id"
+);
+
+CREATE TABLE IF NOT EXISTS "manager_histories" (
+	"id"	integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"joining_date"	date,
+	"total_experience"	integer,
+	"manager_id"	integer,
+	"created_at"	datetime NOT NULL,
+	"updated_at"	datetime NOT NULL,
+	CONSTRAINT "fk_rails_12b5d02349" FOREIGN KEY("manager_id") REFERENCES "managers"("id")
+);
+
+CREATE INDEX IF NOT EXISTS "index_manager_histories_on_manager_id" ON "manager_histories" (
+	"manager_id"
+);
+
 2) add this to department model
 has_one :manager
 has_one :manager_history, through: :manager
@@ -2703,8 +2845,37 @@ rails g model Post title:string body:text
 
 Child:
 rails g model Comment title:string commentable_type:string commentable_id:integer
+or
+rails g model Comment title:string commentable:references{polymorphic}
 
 rails db:migrate
+
+RAW_SQL:
+
+CREATE TABLE IF NOT EXISTS "articles" (
+	"id"	integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"title"	varchar,
+	"text"	text,
+	"created_at"	datetime NOT NULL,
+	"updated_at"	datetime NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS "news" (
+	"id"	integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"title"	varchar,
+	"text"	text,
+	"created_at"	datetime NOT NULL,
+	"updated_at"	datetime NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS "comments" (
+	"id"	integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"title"	varchar,
+	"commentable_type"	varchar,
+	"commentable_id"	integer,
+	"created_at"	datetime NOT NULL,
+	"updated_at"	datetime NOT NULL
+);
 
 2) add in comment model:
 belongs_to :commentable, polymorphic:true
@@ -2756,6 +2927,17 @@ Self joins
 rails g model Employee account employee_id:integer manager_id:integer
 rails db:migrate
 
+RAW_SQL:
+
+CREATE TABLE IF NOT EXISTS "employees" (
+	"id"	integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"account"	varchar,
+	"employee_id"	integer,
+	"manager_id"	integer,
+	"created_at"	datetime NOT NULL,
+	"updated_at"	datetime NOT NULL
+);
+
 emp1 = Employee.create(:account => "emp1")
 emp2 = Employee.create(:account => "emp2")
 man1 = Employee.create(:account => "man1")
@@ -2767,6 +2949,7 @@ emp1 = Employee.find(1)
 emp1.subordinates << emp2
 emp1.manager = man1
 emp1.subordinates
+
 
 
 ************************
@@ -4617,7 +4800,7 @@ Active Jobs
 Active Job is a framework for declaring jobs and making them run on a variety of queueing backends.
 
 ******************************
-Active Job is an interface to queueing backends such as sidekiq, delayed_job or resque.
+Active Job is an interface to queueing backends such as sidekiq, delayed_job, delayed_job_active_record, delayed_job_web or resque.
  It's simply a way for you to write background jobs where you don't have to care about which of the queueing backends will be used.
 ******************************
 
@@ -5027,6 +5210,10 @@ google_smtp:
 and access using
 Rails.application.credentials.dig(:google_smtp, :email),
 
+*******************
+dig method on hash:
+
+user.external_data.dig('hubstaff', 'active') || false
 
 
 ==================================================================================================================================
@@ -5158,6 +5345,11 @@ rails db:create
 chnage databaser from sqlite to postgres:
 ********************
 
+Built-in commad (change database to postgres)
+rails db:system:change --to=postgresql
+
+To do it manually:
+
 https://www.bogotobogo.com/RubyOnRails/RubyOnRails_Devise_Authentication_Sending_Confirmation_Email.php
 
 1) add gem
@@ -5210,6 +5402,12 @@ $ ALTER USER nouman WITH SUPERUSER;
 *************************************
 chnage databaser from postgres to sqlite
 *************************************
+
+
+Built-in commad:
+rails db:system:change --to=sqlite
+
+To do it manually:
 
 1) create `db/development.sqlite3` file
 (create test or production db files if needed)
@@ -6315,6 +6513,8 @@ rails-erd
 https://github.com/voormedia/rails-erd
 https://voormedia.github.io/rails-erd/install.html
 
+https://voormedia.github.io/rails-erd/customise.html
+
 sudo apt-get install graphviz
 
 Add gem 'rails-erd', group: :development to your application's Gemfile
@@ -6993,7 +7193,7 @@ It consists of several subcomponents that work together to provide real-time upd
    - **Usage**: Turbo Streams work by broadcasting changes to the client. These changes can be in the form of creating, updating, or deleting records. The client interprets these instructions and updates the view accordingly.
    - **Example**: Turbo Streams can be used to instantly show new comments on a blog post for all connected users or to update the view when an item is added to a shopping cart in real-time.
 
-2. **Turbo Streams**:
+   **Turbo Streams**:
    - *Purpose*: Turbo Streams enable real-time updates by sending changes (creation, modification, deletion) to the client.
    - *Usage*: You can use Turbo Streams to push updates to clients when something changes on the server, such as new comments or items added to a shopping cart.
 
@@ -7098,28 +7298,90 @@ worker: node worker.js
 In this example, there are two processes defined: a web process running a Node.js server and a worker process running some background tasks.
 
 ========================================================================================================================================================================
-
+Problems:
 ========================================================================================================================================================================
 
+1) Overlapping problems: (keywords: overlaps, time, range)
 
+https://makandracards.com/makandra/984-testing-if-two-date-ranges-overlap-in-ruby-or-rails
+
+
+class ProjectTimeline < ApplicationRecord
+  belongs_to :user
+
+  validates :start_date, :project_id, presence: true
+  validate :validate_time_slots
+
+  scope :excluding_id, -> (id) { where.not(id:) }
+  scope :overlaps, -> (start_date, end_date) do
+    where(
+      'project_timelines.start_date <= ? AND
+      (project_timelines.end_date IS NULL OR project_timelines.end_date >= ?)', end_date, start_date
+    )
+  end
+
+  private
+
+    def validate_time_slots
+      return unless start_date && end_date && user.present?
+
+      errors.add(:end_date, 'must be greater than start date') if start_date >= end_date
+
+      overlapping_timelines = user.project_timelines.overlaps(start_date, end_date)
+
+      overlapping_timelines = overlapping_timelines.excluding_id(id) if persisted?
+
+      errors.add(:base, 'Timeline overlaps with existing project timelines') if overlapping_timelines.exists?
+    end
+end
 
 
 
 
 
 ========================================================================================================================================================================
-
+delegate in rails
 ========================================================================================================================================================================
 
-
-
-
-
+https://www.mintbit.com/blog/using-delegate-method-in-ruby-on-rails#:~:text=According%20to%20the%20documentation%2C%20delegate,state%2C%20and%20zip%20as%20attributes.
 
 
 ========================================================================================================================================================================
-
+Thins to learn
 ========================================================================================================================================================================
 
+1) accepts_nested_attributes_for
+2)
 
 
+========================================================================================================================================================================
+Make database dump and apply
+========================================================================================================================================================================
+
+Make database dump:
+pg_dump -U nouman -h 127.0.0.1 -d hrms-devS -f dump_file.sql
+
+Apply dump:
+psql -U nouman -h 127.0.0.1 -d hrms-devS -f dump_file.sql
+
+psql -U nouman -h 127.0.0.1 -d hrms-dev -f dump_file.sql
+
+pass: noumanrehman042
+
+*****************
+
+https://stackoverflow.com/questions/18723675/how-to-backup-restore-rails-db-with-postgres
+https://www.postgresql.org/docs/8.1/backup.html#BACKUP-DUMP-RESTORE
+
+I use this command to save my database:
+pg_dump -F c -v -U postgres -h localhost <database_name> -f /tmp/<filename>.psql
+
+
+And this to restore it:
+pg_restore -c -C -F c -v -U postgres /tmp/<filename>.psql
+
+
+This dumps the database in Postgres' custom format (-F c) which is compressed by default and allows for reordering of its contents. -C -c will drop the database if it exists already and then recreate it, helpful in your case. And -v specifies verbose so you can see exactly what's happening when this goes on.
+
+
+========================================================================================================================================================================
