@@ -79,6 +79,7 @@ Join2
 preload, includes, eager_load
 count / size / length
 case expression in rails sql
+ARRAY_AGG
 
 Day 8
 Mailing
@@ -2839,14 +2840,14 @@ as we have only on parent associated with one record.
 
 1)
 Parents:
-rails g model Article title:string text:text
-rails g model News title:string text:text
-rails g model Post title:string body:text
+  rails g model Article title:string text:text
+  rails g model News title:string text:text
+  rails g model Post title:string body:text
 
 Child:
-rails g model Comment title:string commentable_type:string commentable_id:integer
-or
-rails g model Comment title:string commentable:references{polymorphic}
+  rails g model Comment title:string commentable_type:string commentable_id:integer
+  or
+  rails g model Comment title:string commentable:references{polymorphic}
 
 rails db:migrate
 
@@ -4648,6 +4649,69 @@ employees.each do |emp|
   puts "\n"
 end
 
+*********************************
+
+ARRAY_AGG
+
+In Rails, `ARRAY_AGG` is a PostgreSQL-specific function used for aggregating values into an array.
+This can be useful when you want to group multiple rows of data into a single array based on a common attribute.
+To use `ARRAY_AGG` in a Rails query, you'll typically employ raw SQL within ActiveRecord. Here's a comprehensive example:
+
+Let's say you have a `users` table and a `posts` table, and you want to find all users along with an array of their associated posts. Here's how you could do it:
+
+```ruby
+class User < ApplicationRecord
+  has_many :posts
+end
+
+class Post < ApplicationRecord
+  belongs_to :user
+end
+```
+
+Now, suppose you want to retrieve all users with an array of their associated post titles.
+
+```ruby
+class UsersController < ApplicationController
+  def index
+    @users_with_posts = User.select('users.*, ARRAY_AGG(posts.title) AS post_titles')
+                            .joins(:posts)
+                            .group('users.id')
+  end
+end
+```
+
+In this example:
+
+- We're using `User.select` to specify the columns we want to retrieve. In addition to the user columns (`users.*`), we're using `ARRAY_AGG(posts.title) AS post_titles` to aggregate the post titles into an array and alias it as `post_titles`.
+
+- We're using `.joins(:posts)` to join the `posts` table so that we can aggregate post titles for each user.
+
+- We're using `.group('users.id')` to group the results by the `id` of the `users` table.
+This is necessary because `ARRAY_AGG` is an aggregation function and requires grouping.
+
+Now, in your view, you can iterate over `@users_with_posts`:
+
+```erb
+<% @users_with_posts.each do |user| %>
+  <h2><%= user.name %></h2>
+  <ul>
+    <% user.post_titles.each do |post_title| %>
+      <li><%= post_title %></li>
+    <% end %>
+  </ul>
+<% end %>
+```
+
+This will display each user along with a list of their post titles.
+
+Please note:
+
+- Make sure your database schema supports PostgreSQL and that you're using a version of PostgreSQL that supports `ARRAY_AGG`.
+
+- Be cautious when using raw SQL in your queries as it can introduce security risks such as SQL injection.
+Always sanitize user input or use ActiveRecord's query building methods when dealing with user input.
+
 ========================================================================================================================================================================
 day 8
 devise setup
@@ -6144,6 +6208,8 @@ rails s
 
 ******************************
 
+server already running error:
+
 lsof -wni tcp:3000
 kill -9 72176
 
@@ -6151,6 +6217,10 @@ or
 
 kill -9 $(lsof -i tcp:3000 -t)
 
+or
+
+lsof -i :3000
+kill -9 PID
 
 ********************************
 
@@ -7069,7 +7139,7 @@ stumulus static attributes
 
 Here are simple examples for each of the static attributes in a Stimulus controller along with their use in an ERB file:
 
-(See Examples ->  /Rails-Training/Rails7/Hotwire-SupeRails/66-stimulusjs-dropdown)
+(See Examples ->  Rails-Training/Rails7/Hotwire-SupeRails/66-stimulusjs-Targets-Values-Classes)
 
 1. **Static Targets**:
 
@@ -7383,5 +7453,13 @@ pg_restore -c -C -F c -v -U postgres /tmp/<filename>.psql
 
 This dumps the database in Postgres' custom format (-F c) which is compressed by default and allows for reordering of its contents. -C -c will drop the database if it exists already and then recreate it, helpful in your case. And -v specifies verbose so you can see exactly what's happening when this goes on.
 
+*********************
+
+Dump:
+- pg_dump -U user_name -W -F t hrms-dev > ~/300722_1.tar (take dump)
+- pg_restore --verbose --clean --no-acl --no-owner -h localhost -U dev -d hrms-dev ~/Desktop/300722_1.tar (apply dump)
+- scp -r -i ../staging-key ubuntu@18.220.20.85:/home/ubuntu/ab_1.tar ~/ab_1.tar (download file from sever)
+- scp -r -i ../staging-key /Users/dev/S2_dump.sql ubuntu@18.220.20.85:/home/ubuntu/ (upload to server from local)
+- psql -U postgres -d hrms < S2_dump.sql (apply dump in sql format)
 
 ========================================================================================================================================================================

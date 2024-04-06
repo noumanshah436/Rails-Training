@@ -33,3 +33,20 @@ CHARS = ('0'..'9').to_a + ('A'..'Z').to_a + ('a'..'z').to_a
 string = :first_name.to_s
 
 "first_name".to_sym
+
+# **********************
+
+# The 'ord' method is the built-in method. Returns to the integer ordinal of the first character of self.
+
+# The 'chr' method is on ascii_value to convert the integer to a character.
+
+
+# Using ord() to get the ASCII value (integer ordinal) of a character
+ascii_value = 'A'.ord
+puts ascii_value  # Output: 65
+
+# Using chr() to get the character from an ASCII value
+character = 65.chr
+puts character  # Output: 'A'
+
+# **********************

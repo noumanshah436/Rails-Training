@@ -1,0 +1,13 @@
+
+
+Rails 6 Action Cable Tutorial - Multiple Private rooms with Live Updating Messages Part: 1
+
+
+https://www.youtube.com/watch?v=fVlNF7Miwxc
+
+
+************************
+
+Real-Time Activity with ActionCable and Rails 6 | Ruby on Rails Projects
+
+https://www.youtube.com/playlist?list=PLjItgYqIzJ9UIxMpofd8wi2GHqxvaGrMC

@@ -41,4 +41,16 @@ p values
 
 # ***********************
 
+time = Time.new
+
+time.strftime("%d/%m/%Y")        # "05/12/2015"
+time.strftime("%k:%M")           # "17:48"
+time.strftime("%I:%M %p")        # "11:04 PM"
+time.strftime("Today is %A")     # "Today is Sunday"
+time.strftime("%d of %B, %Y")    # "21 of December, 2015"
+time.strftime("Unix time is %s") # "Unix time is 1449336630"
+time.strftime("%b %Y")           # "Jan 1983"
+
+# ***********************
+
 d= Date.parse('12-JAN-1983')

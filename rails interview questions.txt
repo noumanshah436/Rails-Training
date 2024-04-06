@@ -1,0 +1,95 @@
+custom validation ko fail kaisay krtay hei
+routes
+view_helpers
+dependent modes
+up down change
+associations
+asset pipelines
+model scope
+rake task and difference between
+normal view vs mail view
+transpilation
+ACID principle
+MVC architecture
+size vs count vs length
+find vs find_by vs select
+map vs each
+Bang
+Ruby need to be revised
+MVC - routing
+gemlock
+Require Tree JS
+schema number
+Services, initialize
+Serializer
+before/after action
+Association - in depth
+Presence
+Scopes
+Sidekiq
+Compact
+Database validation
+how webpacker handles javascript
+How does rails cater change in assets
+rails DB:Setup
+how to bypass required frontend validation/model level validation
+when around action gets called ?
+require usage
+AJAX form(make 10 forms)
+remote form vs AJAX
+AS, shallow in rounting
+Forgery Production
+how view cache update in case of updated data
+Check where if is generate exception or not ?
+exists vs presents vs presence vs any
+Active record/Active model difference
+
+
+rails components
+app and lib assets
+directory structure
+what should we look for while choosing an open source library
+asset pipeline
+fingerprinting (use case)
+indexing
+generating migrations from console
+validations practice
+before_save vs before_commit
+deleting records from database
+case where change cannot be used
+around_save
+controller callbacks
+gemfile.lock
+STI
+size vs count
+custom foreign keys
+mount
+view vs layout
+passing data from view to layout
+preload vs eager load
+rails transactions
+group_by practice (complex queries)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Reply…
+Also send to mahroz-team
+
+
+
+
+
+
+
+
