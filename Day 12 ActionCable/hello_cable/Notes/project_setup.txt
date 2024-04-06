@@ -1,0 +1,160 @@
+
+ruby -v
+ruby 3.1.1p18 (2022-02-18 revision 53f5fc4236) [x86_64-linux]
+
+rails -v
+Rails 7.0.8.1
+
+******************
+
+rails _7.0.8_ new your_app_name
+
+********************
+Episode #037 - ActionCable - Part 1 - Configuration and Basics
+https://www.youtube.com/watch?v=66Ro6BA1olM
+
+https://stackoverflow.com/questions/76780389/how-to-setup-actioncable-in-rails-7
+
+********************
+
+1) rails new hello_cable -c tailwind
+
+2) bin/rails g channel chat
+
+      invoke  test_unit
+      create    test/channels/chat_channel_test.rb
+   identical  app/channels/application_cable/channel.rb
+   identical  app/channels/application_cable/connection.rb
+      create  app/channels/chat_channel.rb
+      create  app/javascript/channels/index.js
+      create  app/javascript/channels/consumer.js
+      append  app/javascript/application.js
+      append  config/importmap.rb
+      create  app/javascript/channels/chat_channel.js
+        gsub  app/javascript/channels/chat_channel.js
+      append  app/javascript/channels/index.js
+
+3) bin/rails g scaffold Message content
+
+      invoke  active_record
+      create    db/migrate/20240406160418_create_messages.rb
+      create    app/models/message.rb
+      invoke    test_unit
+      create      test/models/message_test.rb
+      create      test/fixtures/messages.yml
+      invoke  resource_route
+       route    resources :messages
+      invoke  scaffold_controller
+      create    app/controllers/messages_controller.rb
+      invoke    tailwindcss
+      create      app/views/messages
+      create      app/views/messages/index.html.erb
+      create      app/views/messages/edit.html.erb
+      create      app/views/messages/show.html.erb
+      create      app/views/messages/new.html.erb
+      create      app/views/messages/_form.html.erb
+      create      app/views/messages/_message.html.erb
+      invoke    resource_route
+      invoke    test_unit
+      create      test/controllers/messages_controller_test.rb
+      create      test/system/messages_test.rb
+      invoke    helper
+      create      app/helpers/messages_helper.rb
+      invoke      test_unit
+      invoke    jbuilder
+      create      app/views/messages/index.json.jbuilder
+      create      app/views/messages/show.json.jbuilder
+      create      app/views/messages/_message.json.jbuilder
+
+
+4) bin/rails db:migrate
+
+5) bin/dev
+
+open http://localhost:3000/messages
+
+6)
+
+# app/channels/chat_channel.rb
+
+class ChatChannel < ApplicationCable::Channel
+  def subscribed
+    stream_from "chat"
+  end
+end
+
+*********
+
+# app/controllers/messages_controller.rb
+
+def create
+    @message = Message.create(message_params)
+
+    # ActionCable.server.broadcast("chat", @message)
+
+    ActionCable.server.broadcast("chat", {
+      message: MessagesController.render(
+        partial: 'messages/message', locals: { message: @message }
+      ).squish,
+      action: :create
+    })
+end
+
+*********
+
+// app/javascript/channels/chat_channel.js
+
+
+import consumer from "channels/consumer"
+import { createElementFromTemplate } from "../helpers/application_helper";
+
+consumer.subscriptions.create("ChatChannel", {
+  connected() {
+    // Called when the subscription is ready for use on the server
+    console.log("connected")
+  },
+
+  disconnected() {
+    // Called when the subscription has been terminated by the server
+    console.log("disconnected")
+  },
+
+  received(data) {
+    // Called when there's incoming data on the websocket for this channel
+    let comments = document.querySelector('#messages')
+    comments.prepend(createElementFromTemplate(data.message))
+  }
+});
+
+***************************************************************
+***************************************************************
+
+Now we should move our broadcast logic to a background job, to prevent any delay.
+
+
+1)
+rails g job MessageBroadcast
+      invoke  test_unit
+      create    test/jobs/message_broadcast_job_test.rb
+      create  app/jobs/message_broadcast_job.rb
+
+2) message model
+
+after_create_commit { MessageBroadcastJob.perform_later(self) }
+
+
+3)
+
+class MessageBroadcastJob < ApplicationJob
+  queue_as :default
+
+  def perform(message)
+    ActionCable.server.broadcast("chat", { message: render_message(message), action: :create })
+  end
+
+  private
+
+  def render_message(message)
+    MessagesController.render(partial: 'messages/message', locals: {message: message}).squish
+  end
+end

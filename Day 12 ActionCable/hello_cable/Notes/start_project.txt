@@ -1,0 +1,6 @@
+./bin/dev
+
+or
+
+rails s
+rails tailwindcss:watch
