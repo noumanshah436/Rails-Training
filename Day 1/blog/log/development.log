@@ -5104,3 +5104,216 @@ Filter chain halted as #<Proc:0x00005604169ed7a0 /home/dev/.rvm/gems/ruby-2.7.0/
 Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2024-04-05 23:23:37 +0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 267ms (Views: 263.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for ::1 at 2024-04-05 23:23:42 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/posts"):
+  
+actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/articles" for ::1 at 2024-04-05 23:24:03 +0500
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:14
+  Rendered articles/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 29ms (Views: 20.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/articles/new" for ::1 at 2024-04-05 23:24:06 +0500
+Processing by ArticlesController#new as HTML
+Filter chain halted as #<Proc:0x000071bf2010dc08 /home/dev/.rvm/gems/ruby-2.7.0/gems/actionpack-5.2.8.1/lib/action_controller/metal/http_authentication.rb:72> rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2024-04-05 23:24:11 +0500
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:14
+  Rendered articles/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 24ms (Views: 23.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/articles/2" for ::1 at 2024-04-05 23:24:13 +0500
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:14
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 2]]
+  ↳ app/views/articles/show.html.erb:18
+  Rendered collection of comments/_comment.html.erb [7 times] (2.5ms)
+  Rendered comments/_form.html.erb (7.8ms)
+  Rendered articles/show.html.erb within layouts/application (37.6ms)
+Completed 200 OK in 55ms (Views: 49.5ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/articles/2/comments" for ::1 at 2024-04-05 23:24:23 +0500
+Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FAH3mwGQM4VZb72baDi6xeo4FJX5fuGI4pwGgzebUuthNpaoQNQ5bsx6Vn3Yi9HhC71ndyMKAuL4BoAmASzyJw==", "comment"=>{"commenter"=>"Nouman", "body"=>"sabdjs adsadk asmnd asd\nsad\nas\nd\nsa"}, "commit"=>"Create Comment", "article_id"=>"2"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:8
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("commenter", "body", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["commenter", "Nouman"], ["body", "sabdjs adsadk asmnd asd\nsad\nas\nd\nsa"], ["article_id", 2], ["created_at", "2024-04-05 18:24:23.337187"], ["updated_at", "2024-04-05 18:24:23.337187"]]
+  ↳ app/controllers/comments_controller.rb:8
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:8
+  Rendering comments/create.js.erb
+  Rendered comments/_comment.html.erb (0.5ms)
+  Rendered comments/create.js.erb (1.3ms)
+Completed 200 OK in 11ms (Views: 2.5ms | ActiveRecord: 3.5ms)
+
+
+Started DELETE "/articles/2/comments/13" for ::1 at 2024-04-05 23:24:32 +0500
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"izfD6bDc6hAxeFwfoZNvs2wjNH8sFdZtwcrowTkY8saSjmCPJ9DdrwxuhbHsU6jsyOK5Hnut3fOe4PSGbPoCIA==", "article_id"=>"2", "id"=>"13"}
+Filter chain halted as #<Proc:0x000071bf308d7438 /home/dev/.rvm/gems/ruby-2.7.0/gems/actionpack-5.2.8.1/lib/action_controller/metal/http_authentication.rb:72> rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started DELETE "/articles/2/comments/13" for ::1 at 2024-04-05 23:24:38 +0500
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"izfD6bDc6hAxeFwfoZNvs2wjNH8sFdZtwcrowTkY8saSjmCPJ9DdrwxuhbHsU6jsyOK5Hnut3fOe4PSGbPoCIA==", "article_id"=>"2", "id"=>"13"}
+Filter chain halted as #<Proc:0x000071bf308d7438 /home/dev/.rvm/gems/ruby-2.7.0/gems/actionpack-5.2.8.1/lib/action_controller/metal/http_authentication.rb:72> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started DELETE "/articles/2/comments/11" for ::1 at 2024-04-05 23:28:39 +0500
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"izfD6bDc6hAxeFwfoZNvs2wjNH8sFdZtwcrowTkY8saSjmCPJ9DdrwxuhbHsU6jsyOK5Hnut3fOe4PSGbPoCIA==", "article_id"=>"2", "id"=>"11"}
+Filter chain halted as #<Proc:0x000071bf308d7438 /home/dev/.rvm/gems/ruby-2.7.0/gems/actionpack-5.2.8.1/lib/action_controller/metal/http_authentication.rb:72> rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started DELETE "/articles/2/comments/11" for ::1 at 2024-04-05 23:28:47 +0500
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"izfD6bDc6hAxeFwfoZNvs2wjNH8sFdZtwcrowTkY8saSjmCPJ9DdrwxuhbHsU6jsyOK5Hnut3fOe4PSGbPoCIA==", "article_id"=>"2", "id"=>"11"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:21
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."article_id" = ? AND "comments"."id" = ? LIMIT ?[0m  [["article_id", 2], ["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:23
+  [1m[36mComment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 11]]
+  ↳ app/controllers/comments_controller.rb:23
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:23
+Redirected to http://localhost:3000/articles/2
+Completed 302 Found in 8ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/articles/2" for ::1 at 2024-04-05 23:28:47 +0500
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:14
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 2]]
+  ↳ app/views/articles/show.html.erb:18
+  Rendered collection of comments/_comment.html.erb [7 times] (1.0ms)
+  Rendered comments/_form.html.erb (1.4ms)
+  Rendered articles/show.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 23ms (Views: 22.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/articles/2/edit" for ::1 at 2024-04-05 23:28:55 +0500
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"2"}
+Filter chain halted as #<Proc:0x000071bf2010dc08 /home/dev/.rvm/gems/ruby-2.7.0/gems/actionpack-5.2.8.1/lib/action_controller/metal/http_authentication.rb:72> rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/2/edit" for ::1 at 2024-04-05 23:28:55 +0500
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:25
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/_form.html.erb (2.4ms)
+  Rendered articles/edit.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 22ms (Views: 20.6ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/articles/2" for ::1 at 2024-04-05 23:28:56 +0500
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hAf/Ltj8SxvxjHp78A+5FXXTrWkM236yMB/nUAe6BH4VJG0GNNsvQFN9Roe2tUTuDNGSzszvkJysWD74oTwgLw==", "article"=>{"title"=>"Article 1 ", "text"=>"Body Article 1"}, "commit"=>"Update Article", "id"=>"2"}
+Filter chain halted as #<Proc:0x000071bf2010dc08 /home/dev/.rvm/gems/ruby-2.7.0/gems/actionpack-5.2.8.1/lib/action_controller/metal/http_authentication.rb:72> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started PATCH "/articles/2" for ::1 at 2024-04-05 23:28:56 +0500
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hAf/Ltj8SxvxjHp78A+5FXXTrWkM236yMB/nUAe6BH4VJG0GNNsvQFN9Roe2tUTuDNGSzszvkJysWD74oTwgLw==", "article"=>{"title"=>"Article 1 ", "text"=>"Body Article 1"}, "commit"=>"Update Article", "id"=>"2"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:48
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:50
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:50
+Redirected to http://localhost:3000/articles/2
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/2" for ::1 at 2024-04-05 23:28:56 +0500
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:14
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 2]]
+  ↳ app/views/articles/show.html.erb:18
+  Rendered collection of comments/_comment.html.erb [7 times] (1.0ms)
+  Rendered comments/_form.html.erb (1.4ms)
+  Rendered articles/show.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/articles/2" for ::1 at 2024-04-05 23:29:34 +0500
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:14
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 2]]
+  ↳ app/views/articles/show.html.erb:18
+  Rendered collection of comments/_comment.html.erb [7 times] (2.6ms)
+  Rendered comments/_form.html.erb (4.5ms)
+  Rendered articles/show.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 41ms (Views: 36.2ms | ActiveRecord: 0.5ms)
+
+
