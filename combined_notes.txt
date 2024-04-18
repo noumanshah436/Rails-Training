@@ -3712,6 +3712,31 @@ So choose according to your specific requirements.
 
 
 ========================================================================================================================================================================
+layout and renderrings
+========================================================================================================================================================================
+Layout :
+
+add file (header.html.erb) in views/layouts and
+use layout 'header' in controller will use header file as layout instead of default ( application.html.erb )
+
+
+*********************
+
+see helper methods in welcome controller
+
+**********************
+
+
+get 'form', to: 'welcome#form', as: 'form'
+
+redirect_to :form
+render "form"          -- can also use string
+
+****
+
+redirect_to action: 'form'
+
+========================================================================================================================================================================
 yield in views:
 ========================================================================================================================================================================
 
@@ -3722,6 +3747,143 @@ yield in views:
 <% content_for :special_script do %>
   <h2>Hey this is special script</h2>
 <% end %>
+
+========================================================================================================================================================================
+Layout Logic
+========================================================================================================================================================================
+
+https://kevinyckim33.medium.com/rails-layout-rendering-cheatsheet-d40e14ab3503
+
+A layout is a template that defines the common structure and markup for multiple pages or views
+
+Rails uses a simple convention to find the correct layout for your request.
+If you have a controller called ProductsController, Rails will see whether there is a layout for that controller under views/layouts/products.html.erb.
+If it can’t find a layout specific to your controller, it’ll use the default layout at views/layouts/application.html.erb.
+
+A typical Rails app created from the new rails project command will produce the following in the views/layouts/application.html.erb.
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your project</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= yield %>
+</body>
+</html>
+
+Any page specific content i.e. (from a show, index, edit route) will be yielded after an appropriate layout has been chosen.
+
+****************************************************
+Overriding Conventions
+****************************************************
+
+1. Override layout for every action in a given controller
+class ShoppingCartController < ApplicationController
+  layout "products"
+  def index
+  end
+  def show
+  end
+
+  ...
+end
+
+
+Instead of looking for a layout at layouts/shopping_carts.html.erb and if it fails to find one, render the default layout of layouts/application.html.erb, the ShoppingCart Controller will render from layouts/products.html.erb instead for every action presented in the ShoppingCartController.
+
+***************************
+
+2. Override layout for specific action in a given controller
+class ShoppingCartController < ApplicationController
+  def index
+    render :layout => 'static
+  end
+  ...
+end
+For just the ShoppingCart index action, the layout from views/layouts/static.html.erb will be used, the rest will use views/layouts/shopping_carts.html.erb and if no such file exists, use views/layouts/application.html.erb.
+
+***************************
+
+3. Present no layout
+class ShoppingCartController < ApplicationController
+  def index
+    render :layout => false
+  end
+  ...
+end
+For the index action, this will not load up any layout, including the default application.html.erb.
+
+Perhaps this is a very different part of the site that uses different JavaScript plugins or sizable css library that you don’t want to burden the rest of the website’s paths with.
+In that case views/shopping_carts/index.html.erb will have have proper html, head, and body tags and closings.
+
+========================================================================================================================================================================
+render layout:
+========================================================================================================================================================================
+https://kevinyckim33.medium.com/rails-layout-rendering-cheatsheet-d40e14ab3503
+
+
+Sure, here's an example of rendering a layout in Rails:
+
+Suppose you have a controller called `PostsController` with an action `index`:
+
+```ruby
+# app/controllers/posts_controller.rb
+class PostsController < ApplicationController
+  def index
+    @posts = Post.all
+    render layout: 'shared/application'
+  end
+end
+```
+
+And you have a layout file called `application.html.erb` in the `app/views/layouts/shared` directory:
+
+```erb
+<!-- app/views/layouts/shared/application.html.erb -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Blog</title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <!-- Header content -->
+  </header>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+
+  <footer>
+    <!-- Footer content -->
+  </footer>
+</body>
+</html>
+```
+
+When you visit the `index` action of the `PostsController`, it will render the `index.html.erb` view (by default) and wrap it within the `application.html.erb` layout specified in the controller action. The `yield` method in the layout will be replaced with the content of the `index.html.erb` view.
+
+So, if you have an `index.html.erb` view for the `PostsController`:
+
+```erb
+<!-- app/views/posts/index.html.erb -->
+<h1>Posts</h1>
+<% @posts.each do |post| %>
+  <div>
+    <%= post.title %>
+    <!-- Other post details -->
+  </div>
+<% end %>
+```
+
+When you visit the `/posts` URL, Rails will render the `index.html.erb` view for the `PostsController`, wrapping it within the `application.html.erb` layout, resulting in a complete HTML page with header, footer, and the post index content.
 
 ========================================================================================================================================================================
 Day 7
@@ -4414,9 +4576,17 @@ employees.each do |employee|
 end
 
 *********
+
 same as :
 Employee.where(status: "active").includes(company: [:locations]).where(locations: { state: 'CA'}, companies: { verified: true })
 
+*********
+
+Both these syntaxes are same:
+
+ApplicantJob.includes(:applicant, :job, :job_title, active_status: :phase)
+
+ApplicantJob.includes([:applicant, :job, :job_title, { active_status: :phase }])
 
 ========================================================================================================================================================================
 preload, includes, eager_load
@@ -7004,6 +7174,7 @@ export default class extends Controller {
   }
 }
 
+******************
 
 Example 2:
 (/home/dev/Rails-Training/Rails7/blog_application)
@@ -7241,6 +7412,39 @@ Here are simple examples for each of the static attributes in a Stimulus control
    In this example, `data-todo-class` specifies the CSS class that should be toggled when the user clicks on an item.
 
 These examples illustrate how to use `static targets`, `static values`, and `static classes` in a practical context within an ERB file. You can adapt these concepts to your specific use cases and application requirements.
+
+*******************************
+summary of stimulus-js:
+*******************************
+
+In dropdown_controller.js:
+  static targets = ["dropdownContent", "openButton", "closeButton", "active"]
+  static values = { open: Boolean }
+  static classes = ["opened"]
+
+connect:
+  data-controller="dropdown"
+
+define static data in erb file:
+  data-dropdown-target="openButton"
+  data-dropdown-open-value="false"
+  data-dropdown-opened-class="bg-zinc-400"
+
+define actions:
+  data-action="click->dropdown#toggleDropdown"
+
+Access in controller:
+  this.openButtonTarget
+  this.openValue
+  this.openedClass
+
+*************
+
+If controller is in specific folder (namespacing)
+i.e app/javascript/controllers/interviews/event_controller.js
+then connect to event_controller like:
+
+data-controller="interviews--event"
 
 *****************************************************************
 Turbo: The speed of a single-page web application without having to write any JavaScript.

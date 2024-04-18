@@ -1,0 +1,30 @@
+<legend>Vote</legend>
+<% powers = [
+  ['Telekenisis', :telekenisis],
+  ['Mind Control', :mind_control],
+  ['Flying', :flying],
+  ['Invisibility', :invisibility],
+  ['Super Strength', :super_strength]] %>
+
+<%= simple_form_for :vote do |f| %>
+  <div class='form-group'>
+    <%= f.label :power, label: 'Which super power would you choose?', class: 'col-xs-4' %>
+    <div class='col-xs-8'>
+      <%= f.input_field :power, as: :radio_buttons, collection: powers %>
+    </div>
+  </div>
+<% end %>
+
+<legend>Results</legend>
+<div class='results'>
+  <% powers.each do |label, symbol| %>
+    <%= content_tag :div, class: symbol do %>
+      <span><%= label %></span>
+      <span class='count'>
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar">0</div>
+        </div>
+      </span>
+    <% end %>
+  <% end %>
+</div>

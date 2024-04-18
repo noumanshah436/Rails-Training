@@ -13,6 +13,9 @@ rails _7.0.8_ new your_app_name
 Episode #037 - ActionCable - Part 1 - Configuration and Basics
 https://www.youtube.com/watch?v=66Ro6BA1olM
 
+
+https://www.driftingruby.com/episodes/actioncable-part-1-configuration-and-basics
+
 https://stackoverflow.com/questions/76780389/how-to-setup-actioncable-in-rails-7
 
 ********************

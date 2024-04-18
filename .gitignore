@@ -12,9 +12,11 @@ cache
 
 # Ignore all logfiles and tempfiles.
 log/*
-tmp
+tmp/*
 !/log/.keep
 !/tmp/.keep
+tmp
+cache
 
 # Ignore uploaded files in development
 /storage/*

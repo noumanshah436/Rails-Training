@@ -1,0 +1,23 @@
+Episode #038 - ActionCable - Part 2 - More Complex Example
+
+https://www.youtube.com/watch?v=PzGOTyZy3GQ&list=PLoQwKu-bfLSYRKLgzfhhiBlxDOigUFySP&index=154
+
+
+***************
+
+start project
+
+ 2004  rvm use 2.7.0
+ 2005  bundle
+ 2006  rails s
+ 2007  shutup
+ 2008  lsof -i :3000
+ 2009  kill -9 49730
+ 2010  lsof -i :3000
+ 2011  rails s
+ 2012  rails db:migrate
+ 2013  rails s
+
+***************
+
+
