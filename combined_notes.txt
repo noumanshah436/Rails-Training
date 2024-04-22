@@ -2619,8 +2619,7 @@ has_many :projects, through: :student_projects
 
 3) add this to project model class:
 has_many :student_projects
-has_many :students, through: :s
-tudent_projects
+has_many :students, through: :student_projects
 
 *****
 
