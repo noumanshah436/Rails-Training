@@ -2,3 +2,7 @@
 	path = Rails7
 	url = git@github.com:noumanshah436/Rails7.git
 	branch = master
+[submodule "DataTable-Jquery"]
+	path = DataTable-Jquery
+	url = git@github.com:noumanshah436/DataTable-Jquery.git
+	branch = master
