@@ -1,0 +1,157 @@
+custom validation ko fail kaisay krtay hei
+routes
+view_helpers
+dependent modes
+up down change
+associations
+asset pipelines
+model scope
+rake task and difference between
+normal view vs mail view
+transpilation
+ACID principle
+MVC architecture
+size vs count vs length  (length = in memory, count query krta ha, )
+find vs find_by vs select
+map vs each
+Bang
+Ruby need to be revised
+MVC - routing
+gemlock
+Require Tree JS
+schema number
+Services, initialize
+Serializer
+before/after action
+Association - in depth
+Presence
+Scopes
+Sidekiq
+Compact
+Database validation
+how webpacker handles javascript   (minify js into single file)
+How does rails cater change in assets
+rails DB:Setup
+how to bypass required frontend validation/model level validation
+when around action gets called ?
+require usage
+AJAX form(make 10 forms)
+remote form vs AJAX
+AS, shallow in rounting
+Forgery Production
+how view cache update in case of updated data
+Check where if is generate exception or not ?
+exists vs presents vs presence vs any
+Active record/Active model difference
+
+
+rails components
+app and lib assets
+directory structure
+what should we look for while choosing an open source library
+asset pipeline
+fingerprinting (use case)
+indexing
+generating migrations from console
+validations practice
+before_save vs before_commit
+deleting records from database
+case where change cannot be used
+around_save
+controller callbacks
+gemfile.lock
+STI
+size vs count
+custom foreign keys
+mount
+view vs layout
+passing data from view to layout
+preload vs eager load
+rails transactions
+group_by practice (complex queries)
+
+
+
+**************************************
+
+
+Zain bhai:
+
+What is a plugin in Ruby on Rails?    ()
+Difference b/w load and require
+Explain the differences between gems and plugins in Ruby on Rails.
+Explain what observers are in Ruby on Rails.
+Explain what harnesses are.
+What are fixtures in Ruby on Rails?
+Explain what Spring is.
+Explain what initializers are in Ruby on Rails.
+How would you use two databases for one application?
+What is a closure in Ruby on Rails?
+Explain the difference between #equal and #==.
+Explain the difference between raise/rescue and throw/catch.
+Mention what is the difference between calling super() and super call?
+How would you choose between Belongs_to And Has_one? Same for many to many association
+What is the difference between Object#dup and #clone?
+What is Dynamic Finders?
+Explain how Rails implements Ajax?
+Explain what is Mixin in Rails?
+Explain what is sweeper/garbagecollector in Rails?
+What is sprocket/webpacker in rails?  (In rails 6, webpacker replaces sprocket  )
+What is the purpose of the rakefile available in the demo directory in Ruby?
+How and what is the approach to upgrade rails?
+What happens to parent transaction when a child transaction fails?
+can we implement both JWT and devise in a rails app
+What are the difference between env and secrets.yml
+What are different type of association rails provide mainly difference between STI and Polymorphic
+What is 'task: :environment' used for in rake files
+what is 'force: "cascade' used force in db schema file
+What's the difference between delayed jobs and scheduled jobs?
+What's the difference between job and worker?
+What's the difference between sidekiq and resque?
+How's rails difference from its version 5->6->7.
+What's the difference b/w model callbacks mainly(after_commit, after_save)
+What is rails cache and how it is used for optimization?
+What are different application server for rails app and how are they different from each other?
+What is rack?
+Is ruby single threaded language? If yes, then how can multiple users used it at runtime?
+Does ruby support pointers? If yes, then an example?
+What are indexes and which columns to index? what are their drawbacks?
+Write an SQL query to find n largest in X column
+Want to override login/signup action in devise
+What is monkey patching and how can we do it to a gem?
+What are web servers and how can you configure one?
+Implicit explicit DB locking
+Is the background job run on rails server port? or they use other resource? 
+What are stateful and stateless APIs
+Authentication diffrence b/t devise-jwt and devise-auth-token
+what is the drawback of polymorphic association?
+What are session and cokies and how can we store some cookie data through rails
+What are chache in rails and how can we use it in views and make sure data concurrency
+What is sql injection and how rails prevents from it
+what is dynamic programming in rails
+how can i add a funtion to an object at runtime
+
+
+
+
+Hoisting in JS?
+Closure and callback hell?
+Solution to callback hell?
+What are promises? and async function?
+What is event loop in JS?
+Let's say I have multiple promises and want to perform an action after those promises how can I acheive this optimally?
+What are anonymous function? and can I pass params to it?
+What's the difference b/w let,const,var in a block of code(context)
+What is props drilling in react and how can i update parent props in child? Is it best practice?
+What is lazy loading in React?
+What's the difference b/w axios and fetch and how can we authenticate their calls to BE?
+UseContext vs redux
+Hooks for optimization
+
+
+
+
+
+
+
+

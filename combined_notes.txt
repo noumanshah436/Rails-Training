@@ -1049,12 +1049,15 @@ Sass (which stands for 'Syntactically awesome style sheets) is an extension of C
 
 ========================================================================================================================================================================
 Day 3
-Active Record     and     active model
+Active Record and Active Model
 ========================================================================================================================================================================
 
 https://edgeguides.rubyonrails.org/active_model_basics.html
 
-ActiveModel:  Active Model is a library containing various modules used in developing classes that need some features present on Active Record.  So ActiveModel includes things like validations.
+ActiveModel:  
+
+Active Model is a library containing various modules used in developing classes that need some features present on Active Record.  
+So ActiveModel includes things like validations.
 
 1) When including ActiveModel::API you get some features like:
 
@@ -1082,9 +1085,11 @@ initialize object
 
 **********************
 
-ActiveRecord: This is the component that associates a class to the database. This will give the class functionality such as methods that make it easy to pull records from the database (An example is the find method).
+ActiveRecord: 
+This is the component that associates a class to the database. This will give the class functionality such as methods that make it easy to pull records from the database (An example is the find method).
 
-ActiveResource: Similar to ActiveRecord. However, instead of being backed by a database, an ActiveResource object is backed by another application through a web service API. More information: http://ofps.oreilly.com/titles/9780596521424/activeresource_id59243.html
+ActiveResource: 
+Similar to ActiveRecord. However, instead of being backed by a database, an ActiveResource object is backed by another application through a web service API. More information: http://ofps.oreilly.com/titles/9780596521424/activeresource_id59243.html
 
 
 “ORM: An object that wraps a row in a database table or view, encapsulates
@@ -3082,6 +3087,15 @@ rails db:migrate
 rails g scaffold animals/Cat name:string age:integer
 rails db:migrate
 
+
+namespace :admin do
+  resources :sellers
+end
+
+namespace :animals do
+  resources :cats
+end
+
 **********************************
 
 or you can add existing controller in sub folder and then add Admin:: before controller class
@@ -3100,7 +3114,7 @@ Note: change links in case you change scope or namespace accordingly
 
 **********************************
 
-if you want admin prefix to your routes and not want the namespace
+If you want admin prefix to your routes and not want the namespace
 ( i.e you want normal controller in Controller folder not in any sub folder)
 
 scope :admin do

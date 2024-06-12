@@ -1,9 +1,0 @@
-
-rails g model client name:string orders_count:integer looked:boolean
-
-rails g model address postcode:string client:references
-
-rails g model order status:boolean client:references
-
-rails db:migrate
-
