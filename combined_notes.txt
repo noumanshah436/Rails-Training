@@ -246,65 +246,6 @@ will redirect to the show method ( http://localhost:3000/articles/2 )
 Other authentication methods are available for Rails applications. Two popular authentication add-ons for Rails are the Devise rails engine and the Authlogic gem, along with a number of others.
 
 
-
-
-
-
-========================================================================================================================================================================
-Asset Pipeline
-========================================================================================================================================================================
-
-
-https://www.youtube.com/watch?v=l0E-D53gEL0
-
-asset pipeline is a system of managing our static assets
-asset pipelne also handle the preprocessing
-
-*****************
-
-//= require_tree .
-this will include all files in the current directory and sub_directory
-
-//= require_directory .
-only include the assets in the current directory ( not from the nested directory)
-
-//= require_directory ./public
-load only file present in the public directory
-
-*****************
-
-
-see assets directly on chrome
-http://localhost:3000/assets/jquery.js
-
-bundle info jquery-rails
-
-
-rails c
-Rails.application.config.assets.paths
-y _
-exit
-
-
-http://localhost:3000/?debug_assets=1
-and then view page source to see all the file incluede
-
-
-*******************
-
-if you have something like jquery plugin that is not maintained by you that will be in vaendor/javascript directory
-
-
-*******************
-
-rails s -e production
-
-************************
-
-https://guides.rubyonrails.org/v5.2/asset_pipeline.html#coding-links-to-assets
-
-
-
 ========================================================================================================================================================================
 Friends app
 ========================================================================================================================================================================
@@ -1047,6 +988,455 @@ sass is just a css preprocessor
 Sass (which stands for 'Syntactically awesome style sheets) is an extension of CSS that enables you to use things like variables, nested rules, inline imports and more. It also helps to keep things organised and allows you to create style sheets faster. Sass is compatible with all versions of CSS.
 
 
+************************************************************************************************************
+Asset Pipeline
+************************************************************************************************************
+https://guides.rubyonrails.org/v5.2/asset_pipeline.html
+https://www.youtube.com/watch?v=l0E-D53gEL0
+
+asset pipeline is a system of managing our static assets
+asset pipelne also handle the preprocessing
+
+*****************
+
+see assets directly on chrome
+http://localhost:3000/assets/jquery.js
+
+http://localhost:3000/assets/application.js
+
+we can directly see all the files that are in assets folder
+
+http://localhost:3000/assets/file_name.js
+
+*****************
+
+this will open jquery-rails gem in the default editor:
+
+bundle info jquery-rails
+
+*****************
+
+To see all the asset pipeline load paths:
+rails c
+Rails.application.config.assets.paths
+y _
+exit
+
+*****************
+To see which file are included in the assets pipeline:
+
+http://localhost:3000/?debug_assets=1
+and then view page source to see all the files loaded through sprockets
+
+*****************
+
+//= require_tree .
+this will include all files in the current directory and sub_directory
+
+//= require_directory .
+only include the assets in the current directory ( not from the nested directory)
+
+//= require_directory ./public
+load only file present in the public directory
+
+************************************
+
+if you have something like jquery plugin that is not maintained by you that will be in vaendor/javascript directory
+
+
+*******************
+
+rails s -e production
+
+In production mode, asset pipeline works differently, It compiles all the js files into one file with hashed names at the end, 
+and all css files into one file with hashed names.
+Also it compressed all the files.
+
+The hash name is for the caching purposes.
+
+************************
+
+rake assets:precompile
+
+precompile all the assets in the public directory
+
+******************************************************************************
+Import Maps vs Asset Pipeline vs Webpacker
+******************************************************************************
+
+The Asset Pipeline, introduced in Rails 3.1, was a framework for managing and bundling static assets such as JavaScript, CSS, and images. 
+
+Starting with Rails 5.1, Webpacker was introduced as an option for managing JavaScript assets, but the Asset Pipeline is still supported and can be used alongside Webpacker. 
+
+Rails 6 made Webpacker the default for managing JavaScript, but the Asset Pipeline remains an important part of Rails for managing other types of assets like CSS, images, and non-JavaScript files.
+
+Rails 7 introduced Import Maps as a new way to manage JavaScript dependencies without needing Webpack.
+
+****************************************
+
+Here’s a detailed look at how JavaScript was managed before Webpacker (using asset pipeline):
+
+### Asset Pipeline
+
+The Asset Pipeline uses **Sprockets**, a Ruby library, to concatenate and minify or compress assets. 
+
+Here’s how it worked:
+
+#### Structure
+
+- **app/assets/javascripts**: This directory is for application-specific JavaScript files.
+- **lib/assets/javascripts**: This directory is for library code that you write and wish to use across multiple applications or share with others.
+- **vendor/assets/javascripts**: This directory is for third-party code such as JavaScript libraries that aren't managed by Yarn or npm.
+
+#### Example
+
+**Application.js**:
+```javascript
+// app/assets/javascripts/application.js
+//= require rails-ujs
+//= require turbolinks
+//= require_tree .
+
+```
+- **`//= require rails-ujs`**: Includes Rails unobtrusive JavaScript.
+- **`//= require turbolinks`**: Includes Turbolinks for faster navigation.
+- **`//= require_tree .`**: Includes all JavaScript files in the directory.
+
+#### Manifest Files
+
+The manifest file, `application.js`, specifies which JavaScript files to include in the asset pipeline and the order in which they should be included. You can also use directives to include other files or directories.
+
+#### Preprocessing
+
+The Asset Pipeline allows preprocessing of JavaScript files. This includes support for CoffeeScript, a language that compiles to JavaScript.
+
+#### Minification and Fingerprinting
+
+- **Minification**: Reduces file size by removing whitespace and comments, and renaming variables to shorter names.
+- **Fingerprinting**: Adds a unique fingerprint to asset filenames to enable cache busting (e.g., `application-3bd4f1d6e.css`).
+
+### Managing JavaScript Libraries
+
+*****************************************************************************************************
+Before Webpacker, managing third-party JavaScript libraries was typically done in the following ways:
+*****************************************************************************************************
+
+#### 1. **Using `vendor/assets`**:
+   - Copy JavaScript libraries directly into `vendor/assets/javascripts`.
+   - Include these files in the `application.js` manifest using `//= require`.
+
+#### 2. **Using Rails Gems**:
+   - Some JavaScript libraries were wrapped in Rails gems (e.g., `jquery-rails` gem).
+   - These gems included JavaScript files that were then added to the asset pipeline.
+
+### Example of Including jQuery in the Asset Pipeline:
+
+Add `jquery-rails` gem to the Gemfile:
+```ruby
+gem 'jquery-rails'
+```
+
+Run `bundle install` to install the gem.
+
+Include jQuery in `application.js`:
+```javascript
+// app/assets/javascripts/application.js
+//= require jquery
+//= require jquery_ujs
+//= require turbolinks
+//= require_tree .
+```
+
+### Limitations of the Asset Pipeline
+
+1. **Modern JavaScript**: 
+As JavaScript evolved, developers started using newer tools and frameworks that the Asset Pipeline couldn’t easily handle (e.g., ES6, React, Vue.js).
+
+2. **Dependency Management**: 
+Managing JavaScript dependencies using `vendor/assets` or gems became cumbersome as npm and Yarn became the standard for JavaScript package management.
+
+3. **Advanced Tooling**: 
+Modern JavaScript development often requires advanced tools like Webpack for module bundling, code splitting, and hot module replacement, which are not provided by the Asset Pipeline.
+
+### Transition to Webpacker
+
+To address these limitations, Rails introduced Webpacker in Rails 5.1 as an optional alternative to the Asset Pipeline for JavaScript management. 
+By Rails 6, Webpacker became the default for managing JavaScript assets, leveraging modern JavaScript tooling and package management systems like npm and Yarn.
+
+### Summary
+
+Before Rails 6 and the introduction of Webpacker, Rails applications managed JavaScript primarily through the Asset Pipeline using Sprockets. 
+This approach worked well for simpler setups but faced challenges with the advent of modern JavaScript practices and tools. 
+
+The transition to Webpacker provided a more powerful and flexible solution, aligning Rails with contemporary JavaScript development workflows.
+
+***************************************************************
+How we identify which is running asset pipeline or web packer?
+***************************************************************
+
+In a Ruby on Rails application, determining whether you are using the Asset Pipeline, Webpacker, or both involves checking specific configuration files and folder structures. Here’s how you can identify which asset management system is in use:
+
+### Identifying the Asset Pipeline
+
+1. **Presence of `app/assets` Directory**:
+   - The `app/assets` directory is where the Asset Pipeline stores its files. It typically includes `javascripts`, `stylesheets`, and `images` subdirectories.
+   
+2. **Manifest Files**:
+   - Check for manifest files like `app/assets/javascripts/application.js` and `app/assets/stylesheets/application.css`. These files usually contain directives like `//= require` and `*= require` respectively.
+
+3. **Configuration in `config/application.rb`**:
+   - The Asset Pipeline is typically enabled by default in Rails applications. 
+   You can check `config/application.rb` for configurations related to Sprockets:
+     ```ruby
+     config.assets.enabled = true
+     ```
+
+4. **Gemfile**:
+   - Look for gems related to the Asset Pipeline, such as `sass-rails`, `uglifier`, or `coffee-rails`:
+     ```ruby
+     gem 'sass-rails', '>= 6'
+     gem 'uglifier', '>= 1.3.0'
+     gem 'coffee-rails', '~> 4.2'
+     ```
+
+### Identifying Webpacker
+
+1. **Presence of `config/webpacker.yml`**:
+   - The `config/webpacker.yml` file is the main configuration file for Webpacker. Its presence indicates that Webpacker is set up.
+   
+2. **Presence of `app/javascript` Directory**:
+   - Webpacker uses the `app/javascript` directory to store JavaScript files and other assets managed by Webpack.
+
+3. **Webpacker Gem in Gemfile**:
+   - Check the `Gemfile` for the presence of the `webpacker` gem:
+     ```ruby
+     gem 'webpacker'
+     ```
+
+4. **JavaScript Packs**:
+   - Look for the `app/javascript/packs` directory and files within it, such as `application.js`. These pack files are entry points for Webpack:
+     ```javascript
+     // app/javascript/packs/application.js
+     import Rails from "@rails/ujs"
+     import Turbolinks from "turbolinks"
+     import * as ActiveStorage from "@rails/activestorage"
+     import "channels"
+
+     Rails.start()
+     Turbolinks.start()
+     ActiveStorage.start()
+     ```
+
+5. **Webpack Configuration Files**:
+   - Webpacker also creates Webpack configuration files, such as `config/webpack/environment.js`, which indicate that Webpacker is in use.
+
+
+### Summary
+
+- **Asset Pipeline**: Identified by the presence of `app/assets`, manifest files (`application.js`, `application.css`), Sprockets-related configurations in `config/application.rb`, and relevant gems in the `Gemfile`.
+- **Webpacker**: Identified by the presence of `config/webpacker.yml`, `app/javascript`, Webpacker-related gems in the `Gemfile`, JavaScript pack files, and Webpack configuration files.
+- **Using Both**: If both sets of directories, configurations, and gem dependencies are present, the application is using both the Asset Pipeline and Webpacker.
+
+By checking these elements, you can determine which asset management system(s) your Rails application is using.
+
+************************************************************************
+Transition to web packer (rails 6)
+************************************************************************
+
+### Asset Pipeline vs. Webpacker
+
+**Asset Pipeline**:
+- **Usage**: Best suited for managing CSS, images, and older JavaScript setups.
+- **Configuration**: Uses `app/assets`, `lib/assets`, and `vendor/assets` directories.
+- **Preprocessing**: Supports SASS, SCSS, CoffeeScript, and other preprocessors.
+- **Dependencies**: Managed through Ruby gems.
+
+**Webpacker**:
+- **Usage**: Designed for modern JavaScript development and integration with frameworks like React, Vue, and Angular.
+- **Configuration**: Uses the `app/javascript` directory and `config/webpacker.yml`.
+- **Build Tools**: Leverages Webpack, npm/Yarn for dependency management, Babel for transpiling, and other modern JavaScript tools.
+- **Dependencies**: Managed through `package.json`.
+
+### When to Use Each
+
+- **Use the Asset Pipeline** for:
+  - Stylesheets (CSS, SCSS).
+  - Images and static assets.
+  - Simpler JavaScript setups that do not require modern JavaScript tools.
+
+- **Use Webpacker** for:
+  - Modern JavaScript applications.
+  - Integrating JavaScript frameworks like React, Vue, or Angular.
+  - Using ES6/ESNext features, modules, and modern build tools.
+
+### Using Both Together
+
+Many Rails applications use both the Asset Pipeline and Webpacker:
+
+- **Asset Pipeline**: Handles CSS, images, and legacy JavaScript.
+- **Webpacker**: Handles modern JavaScript and front-end frameworks.
+
+### Example of Using Both
+
+Here’s how you might set up a Rails application to use both the Asset Pipeline and Webpacker:
+
+**Gemfile**:
+```ruby
+# Gemfile
+source 'https://rubygems.org'
+
+gem 'rails', '~> 6.1.0'
+gem 'webpacker'
+gem 'sass-rails', '>= 6'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.2'
+# Other gems...
+```
+
+**JavaScript Entry Point for Webpacker** (`app/javascript/packs/application.js`):
+```javascript
+// app/javascript/packs/application.js
+import Rails from "@rails/ujs"
+import Turbolinks from "turbolinks"
+import * as ActiveStorage from "@rails/activestorage"
+import "channels"
+
+// Other imports...
+Rails.start()
+Turbolinks.start()
+ActiveStorage.start()
+```
+
+**CSS and JavaScript for Asset Pipeline** (`app/assets/stylesheets/application.css`, `app/assets/javascripts/application.js`):
+```css
+/* app/assets/stylesheets/application.css */
+/*
+ *= require_self
+ *= require_tree .
+ */
+```
+```javascript
+// app/assets/javascripts/application.js
+//= require rails-ujs
+//= require turbolinks
+//= require_tree .
+```
+
+**Layout File** (`app/views/layouts/application.html.erb`):
+```erb
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
+```
+
+### Transitioning to Webpacker
+
+For new projects or when adopting modern JavaScript frameworks, it's recommended to use Webpacker. However, there's no need to abandon the Asset Pipeline if it suits your needs for handling stylesheets and images.
+
+### Summary
+
+- **Asset Pipeline**: Still supported and useful for CSS, images, and legacy JavaScript.
+- **Webpacker**: Default for modern JavaScript development from Rails 5.1 onwards.
+- **Both can coexist**: Many applications use both to leverage the strengths of each.
+
+You can choose the appropriate tool based on your project requirements and gradually transition to Webpacker for modern JavaScript needs while retaining the Asset Pipeline for other assets.
+
+
+*****************************************************************
+Comparison
+Import Maps, Webpacker, and the Asset Pipeline
+*****************************************************************
+
+Here’s a comparison of **Import Maps**, **Webpacker**, and the **Asset Pipeline** for managing JavaScript and other assets in a Ruby on Rails application:
+
+### Asset Pipeline
+
+**Asset Pipeline** is the traditional asset management system in Rails, used from Rails 3.1 onwards.
+
+#### Key Features:
+- **File Management**: Manages JavaScript, CSS, and image files stored in `app/assets`, `lib/assets`, and `vendor/assets`.
+- **Preprocessing**: Supports preprocessing of assets using SASS/SCSS, CoffeeScript, and ERB.
+- **Manifest Files**: Uses manifest files (`application.js`, `application.css`) with directives like `//= require` to include assets in the pipeline.
+- **Minification & Compression**: Provides built-in support for minification and compression of assets.
+- **Fingerprinting**: Adds a fingerprint to asset filenames for cache busting.
+
+#### Pros:
+- Simple to set up and use for basic asset management.
+- Fully integrated into Rails, no need for additional setup.
+- Well-suited for managing static assets and simple JavaScript.
+
+#### Cons:
+- Limited support for modern JavaScript features and tooling.
+- Less suitable for complex JavaScript applications and frameworks.
+
+### Webpacker
+
+**Webpacker** was introduced as an optional JavaScript management tool in Rails 5.1 and became more prominent in Rails 6.
+
+#### Key Features:
+- **File Management**: Manages JavaScript and CSS assets in the `app/javascript` directory.
+- **Build Tool**: Uses Webpack to bundle, transpile, and manage JavaScript and CSS.
+- **Modern Tooling**: Supports modern JavaScript features (ES6+, modules), hot module replacement, and code splitting.
+- **Package Management**: Manages JavaScript dependencies using npm or Yarn.
+- **Integration**: Allows integration with modern JavaScript frameworks like React, Vue.js, and Angular.
+
+#### Pros:
+- Supports modern JavaScript development practices and tools.
+- Provides advanced features like code splitting, hot module replacement, and efficient bundling.
+- Integrates well with modern JavaScript frameworks and libraries.
+
+#### Cons:
+- More complex setup compared to the Asset Pipeline.
+- Requires additional configuration and understanding of Webpack.
+- Can be overkill for simple projects that don’t require advanced JavaScript features.
+
+### Import Maps
+
+**Import Maps** is a newer approach introduced in Rails 7 to manage JavaScript dependencies without using a JavaScript bundler.
+
+#### Key Features:
+- **File Management**: Allows you to manage JavaScript dependencies using import maps defined in `config/importmap.rb`.
+- **ESM Import Maps**: Uses ES Modules to import JavaScript libraries directly from CDNs or local files.
+- **Simplicity**: Provides a simpler setup compared to Webpack by avoiding the need for a complex build process.
+
+#### Pros:
+- Simplifies JavaScript management by avoiding the complexity of Webpack.
+- Reduces the need for a build step and integrates seamlessly with Rails.
+- Useful for applications that do not require advanced JavaScript tooling.
+
+#### Cons:
+- Limited support for advanced JavaScript features like code splitting and hot module replacement.
+- Not suitable for complex JavaScript applications or those requiring extensive build processes.
+- Still relatively new, so it may have limitations compared to established tools.
+
+### Summary Comparison
+
+| Feature                 | Asset Pipeline               | Webpacker                              | Import Maps                          |
+|-------------------------|------------------------------|----------------------------------      |------------------------------------  |
+| **Primary Use**         | Static assets (CSS, images)  | Modern JavaScript applications         | Lightweight JavaScript management    |
+| **File Management**     | `app/assets`                 | `app/javascript`                       | Import maps in `config/importmap.rb` |
+| **Preprocessing**       | SASS/SCSS, CoffeeScript      | Webpack (Babel, etc.)                  | None                                 |
+| **Modern JavaScript**   | Limited support              | Full support (ES6+, frameworks)        | Basic support (ESM modules)          |
+| **Setup Complexity**    | Simple                       | Complex (requires Webpack setup)       | Simple                               |
+| **Advanced Features**   | Minification, fingerprinting | Code splitting, hot module replacement | Basic import mapping                 |
+
+**Choosing the Right Tool:**
+- **Use the Asset Pipeline** if your needs are simple and you’re managing static assets without complex JavaScript requirements.
+- **Use Webpacker** if you need modern JavaScript features, frameworks, or have complex JavaScript needs.
+- **Use Import Maps** if you want a simpler setup without a build step and your JavaScript requirements are basic.
+
 ========================================================================================================================================================================
 Day 3
 Active Record and Active Model
@@ -1054,9 +1444,8 @@ Active Record and Active Model
 
 https://edgeguides.rubyonrails.org/active_model_basics.html
 
-ActiveModel:  
+ActiveModel:  Active Model is a library containing various modules used in developing classes that need some features present on Active Record.  
 
-Active Model is a library containing various modules used in developing classes that need some features present on Active Record.  
 So ActiveModel includes things like validations.
 
 1) When including ActiveModel::API you get some features like:
@@ -1071,8 +1460,8 @@ initialize object
 
 3) ActiveModel::Callbacks gives Active Record style callbacks. This provides an ability to define callbacks which run at appropriate times. After defining callbacks, you can wrap them with before, after, and around custom methods.
 
-4) An object becomes dirty when it has gone through one or more changes to its attributes and has not been saved. ActiveModel::Dirty gives the ability to check whether an object has been changed or not. It also has attribute-based accessor methods.
-
+4) An object becomes dirty when it has gone through one or more changes to its attributes and has not been saved. 
+ActiveModel::Dirty gives the ability to check whether an object has been changed or not. It also has attribute-based accessor methods.
 
 5) The ActiveModel::Validations module adds the ability to validate objects like in Active Record.
 
@@ -1195,7 +1584,7 @@ Activerecord lifecyle methods
 
 https://stackoverflow.com/questions/20720901/how-to-use-new-record-changed-and-persisted-methods-in-rails-in-this-example
 
- I will try explain the Activerecord lifecyle methods.
+I will try explain the Activerecord lifecyle methods.
 
 new_record? ****
 car = Car.new # => initialize a new Car object
@@ -1232,10 +1621,6 @@ created, saved, updated, deleted, validated, or loaded from the database.
 
 ***********************
 
-  def greeting_message
-    puts "before_create"
-  end
-
   after_create do
       puts "after Create"
   end
@@ -1271,21 +1656,22 @@ def display_age
   if self.age.present?
     puts "age=#{self.age}"
   else
-      puts "age not present"
+    puts "age not present"
   end
 end
 
 **************************
- after_create :display_age
 
-  def display_age
-    if self.DOB.present?
-      age= Date.today.year - self.DOB.year
-      puts "====age=#{age}===="
-    else
-        puts "DOB not present"
-    end
+after_create :display_age
+
+def display_age
+  if self.DOB.present?
+    age= Date.today.year - self.DOB.year
+    puts "====age=#{age}===="
+  else
+    puts "DOB not present"
   end
+end
 
  p = Person.create(name: "Nouman", age: 23, DOB:"1998-11-19")
  p = Person.create(name: "Nouman", age: 23, DOB: Date.today - 24.years)
@@ -1399,6 +1785,7 @@ User.destroy_all
 </table>
 
 *****************************
+
 store array in database column:
 
 create_table(:app_display_selected_shops_sections) do |t|
@@ -1416,9 +1803,6 @@ It utilizes the serialization feature provided by ActiveRecord, the ORM (Object-
 
 By using the serialize method, you can store an array of values in a single column of a database table.
 In this specific example, the column being defined is named shop_category_ids, and it will store an array of values.
-**********
-
-
 
 ******************************
 
@@ -1452,8 +1836,7 @@ rails g migration migration_name
 
 ***************
 
-
-if you want to change the structure of db table you need to create a migration file alone ( we can change more than one table in one migration file )
+If you want to change the structure of db table you need to create a migration file ( we can change more than one table in one migration file )
 
 1) rails generate migration changes_to_tables
 
@@ -1465,9 +1848,13 @@ def change
 	remove_timestamps :students
 end
 
+syntax:
 
+add_column function takes 3 arguments:
 
-3) rake db:migrate
+add_column(:table, :column, :type)
+
+3) rails db:migrate
 
 4) see refresh sqlite table
 
@@ -1484,9 +1871,23 @@ and the down method of your migration should revert the transformations done by 
 
 ***********************
 
+3.5 Column Modifiers
+Column modifiers can be applied when creating or changing a column:
+
+limit:           Sets the maximum size of the string/text/binary/integer fields.
+precision:       Defines the precision for the decimal fields, representing the total number of digits in the number.
+scale:           Defines the scale for the decimal fields, representing the number of digits after the decimal point.
+polymorphic:     Adds a type column for belongs_to associations.
+null:            Allows or disallows NULL values in the column.
+default:         Allows to set a default value on the column. Note that if you are using a dynamic value (such as a date), the default will only be calculated the first time (i.e. on the date the migration is applied).
+index:           Adds an index for the column.
+comment:         Adds a comment for the column.
+
+***********************
 
 1)
-add column part_number of string type in products:
+Add part_number column  of string type in products table:
+
 add_column :products, :part_number, :string
 
 change_table :books do |t|
@@ -1505,6 +1906,8 @@ add_column :user_scores, :updated_at, :datetime, null: false, default: -> { 'CUR
 access value of CURRENT_TIMESTAMP:
 -> current_timestamp = ActiveRecord::Base.connection.select_value('SELECT CURRENT_TIMESTAMP')
 -> puts current_timestamp
+
+
 
 2)  add_index :products, :part_number
     add_index :users, :cnic, unique: true
@@ -1533,7 +1936,7 @@ change_table :products do |t|
 end
 
 change_table :products do |t|
-	t.string :part_number,:description
+	t.string :part_number, :description
 	t.index :part_number
 end
 
@@ -1581,6 +1984,7 @@ b)
 12)  you can execute your own query to alter table
 
 13)  Joins table unique index validation:
+
 add_index :user_topics, %i[user_id topic_id], unique: true
 
 
@@ -1596,17 +2000,113 @@ class CreateSelectedShopsSectionsShopCategoriesJoinTable < ActiveRecord::Migrati
   end
 end
 
+************************************************
+Naming convention for migration:
+************************************************
+
+1) If the migration name is of the form "AddXXXToYYY" or "RemoveXXXFromYYY" and is followed by a list of column names and types,
+then a migration containing the appropriate add_column and remove_column statements will be created.
+
+rails generate migration AddPartNumberToProducts part_number:string
+
+will genarte:
+
+class AddPartNumberToProducts < ActiveRecord::Migration[5.0]
+  def change
+    add_column :products, :part_number, :string
+  end
+end
+
+What has been generated for you is just a starting point. 
+You can add or remove from it as you see fit by editing the file.
+
+2) If you'd like to add an index on the new column, you can do that as well:
+
+rails generate migration AddPartNumberToProducts part_number:string:index
+
+will generate:
+
+class AddPartNumberToProducts < ActiveRecord::Migration[5.0]
+  def change
+    add_column :products, :part_number, :string
+    add_index :products, :part_number
+  end
+end
+
+3) you can generate a migration to remove a column from the command line:
+
+rails generate migration RemovePartNumberFromProducts part_number:string
+
+will generates:
+
+class RemovePartNumberFromProducts < ActiveRecord::Migration[5.0]
+  def change
+    remove_column :products, :part_number, :string
+  end
+end
+
+4) If the migration name is of the form "CreateXXX" and is followed by a list of column names and types 
+
+rails generate migration CreateProducts name:string part_number:string
+
+will generates:
+
+class CreateProducts < ActiveRecord::Migration[5.0]
+  def change
+    create_table :products do |t|
+      t.string :name
+      t.string :part_number
+    end
+  end
+end
+
+5) Adding references:
+rails generate migration AddUserRefToProducts user:references
+
+will generates:
+
+class AddUserRefToProducts < ActiveRecord::Migration[5.0]
+  def change
+    add_reference :products, :user, foreign_key: true
+  end
+end
+
+This migration will create a user_id column and appropriate index
+
+More on add_reference -> 
+https://api.rubyonrails.org/v5.2.8.1/classes/ActiveRecord/ConnectionAdapters/SchemaStatements.html#method-i-add_reference
+
+6) Create join table migration:
+
+rails g migration CreateJoinTableCustomerProduct customer product
+
+will produce the following migration:
+
+class CreateJoinTableCustomerProduct < ActiveRecord::Migration[5.0]
+  def change
+    create_join_table :customers, :products do |t|
+      # t.index [:customer_id, :product_id]
+      # t.index [:product_id, :customer_id]
+    end
+  end
+end
+
 ***********************
+
+null option: (default is null: true)
 
 specify null (it's a database thing):
 
-In Rails migrations, if you do not specify the null option when adding a column,
-the default behavior is to set null: false. This means that the column will not allow NULL values.
+The null option determines whether a column can have NULL values or not.
 
-If you want the column to allow NULL values, you need to explicitly specify null: true in the migration.
+null: true: This means the column is allowed to have NULL values. This is the default behavior if null is not specified.
+null: false: This means the column cannot have NULL values. If you try to insert a record without a value for this column, or with a NULL value, it will raise an error.
 
-So, the default value of null is false if you do not provide a value for it in the migration.
+Example:
 
+add_column :users, :email, :string, null: false
+
+This adds an email column to the users table that cannot be NULL.
 
 ***********************
 
@@ -1623,20 +2123,30 @@ create_table(:content_components) do |t|
 end
 
 ***********************
+reversible:
 
-This migration uses command, which is not automatically reversible.
+https://guides.rubyonrails.org/v5.2/active_record_migrations.html#using-reversible
+
+Complex migrations may require processing that Active Record doesn't know how to reverse. 
+You can use reversible to specify what to do when running a migration and what else to do when reverting it.
+
 To make the migration reversible you can either:
 1. Define #up and #down methods in place of the #change method.
 2. Use the #reversible method to define reversible behavior.
 
 
-**********************
+****************************************************************************************
+Running Migrations
+****************************************************************************************
+
+https://guides.rubyonrails.org/v5.2/active_record_migrations.html#running-migrations
 
 If you specify a target version, Active Record will run the required migrations (change, up, down) until it has reached the specified version.
 
-->  rails db:migrate VERSION=20220825162220
+->  rails db:migrate VERSION=20080906120000
 
-case 1) If version 20080906120000 is greater than the current version (i.e., it is migrating upwards), this will run the change (or up) method on all migrations up to and including 20080906120000, and will not execute any later migrations.
+case 1) If version 20080906120000 is greater than the current version (i.e., it is migrating upwards), 
+        this will run the change (or up) method on all migrations up to and including 20080906120000, and will not execute any later migrations.
 
 case 2) If migrating downwards, this will run the down method on all the migrations down to, but not including, 20080906120000
 
@@ -1739,6 +2249,28 @@ we can change anything inside migration file, add of change anything or even del
 
 ****************************
 
+rails db:setup
+
+Setup the Database
+
+The rails db:setup task will create the database, load the schema and initialize it with the seed data.
+This is functionally equivalent to:
+
+rails db:create
+rails db:migrate
+rails db:seed
+
+****************************
+
+rails db:reset
+
+Resetting the Database
+
+The rails db:reset task will drop the database and set it up again.
+This is functionally equivalent to rails db:drop db:setup.
+
+****************************
+
 remove version from schema_migrations:
 
 rails db:migrate:status
@@ -1816,7 +2348,7 @@ end
 
 bulk: true
 
- means the schema changes will be squashed into one.
+means the schema changes will be squashed into one.
 
 def change
     change_table :users, bulk: true do |t|
@@ -1878,8 +2410,13 @@ s.new_record?
    validates :name, :login, :email, presence: true               # more than one field
    validates :name, :login, :email, on: :create                  # on specific action
 
-  Student.create(name: "John Doe").valid? # => true
-  Student.create(name: nil).valid? # => false
+   syntax:
+   validates(list_of_column_symbols, other_options)
+
+   validates(:name, :login, :email, on: :create)                 
+
+Student.create(name: "John Doe").valid? # => true
+Student.create(name: nil).valid? # => false
 
 2)   Note that an object instantiated with new will not report errors even if it's technically invalid,
        because validations are automatically run only when the object is saved, such as with the create or save methods.
@@ -2013,6 +2550,7 @@ end
 ========================================================================================================================================================================
 Form field validations:
 ========================================================================================================================================================================
+
 number_field_tag:
 <%= form.number_field :quantity, step: 5, min: 0, max: 999999999999 %>
 https://apidock.com/rails/ActionView/Helpers/FormTagHelper/number_field_tag
@@ -2033,15 +2571,107 @@ The size attribute determines how wide the field will be on the screen.
 
 <%= text_field_tag 'create_text', nil, :maxlength => 15, :size => 40 %>
 
+********************************************************************************************************
+ActiveRecord Dirty module
+********************************************************************************************************
+
+agenda:
+ActiveRecord Dirty module: Get old values of attributes in callbacks, check if
+attribute changed(in before save vs after save), append errors (invalidate record)
+
+************
+
+The ActiveRecord Dirty module in Rails is useful for tracking changes to model attributes. 
+Here's how you can use it to get old values, check if an attribute has changed, and append errors in callbacks.
+
+### 1. Getting Old Values of Attributes in Callbacks
+
+In Rails, you can use the `attribute_was` method to get the previous value of an attribute before it was changed:
+
+```ruby
+class User < ApplicationRecord
+  before_save :check_changes
+
+  private
+
+  def check_changes
+    if name_changed?
+      puts "Name changed from #{name_was} to #{name}"
+    end
+  end
+end
+```
+
+### 2. Checking if an Attribute Changed (in `before_save` vs `after_save`)
+
+- **`before_save`**: You can use methods like `attribute_changed?` and `attribute_was` to check if an attribute has changed and to get its old value.
+
+- **`after_save`**: After the record is saved, you can use `saved_change_to_attribute?` and `saved_change_to_attribute` to check if an attribute was changed and to get the old and new values.
+
+#### Example with `before_save`:
+
+```ruby
+class User < ApplicationRecord
+  before_save :check_name_change
+
+  private
+
+  def check_name_change
+    if name_changed?
+      puts "Name changed from #{name_was} to #{name}"
+    end
+  end
+end
+```
+
+#### Example with `after_save`:
+
+```ruby
+class User < ApplicationRecord
+  after_save :log_name_change
+
+  private
+
+  def log_name_change
+    if saved_change_to_name?
+      old_name, new_name = saved_change_to_name
+      puts "Name changed from #{old_name} to #{new_name}"
+    end
+  end
+end
+```
+
+### 3. Appending Errors (Invalidating a Record)
+
+You can append errors to a record to invalidate it. If you want to prevent a record from being saved based on a condition, you can use the `before_save` callback and the `errors.add` method:
+
+```ruby
+class User < ApplicationRecord
+  before_save :validate_age
+
+  private
+
+  def validate_age
+    if age_changed? && age < 18
+      errors.add(:age, "must be 18 or older")
+      throw(:abort) # Prevents the save from happening
+    end
+  end
+end
+```
+
+In this example, if the `age` attribute is changed to a value less than 18, an error is added and the save operation is aborted.
+
+### Summary
+
+- Use `attribute_was` and `attribute_changed?` in `before_save` to check old values and if attributes changed.
+- Use `saved_change_to_attribute?` and `saved_change_to_attribute` in `after_save` to check if attributes were changed after saving and to get the old and new values.
+- Use `errors.add` and `throw(:abort)` in `before_save` to invalidate a record based on custom conditions.
+
 ========================================================================================================================================================================
 Day 4
-========================================================================================================================================================================
-
-
-*******************************
 Controller Callbacks
-*******************************
-
+========================================================================================================================================================================
 
 rails g scaffold Student name:string
 rails db:migrate
@@ -2077,7 +2707,6 @@ end
 
 The :only option is used to skip this filter only for these actions, and there is also an :except option which works the other way.
 
-
 *****************************************************
 
 https://stackoverflow.com/questions/36143039/rails-around-action-in-the-callback-stack
@@ -2092,7 +2721,7 @@ With a quick test as follows:
 class SomeController < ApplicationController
   before_action :before_action
   after_action :after_action
-  around_filter :around_action
+  around_action :around_action
 
   def before_action
     $stderr.puts "From before_action"
@@ -2131,21 +2760,36 @@ From after_action
 notes Action Controller
 ========================================================================================================================================================================
 
+https://guides.rubyonrails.org/v5.2/action_controller_overview.html
+
 Action Controller is concerned with communicating with the database and performing CRUD actions where necessary.
 
-***********************8
+***********************
 
 resource based routing
 
 resources :student will generate all the routes for CRUD operations
 
 HTTP verbs
-
 POST    - Create
 GET     - Read
-PUT	 - UPdate
-DELETE  -Destroy
+PUT	    - Update
+DELETE  - Destroy
 
+***********************
+
+$ rails routes | grep student
+
+      students GET         /students(.:format)                         students#index
+              POST         /students(.:format)                         students#create
+  new_student GET          /students/new(.:format)                     students#new
+  edit_student GET         /students/:id/edit(.:format)                students#edit
+      student GET          /students/:id(.:format)                     students#show
+              PATCH        /students/:id(.:format)                     students#update
+              PUT          /students/:id(.:format)                     students#update
+              DELETE       /students/:id(.:format)                     students#destroy
+
+***********************
 
 The naming convention of controllers in Rails favors pluralization of the last word in the controller's name,
 although it is not strictly required (e.g. ApplicationController). For example, ClientsController is preferable to ClientController,
@@ -2161,7 +2805,6 @@ There are two kinds of parameters possible in a web application.
 2) The second type of parameter is usually referred to as POST data. This information usually comes from an HTML form which has been filled in by the user.
 
 Rails does not make any distinction between query string parameters and POST parameters, and both are available in the params hash in your controller:
-
 
 ========================================================================================================================================================================
 params notes
@@ -2179,11 +2822,8 @@ p params[:action]
 
 **********************
 
-
 get 'params/new'
 post 'params/create'
-
-
 
 ========================================================================================================================================================================
 Session   , Flash  , Cookies
@@ -2194,7 +2834,7 @@ https://guides.rubyonrails.org/v5.2/action_controller_overview.html#session
 
 Sessions:
 Your application has a session for each user in which you can store small amounts of data that will be
- persisted between requests.
+persisted between requests.
 
 session[:user_id] = user.id
 
@@ -2204,7 +2844,7 @@ session[:user_id] = nil
 
 Flash:
 The flash is a special part of the session which is cleared with each request.
- This means that values stored there will only be available in the next request, which is useful for passing error messages etc.
+This means that values stored there will only be available in the next request, which is useful for passing error messages etc.
 
 flash[:notice] = "You have successfully logged out."
 
@@ -2225,7 +2865,8 @@ flash[:notice] = "You have successfully logged out."
 
 
 
-By default, adding values to the flash will make them available to the next request, but sometimes you may want to access those values in the same request.For example, if the create action fails to save a resource and you render the new template directly, that's not going to result in a new request, but you may still want to display a message using the flash.
+By default, adding values to the flash will make them available to the next request, but sometimes you may want to access those values in the same request.
+For example, if the create action fails to save a resource and you render the new template directly, that's not going to result in a new request, but you may still want to display a message using the flash.
 
 flash.now[:error] = "Could not save client"
 render action: "new"
@@ -2235,21 +2876,21 @@ render action: "new"
 Cookies:
 
 Your application can store small amounts of data on the client - called cookies - that will be persisted across requests and even sessions.
- Rails provides easy access to cookies via the cookies method, which - much like the session - works like a hash:
+Rails provides easy access to cookies via the cookies method, which - much like the session - works like a hash:
 
 
- cookies[:commenter_name] = @comment.author
- cookies.delete(:commenter_name)
+cookies[:commenter_name] = @comment.author
+cookies.delete(:commenter_name)
 
 
- def set_cookie
-    cookies.encrypted[:expiration_date] = Date.tomorrow # => Thu, 20 Mar 2014
-    redirect_to action: 'read_cookie'
-  end
+def set_cookie
+  cookies.encrypted[:expiration_date] = Date.tomorrow # => Thu, 20 Mar 2014
+  redirect_to action: 'read_cookie'
+end
 
-  def read_cookie
-    cookies.encrypted[:expiration_date] # => "2014-03-20"
-  end
+def read_cookie
+  cookies.encrypted[:expiration_date] # => "2014-03-20"
+end
 
 
 **************************************
@@ -2291,9 +2932,9 @@ The main difference, in Rails 3, is that when you use cookie[:foo] = 'bar' the u
 
 When you use session[:foo] = 'bar' the value will be encrypted by rails and stored in the _myapp_session cookie.
 
-You would use the cookie[] format when the information you want to store is not bound to the session, e.g. when the users selects the preferred language.
-
 You would use the session[] format when you want to store information that is related to the current session, e.g. the id of the the user.
+
+You would use the cookie[] format when the information you want to store is not bound to the session, e.g. when the users selects the preferred language.
 
 
 ************************************
@@ -3062,7 +3703,7 @@ routes
 
 member routes: routes that needs the id to perform action (like  show, edit, update destroy) ( acts on single object)
 
-collection routes : routes that do not need id to perform action ( lik index, create , new)  ( acts on collection of obhects)
+collection routes : routes that do not need id to perform action ( like index, create , new)  ( acts on collection of obhects)
 
 ***************************
 
@@ -3073,7 +3714,6 @@ namespace routing is used when you want to organize group of controllers under a
 create controler in subdirectory:
 
 rails g controller admin/Users
-
 
 **********************************
 
