@@ -1,4 +1,5 @@
-# The self.included function is called when the module is included. It allows methods to be executed in the context of the base (where the module is included).
+# The self.included function is called when the module is included.
+#  It allows methods to be executed in the context of the base (where the module is included).
 
 
 module Foo

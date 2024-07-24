@@ -1,3 +1,7 @@
+# modules are a way to group related methods, constants, and classes together
+# Modules in Ruby help in organizing and managing code by providing namespaces, allowing method mixing (mixins), and defining constants. 
+# They are a powerful tool for code organization and reuse.
+
 # Creating a module with name Gfg
 module Gfg
 
@@ -29,6 +33,7 @@ Gfg.tutorial
 Gfg.topic
 
 # Note:
+
 
 # To define module method user have to prefix the name of the module with the method name while defining the method.
 # The benefit of defining module method is that user can call this method by simply using the name of module and dot operator as shown in above example.

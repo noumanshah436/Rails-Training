@@ -20,14 +20,16 @@
 # Modules consist a method
 module Child_1
   def a1
-  puts 'This is Child one.'
+    puts 'This is Child one.'
   end
 end
+
 module Child_2
   def a1
-  puts 'This is Child two.'
+    puts 'This is Child two.'
   end
 end
+
 module Child_3
   def a3
   puts 'This is Child three.'
@@ -40,7 +42,7 @@ class Parent
   include Child_2
   include Child_3
   def display
-  puts 'Three modules have included.'
+    puts 'Three modules have included.'
   end
 end
 

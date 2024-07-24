@@ -16,6 +16,7 @@ Ruby Version Managers
 Day 2:
 SASS
 Coffeescript
+Import Maps vs Asset Pipeline vs Webpacker
 
 Day 3:
 Active Record
@@ -34,7 +35,7 @@ Session
 Flash
 Cookies
 Controller Callbacks
-AR associations
+AR Associations
 renderring in different formats
 
 
@@ -63,7 +64,7 @@ Pagination
 Queries
 form tags
 View Helpers
-
+custom view helpers
 
 Day 7
 AR queries
@@ -161,6 +162,10 @@ Procfile (specifies the commands needed to run application)
 delegate in rails
 
 Make database dump and apply
+
+Meta Programming
+
+require in gemfile
 
 
 ========================================================================================================================================================================
@@ -2000,6 +2005,16 @@ class CreateSelectedShopsSectionsShopCategoriesJoinTable < ActiveRecord::Migrati
   end
 end
 
+15) 
+uniqueness validation for two columns:
+
+Database level:
+add_index :user_topics, %i[user_id topic_id], unique: true
+
+Model level:
+class UserTopic < ApplicationRecord
+  validates :user_id, uniqueness: { scope: :topic_id, message: "should have a unique combination with topic" }
+end
 ************************************************
 Naming convention for migration:
 ************************************************
@@ -2825,6 +2840,70 @@ p params[:action]
 get 'params/new'
 post 'params/create'
 
+***************************************************************
+require vs permit vs permit!
+***************************************************************
+
+params.permit! whitelists all attributes leading to the vulnerabilities of mass assignment. 
+
+The best way to get around this is by whitelisting only the necessary attributes like so
+params.permit(:attr1,:attr2..)
+
+Even better, use require with permit
+Allows you to choose which attributes should be whitelisted for mass updating and thus prevent accidentally exposing that which shouldn't be exposed. 
+
+Provides two methods for this purpose: require and permit. The former is used to mark parameters as required. The latter is used to set the parameter as permitted and limit which attributes should be allowed for mass updating.
+
+params.require(:key).permit(:attr1, :attr2..)
+
+*********************************
+permit!
+
+The permit! method allows all attributes within the required parameter to be passed through. 
+This method should be used with caution, as it bypasses the strong parameters protection and can expose your application to security risks.
+
+
+def user_params
+  params.require(:user).permit!
+end
+
+In this example, all parameters under the :user key are permitted, which can be risky if there are sensitive attributes that should not be mass-assigned.
+
+*********************************
+permit
+
+The permit method is used to specify which attributes are allowed to be passed to the model. 
+This helps prevent mass assignment vulnerabilities by only allowing the specified parameters.
+
+def user_params
+  params.require(:user).permit(:name, :email)
+end
+
+In this example, permit(:name, :email) allows only the :name and :email parameters to be passed through to the model. 
+Any other parameters will be filtered out and not allowed.
+
+*********************************
+require:
+
+require is used to ensure that a specific key exists in the parameters hash. 
+If the key is not present, it raises an ActionController::ParameterMissing error. 
+This is typically used to enforce that a certain parameter is included in the request.
+
+
+def user_params
+  params.require(:user).permit(:name, :email)
+end
+
+Summary
+require: Ensures a specific key is present in the parameters hash.
+permit: Specifies which attributes are allowed for mass assignment.
+permit!: Allows all attributes under the required key, bypassing strong parameters protection (use with caution).
+
+*************************************************************
+Strong Parameters:
+https://guides.rubyonrails.org/action_controller_overview.html#strong-parameters
+
+
 ========================================================================================================================================================================
 Session   , Flash  , Cookies
 ========================================================================================================================================================================
@@ -2944,7 +3023,7 @@ session/cookies will be destroid if we close browser .
 
 
 ========================================================================================================================================================================
-Associations
+AR Associations
 ========================================================================================================================================================================
 
 In Rails, an association is a connection between two Active Record models.
@@ -3009,8 +3088,8 @@ CREATE INDEX IF NOT EXISTS "index_blogs_on_student_id" ON "blogs" (
 
 3)
 and add  in student model:
- has_many :blogs,
 
+has_many :blogs,
 
 
 To do manually:
@@ -3292,12 +3371,6 @@ std2.projects << p2
 
 *****
 
-uniqueness validation:
-
-add_index :user_topics, %i[user_id topic_id], unique: true
-
-*****
-
 Project.joins(:student_projects).where(  project: { name: 'Driver app' }  )
 Driver app
 
@@ -3311,6 +3384,41 @@ std2.projects
 SELECT  "projects".* FROM "projects" INNER JOIN "student_projects"
 ON "projects"."id" = "student_projects"."project_id"
 WHERE "student_projects"."student_id" = ? LIMIT ?  [["student_id", 2], ["LIMIT", 11]]
+
+*************************************************
+Uniquesness validations:
+*************************************************
+
+1) Database Level:
+
+rails generate migration add_unique_index_to_student_projects
+
+class AddUniqueIndexToStudentProjects < ActiveRecord::Migration[6.0]
+  def change
+    add_index :student_projects, [:student_id, :project_id], unique: true
+  end
+end
+
+rails db:migrate
+
+2) Model level:
+
+class StudentProject < ApplicationRecord
+  belongs_to :student
+  belongs_to :project
+
+  validates :student_id, uniqueness: { scope: :project_id, message: "should have a unique combination with project" }
+end
+
+*************************************************
+
+For uniqueness on more than two attributes:
+
+1) add_index :student_projects, [:student_id, :project_id, :semester], unique: true
+
+2) validates :student_id, uniqueness: { scope: [:project_id, :semester], message: "should have a unique combination with project and semester" }
+
+
 
 ========================================================================================================================================================================
 3 one_to_one_associations
@@ -3524,10 +3632,13 @@ CREATE TABLE IF NOT EXISTS "comments" (
 );
 
 2) add in comment model:
-belongs_to :commentable, polymorphic:true
+belongs_to :commentable, polymorphic: true
 
 3) and in article and news model:
 has_many :comments, as: :commentable
+
+It specifies that the comments association is polymorphic, meaning that the Comment model can be associated with different types of models.
+as:  option is used to define the name of the polymorphic association (So now it will look for commentable_type and commentable_id in the comment model to fetch related comments)
 
 4) For post model we want only one comment for each post, so add this in post model:
 has_one :comment, as: :commentable, inverse_of: :commentable
@@ -3638,6 +3749,91 @@ coach1.players
 
 user1.coach
 
+******************************************************************************
+inverse_of
+******************************************************************************
+
+In Rails, the `inverse_of` option is used to specify the inverse association of a model relationship. 
+This helps Rails optimize object loading and maintain consistency between associated records, particularly in the context of bidirectional associations. 
+
+Here's a deeper look into `inverse_of` and how it's used:
+
+### Purpose of `inverse_of`
+
+1. **Optimizing Object Loading**:
+   When you use `inverse_of`, Rails can more efficiently load and cache associations. Without it, Rails might perform additional queries to reload associated objects.
+
+2. **Maintaining Consistency**:
+   It ensures that changes made to one side of the association are reflected on the other side. For example, if you update an association on one model, Rails ensures that the change is correctly reflected in the inverse association.
+
+### How to Use `inverse_of`
+
+**Bidirectional Associations**:
+
+Consider two models, `Author` and `Book`, where each `Author` has many `Books`, and each `Book` belongs to an `Author`. 
+You can use `inverse_of` to specify the reverse relationship.
+
+```ruby
+class Author < ApplicationRecord
+  has_many :books, inverse_of: :author
+end
+
+class Book < ApplicationRecord
+  belongs_to :author, inverse_of: :books
+end
+```
+
+In this setup:
+- **`has_many :books, inverse_of: :author`**: Indicates that the `books` association in the `Author` model is the inverse of the `author` association in the `Book` model.
+- **`belongs_to :author, inverse_of: :books`**: Indicates that the `author` association in the `Book` model is the inverse of the `books` association in the `Author` model.
+
+### Benefits of Using `inverse_of`
+
+1. **Avoiding Redundant Queries**:
+   Without `inverse_of`, Rails might query the database multiple times to fetch associated records. With `inverse_of`, Rails can use the in-memory object to avoid extra queries.
+
+2. **Consistency in Data Changes**:
+   If you modify an associated object, Rails will correctly reflect those changes in the inverse association. For example:
+
+   ```ruby
+   author = Author.find(1)
+   book = author.books.first
+   book.author = author
+   book.save
+   ```
+
+   In this case, `book.author` will correctly reflect the updated `author` without additional queries, thanks to `inverse_of`.
+
+### Example
+
+Here’s a practical example of using `inverse_of` with nested attributes:
+
+```ruby
+class Author < ApplicationRecord
+  has_many :books, inverse_of: :author
+  accepts_nested_attributes_for :books
+end
+
+class Book < ApplicationRecord
+  belongs_to :author, inverse_of: :books
+end
+```
+
+When using nested attributes to create or update `Book` records through an `Author`, Rails will properly handle the associations and ensure that both sides are consistent.
+
+### Summary
+
+- **`inverse_of`**: Defines the inverse association in bidirectional relationships to optimize loading and maintain consistency.
+- **Benefits**:
+1) Reduces redundant queries. 
+    Without inverse_of, Rails may issue additional queries to load associated records. 
+    For example, if you fetch a Post and its Comments, and then access the Post through a Comment, Rails might need to perform additional database queries to load the Post again.
+
+2) Ensures consistency between associated objects.
+
+By using `inverse_of`, you help Rails efficiently manage associations and keep your data consistent.
+
+When modifying associations, the absence of inverse_of can lead to inconsistent data if changes are not properly reflected across both sides of the association.
 
 ========================================================================================================================================================================
 dependent_options
@@ -4282,6 +4478,104 @@ end
 undefined
 
 ********************************
+custom view helpers
+********************************
+
+Defining custom view helpers in Rails is a great way to encapsulate view-related logic and make your views cleaner and more maintainable. 
+Here's a step-by-step guide on how to define and use custom view helpers in a Rails application.
+
+### Step 1: Create a Helper Module
+
+By default, Rails generates a helper module for each controller in the `app/helpers` directory. You can add your custom helper methods to these modules, or you can create a new helper module if the methods are not specific to a single controller.
+
+#### Example: Creating a New Helper Module
+
+1. **Generate a new helper module:**
+   You can generate a new helper module using the Rails generator or manually create a file in the `app/helpers` directory.
+
+   ```sh
+   rails generate helper Custom
+   ```
+
+   This will create a file `custom_helper.rb` in the `app/helpers` directory.
+
+2. **Define custom helper methods:**
+
+   Open the generated `custom_helper.rb` file and define your helper methods:
+
+   ```ruby
+   # app/helpers/custom_helper.rb
+   module CustomHelper
+     def formatted_date(date)
+       date.strftime("%B %d, %Y")
+     end
+
+     def full_name(user)
+       "#{user.first_name} #{user.last_name}"
+     end
+   end
+   ```
+
+### Step 2: Include the Helper Module
+
+By default, all helper modules in `app/helpers` are automatically included in your views, so you can use your custom helper methods directly in your views.
+
+### Step 3: Use Helper Methods in Views
+
+Now you can use the custom helper methods in your views. For example:
+
+```erb
+<!-- app/views/users/show.html.erb -->
+<p>
+  Name: <%= full_name(@user) %>
+</p>
+<p>
+  Joined on: <%= formatted_date(@user.created_at) %>
+</p>
+```
+
+### Step 4: Testing Custom Helpers
+
+To ensure that your custom helpers work as expected, you can write tests for them. 
+Rails provides a way to test helper methods using RSpec or Minitest.
+
+#### Example: Testing Helper Methods with RSpec
+
+1. **Add a spec file for your helper:**
+
+   Create a new file in the `spec/helpers` directory (or `test/helpers` for Minitest).
+
+   ```ruby
+   # spec/helpers/custom_helper_spec.rb
+   require 'rails_helper'
+
+   RSpec.describe CustomHelper, type: :helper do
+     describe "#formatted_date" do
+       it "formats the date correctly" do
+         date = Date.new(2023, 7, 24)
+         expect(helper.formatted_date(date)).to eq("July 24, 2023")
+       end
+     end
+
+     describe "#full_name" do
+       it "returns the full name of the user" do
+         user = OpenStruct.new(first_name: "John", last_name: "Doe")
+         expect(helper.full_name(user)).to eq("John Doe")
+       end
+     end
+   end
+   ```
+
+### Summary
+
+1. **Create or use an existing helper module**: Define your custom methods in a helper module in the `app/helpers` directory.
+2. **Define custom helper methods**: Add the methods you need in the helper module.
+3. **Use helper methods in views**: Call these methods in your view templates.
+4. **Test your helpers**: Write tests to ensure your helper methods work as expected.
+
+By following these steps, you can create and use custom view helpers in Rails, making your views cleaner and your code more maintainable.
+
+********************************
 button_to vs link_to
 ********************************
 
@@ -4348,7 +4642,9 @@ gem 'kaminari'
 4) rails g kaminari:views bootstrap4
 
 
-**********************************
+********************************************************************
+frontend pagination vs backend pagination, when to use which?
+********************************************************************
 
 It is A Tradeoff, Each one has its own advantages and disadvantages.
 
@@ -4361,8 +4657,81 @@ For Client Side Pagination:
 As all data is present on client machine user can easily switch between back and forth.
 filter, search, map, reduce is possible on whole data.
 server get few requests as for search, filter, etc needed extra request and many iterations to the server.
-So choose according to your specific requirements.
 
+*************
+
+Choosing between frontend and backend pagination depends on various factors such as the size of the dataset, 
+performance considerations, and user experience requirements. 
+
+Here's a detailed comparison to help you decide when to use each approach:
+
+### Frontend Pagination
+
+#### When to Use:
+1. **Small Datasets**:
+   - If the dataset is small and can be loaded into the browser without significant performance issues, frontend pagination is suitable. It improves user experience by providing faster pagination since all data is already loaded.
+
+2. **Static Data**:
+   - When the data does not change frequently, frontend pagination is beneficial. It avoids multiple server requests and reduces load on the backend.
+
+3. **Simpler Implementation**:
+   - For simpler applications where the focus is on quick and easy implementation without heavy backend logic.
+
+#### Advantages:
+- **Performance**: Fast pagination since all data is preloaded.
+- **Reduced Server Load**: Fewer requests to the server once the data is initially loaded.
+- **Smooth User Experience**: Immediate response to pagination actions.
+
+#### Disadvantages:
+- **Memory Consumption**: Large datasets can consume significant memory in the browser.
+- **Initial Load Time**: Loading all data initially can be slow for large datasets.
+- **Scalability**: Not scalable for very large datasets.
+
+### Backend Pagination
+
+#### When to Use:
+1. **Large Datasets**:
+   - For large datasets that cannot be efficiently loaded into the browser at once, backend pagination is essential. It ensures that only a small subset of data is transferred at a time.
+
+2. **Dynamic Data**:
+   - When data changes frequently, backend pagination ensures that the latest data is fetched with each request.
+
+3. **Performance**:
+   - If initial load time and memory consumption are concerns, backend pagination helps in managing resources better.
+
+4. **Scalability**:
+   - Suitable for applications that need to handle large volumes of data efficiently.
+
+#### Advantages:
+- **Efficiency**: Only the required subset of data is fetched, reducing memory usage and improving load times.
+- **Scalability**: Can handle very large datasets by fetching data on demand.
+- **Fresh Data**: Always fetches the latest data, ensuring data consistency.
+
+#### Disadvantages:
+- **Latency**: Can introduce some delay due to network requests and server processing time.
+- **Server Load**: Increased number of requests to the server can increase the load.
+- **Complexity**: More complex to implement and may require additional logic on the backend.
+
+### Practical Scenarios
+
+1. **E-commerce Sites**:
+   - **Backend Pagination**: Typically used due to large number of products and dynamic nature of data.
+
+2. **Admin Dashboards**:
+   - **Backend Pagination**: Often used because admin data can be extensive and frequently updated.
+
+3. **Blog Posts**:
+   - **Frontend Pagination**: Can be used if the number of posts is relatively small and doesn't change frequently.
+
+4. **Search Results**:
+   - **Backend Pagination**: Necessary to handle potentially large and frequently changing results.
+
+### Conclusion
+
+- **Use Frontend Pagination** for small, static datasets where user experience and speed are critical.
+- **Use Backend Pagination** for large, dynamic datasets where performance and scalability are key concerns. 
+
+Consider the specific needs of your application, including dataset size, data change frequency, and performance requirements, to make the best choice between frontend and backend pagination.
 
 ========================================================================================================================================================================
 layout and renderrings
@@ -4437,6 +4806,7 @@ Overriding Conventions
 1. Override layout for every action in a given controller
 class ShoppingCartController < ApplicationController
   layout "products"
+
   def index
   end
   def show
@@ -4446,7 +4816,8 @@ class ShoppingCartController < ApplicationController
 end
 
 
-Instead of looking for a layout at layouts/shopping_carts.html.erb and if it fails to find one, render the default layout of layouts/application.html.erb, the ShoppingCart Controller will render from layouts/products.html.erb instead for every action presented in the ShoppingCartController.
+Instead of looking for a layout at layouts/shopping_carts.html.erb and if it fails to find one, render the default layout of layouts/application.html.erb, 
+the ShoppingCart Controller will render from layouts/products.html.erb instead for every action presented in the ShoppingCartController.
 
 ***************************
 
@@ -4457,7 +4828,9 @@ class ShoppingCartController < ApplicationController
   end
   ...
 end
-For just the ShoppingCart index action, the layout from views/layouts/static.html.erb will be used, the rest will use views/layouts/shopping_carts.html.erb and if no such file exists, use views/layouts/application.html.erb.
+
+For just the ShoppingCart index action, the layout from views/layouts/static.html.erb will be used, 
+the rest will use views/layouts/shopping_carts.html.erb and if no such file exists, use views/layouts/application.html.erb.
 
 ***************************
 
@@ -4468,6 +4841,7 @@ class ShoppingCartController < ApplicationController
   end
   ...
 end
+
 For the index action, this will not load up any layout, including the default application.html.erb.
 
 Perhaps this is a very different part of the site that uses different JavaScript plugins or sizable css library that you don’t want to burden the rest of the website’s paths with.
@@ -4879,13 +5253,14 @@ Product.where("LENGTH(name) < 5")
 
 *************************
 scope in models:
+model scope 
 *************************
 
 syntax:
     scope :name, -> { where(:attibute => value)}
 
 create scope in Product model class:
-> scope  :laptops, -> { where( name:"Laptop") }
+> scope  :laptops, -> { where( name: "Laptop") }
 
 In console:
 Product.laptops
@@ -8320,3 +8695,201 @@ Dump:
 - psql -U postgres -d hrms < S2_dump.sql (apply dump in sql format)
 
 ========================================================================================================================================================================
+Meta Programming
+========================================================================================================================================================================
+
+Meta-programming is a programming technique in which code can manipulate other code or itself during runtime.
+
+This includes dynamically defining methods, modifying classes, or changing the behavior of a program without altering its source code. 
+
+Meta-programming enables writing more flexible, reusable, and less redundant code by allowing programs to introspect and modify their structure and behavior.
+
+
+Meta-programming in Rails leverages Ruby's powerful meta-programming capabilities to dynamically define methods, manipulate classes, and handle tasks that would otherwise require repetitive or boilerplate code. 
+
+Here are some common techniques and examples of meta-programming in Rails:
+
+### 1. Dynamic Method Definition
+Rails often uses `define_method` to create methods dynamically based on certain conditions or patterns.
+
+Example:
+```ruby
+class User < ApplicationRecord
+  [:name, :email, :address].each do |attribute|
+    define_method("#{attribute}_upcase") do
+      self.send(attribute).upcase
+    end
+  end
+end
+```
+In this example, methods `name_upcase`, `email_upcase`, and `address_upcase` are dynamically defined to return the respective attributes in uppercase.
+
+### 2. `method_missing`
+Rails uses `method_missing` to handle undefined methods. This is often used in Active Record to create dynamic finders like `find_by_name`.
+
+Example:
+```ruby
+class User < ApplicationRecord
+  def method_missing(method, *args, &block)
+    if method.to_s.start_with?('find_by_')
+      attribute = method.to_s.split('find_by_').last
+      self.class.where(attribute => args.first).first
+    else
+      super
+    end
+  end
+
+  def respond_to_missing?(method, include_private = false)
+    method.to_s.start_with?('find_by_') || super
+  end
+end
+```
+This example allows calling methods like `find_by_name('John')` on the `User` model.
+
+### 3. `send`
+The `send` method is used to call methods dynamically.
+
+Example:
+```ruby
+class User < ApplicationRecord
+  def update_attribute(attribute, value)
+    self.send("#{attribute}=", value)
+  end
+end
+```
+This method allows updating any attribute by name.
+
+### 4. Class Macros
+Rails models often use class-level methods, called macros, to add behavior to the model.
+Examples include `has_many`, `belongs_to`, and `validates`.
+
+Example:
+```ruby
+class ApplicationRecord < ActiveRecord::Base
+  def self.my_custom_macro(*args)
+    args.each do |attribute|
+      define_method("#{attribute}_present?") do
+        self.send(attribute).present?
+      end
+    end
+  end
+end
+
+class User < ApplicationRecord
+  my_custom_macro :name, :email
+end
+```
+This example defines `name_present?` and `email_present?` methods for the `User` model.
+
+### 5. Callbacks
+Rails uses meta-programming to handle callbacks like `before_save`, `after_create`, etc.
+
+Example:
+```ruby
+class User < ApplicationRecord
+  before_save :normalize_name
+
+  private
+
+  def normalize_name
+    self.name = name.downcase.titleize
+  end
+end
+```
+In this example, the `before_save` callback is used to normalize the user's name before saving it.
+
+### 6. Attribute Accessors
+Rails uses meta-programming to define attribute accessors for models.
+
+Example:
+```ruby
+class User < ApplicationRecord
+  # Rails defines these methods dynamically based on database schema
+  # def name
+  #   read_attribute(:name)
+  # end
+  #
+  # def name=(value)
+  #   write_attribute(:name, value)
+  # end
+end
+```
+These methods are generated automatically based on the database schema.
+
+### 7. Concerns
+Concerns are a way to mix in shared behavior into models using modules.
+
+Example:
+```ruby
+module Nameable
+  extend ActiveSupport::Concern
+
+  included do
+    validates :name, presence: true
+  end
+
+  def name_with_title
+    "Mr. #{name}"
+  end
+end
+
+class User < ApplicationRecord
+  include Nameable
+end
+```
+In this example, the `Nameable` concern adds a validation and a method to the `User` model.
+
+### Summary
+Meta-programming in Rails is a powerful tool that helps reduce boilerplate, create dynamic methods, and handle complex behaviors in a concise and maintainable way. 
+By understanding and using techniques like `define_method`, `method_missing`, `send`, class macros, and concerns, you can leverage Ruby's dynamic nature to build flexible and robust Rails applications.
+
+
+*******************************************
+require in gemfile
+*******************************************
+
+In the Gemfile, the `:require` option specifies which file should be required when the gem is loaded. 
+This is useful for gems that have a different require path than their gem name. 
+
+Here are some examples:
+
+1. **Basic usage with `:require` option:**
+   ```ruby
+   gem 'rack-cache', require: 'rack/cache'
+   ```
+
+2. **Disabling auto-require:**
+   Sometimes you might want to include a gem in your Gemfile but not automatically require it. 
+   This can be useful if you want to conditionally require the gem in your code.
+
+   ```ruby
+   gem 'newrelic_rpm', require: false
+   ```
+
+3. **Multiple requires:**
+   If a gem needs multiple files to be required, you can specify them in an array.
+   ```ruby
+   gem 'mygem', require: ['mygem/core', 'mygem/extra']
+   ```
+
+4. **Using `:require` with version constraints:**
+   ```ruby
+   gem 'pg', '1.2.3', require: 'pg'
+   ```
+
+5. **Using `:require` with git repository:**
+   ```ruby
+   gem 'nokogiri', git: 'https://github.com/sparklemotion/nokogiri.git', require: 'nokogiri'
+   ```
+
+6. **Using `:require` with local path:**
+   ```ruby
+   gem 'my_local_gem', path: '../my_local_gem', require: 'my_local_gem'
+   ```
+
+7. **Using `:require` with a specific branch:**
+   ```ruby
+   gem 'rails', github: 'rails/rails', branch: 'main', require: 'rails'
+   ```
+
+Remember, after updating your Gemfile, you need to run `bundle install` to install the gems and update the Gemfile.lock.

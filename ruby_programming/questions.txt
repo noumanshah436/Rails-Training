@@ -21,10 +21,13 @@ Block vs proc vs lambda
 
 ***************************************************************
 
+
 Strongly typed means, a variable will not be automatically converted from one type to another.
 
 In Go or Python like strongly typed languages "2" + 8 will raise a type error,
  because they don't allow for "type coercion".
+
+see more in -> /home/dev/python-training/FAQ.txt
 
 ******************************************
 

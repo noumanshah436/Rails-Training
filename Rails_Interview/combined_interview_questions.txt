@@ -1,0 +1,1296 @@
+custom validation ko fail kaisay krtay hei
+routes
+view_helpers
+dependent modes
+up down change
+associations
+asset pipelines
+model scope
+rake task and difference between
+normal view vs mail view
+transpilation
+ACID principle
+MVC architecture
+size vs count vs length  (length = in memory, count query krta ha, )
+find vs find_by vs select vs pluck
+map vs each
+Bang
+Ruby need to be revised
+MVC - routing
+gemlock
+Require Tree JS
+schema number
+Services, initialize
+Serializer
+before/after action
+Association - in depth
+Presence
+Scopes
+Sidekiq
+Compact  (compact is a method used to remove nil values from an array. )
+Database validation
+how webpacker handles javascript   (minify js into single file)
+How does rails cater change in assets
+rails DB:Setup
+how to bypass required frontend validation/model level validation
+when around action gets called ?
+require usage
+AJAX form(make 10 forms)
+remote form vs AJAX
+AS, shallow in rounting
+Forgery Production
+how view cache update in case of updated data
+Check where if is generate exception or not ?
+exists vs presents vs presence vs any
+Active record/Active model difference
+
+
+rails components
+app and lib assets
+directory structure
+what should we look for while choosing an open source library
+asset pipeline
+fingerprinting (use case)
+indexing
+generating migrations from console
+validations practice
+before_save vs before_commit
+deleting records from database
+case where change cannot be used
+around_save
+controller callbacks
+gemfile.lock
+STI
+size vs count
+custom foreign keys
+mount
+view vs layout
+passing data from view to layout
+preload vs eager load
+rails transactions
+group_by practice (complex queries)
+
+
+
+**************************************
+
+
+Zain bhai:
+
+What is a plugin in Ruby on Rails?    ()
+Difference b/w load and require
+Explain the differences between gems and plugins in Ruby on Rails.
+Explain what observers are in Ruby on Rails.
+Explain what harnesses are.
+What are fixtures in Ruby on Rails?
+Explain what Spring is.
+Explain what initializers are in Ruby on Rails.
+How would you use two databases for one application?
+What is a closure in Ruby on Rails?
+Explain the difference between #equal and #==.
+Explain the difference between raise/rescue and throw/catch.
+Mention what is the difference between calling super() and super call?
+How would you choose between Belongs_to And Has_one? Same for many to many association
+What is the difference between Object#dup and #clone?
+What is Dynamic Finders?
+Explain how Rails implements Ajax?
+Explain what is Mixin in Rails?
+Explain what is sweeper/garbagecollector in Rails?
+What is sprocket/webpacker in rails?  (In rails 6, webpacker replaces sprocket  )
+What is the purpose of the rakefile available in the demo directory in Ruby?
+How and what is the approach to upgrade rails?
+What happens to parent transaction when a child transaction fails?
+can we implement both JWT and devise in a rails app
+What are the difference between env and secrets.yml
+What are different type of association rails provide mainly difference between STI and Polymorphic
+What is 'task: :environment' used for in rake files
+what is 'force: "cascade' used force in db schema file
+What's the difference between delayed jobs and scheduled jobs?
+What's the difference between job and worker?
+What's the difference between sidekiq and resque?
+How's rails difference from its version 5->6->7.
+What's the difference b/w model callbacks mainly(after_commit, after_save)
+What is rails cache and how it is used for optimization?
+What are different application server for rails app and how are they different from each other?
+What is rack?
+Is ruby single threaded language? If yes, then how can multiple users used it at runtime?
+Does ruby support pointers? If yes, then an example?
+What are indexes and which columns to index? what are their drawbacks?
+Write an SQL query to find n largest in X column
+Want to override login/signup action in devise
+What is monkey patching and how can we do it to a gem?
+What are web servers and how can you configure one?
+Implicit explicit DB locking
+Is the background job run on rails server port? or they use other resource? 
+What are stateful and stateless APIs
+Authentication diffrence b/t devise-jwt and devise-auth-token
+what is the drawback of polymorphic association?
+What are session and cokies and how can we store some cookie data through rails
+What are chache in rails and how can we use it in views and make sure data concurrency
+What is sql injection and how rails prevents from it
+what is dynamic programming in rails
+how can i add a funtion to an object at runtime
+
+
+
+
+Hoisting in JS?
+Closure and callback hell?
+Solution to callback hell?
+What are promises? and async function?
+What is event loop in JS?
+Let's say I have multiple promises and want to perform an action after those promises how can I acheive this optimally?
+What are anonymous function? and can I pass params to it?
+What's the difference b/w let,const,var in a block of code(context)
+What is props drilling in react and how can i update parent props in child? Is it best practice?
+What is lazy loading in React?
+What's the difference b/w axios and fetch and how can we authenticate their calls to BE?
+UseContext vs redux
+Hooks for optimization
+
+
+*************************************************
+
+UDP vs TCP
+DNS
+Request life cycle
+[8:21 PM] application vs web server
+[8:23 PM] hash vs encryption
+[8:24 PM] DNS vs Nameserver
+
+
+Asad ullah Waheed  [8:41 PM]
+resources vs resource(no index action) 
+
+hashwithindifferent access
+[8:52 PM] js vs jquery
+[8:53 PM] coffee script vs javascript
+[8:56 PM] active model
+[9:01 PM] Dsl migration
+[9:02 PM] index in db
+[9:03 PM] active record vs active model
+[9:06 PM] validate vs validates
+[9:09 PM] model callback equences
+[9:09 PM] commit  vs save
+[9:09 PM] after commit vs after save
+[9:13 PM] action controller
+[9:15 PM] controller callback
+[9:16 PM] fat vs slim controller
+[9:16 PM] serilizer
+[9:18 PM] controller requests
+[9:21 PM] has and belong to many
+[9:23 PM] polymorphic ass
+[9:24 PM] csrf
+[9:25 PM] groups in gemfile
+[9:29 PM] routes in rails
+
+
+Asad ullah Waheed  [9:34 PM]
+concerns
+[9:35 PM] non resourceful routes
+[9:35 PM] enums
+[9:36 PM] enums database computations
+[9:37 PM] exit vs present
+[9:40 PM] polymorphics
+[9:40 PM] routes
+[9:42 PM] form tag vs form for vs for with
+[9:44 PM] N+1 problems
+[9:49 PM] helper vs service
+
+
+
+respond_to
+csrf
+credensials
+protocols
+http vs https
+why we use SMDP of mailers
+*SMTP
+Styling for mailer
+sessions
+action dispatcher
+ecumalator
+group and goup by
+each vs map
+lamda is anounimous
+get post different
+application server and web server
+puma
+frameworks vs library
+map vs each
+rake tasks
+custom
+migration vs rake tasks
+specific migration
+rak vs rake
+transpilation vs precompilation
+scss vs sass
+active r active m
+orm
+indexes in where
+irreversable migrations
+before create before save
+serializers
+weak params vs strong params
+services
+resolve
+collection in partials
+helpers
+render redirect to
+caches
+and types
+count size and length
+rollback transactions
+sidekiq worker
+an d ways to call
+how to set time for background jobs
+rake tasks for jobs
+custom transaction
+sub queries
+redis is key vaue store
+lazy loading
+class veriable
+migration rollbacks for spesific version
+custom transactions
+active storage
+cloudinary
+ERD
+private repo push on github(with robocop config)
+pundit gem.
+basic structure branch.
+ActionDispatcher
+acumulator, group vs group_by
+each vs map
+ruby block, lambda
+symbol vs string
+post vs get
+app server vs web server
+library vs framework
+rake task vs migration
+rollback specific migration
+rack vs rake
+precompilation vs transpilation
+sass vs scss
+Active Model vs Active Record
+ORM mapping
+after_commit
+after_create vs after_save
+usage of serializer
+weak params vs strong params
+polymorphic association vs STI
+services
+resolve
+enums
+partial collections
+helper usage
+js.erb
+render vs redirect to
+respond to (revise)
+eager loading vs preloading vs join
+view caching
+fingerprinting
+cache
+count vs size vs length
+present? vs exists? vs any?
+return empty in find vs find_by vs where
+how to fail transaction
+
+**************************
+
+UDP vs TCP
+https://www.geeksforgeeks.org/differences-between-tcp-and-udp/
+
+**************************
+
+https://stackoverflow.com/questions/4948322/fundamental-difference-between-hashing-and-encryption-algorithms
+
+Hashing:
+
+If you hash any plain text again you can not get the same plain text from hashed text. Simply, It's a one-way process.
+
+ 
+
+Encryption and Decryption:
+
+If you encrypt any plain text with a key again you can get same plain text by doing decryption on encrypted text with same(symetric)/diffrent(asymentric) key.
+
+
+**************************
+
+Advantages of CoffeeScript:
+
+Easy to Understand: The syntax of this language is a simple form of JavaScript. ...
+No var keyword: Unlike JavaScript, there is no need to use the var keyword before declaring a variable. ...
+No symbols: The symbols like semicolons, parenthesis, and curly braces do not play any role in CoffeeScript.
+
+
+************************
+
+Migrations are a convenient way to alter your database schema over time in a consistent way. They use a Ruby DSL so that you don’t have to write SQL manually, allowing your schema and changes to be database independent.
+
+**************************
+
+https://guides.rubyonrails.org/active_record_validations.html#custom-methodshttps://stackoverflow.com/questions/18140898/whats-the-difference-between-validate-and-validates
+https://guides.rubyonrails.org/active_record_validations.html#custom-methods
+
+validates This method is a shortcut to all default validators and any custom validator classes ending in ‘Validator’. Note that Rails default validators can be overridden inside specific classes by creating custom validator classes in their place such as PresenceValidator.
+
+validates :title, :body, :presence => true
+
+***
+
+validate, Adds a validation method or block to the class. This is useful when overriding the validate instance method becomes too unwieldy and you’re looking for more descriptive declaration of your validations.
+
+validate :must_be_friends
+
+  def must_be_friends
+    errors.add(:base, 'Must be friends to leave a comment') unless commenter.friend_of?(commentee)
+  end
+  
+ **************************
+
+
+*************************************************
+
+ACID principle
+
+The ACID principle is a set of properties that ensure reliable processing of database transactions. 
+
+ACID stands for Atomicity, Consistency, Isolation, and Durability. These properties are crucial for maintaining the integrity of a database, especially in multi-user environments. Here’s a detailed explanation of each property:
+
+### 1. Atomicity
+**Definition:** A transaction must be all-or-nothing; either all of its operations are completed successfully, or none of them are applied.
+
+**Explanation:**
+- If any part of the transaction fails, the entire transaction is rolled back, leaving the database in its original state.
+- Ensures that partial updates do not leave the database in an inconsistent state.
+
+**Example:**
+- Transferring money from one bank account to another. The transaction involves debiting one account and crediting another. Both operations must succeed or fail together.
+
+### 2. Consistency
+**Definition:** A transaction must bring the database from one valid state to another, maintaining database invariants.
+
+**Explanation:**
+- Ensures that a transaction only takes the database from one consistent state to another.
+- Enforces constraints (like unique keys, foreign keys, etc.) and rules defined on the data.
+
+**Example:**
+- If a database rule states that account balances cannot be negative, any transaction that results in a negative balance will be rolled back.
+
+### 3. Isolation
+**Definition:** The operations of a transaction must be isolated from other transactions. Intermediate states of a transaction must not be visible to other transactions.
+
+**Explanation:**
+- Ensures that concurrent transactions do not interfere with each other.
+- Uses mechanisms like locks and multiversion concurrency control (MVCC) to manage concurrent access.
+
+**Example:**
+- If two transactions are updating the same account balance, isolation ensures that each transaction sees the database state either before or after the other transaction, but not a mixed state.
+
+### 4. Durability
+**Definition:** Once a transaction is committed, it will remain so, even in the event of a system failure.
+
+**Explanation:**
+- Ensures that the results of a committed transaction are permanently recorded in the database.
+- Uses techniques like write-ahead logging and backups to achieve durability.
+
+**Example:**
+- After a money transfer transaction is committed, the changes to account balances are saved to disk. Even if the system crashes immediately afterward, the changes will not be lost.
+
+### Summary of ACID Properties:
+
+| Property    | Description                                                                 |
+|-------------|-----------------------------------------------------------------------------|
+| **Atomicity** | Ensures all operations within a transaction are completed; otherwise, none are applied. |
+| **Consistency** | Ensures that transactions bring the database from one valid state to another, enforcing rules. |
+| **Isolation** | Ensures that the operations of a transaction are hidden from other transactions until they are completed. |
+| **Durability** | Ensures that once a transaction is committed, it remains so even in the event of a system failure. |
+
+### Example in SQL:
+
+```sql
+BEGIN TRANSACTION;
+
+-- Atomicity and Consistency
+UPDATE accounts SET balance = balance - 100 WHERE account_id = 1;
+UPDATE accounts SET balance = balance + 100 WHERE account_id = 2;
+
+-- Isolation
+-- Ensures other transactions do not see intermediate states
+
+COMMIT; -- Durability
+```
+
+In this example, the `BEGIN TRANSACTION` and `COMMIT` statements ensure that both updates are treated as a single unit (Atomicity). If either update fails, the transaction is rolled back, ensuring the database remains consistent (Consistency). Isolation ensures that these updates are not visible to other transactions until they are committed, and Durability ensures that once the transaction is committed, the changes are permanent.
+
+*************************************************
+
+map vs each
+
+
+each:
+Purpose: To perform an action on each item in a collection (like printing or modifying data).
+Returns: The original collection itself, unchanged.
+Usage: When you want to do something with each item but don't need a new collection.
+
+
+numbers = [1, 2, 3]
+numbers.each do |number|
+  puts number * 2
+end
+# Output:
+# 2
+# 4
+# 6
+
+
+map:
+Purpose: To create a new collection by transforming each item in the original collection.
+Returns: A new collection with the transformed items.
+Usage: When you need a new collection with modified data.
+
+Example:
+ 
+numbers = [1, 2, 3]
+doubled_numbers = numbers.map do |number|
+  number * 2
+end
+# doubled_numbers = [2, 4, 6]
+
+
+
+
+*************************************************
+how webpacker handles javascript
+
+Webpacker is a gem used in Rails applications to manage and bundle JavaScript and other assets like CSS and images using Webpack, a popular module bundler. Webpacker simplifies the integration of Webpack with Rails, enabling modern JavaScript tooling and practices. Here's an overview of how Webpacker handles JavaScript:
+
+### Key Features of Webpacker:
+
+1. **Bundling JavaScript Files:**
+   Webpacker uses Webpack to bundle JavaScript files into a single (or multiple) file(s) that can be included in your Rails views. This helps in reducing the number of HTTP requests and optimizing performance.
+
+2. **Managing Dependencies:**
+   Webpack (through Webpacker) manages JavaScript dependencies using `import` and `require` statements. It ensures that all necessary dependencies are included in the final bundle.
+
+3. **Asset Compilation:**
+   Webpacker compiles and processes JavaScript assets (including frameworks like React, Vue, or Angular) during the build process. It handles tasks like transpiling modern JavaScript (using Babel), minifying code, and optimizing assets.
+
+4. **Hot Module Replacement (HMR):**
+   During development, Webpacker supports Hot Module Replacement, which allows for live reloading of modules without a full page refresh. This feature enhances the development experience by providing instant feedback as you make changes to your code.
+
+5. **Configuration:**
+   Webpacker's configuration files, such as `config/webpacker.yml`, `config/webpack/environment.js`, and other related files, allow you to customize how Webpack processes and bundles your assets. This includes setting up loaders, plugins, and other Webpack features.
+
+
+
+*************************************************
+select vs pluck:
+
+select is used to fetch records with specific attributes. 
+It returns an ActiveRecord::Relation object.
+
+pluck can be used the same way select is used, however it returns an array of selected attributes.
+
+Select takes much time on building ActiveRecord models. On large data_set pluck is much faster than select. 
+
+Pluck should be used when only column values are required. 
+Select should be used when object is required. 
+
+pluck is an eager method and it hits the database immediately when called. 
+
+*************************************************
+exists vs presents vs presence vs any
+*************************************************
+
+present?:
+
+present?:
+The present? method, is a general-purpose method that is not specific to ActiveRecord.
+It's used to check if an object is not nil and not empty.
+This is useful for non-database-related objects or attributes.
+
+  Example:
+  # Check if a string is present (not nil and not empty)
+  if employee.name.present?
+    # Do something with the employee's name
+  end
+
+From the documentation:
+An object is present if it’s not blank?.
+An object is blank if it’s false, empty, or a whitespace string.
+
+So, for example:
+
+[ "", " ", false, nil, [], {} ].any?(&:present?)
+# => false
+
+User.where(name: 'mike').present?
+SELECT "users".* FROM "users" WHERE "users"."name" = ?  [["name", "mike"]]
+ => true
+
+**********************
+
+exists?
+
+The exists? method is specifically designed for checking the existence of records in the database based on certain conditions.
+It generates an efficient SQL query that only checks for the existence of records, without retrieving the actual data.
+This can be more efficient when you only need to know if records meeting a certain condition exist, without fetching the entire record.
+
+Example:
+
+# Check if there are any employees with the job title 'MANAGER'
+SELECT  1 AS one FROM "emps" WHERE "emps"."job" = ? LIMIT ?  [["job", "MANAGER"], ["LIMIT", 1]]
+
+if Emp.exists?(job: 'MANAGER')
+  # Do something if at least one 'Manager' employee exists
+end
+
+User.exists?(1)
+SELECT  1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?  [["id", 1], ["LIMIT", 1]]
+
+User.exists?(id: [1,2,3])
+SELECT  1 AS one FROM "users" WHERE "users"."id" IN (1, 2, 3) LIMIT 1
+
+User.exists?(name: ['John', 'Sergei'])
+
+User.where(name:"Nouman").exists?
+
+User.exists?(name: 'mike')
+SELECT  1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?  [["name", "mike"], ["LIMIT", 1]]
+
+Note.create(:title => 'Hello, world.', :body => 'Nothing more for now...')
+Note.exists?(1) # => true
+
+******************
+
+presence: 
+
+This method is used to check if an object is present (i.e., not nil or empty). 
+It returns the object itself if it's present, or nil if it's not. It's useful for filtering out nil or empty values in a more readable way. For example:
+
+
+"hello".presence # => "hello"
+"".presence      # => nil
+nil.presence     # => nil
+
+You can also use presence in combination with || to provide a default value:
+
+ruby
+Copy code
+user_input = params[:input].presence || "default"
+
+*******************
+
+any?: 
+
+This method is used on collections (like arrays or ActiveRecord relations) to check if there are any elements in the collection. 
+It returns true if the collection is not empty, and false if it is. For example:
+ 
+[1, 2, 3].any?   # => true
+[].any?          # => false
+
+In Rails, you might use any? to check if a query returns any records:
+
+ruby
+Copy code
+User.where(active: true).any? # => true or false
+
+*************************************************
+before_save vs before_commit
+*************************************************
+
+In Rails, `before_save` and `before_commit` are both Active Record callbacks, but they serve different purposes and are triggered at different points in the lifecycle of a record. Here’s a breakdown:
+
+1. **`before_save`**:
+   - **When it's called**: This callback is invoked before an object is saved, which includes both creating and updating records.
+   - **Purpose**: It's used for setting or modifying attributes of a record before it is written to the database.
+   - **Scope**: It occurs after the validations have been run but before the record is actually saved to the database. It runs for both create and update actions.
+   - **Example**:
+     ```ruby
+     class User < ApplicationRecord
+       before_save :normalize_name
+
+       private
+
+       def normalize_name
+         self.name = name.strip.titleize
+       end
+     end
+     ```
+
+2. **`before_commit`**:
+   - **When it's called**: This callback is invoked before a transaction is committed to the database.
+   - **Purpose**: It's used for actions that need to be done right before the record is committed, ensuring that the changes are finalized. This is useful for operations that depend on the record being fully persisted.
+   - **Scope**: It runs at a later stage than `before_save`, within the context of a transaction. If the transaction fails, `before_commit` will not be triggered, as it only runs when the transaction is successfully committed.
+   - **Example**:
+     ```ruby
+     class User < ApplicationRecord
+       before_commit :log_user_creation
+
+       private
+
+       def log_user_creation
+         Rails.logger.info "User #{self.id} was created."
+       end
+     end
+     ```
+
+In summary, `before_save` is for making changes right before the record is saved, while `before_commit` is for actions that need to occur right before the entire transaction is committed to the database.
+
+
+*************************************************
+Action Dispatcher / Action Dispatch
+*************************************************
+
+
+• Action Dispatch routes requests to controllers.
+• Action Dispatch is a component of the Rails framework that handles routing incoming requests to the appropriate controllers and actions. 
+It provides a set of classes and modules that manage the HTTP request/response cycle and facilitate the processing of requests in a Rails application.
+
+*************************************************
+size vs count
+*************************************************
+
+In Rails (and Ruby in general), `size` and `count` are methods used to determine the number of elements in a collection or result set. 
+However, they are used in slightly different contexts and have different implications:
+
+1. **`size`**:
+   - **Origin**: `size` is a method provided by the `Enumerable` module, which is included by many Ruby classes such as `Array`, `Hash`, and `ActiveRecord::Relation`.
+   - **When to use**: 
+        Use `size` when you want to get the number of elements in a collection or ActiveRecord relation. 
+        It’s especially useful when you are working with in-memory arrays or ActiveRecord collections.
+
+   - **Behavior**:
+     - For arrays, `size` returns the number of elements in the array.
+     - For ActiveRecord relations, `size` will first check if the relation has already been loaded (i.e., if it’s not a database query but an in-memory collection). 
+        If it's loaded, it returns the size of the array. If it’s not loaded, it executes a SQL `COUNT` query to get the number of records.
+   
+   - **Example**:
+     ```ruby
+     users = User.all
+     users.size # If the collection is already loaded, this returns the size of the collection.
+
+     users = User.where(active: true)
+     users.size # This will load the records and then return the size. If it's already loaded, it returns the in-memory size.
+     ```
+
+2. **`count`**:
+   - **When to use**: 
+        Use `count` when you need to get the number of records directly from the database, and you want to avoid loading all the records into memory.
+   - **Behavior**:
+     - For arrays, `count` behaves similarly to `size` and returns the number of elements.
+     - For ActiveRecord relations, `count` will always execute a SQL `COUNT` query, regardless of whether the relation is loaded or not. This makes it more efficient when working with large datasets or when you only need the count without needing the actual records.
+   - **Example**:
+     ```ruby
+     users = User.where(active: true)
+     users.count # Executes a SQL COUNT query to get the number of records.
+
+     users = User.all
+     users.count # Executes a SQL COUNT query if the collection is not loaded.
+     ```
+    
+3. **`length`**:
+   - **Origin**: `length` is a method provided by the `Array` and `String` classes, and it is used specifically to get the number of elements or characters in these classes.
+   - **Usage**: It is often used interchangeably with `size` but is more associated with arrays and strings.
+        
+    length: This method is generally not defined for ActiveRecord relations directly. It’s primarily used for arrays and strings. 
+    If you try to use length on an ActiveRecord relation, you might get an error because ActiveRecord relations do not have a length method.
+
+   - **Example**:
+     ```ruby
+     [1, 2, 3].length  # => 3
+     "hello".length    # => 5
+     ```
+
+
+In summary, use `size` when you want to check the size of a loaded collection or when performance is not a concern. Use `count` when you want to get the number of records directly from the database, especially when dealing with large datasets or when you don’t need to load the records themselves.
+
+*************************************************
+preload, includes, eager_load
+*************************************************
+
+In Rails, `preload`, `includes`, and `eager_load` are methods used to handle eager loading of associations to optimize database queries and avoid the N+1 query problem. 
+
+Each of these methods has distinct behavior and use cases:
+
+
+1. **`preload`**:
+   - **Purpose**: This method loads the associations using separate queries, one for the main records and one for each association. It is used when you want to ensure that associations are loaded with separate queries.
+   - **Behavior**: 
+     - Rails performs one query for the main records and additional queries for each association. 
+        This avoids complex SQL joins and can be more efficient in some cases.
+   - **Example**:
+     ```ruby
+     # Assume a User has_many :posts
+     users = User.preload(:posts)
+     ```
+     This will execute one query to fetch users and another query to fetch posts.
+
+
+2. **`includes`**:
+    It  loads associated records in advance and limits the number of SQL queries made to the database.
+   - **Purpose**: This method is used to specify associations that should be eager-loaded to avoid the N+1 query problem. 
+                    Rails will decide the most efficient way to load the associations based on the rest of the query.
+   - **Behavior**: 
+     - If you perform additional conditions or filtering on the included associations, Rails will use a SQL `LEFT OUTER JOIN` to load the records. 
+     - If no conditions are applied, Rails will perform separate queries for the associated records, which is generally preferred for simplicity and readability.
+   - **Example**:
+     ```ruby
+     # Assume a User has_many :posts
+     users = User.includes(:posts).where(posts: { published: true })
+     ```
+     In this example, Rails will use a `LEFT OUTER JOIN` because there is a condition on the `posts` association.
+
+
+3. **`eager_load`**:
+        Eager loading loads all association in a single query using LEFT OUTER JOIN.
+        The eager_load method is similar to includes but always uses JOINs in the main query to fetch associated records.
+        It does not fall back to separate queries like preload.
+
+   - **Purpose**: This method performs a SQL `LEFT OUTER JOIN` to load associations in a single query. 
+                    It is used when you need to perform conditions or sorting based on the associated records.
+   - **Behavior**:
+     - Rails uses a single SQL query with `JOIN` clauses to load the records and their associations. This is useful for complex queries that involve conditions or ordering on the associations.
+   - **Example**:
+     ```ruby
+     # Assume a User has_many :posts
+     users = User.eager_load(:posts).where(posts: { published: true }).order('posts.created_at DESC')
+     ```
+     In this case, a single SQL query with a `JOIN` is executed, allowing for filtering and sorting based on the `posts` table.
+
+### Summary
+- **`preload`**: Use when you want to ensure separate queries for associations. Avoids complex joins and is simpler in some cases.
+- **`includes`**: Use for basic eager loading. Rails decides whether to use `JOIN` or separate queries based on whether you apply conditions to the associations.
+- **`eager_load`**: Use for eager loading with complex queries that involve conditions or sorting based on associations. Uses SQL `JOIN` to load all data in one query.
+
+Choosing the right method depends on the specific needs of your query and the complexity of the associations and conditions involved.
+
+*************************************************
+passing data from view to layout
+*************************************************
+Passing data from a view to a layout in Rails can be useful in situations where you need to share information between different views and the layout. Rails layouts are used to define a common structure for different views, and sometimes you need to pass data from a view to the layout to customize the layout dynamically based on the view’s content.
+
+Here are some common methods to pass data from a view to a layout:
+
+### 1. **Using Instance Variables**
+
+Instance variables set in controllers or views are accessible in layouts. You can set instance variables in your controller actions, and they will be available to the corresponding views and layouts.
+
+**Controller:**
+```ruby
+class PostsController < ApplicationController
+  def show
+    @post = Post.find(params[:id])
+    @user = User.find(@post.user_id) # This will be available in the layout
+  end
+end
+```
+
+**View (app/views/posts/show.html.erb):**
+```erb
+<!-- View-specific content -->
+<h1><%= @post.title %></h1>
+<p><%= @post.content %></p>
+```
+
+**Layout (app/views/layouts/application.html.erb):**
+```erb
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MyApp</title>
+</head>
+<body>
+  <header>
+    <h1>Welcome <%= @user.name %></h1> <!-- Accesses @user from the controller -->
+  </header>
+  
+  <%= yield %> <!-- Content from the view -->
+
+  <footer>
+    <p>&copy; 2024 MyApp</p>
+  </footer>
+</body>
+</html>
+```
+
+### 2. **Using Helper Methods**
+
+You can define helper methods in your controller or view helpers that provide data or logic to be used in the layout.
+
+**Helper (app/helpers/application_helper.rb):**
+```ruby
+module ApplicationHelper
+  def user_name
+    @user.name if @user
+  end
+end
+```
+
+**Controller:**
+```ruby
+class PostsController < ApplicationController
+  def show
+    @post = Post.find(params[:id])
+    @user = User.find(@post.user_id)
+  end
+end
+```
+
+**Layout (app/views/layouts/application.html.erb):**
+```erb
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MyApp</title>
+</head>
+<body>
+  <header>
+    <h1>Welcome <%= user_name %></h1> <!-- Uses the helper method -->
+  </header>
+
+  <%= yield %>
+
+  <footer>
+    <p>&copy; 2024 MyApp</p>
+  </footer>
+</body>
+</html>
+```
+
+### 3. **Using Content For Blocks**
+
+If you want to pass specific data or content from a view to a layout, you can use content-for blocks to define content that can be yielded in the layout.
+
+Example 1:
+
+**View (app/views/posts/show.html.erb):**
+```erb
+<% content_for :header do %>
+  <h1><%= @post.title %></h1>
+<% end %>
+
+<p><%= @post.content %></p>
+```
+
+**Layout (app/views/layouts/application.html.erb):**
+```erb
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MyApp</title>
+</head>
+<body>
+  <header>
+    <%= yield :header %> <!-- Renders content defined in content_for block -->
+  </header>
+
+  <%= yield %>
+
+  <footer>
+    <p>&copy; 2024 MyApp</p>
+  </footer>
+</body>
+</html>
+```
+
+Example 2:
+
+yield in application.html.erb
+
+1) add in application.html.erb where you want to add data from special page:
+  <%= yield :special_script %>
+
+
+2) add data from specific html page:
+<% content_for :special_script do %>
+  <h2>Hey this is special view</h2>
+<% end %>
+
+
+### Summary
+
+- **Instance Variables**: Set in controllers or views and available in layouts.
+- **Helper Methods**: Define methods in helpers to provide data or logic to layouts.
+- **Content For Blocks**: Use `content_for` and `yield` to pass specific content from views to layouts.
+
+Choose the method that best fits your needs for passing data or content from views to layouts.
+
+*************************************************
+Difference b/w load and require
+*************************************************
+#   load vs require
+# https://prograils.com/ruby-methods-differences-load-require-include-extend
+
+
+# In Ruby, both `load` and `require` are used to include code from other files, but they serve slightly different purposes and have different behaviors. Here’s a breakdown of their differences:
+
+# ### `require`
+
+# - **Purpose**: Used to load a Ruby file or library.
+# - **Behavior**: It loads the specified file only once per Ruby process. If the file has already been loaded, `require` will not load it again.
+# - **File Extension**: It assumes the file extension `.rb` if not specified.
+# - **Typical Use Case**: Commonly used for loading libraries and gems. For example, `require 'json'` will load the JSON library.
+
+# **Example**:
+# ```ruby
+# require 'date'
+# ```
+
+# ### `load`
+
+# - **Purpose**: Used to load a Ruby file every time `load` is called.
+# - **Behavior**: It reloads the specified file each time `load` is executed, even if it has been previously loaded.
+# - **File Extension**: You need to specify the file extension (e.g., `.rb`).
+# - **Typical Use Case**: Useful for loading configuration files or scripts that might change during runtime.
+
+# **Example**:
+# ```ruby
+# load 'config.rb'
+# ```
+
+# ### Summary
+
+# - **`require`** is generally used for loading libraries and gems and is more efficient for including files that you don't expect to change while the program is running.
+# - **`load`** is used when you need to reload files or scripts and is often employed in scenarios where the file content might change and needs to be re-evaluated.
+
+# Both methods help modularize code, but choosing between them depends on whether you need to load a file just once or potentially multiple times.
+
+*************************************************
+What are fixtures in Ruby on Rails?
+*************************************************
+
+In Ruby on Rails, fixtures are a way to set up initial data for tests. 
+They provide a means of preloading a database with specific data to ensure that tests run in a consistent environment. 
+Fixtures are typically used to create a known state for the database before running tests, making it easier to test various scenarios and ensure that tests are reliable and repeatable.
+
+### Key Aspects of Fixtures
+
+1. **Fixture Files**:
+   - Fixtures are defined in YAML (Yet Another Markup Language) files located in the `test/fixtures` directory (or `spec/fixtures` in projects using RSpec).
+   - Each fixture file corresponds to a model and contains a set of records to be loaded into the database for that model.
+
+   Example of a fixture file (`test/fixtures/users.yml`):
+   ```yaml
+   # test/fixtures/users.yml
+   alice:
+     name: Alice Smith
+     email: alice@example.com
+     age: 30
+
+   bob:
+     name: Bob Jones
+     email: bob@example.com
+     age: 25
+   ```
+
+2. **Loading Fixtures**:
+   - Fixtures are automatically loaded into the test database when running tests. Rails will create the test database and populate it with the data specified in the fixture files before executing the tests.
+   - The `fixtures` method in test cases is used to load specific fixtures.
+
+   Example of using fixtures in a test:
+   ```ruby
+   # test/models/user_test.rb
+   require 'test_helper'
+
+   class UserTest < ActiveSupport::TestCase
+     fixtures :users
+
+     def test_user_name
+       alice = users(:alice)
+       assert_equal 'Alice Smith', alice.name
+     end
+   end
+   ```
+
+3. **Fixtures and Tests**:
+   - Fixtures provide a way to set up a known state for the database before each test is run, ensuring that tests are isolated and reproducible.
+   - Fixtures can be useful for setting up complex data relationships that are needed for testing.
+
+4. **Alternatives**:
+   - **FactoryBot**: Many Rails projects use FactoryBot (formerly known as FactoryGirl) as an alternative to fixtures. 
+   FactoryBot allows for more flexible and dynamic creation of test data and is often preferred for its ability to define reusable factory patterns and dynamically generate data.
+
+   Example with FactoryBot:
+   ```ruby
+   # spec/factories/users.rb
+   FactoryBot.define do
+     factory :user do
+       name { "Alice Smith" }
+       email { "alice@example.com" }
+       age { 30 }
+     end
+   end
+   ```
+
+### Summary
+Fixtures in Rails are YAML files that define the initial data for tests, ensuring a consistent test environment. They are loaded into the test database before tests are run and help set up known data states. While fixtures are a powerful feature, many developers prefer alternatives like FactoryBot for more dynamic and flexible test data management.
+
+*************************************************
+How would you use two databases for one application?
+*************************************************
+
+Using two databases in a single Ruby on Rails application can be useful for various reasons, such as separating different types of data, scaling, or integrating with legacy systems. Rails provides several ways to manage multiple databases, allowing you to configure and use them efficiently. Here’s how you can set up and use two databases in a Rails application:
+
+1. Configure Databases in database.yml
+First, define both databases in your config/database.yml file. You’ll need to specify the configuration for each database, typically naming them clearly to avoid confusion.
+
+Example configuration with two databases (primary and secondary):
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  primary:
+    <<: *default
+    database: myapp_primary_development
+    username: myapp
+    password: password
+  secondary:
+    <<: *default
+    database: myapp_secondary_development
+    username: myapp
+    password: password
+
+test:
+  primary:
+    <<: *default
+    database: myapp_primary_test
+    username: myapp
+    password: password
+  secondary:
+    <<: *default
+    database: myapp_secondary_test
+    username: myapp
+    password: password
+
+production:
+  primary:
+    <<: *default
+    database: myapp_primary_production
+    username: myapp
+    password: password
+  secondary:
+    <<: *default
+    database: myapp_secondary_production
+    username: myapp
+    password: password
+
+
+
+
+*************************************************
+Explain what is sweeper/garbagecollector in Rails?
+
+*************************************************
+
+The functions of garbage collection in Ruby on Rails includes
+
+It enables the removal of the pointer values which is left behind when the execution of the program ends
+It frees the programmer from tracking the object that is being created dynamically on runtime
+It gives the advantage of removing the inaccessible objects from the memory, and allows other processes to use the memory
+
+*************************************************
+What's the difference between job and worker?
+
+*************************************************
+In the context of background processing and job queues, the terms **job** and **worker** refer to different components of a system that handles asynchronous tasks. Here's a detailed explanation of each term and their differences:
+
+### Job
+
+A **job** is a unit of work or a task that needs to be processed.
+ It represents a piece of work that is to be performed in the background, separate from the main application flow. 
+ Jobs are typically enqueued in a job queue and processed by workers.
+
+#### Characteristics of Jobs:
+
+1. **Definition**: A job is defined by the task it performs. It often includes the logic and parameters needed to perform that task.
+2. **Queue**: Jobs are placed into a queue, where they wait to be processed. Queues help manage and schedule tasks.
+3. **Scheduling**: Jobs can be scheduled to run at specific times or intervals, or they can be triggered by events.
+4. **Example**: Sending an email, processing an image, or performing a data import are examples of jobs.
+
+#### Example in Ruby on Rails (Active Job):
+
+```ruby
+class EmailJob < ApplicationJob
+  queue_as :default
+
+  def perform(user_id)
+    user = User.find(user_id)
+    UserMailer.welcome_email(user).deliver_now
+  end
+end
+```
+
+In this example, `EmailJob` is a job that sends a welcome email to a user. It is enqueued and will be processed by a worker.
+
+### Worker
+
+A **worker** is a process or thread that retrieves jobs from a queue and executes them. 
+Workers are responsible for performing the actual work defined in the job. 
+They pull jobs from the queue, execute the tasks, and handle any associated processing.
+
+#### Characteristics of Workers:
+
+1. **Execution**: Workers perform the work defined by jobs. They run the job’s code and handle any associated logic.
+2. **Concurrency**: Workers can run concurrently, processing multiple jobs at once if the system is designed for parallel processing.
+3. **Monitoring**: Workers may need to be monitored and managed to ensure they are running correctly and handling jobs efficiently.
+4. **Example**: A worker process in a background job processing system might handle tasks like sending notifications, generating reports, or performing long-running computations.
+
+#### Example in Ruby on Rails (Sidekiq Worker):
+
+```ruby
+class EmailWorker
+  include Sidekiq::Worker
+
+  def perform(user_id)
+    user = User.find(user_id)
+    UserMailer.welcome_email(user).deliver_now
+  end
+end
+```
+
+In this example, `EmailWorker` is a worker that processes jobs to send emails. It uses the Sidekiq gem to manage job processing.
+
+### Key Differences
+
+- **Role**: A job represents the work to be done, while a worker is the entity that performs the job.
+- **Function**: Jobs are created and enqueued, whereas workers are responsible for fetching these jobs from the queue and executing them.
+- **Management**: Jobs are managed by job queues, and workers are managed by background processing systems (like Sidekiq, Resque, etc.).
+
+### Summary
+
+- **Job**: A task that needs to be performed, defined by its logic and parameters, and placed into a queue for processing.
+- **Worker**: A process or thread that retrieves jobs from the queue and executes them, performing the work defined by the job.
+
+Understanding the distinction between jobs and workers helps in designing and managing background processing systems effectively, ensuring that tasks are handled asynchronously and efficiently.
+
+
+*************************************************
+What happens to parent transaction when a child transaction fails?
+*************************************************
+In Rails, when dealing with nested transactions, the behavior of the parent transaction in response to a failure in a child transaction depends on how the failure is handled and whether the child transaction’s failure is explicitly propagated to the parent. Here’s a detailed look at what happens:
+
+### Nested Transactions and Savepoints
+
+- **Nested Transactions**: Rails supports nested transactions using savepoints. When a child transaction (or nested transaction) is initiated within a parent transaction, Rails creates a savepoint. This allows partial rollbacks to the state of the savepoint if the child transaction fails.
+
+- **Child Transaction Failure**:
+  - **Rollback to Savepoint**: If the child transaction fails (e.g., due to an exception or an explicit rollback), Rails will roll back to the savepoint created for the child transaction. This undoes the changes made within the child transaction.
+  - **Parent Transaction Continuation**: The parent transaction itself will continue executing unless it explicitly encounters an error or exception. The failure of the child transaction does not automatically cause the parent transaction to fail, provided the exception from the child transaction is handled properly.
+
+### Example
+
+Here’s an example to illustrate how the parent transaction behaves when a child transaction fails:
+
+```ruby
+ActiveRecord::Base.transaction do
+  # Parent transaction starts
+  puts "Parent transaction started"
+
+  begin
+    ActiveRecord::Base.transaction(requires_new: true) do
+      # Child transaction starts
+      puts "Child transaction started"
+      # Perform some operations
+      raise ActiveRecord::Rollback # Simulate failure in child transaction
+      puts "Child transaction finished"
+    end
+  rescue ActiveRecord::Rollback
+    puts "Caught rollback exception from child transaction"
+  end
+
+  # Other operations in parent transaction
+  puts "Parent transaction continues"
+end
+```
+
+In this example:
+- The parent transaction begins and includes a child transaction.
+- The child transaction fails, causing a rollback to the savepoint created for the child transaction.
+- The `rescue` block catches the rollback exception from the child transaction, but the parent transaction continues processing.
+- After handling the child transaction failure, the parent transaction continues to execute its remaining code.
+
+### Key Points
+
+1. **Exception Handling**: If an exception occurs within the child transaction and is not handled, it will propagate up and potentially cause the parent transaction to fail. However, if you handle the exception, the parent transaction can continue processing.
+
+2. **Explicit Rollback**: Using `ActiveRecord::Rollback` within a child transaction does not affect the parent transaction unless it is explicitly managed or propagated.
+
+3. **Database Behavior**: While Rails provides a consistent abstraction, the underlying database's behavior might have nuances. However, Rails’ transaction management ensures a predictable outcome within its abstraction layer.
+
+### Summary
+
+When a child transaction fails, Rails rolls back to the savepoint created for that child transaction, undoing the changes made within it. 
+The parent transaction will continue processing unless it encounters its own issues or the failure in the child transaction is not handled and propagates an exception. 
+Proper exception handling allows the parent transaction to continue even if the child transaction fails.
+
+*************************************************
+*************************************************
+
+
+
+*************************************************
+*************************************************
+
+
+*************************************************
+*************************************************
+
+
+
+*************************************************
+*************************************************
+
+
+*************************************************
+*************************************************
+
+
+
+*************************************************
+*************************************************
+
+
+*************************************************
+*************************************************
+
+
+
+*************************************************
+*************************************************
+
+
+*************************************************
+*************************************************
+
+
+
+*************************************************
+*************************************************
+
+
+*************************************************
+*************************************************
+
+
+
+*************************************************
+*************************************************
+
+
+*************************************************
+*************************************************
+
+
+
+*************************************************
+*************************************************
+
+
+*************************************************
+*************************************************

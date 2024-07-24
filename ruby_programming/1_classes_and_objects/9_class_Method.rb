@@ -1,21 +1,11 @@
 # https://www.geeksforgeeks.org/ruby-class-method-and-variables/?ref=lbp
 
-# Class Methods are the methods that are defined inside the class, public class methods can be accessed with the help of objects. The method is marked as private by default, when a method is defined outside of the class definition. By default, methods are marked as public which is defined in the class definition.
+# class methods are methods defined on the class itself rather than on instances of the class. 
+# They can be useful for various tasks, such as utility functions, data queries, or business logic that doesn’t pertain to a single instance
 
 # ************************
 
-# Syntax 1:
-
-# def class_method_name
-#   # some code
-# end
-
-
-# Here, we can access the above method only with the help of an object.
-
-# ************************
-
-# Syntax 2:
+# Syntax:
 
 # def class_name.class_method_name or self.class_method_name
 #   # some code
@@ -42,12 +32,12 @@ class Grocery
     @@total_count += 1 # counting
   end
 
-  def print_items
+  def print_items # only accessible through objects
     puts "Total number of items --> #{@@total_count}"
     puts "All items --> #{@@items_list}"
   end
 
-  # direct access
+  # class method (direct access)
   def self.printitems_only       # or Grocery.printitems_only
     puts "\nGrocery.printitems_only", @@items_list.join("\n")
   end

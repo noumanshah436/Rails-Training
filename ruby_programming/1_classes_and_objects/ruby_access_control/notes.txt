@@ -24,7 +24,8 @@ Note:
 
 The user can call the private and protected methods inside a public method of the same class.
 
-In general, private methods can’t be inherited in object-oriented programming languages. But in Ruby, private methods can also be inherited just like protected and public methods.
+In general, private methods can’t be inherited in object-oriented programming languages. 
+But in Ruby, private methods can also be inherited just like protected and public methods.
 
 The public method can be accessed outside the class in which they are defined. But user can’t access the private and protected methods outside the class.
 

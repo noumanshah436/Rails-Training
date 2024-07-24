@@ -1,5 +1,25 @@
 # https://www.geeksforgeeks.org/ruby-exception-handling/
 
+
+# **************************
+# Syntax:
+# **************************
+
+# begin
+#      # exception raise
+
+# rescue
+#     # exception rescue
+
+# ensure
+#     # this block always executes
+# end
+
+
+# ******************************************
+# Example:
+# ******************************************
+
 nums = [2, 8, 3, 4, 5]
 
 begin                       #  code that can cause error will be in begin block
@@ -15,20 +35,6 @@ end
 
 # or raise an exception
 # raise 'Made Up Exception'
-
-# **************************
-# Syntax:
-# **************************
-
-# begin
-#      # exception raise
-
-# rescue
-#     # exception rescue
-
-# ensure
-#     # this block always executes
-# end
 
 
 # ***************************

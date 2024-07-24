@@ -102,3 +102,13 @@ puts short.call(2, 3)
 long = Proc.new { |a, b| a + b }
 puts long.call(2, 3)
 
+# **********************
+
+# The difference between Procs and Blocks:
+
+# Block is just the part of the syntax of a method while proc has the characteristics of a block
+# Procs are objects, blocks are not
+# At most one block can appear in an argument list
+# Only block is not able to be stored into a variable while Proc can
+
+# **********************
