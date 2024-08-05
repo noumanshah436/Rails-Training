@@ -1,0 +1,27 @@
+rails new graphql_demo --api --skip-test
+
+
+rails g model Post user:belongs_to title body:text
+
+
+rails g model User email name
+
+
+******************
+in development group:
+
+gem "graphiql-rails"
+gem "faker"
+
+
+******************************************************
+Integrating GraphQL with Ruby on Rails | Webinar #14 | RubyConf Pakistan
+
+https://www.youtube.com/watch?v=COmNrys1Khc&t=1063s
+
+
+rails g model Author email:string name:string
+rails g model Book name:string description:text author:belongs_to
+rails g model Chapter name:string short_description:text book:belongs_to
+
+******************************************************

@@ -1,0 +1,58 @@
+http://localhost:3000/graphiql
+
+*****************
+
+query {                     // query keyword is optional
+ testField
+}
+
+*****************
+
+{
+  users {
+    name
+    email
+  }
+}
+
+*****************
+{
+  users {
+    name
+    email
+    postsCount
+  }
+}
+
+************************
+
+
+{
+  user(id: 1) {
+    id
+    name
+    email
+    posts {
+      title
+      body
+    }
+  }
+}
+
+************************
+
+Mutation to create User:
+
+mutation {
+  createUser(input: {name: "Shah", email: "shah@gmail.com"}) {
+    user {
+      id
+      name
+      email
+    }
+    errors
+  }
+}
+
+************************
+

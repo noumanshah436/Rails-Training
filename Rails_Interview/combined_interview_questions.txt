@@ -424,6 +424,21 @@ COMMIT; -- Durability
 
 In this example, the `BEGIN TRANSACTION` and `COMMIT` statements ensure that both updates are treated as a single unit (Atomicity). If either update fails, the transaction is rolled back, ensuring the database remains consistent (Consistency). Isolation ensures that these updates are not visible to other transactions until they are committed, and Durability ensures that once the transaction is committed, the changes are permanent.
 
+summary:
+
+Explain ACID properties
+
+Learn how Atomicity, Consistency, Isolation, and Durability work together to maintain data integrity and reliability.
+
+A- Atomicity: It ensures that a transaction is treated as a single unit of work
+Either all operations are completed successfully or none of them are applied 
+
+C- Consistency: It ensures that, read operations retrieve consistent and up-to-date data from the database, and write operations ensure that data modifications maintain database constraints
+
+I- Isolation : It ensures that if there are two transactions 1 and 2, then the changes made by Transaction 1 are not visible to Transaction 2 until Transaction 1 commits.
+
+D- Durability : It ensures that once you save your data, it stays saved, even if the system crashes or there is a power failure. Your data is always safe and won’t disappear after you save as committed transactions are not lost.
+
 *************************************************
 
 map vs each

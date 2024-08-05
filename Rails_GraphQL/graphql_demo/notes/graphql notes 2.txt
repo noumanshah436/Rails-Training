@@ -1,0 +1,116 @@
+https://www.youtube.com/watch?v=COmNrys1Khc&t=1063s
+https://github.com/mehreen-tahir/graphql-with-rails
+
+1) add gem in development:
+gem "graphiql-rails"
+
+2) add for all environemnts
+gem "graphql"
+bundle install
+
+3) run in console:
+rails g graphql:install                  // this will create app/graphql folder
+
+4) Create objects:
+  rails g graphql:object author           //  create  app/graphql/types/author_type.rb
+
+5) set field for that model in author_type.rb file
+
+5) Now register your model queries
+  a) create field and creae function to handle that
+
+
+********************************
+
+for mutations:
+
+1) create mutation file in mutation folder
+2) register that mutation in  types/mutation_type.rb file
+
+*********************************************************
+
+
+queries:
+
+
+{
+  authors {
+    id
+    name
+  }
+}
+
+************
+
+{
+  authors {
+    id
+    name
+    bookCount
+    books {
+      name
+    }
+  }
+}
+
+*************
+
+{
+  authors {
+    id
+    name
+    bookCount
+    books {
+      name
+      chapters{
+        id
+        name
+        authorName
+      }
+    }
+  }
+}
+
+*************
+
+{
+  author(id: 1) {
+    id
+    name
+    bookCount
+    books {
+      name
+      chapters{
+        id
+        name
+        authorName
+      }
+    }
+  }
+}
+
+*************
+
+mutation {
+  createAuthor(input: {name: "Shah", email: "shah@gmail.com"}) {
+    author {
+      id
+      name
+      email
+    }
+    errors
+  }
+}
+
+*************
+
+mutation {
+  updateAuthor(input: {name: "Shah042", id: 3}) {         // we input the name attribute to update and id of updated author
+    author {
+      name                                                // it will return the name after update
+    }
+    errors
+  }
+}
+
+*************

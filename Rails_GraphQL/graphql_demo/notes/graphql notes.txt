@@ -1,0 +1,58 @@
+https://github.com/rmosolgo/graphql-ruby
+https://github.com/rmosolgo/graphiql-rails
+
+Docs graphql:
+https://graphql-ruby.org/getting_started.html
+https://graphql-ruby.org/getting_started
+
+https://medium.com/neocoast/introduction-to-graphql-7999fd5e1126
+https://medium.com/@takewakamma/graphql-error-handling-with-graphql-ruby-653aa2a129f6
+
+
+1) add gem in development:
+gem "graphiql-rails"
+
+2) add for all environemnts
+gem "graphql"
+bundle install
+
+3) run in console:
+rails g graphql:install                  // this will create app/graphql folder
+
+4) Create objects:
+  rails g graphql:object user           //  this will create user_type.rb file
+  rails g graphql:object post
+
+5) set routes
+
+6)
+Note on API Mode
+a) If you're using Rails 6 in "API mode", you'll also need to do the following:
+
+Add require "sprockets/railtie" to your application.rb.
+
+b) Create an app/assets/config/manifest.js file and add the following:
+
+//= link graphiql/rails/application.css
+//= link graphiql/rails/application.js
+
+6) go to
+http://localhost:3000/graphql
+
+7) edit app/graphql/types/post_types
+8) edit app/graphql/types/user_types
+9) edit graphql_demo_schema/graphql/types/user_types
+
+
+*****************************
+
+note:
+In Interface, for every snail_case we will use camelCase
+
+*****************************
+
+
+Terminologies:
+
+Queries: Mechanism for reading data
+mutations: Mechanism for creating/updating data
